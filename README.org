@@ -87,3 +87,7 @@
     - No decide Right (only negative atms) 
     - No release Left : only negative things.
     - No initial Right : only negative atms.
+
+* rev directory
+  Contains the kernels but with a clerk predicate that does not take a formula
+  as an argument.
