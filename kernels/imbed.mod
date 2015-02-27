@@ -1,3 +1,10 @@
+/*
+ * Takes a certificate for LKF and double negates it so that
+ * it can be checked with LJF.
+ * (LKF == imbed + LJF)
+ *
+ */
+
 module imbed.
 accumulate debug.
 accumulate  lkf-kernel, ljf-kernel.
