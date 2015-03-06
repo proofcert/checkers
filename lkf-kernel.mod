@@ -15,7 +15,7 @@ entry_pointLKF Cert Form :-
 % decide
 check Cert (unfK nil) :-
   spyV 1 "deciding" (decide_ke Cert Indx Cert'),
-  spyV 1 "deciding" (inCtxt Indx P),
+  spyV 1 "deciding" (inCtxt Indx P), 
   isPos P,
   spyV 1 "decided" (check Cert' (foc P)).
 % release
@@ -24,9 +24,9 @@ check Cert (foc N) :-
   release_ke Cert Cert',
   spyV 1 "released" (check Cert' (unfK [N])).
 % store
-check Cert (unfK [C|Rest]) :-
+check Cert (unfK [C|Rest]) :-			
   (isPos C ; isNegAtm C),
-  spyV 1 "storing " (store_kc Cert C Indx Cert'),
+  spyV 1 "storing " (store_kc Cert C Indx Cert'), 
   inCtxt Indx C => spyV 1 "stored" (check Cert' (unfK Rest)).
 % initial
 check Cert (foc (p A)) :-
@@ -59,7 +59,7 @@ check Cert (unfK [all B | Theta]) :-
   pi w\ check (Cert' w) (unfK [B w | Theta] ).
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
-check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
+check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma ! 
   false_kc Cert Cert',
   spyV 1 "f- removing" (check Cert' (unfK Gamma)).
 % delay
@@ -76,7 +76,7 @@ check Cert (foc (A &+& B)) :-
    spyV 1 "right of &+&" (check CertB (foc B)).
 % disjunction
 check Cert (foc (A !+! B)) :-
-  orPos_ke Cert (A !+! B) Choice Cert',
+  orPos_ke Cert (A !+! B) Choice Cert', 
   ((Choice = left,  check Cert' (foc A));
    (Choice = right, check Cert' (foc B))).
 % quantifers
@@ -84,7 +84,7 @@ check Cert (foc (some B)) :-
   some_ke Cert T Cert',
   check Cert' (foc (B T)).
 % Units
-check Cert (foc t+) :-
+check Cert (foc t+) :- 
   spyV 1 "TRUE" (true_ke Cert).
 % delay
 check Cert (foc (d+ A)) :-
@@ -94,7 +94,7 @@ check Cert (foc (d+ A)) :-
 % Utilities
 %%%%%%%%%%%
 
-isNegForm (_ &-& _).
+isNegForm (_ &-& _). 
 isNegForm (_ !-! _).
 isNegForm (d- _).
 isNegForm (all _).
