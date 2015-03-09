@@ -9,12 +9,14 @@ type lit      index. % These label literals that enter the context.
 type cid int -> o.
 type ids form -> int -> o.
 
-type rlist (list (pair int int)) -> (list form) -> cert.
-type cdepth int -> cert.
+type rlist (list (pair int int)) -> (list form) -> (list (pair form int)) -> cert.
+type dlist list int -> cert.
+type ddone cert.
 
-type example  int -> int -> form -> cert -> o.
+type queue form -> cert -> o.
+
+type example  int -> form -> cert -> o.
 type testAllRes		o.
-type resolve list form -> list form -> cert -> o.
 
 /* Signature of the resolution problems */
 type r1, r2, a, b,c,d,e atm.
