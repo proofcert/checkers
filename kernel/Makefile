@@ -1,31 +1,16 @@
-# Makefile for the imbedding
-SRCS=$(wildcard *.mod)
-OBJS=$(SRCS:.mod=.lp)
-TJROOT = /usr/local/bin
-#VPATH = ../common
+# Makes all the kernels
 
-#export TJPATH = ../common
-
+MAKE=make
 
 .PHONY: all 
-all: $(OBJS)
-
-cc: all clean
-
-%.lpo : %.mod %.sig
-	$(TJROOT)/tjcc  $*
-
-%.lp : %.lpo
-	$(TJROOT)/tjlink  $*
-
--include depend
-depend: *.mod *.sig
-		$(TJROOT)/tjdepend *.mod  > depend-stage
-		mv depend-stage depend
+all:
+	cd lkf && $(MAKE)
+	cd ljf && $(MAKE)
+	cd imbed && $(MAKE)
 
 .PHONY: clean
 clean:
-	rm -f *.lpo *.lp *.dt depend
+	cd lkf && $(MAKE) clean
+	cd ljf && $(MAKE) clean
+	cd imbed && $(MAKE) clean
 
-untrace:
-	rm *.dt

@@ -6,7 +6,6 @@
  */
 
 module imbed.
-accumulate debug.
 accumulate  lkf-kernel, ljf-kernel.
 
 /*
@@ -36,7 +35,7 @@ imbed-AllForm [F|R][F'|R'] :- imbedForm- F F', imbed-AllForm R R'.
 */
 entry_pointImbed Cert Form :-
     imbedSeq (unfK [Form]) Seq,
-    spyV 0 "bottom from imbed to LJF " (check Cert Seq).	   
+    check Cert Seq.
 /* 
 Imbedding of sequent.
 - Disparity with the paper because context is handled by LProlog
@@ -52,7 +51,7 @@ Imbedding the Bureau
 - fcert is the vacuous cert given to the Agents dealing with "false"
 */
 
-decideL_je C Indx C'    :- spyV 0 "" (decide_ke C Indx C').
+decideL_je C Indx C'    :- decide_ke C Indx C'.
 
 releaseL_je fcert fcert.
 releaseR_je C C'	:- release_ke C C'.
@@ -87,11 +86,9 @@ cut_je C F CG CD :-
 *********/
 
 test 1 X F :- 
-   spyV 0 "" (imbedForm- ((X &-& X) !-! (X &+& (X !+! X))) F).
+   imbedForm- ((X &-& X) !-! (X &+& (X !+! X))) F.
 test 2 X F :-
-  spyV 0 "" (imbedForm-  F  ((p A !! p A) &+& ((p A arr f) &+& ((p A arr f) !! (p A arr f)) arr f)
- )  ).
-
+  imbedForm-  F  ((p A !! p A) &+& ((p A arr f) &+& ((p A arr f) !! (p A arr f)) arr f)).
 
 test 3 X F :- imbedForm- (X &-& X) F.
   
