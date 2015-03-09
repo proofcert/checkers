@@ -1,5 +1,5 @@
 module g4ip.
-accumulate mimic.
+accumulate mimic, lists.
 
 % Change clerc X X to actual constructor, for protection. 
 

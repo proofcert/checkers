@@ -1,5 +1,5 @@
 module mimic.
-accumulate ljf-kernel.
+accumulate ljf-kernel, debug.
 
 
 decideL_je (mim (one I) Choice [] X) I (mim none Choice [I] X) &

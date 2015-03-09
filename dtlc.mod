@@ -1,5 +1,5 @@
 module dtlc.
-accumulate stlc.
+accumulate stlc, debug.
 
 /*WHERE I AM AT : 
 

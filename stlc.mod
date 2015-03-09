@@ -1,5 +1,5 @@
 module stlc.
-accumulate ljf-kernel.
+accumulate ljf-kernel, debug.
 /* Please read README.org, section FPCs, subsection STLC*/
 
 /* Bureau (in order of appearance) 

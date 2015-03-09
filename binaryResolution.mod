@@ -12,7 +12,7 @@ Also, I will directly take polarized formulas.
 "*/
 
 module binaryResolution.
-accumulate imbed.
+accumulate imbed, debug.
 
 % First field of example says if the example is activated.
 testAllResImbed :- 
