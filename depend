@@ -1,22 +1,4 @@
-stlc.lpo: stlc.mod stlc.sig kernel/ljf/ljf-kernel.sig debug.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig lists.sig
-spy.lpo: spy.mod spy.sig 
-res.lpo: res.mod res.sig debug.sig kernel/lkf/lkf-kernel.sig lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
-mimic.lpo: mimic.mod mimic.sig debug.sig kernel/ljf/ljf-kernel.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
-lists.lpo: lists.mod lists.sig 
-g4ip.lpo: g4ip.mod g4ip.sig mimic.sig lists.sig kernel/ljf/ljf-kernel.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
-frege.lpo: frege.mod frege.sig kernel/ljf/ljf-kernel.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
-dtlc.lpo: dtlc.mod dtlc.sig stlc.sig debug.sig kernel/ljf/ljf-kernel.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig lists.sig
-debug.lpo: debug.mod debug.sig lists.sig
-deb.lpo: deb.mod deb.sig spy.sig
-binaryResolution.lpo: binaryResolution.mod binaryResolution.sig debug.sig kernel/imbed/imbed.sig kernel/lkf/lkf-kernel.sig kernel/ljf/ljf-kernel.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
-stlc.lp: stlc.lpo kernel/ljf/ljf-kernel.lpo debug.lpo lists.lpo
-spy.lp: spy.lpo 
-res.lp: res.lpo debug.lpo kernel/lkf/lkf-kernel.lpo lists.lpo
-mimic.lp: mimic.lpo debug.lpo kernel/ljf/ljf-kernel.lpo
-lists.lp: lists.lpo 
-g4ip.lp: g4ip.lpo mimic.lpo lists.lpo kernel/ljf/ljf-kernel.lpo
-frege.lp: frege.lpo kernel/ljf/ljf-kernel.lpo
-dtlc.lp: dtlc.lpo stlc.lpo debug.lpo kernel/ljf/ljf-kernel.lpo lists.lpo
-debug.lp: debug.lpo lists.lpo
-deb.lp: deb.lpo spy.lpo
-binaryResolution.lp: binaryResolution.lpo debug.lpo kernel/imbed/imbed.lpo kernel/lkf/lkf-kernel.lpo kernel/ljf/ljf-kernel.lpo
+res.lpo: res.mod res.sig utils/debug.sig kernel/lkf/lkf-kernel.sig utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
+binaryResolution.lpo: binaryResolution.mod binaryResolution.sig utils/debug.sig kernel/imbed/imbed.sig kernel/lkf/lkf-kernel.sig kernel/ljf/ljf-kernel.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
+res.lp: res.lpo utils/debug.lpo kernel/lkf/lkf-kernel.lpo utils/lists.lpo
+binaryResolution.lp: binaryResolution.lpo utils/debug.lpo kernel/imbed/imbed.lpo kernel/lkf/lkf-kernel.lpo kernel/ljf/ljf-kernel.lpo

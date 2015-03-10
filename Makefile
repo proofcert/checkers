@@ -3,9 +3,9 @@
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed
+export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils
 
-.PHONY: all 
+.PHONY: all
 all: $(OBJS)
 
 cc: all clean
