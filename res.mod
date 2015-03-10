@@ -17,23 +17,30 @@ type prinn string -> o.
 % prinn S :- print S, print "\n".
 
 orNeg_kc    Cert _  Cert :- prinn "orNeg_kc ".
+% storing according to an index held in the Map
 store_kc    (rlist A B M) C (idx I) (rlist A B M) :- (member (pr C I) M), prinn "store_kc1".
+% storing when the index is not given and therefore, not used by experts
 store_kc    Cert _ lit Cert :- prinn "store_kc4".
 andPos_ke   Cert _  Cert Cert :- prinn "andPos_ke ".
 initial_ke  _ _  :- prinn "initial_ke ".
 release_ke  Cert Cert :- prinn "release_ke ".
+% this decide happens on the last resolve step. It can also be viewed as a resolve on the formula f-
 decide_ke (rlist [pr I J] [] M)  (idx I) (rlist [] [] M) :- prinn "decide_ke1 ".
 decide_ke (rlist [pr I J] [] M)  (idx J) (rlist [] [] M) :- prinn "decide_ke1 ".
+% here we decide the the clauses for proving -C1,-C2,C3 of decide depth 3
 decide_ke (dlist [I,J]) (idx I) (dlist [J]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I,J]) (idx J) (dlist [I]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I]) (idx J) (dlist []) :- prinn "decide_ke2 ".
 decide_ke (dlist []) _ (ddone) :- prinn "decide_ke2 ".
+% Cuts correspond to resolve steps except for the last resolve
 cut_ke    (rlist [(pr I J) | R1] [CutForm | R2] M) CutForm (dlist [I,J]) (rlist R1 R2 M) :-
   prinn "cut_ke".
 
-% example Indice NumbOriginalClauses Clause ResolutionSteps
+% example Number Theorem Cert Map
+% Theorem - the theorem to prove
+% Cert - a certificate obtained from a resolution refutation of the negation of the theorem
+% Map - a mapping of all indices used in the refutation to formulas
 
-% Make sure to insert the ids into the certificate because right now
 example 1
   ((n r1 &+& n r2) !-!
   (p r1 &+& n r2) !-!
