@@ -1,4 +1,4 @@
-module res.
+module bres_prop.
 
 accumulate debug.
 accumulate  lkf-kernel.

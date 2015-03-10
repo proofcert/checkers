@@ -1,4 +1,4 @@
-sig res.
+sig bres_prop.
 accum_sig lkf-kernel.
 
 type print_clause           int -> form -> o.

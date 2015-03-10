@@ -101,7 +101,7 @@ cut_ke    (rlist [(resol I J K) |R]) CutForm (dl [I,J]) (rlisti K R) :-
 
 % example Indice NumbOriginalClauses Clause ResolutionSteps
 
-example 1 1 3
+example 0 1 3
 	[pr 1 (p r1 !-! p r2),
 	 pr 2 (n r1 !-! p r2),
 	 pr 3 (n r2),
@@ -110,22 +110,23 @@ example 1 1 3
 	[resol 1 2 4,
  	 resol 3 4 5].
 
-example 1 2 2 [pr 1 (p r1),
+example 0 2 2 [pr 1 (p r1),
 	     pr 2 (n r1),
 	     pr 3 f-]
 	     [resol 1 2 3].
 
-example 1 3 4 [pr 1 (n a !-! n b),
+example 1 3 4 [
 	       pr 2 (p a !-! n b),
-	       pr 3 (n a !-! p b),
+         pr 1 (n a !-! n b),
 	       pr 4 (p a !-! p b),
-	       pr 6 (n b),
+	       pr 3 (n a !-! p b),
 	       pr 8 (p b),
+	       pr 6 (n b),
 	       pr 10 f-]
 	    [resol 4 3 8,
 	     resol 2 1 6,
-	     resol 6 8 10].
-example 1 4 5 [pr 1 (n a !-! n b !-! p c),
+	     resol 8 6 10].
+example 0 4 5 [pr 1 (n a !-! n b !-! p c),
 	       pr 2 (p a !-! n b),
 	       pr 3 (n a !-! p b !-! p c),
 	       pr 4 (p a !-! p b),
@@ -139,7 +140,7 @@ example 1 4 5 [pr 1 (n a !-! n b !-! p c),
   	       resol 6 8 9,
 	       resol 5 9 10
 	      ].
-example 1 5 3
+example 0 5 3
 	[pr 1 (p (g a)),
 	 pr 2 (all x\ (n (g x)) !-! (p (h x))),
 	 pr 3 (n (h a)),
