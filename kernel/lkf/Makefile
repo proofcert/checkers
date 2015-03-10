@@ -1,6 +1,9 @@
 MODULE=lkf-kernel
 
-.PHONY: all 
+# Path of the dependencies.
+export TJPATH=../utils
+
+.PHONY: all
 all: $(MODULE).lp
 
 cc: all clean
@@ -12,14 +15,11 @@ cc: all clean
 	tjlink  $*
 
 -include depend
-depend: *.mod *.sig
-		tjdepend *.mod  > depend-stage
-		mv depend-stage depend
 
 run:
 	tjsim  $(MODULE)
 
 .PHONY: clean
 clean:
-	rm -f *.lpo *.lp depend
+	rm -f *.lpo *.lp
 

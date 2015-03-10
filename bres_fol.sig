@@ -6,11 +6,17 @@ type  print'   A -> o.
 type idx      int -> index.  % These label clauses which are never literals.
 type lit      index. % These label literals that enter the context.
 
-type cid int -> o.
-type ids form -> int -> o.
+kind sub type.
+type sub list atm -> sub.
 
-type rlist (list (pair int int)) -> (list form) -> (list (pair form int)) -> cert.
-type dlist list int -> cert.
+% binary resolution: the two indices of the clauses and lists of mappings to each clause.
+% We can assume each clause is in prefix normal form (being clauses).
+kind res type.
+type res int -> int -> sub -> sub -> res.
+
+type rlist (list res) -> (list form) -> (list (pair form int)) -> cert.
+type dlist list int -> list sub -> cert.
+type lastd list int -> cert.
 type ddone cert.
 
 type queue form -> cert -> o.

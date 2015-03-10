@@ -1,9 +1,9 @@
 MODULE=imbed
 
 # Path of the dependencies.
-export TJPATH=../lkf:../ljf
+export TJPATH=../lkf:../ljf:../utils
 
-.PHONY: all 
+.PHONY: all
 all: $(MODULE).lp
 
 cc: all clean

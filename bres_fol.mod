@@ -24,74 +24,49 @@ store_kc    Cert _ lit Cert :- prinn "store_kc4".
 andPos_ke   Cert _  Cert Cert :- prinn "andPos_ke ".
 initial_ke  _ _  :- prinn "initial_ke ".
 release_ke  Cert Cert :- prinn "release_ke ".
-% this decide happens on the last resolve step. It can also be viewed as a resolve on the formula f-
-decide_ke (rlist [pr I J] [] M)  (idx I) (rlist [] [] M) :- prinn "decide_ke1 ".
-decide_ke (rlist [pr I J] [] M)  (idx J) (rlist [] [] M) :- prinn "decide_ke1 ".
 % here we decide the the clauses for proving -C1,-C2,C3 of decide depth 3
-decide_ke (dlist [I,J]) (idx I) (dlist [J]) :- prinn "decide_ke2 ".
-decide_ke (dlist [I,J]) (idx J) (dlist [I]) :- prinn "decide_ke2 ".
-decide_ke (dlist [I]) (idx J) (dlist []) :- prinn "decide_ke2 ".
-decide_ke (dlist []) _ (ddone) :- prinn "decide_ke2 ".
+decide_ke (dlist [I,J] [S1, S2]) (idx I) (dlist [J] [S1,S2]) :- prinn "decide_ke2 ".
+decide_ke (dlist [I,J] [S1, S2]) (idx J) (dlist [I] [S2,S1]) :- prinn "decide_ke2 ".
+decide_ke (dlist [I] [S]) (idx I) (dlist [] [S]) :- prinn "decide_ke2 ".
+decide_ke (dlist [] []) _ (ddone) :- prinn "decide_ke2 ".
+% clauses are in prefix normal form and we just apply the sub in the right order
+some_ke (dlist [I] [sub [T], S2]) T (dlist [I] [S2]) :- prinn "some_ke".
+some_ke (dlist [I] [sub [T|R],S2]) T (dlist [I] [sub R,S2]) :- prinn "some_ke".
 % Cuts correspond to resolve steps except for the last resolve
-cut_ke    (rlist [(pr I J) | R1] [CutForm | R2] M) CutForm (dlist [I,J]) (rlist R1 R2 M) :-
+cut_ke    (rlist [(res I J S1 S2) | R1] [CutForm | R2] M) CutForm (dlist [I,J] [S1,S2]) (rlist R1 R2 M) :-
   prinn "cut_ke".
+% last cut on cut formula false, we could just use decide ND on one of the formulas but
+% there is more logic to that in the fol case so we use the cut rule.
+cut_ke    (rlist [res I J S1 S2] [] _) f- (dlist [I,J] [S1,S2]) (lastd [I,J]) :-
+  prinn "cut_ke".
+% this decide is being called after the last cut
+decide_ke (lastd [I,J]) (idx I) ddone :- prinn "decide_ke ".
+decide_ke (lastd [I,J]) (idx J) ddone :- prinn "decide_ke ".
+false_kc Cert Cert :- prinn "false_kc".
+
+
+
+
 
 % example Number Theorem Cert Map
 % Theorem - the theorem to prove
 % Cert - a certificate obtained from a resolution refutation of the negation of the theorem
+% Cert contains a list of n resolve steps, a list of n-1 cut formulas (the last resolve is a cut on f- and is ommited
 % Map - a mapping of all indices used in the refutation to formulas
 
 example 1
-  ((n r1 &+& n r2) !-!
-  (p r1 &+& n r2) !-!
-	(p r2))
-	(rlist [(pr 1 2), (pr 3 4)]
-  [p r2] [pr (n r1 &+& n r2) 1,
-          pr (p r1 &+& n r2) 2,
-          pr (p r2) 3,
-          pr (n r2) 4]).
-
-example 2
-	(p a !-! n a)
-	(rlist [pr 1 2] []
-   [pr (p a) 1,
-    pr (n a) 2]).
-
-example 3 ((p a &+& p b) !-!
-  (n a &+& p b) !-!
-	(p a &+& n b) !-!
-	(n a &+& n b))
- 	(rlist [pr 1 2, pr 3 4, pr 5 6] [n b, p b]
-   [pr (p a &+& p b) 1,
-    pr (n a &+& p b) 2,
-    pr (p a &+& n b) 3,
-    pr (n a &+& n b) 4,
-    pr (p b) 5,
-    pr (n b) 6]).
-
-example 4 ((p a &+& p b &+& n c) !-!
-	       (n a &+& p b) !-!
-	       (p a &+& n b &+& n c) !-!
-	       (n a &+& n b) !-!
-	       (p c))
-         (rlist [pr 1 2, pr 3 4, pr 6 8, pr 5 9] [n b !-! p c, p b !-! p c, p c]
-          [pr (p a &+& p b &+& n c) 1,
-           pr (n a &+& p b) 2,
-           pr (p a &+& n b &+& n c) 3,
-           pr (n a &+& n b) 4,
-           pr (p c) 5,
-           pr (p b &+& n c) 6,
-           pr (n b &+& n c) 8,
-           pr (n c) 9]).
+  (n (g a) !-!
+   p (g (h (h (a)))) !-!
+   some (x\ (p (g (x))) &+& (n (g (h (x))))))
+	(rlist [res 1 3 (sub []) (sub [a]), res 3 4 (sub [h (a)]) (sub []), res 2 5 (sub []) (sub [])]
+  [p (h (a)), p (h (h (a)))]
+  [pr (n (g a)) 1,
+   pr (p (g (h (h (a))))) 2,
+   pr (some (x\ (p (g (x))) &+& (n (g (h (x)))))) 3,
+   pr (p (h (g (a)))) 4,
+   pr (p (h (g (g (a))))) 5]).
 
 
-%example 1 5 3
-%	[pr 1 (p (g a)),
-%	 pr 2 (all x\ (n (g x)) !-! (p (h x))),
-%	 pr 3 (n (h a)),
-%	 pr 4 (p (h a)),
-%	 pr 5 (f-)]
-%	[resol 1 2 4, resol 4 3 5].
 
 
 % Utilities

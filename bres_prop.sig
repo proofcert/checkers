@@ -6,11 +6,9 @@ type  print'   A -> o.
 type idx      int -> index.  % These label clauses which are never literals.
 type lit      index. % These label literals that enter the context.
 
-type cid int -> o.
-type ids form -> int -> o.
-
 type rlist (list (pair int int)) -> (list form) -> (list (pair form int)) -> cert.
 type dlist list int -> cert.
+type lastd list int -> cert.
 type ddone cert.
 
 type queue form -> cert -> o.
