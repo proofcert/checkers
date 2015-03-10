@@ -23,6 +23,7 @@ andPos_ke   Cert _  Cert Cert :- prinn "andPos_ke ".
 initial_ke  _ _  :- prinn "initial_ke ".
 release_ke  Cert Cert :- prinn "release_ke ".
 decide_ke (rlist [pr I J] [] M)  (idx I) (rlist [] [] M) :- prinn "decide_ke1 ".
+decide_ke (rlist [pr I J] [] M)  (idx J) (rlist [] [] M) :- prinn "decide_ke1 ".
 decide_ke (dlist [I,J]) (idx I) (dlist [J]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I,J]) (idx J) (dlist [I]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I]) (idx J) (dlist []) :- prinn "decide_ke2 ".
