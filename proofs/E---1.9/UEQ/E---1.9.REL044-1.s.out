@@ -1,0 +1,108 @@
+% Problem    : REL044-1 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n106.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 06:31:16 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___100_C18_F1_PI_AE_Q4_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(converse(composition(X1,X2))=composition(converse(X2),converse(X1))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', converse_multiplicativity_10)).
+cnf(c_0_1,axiom,(converse(converse(X1))=X1), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', converse_idempotence_8)).
+cnf(c_0_2,axiom,(composition(X1,one)=X1), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', composition_identity_6)).
+cnf(c_0_3,axiom,(join(composition(converse(X1),complement(composition(X1,X2))),complement(X2))=complement(X2)), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', converse_cancellativity_11)).
+cnf(c_0_4,axiom,(join(X1,X2)=join(X2,X1)), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', maddux1_join_commutativity_1)).
+cnf(c_0_5,axiom,(zero=meet(X1,complement(X1))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', def_zero_13)).
+cnf(c_0_6,axiom,(meet(X1,X2)=complement(join(complement(X1),complement(X2)))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', maddux4_definiton_of_meet_4)).
+cnf(c_0_7,axiom,(top=join(X1,complement(X1))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', def_top_12)).
+cnf(c_0_8,axiom,(join(X1,join(X2,X3))=join(join(X1,X2),X3)), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', maddux2_join_associativity_2)).
+cnf(c_0_9,axiom,(X1=join(complement(join(complement(X1),complement(X2))),complement(join(complement(X1),X2)))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', maddux3_a_kind_of_de_Morgan_3)).
+cnf(c_0_10,axiom,(converse(join(X1,X2))=join(converse(X1),converse(X2))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', converse_additivity_9)).
+cnf(c_0_11,axiom,(composition(join(X1,X2),X3)=join(composition(X1,X3),composition(X2,X3))), file('/export/starexec/sandbox/benchmark/Axioms/REL001-0.ax', composition_distributivity_7)).
+cnf(c_0_12,negated_conjecture,(join(composition(complement(sk1),sk2),complement(sk3))=complement(sk3)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', goals_14)).
+cnf(c_0_13,negated_conjecture,(join(composition(sk3,converse(sk2)),sk1)!=sk1), file('/export/starexec/sandbox/benchmark/theBenchmark.p', goals_15)).
+cnf(c_0_14,plain,(converse(composition(converse(X1),X2))=composition(converse(X2),X1)), inference(spm,[status(thm)],[c_0_0, c_0_1])).
+cnf(c_0_15,plain,(composition(converse(one),X1)=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_14, c_0_2]), c_0_1])).
+cnf(c_0_16,plain,(converse(one)=one), inference(spm,[status(thm)],[c_0_2, c_0_15])).
+cnf(c_0_17,plain,(join(complement(X1),composition(converse(X2),complement(composition(X2,X1))))=complement(X1)), inference(rw,[status(thm)],[c_0_3, c_0_4])).
+cnf(c_0_18,plain,(composition(one,X1)=X1), inference(rw,[status(thm)],[c_0_15, c_0_16])).
+cnf(c_0_19,plain,(complement(join(complement(X1),complement(complement(X1))))=zero), inference(rw,[status(thm)],[c_0_5, c_0_6])).
+cnf(c_0_20,plain,(join(complement(X1),complement(X1))=complement(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_18]), c_0_16]), c_0_18])).
+cnf(c_0_21,plain,(complement(top)=zero), inference(rw,[status(thm)],[c_0_19, c_0_7])).
+cnf(c_0_22,plain,(join(X1,join(X2,complement(join(X1,X2))))=top), inference(spm,[status(thm)],[c_0_7, c_0_8])).
+cnf(c_0_23,plain,(join(zero,zero)=zero), inference(spm,[status(thm)],[c_0_20, c_0_21])).
+cnf(c_0_24,plain,(join(complement(join(complement(X1),X2)),complement(join(complement(X1),complement(X2))))=X1), inference(rw,[status(thm)],[c_0_9, c_0_4])).
+cnf(c_0_25,plain,(join(top,complement(X1))=top), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_20]), c_0_7]), c_0_4])).
+cnf(c_0_26,plain,(join(zero,join(zero,X1))=join(zero,X1)), inference(spm,[status(thm)],[c_0_8, c_0_23])).
+cnf(c_0_27,plain,(join(zero,complement(complement(X1)))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_20]), c_0_7]), c_0_21]), c_0_4])).
+cnf(c_0_28,plain,(converse(join(converse(X1),X2))=join(X1,converse(X2))), inference(spm,[status(thm)],[c_0_10, c_0_1])).
+cnf(c_0_29,plain,(join(X1,top)=top), inference(spm,[status(thm)],[c_0_22, c_0_25])).
+cnf(c_0_30,plain,(join(zero,X1)=X1), inference(spm,[status(thm)],[c_0_26, c_0_27])).
+cnf(c_0_31,plain,(join(X1,converse(complement(converse(X1))))=converse(top)), inference(spm,[status(thm)],[c_0_28, c_0_7])).
+cnf(c_0_32,plain,(join(top,X1)=top), inference(spm,[status(thm)],[c_0_4, c_0_29])).
+cnf(c_0_33,plain,(complement(complement(X1))=X1), inference(rw,[status(thm)],[c_0_27, c_0_30])).
+cnf(c_0_34,plain,(converse(top)=top), inference(spm,[status(thm)],[c_0_31, c_0_32])).
+cnf(c_0_35,plain,(join(X1,X1)=X1), inference(spm,[status(thm)],[c_0_20, c_0_33])).
+cnf(c_0_36,plain,(join(complement(join(complement(X1),X2)),complement(join(complement(X2),complement(X1))))=X1), inference(spm,[status(thm)],[c_0_24, c_0_4])).
+cnf(c_0_37,plain,(join(X1,converse(complement(converse(X1))))=top), inference(rw,[status(thm)],[c_0_31, c_0_34])).
+cnf(c_0_38,plain,(join(X1,join(X1,X2))=join(X1,X2)), inference(spm,[status(thm)],[c_0_8, c_0_35])).
+cnf(c_0_39,plain,(join(X1,join(X2,X3))=join(X3,join(X1,X2))), inference(spm,[status(thm)],[c_0_4, c_0_8])).
+cnf(c_0_40,plain,(complement(join(complement(X1),complement(converse(complement(converse(complement(X1)))))))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_36, c_0_37]), c_0_21]), c_0_30]), c_0_4])).
+cnf(c_0_41,plain,(join(X1,complement(join(complement(X1),X2)))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_38, c_0_24]), c_0_4])).
+cnf(c_0_42,plain,(join(X1,join(X2,X1))=join(X2,X1)), inference(spm,[status(thm)],[c_0_39, c_0_35])).
+cnf(c_0_43,plain,(complement(join(X1,complement(converse(complement(converse(X1))))))=complement(X1)), inference(spm,[status(thm)],[c_0_40, c_0_33])).
+cnf(c_0_44,plain,(join(X1,complement(join(X2,complement(X1))))=X1), inference(spm,[status(thm)],[c_0_41, c_0_42])).
+cnf(c_0_45,plain,(join(X1,complement(converse(complement(converse(X1)))))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_43]), c_0_24])).
+cnf(c_0_46,plain,(converse(join(composition(converse(X1),X2),X3))=join(composition(converse(X2),X1),converse(X3))), inference(spm,[status(thm)],[c_0_28, c_0_14])).
+cnf(c_0_47,plain,(join(composition(X1,converse(X2)),converse(composition(X2,X3)))=composition(join(X1,converse(X3)),converse(X2))), inference(spm,[status(thm)],[c_0_11, c_0_0])).
+cnf(c_0_48,plain,(join(X1,join(complement(join(complement(X1),X2)),X3))=join(X1,X3)), inference(spm,[status(thm)],[c_0_8, c_0_41])).
+cnf(c_0_49,plain,(join(complement(join(X1,complement(X2))),complement(join(complement(X2),complement(X1))))=X2), inference(spm,[status(thm)],[c_0_24, c_0_4])).
+cnf(c_0_50,plain,(join(X1,join(complement(X1),X2))=top), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_39, c_0_7]), c_0_29])).
+cnf(c_0_51,plain,(join(complement(X1),complement(join(X2,X1)))=complement(X1)), inference(spm,[status(thm)],[c_0_44, c_0_33])).
+cnf(c_0_52,plain,(join(X1,converse(complement(converse(complement(X1)))))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_28, c_0_45]), c_0_1]), c_0_1])).
+cnf(c_0_53,plain,(join(complement(X1),join(composition(converse(X2),complement(composition(X2,X1))),X3))=join(complement(X1),X3)), inference(spm,[status(thm)],[c_0_8, c_0_17])).
+cnf(c_0_54,plain,(join(composition(X1,X2),composition(X1,X3))=composition(X1,join(X2,X3))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_46, c_0_47]), c_0_10]), c_0_0]), c_0_1]), c_0_1]), c_0_1])).
+cnf(c_0_55,plain,(join(X1,complement(join(complement(X2),X1)))=join(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_49]), c_0_33])).
+cnf(c_0_56,plain,(join(complement(X1),join(X2,join(X3,X1)))=top), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_39, c_0_50]), c_0_29]), c_0_8])).
+cnf(c_0_57,plain,(complement(converse(complement(converse(complement(X1)))))=complement(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_51, c_0_52]), c_0_4]), c_0_45])).
+cnf(c_0_58,plain,(join(complement(X1),composition(converse(X2),join(complement(composition(X2,X1)),X3)))=join(complement(X1),composition(converse(X2),X3))), inference(spm,[status(thm)],[c_0_53, c_0_54])).
+cnf(c_0_59,negated_conjecture,(join(complement(sk3),composition(complement(sk1),sk2))=complement(sk3)), inference(rw,[status(thm)],[c_0_12, c_0_4])).
+cnf(c_0_60,plain,(join(X1,complement(join(X2,X1)))=join(X1,complement(X2))), inference(spm,[status(thm)],[c_0_55, c_0_33])).
+cnf(c_0_61,plain,(join(X1,join(X2,complement(join(X2,X1))))=top), inference(spm,[status(thm)],[c_0_22, c_0_4])).
+cnf(c_0_62,plain,(join(X1,zero)=X1), inference(spm,[status(thm)],[c_0_4, c_0_30])).
+cnf(c_0_63,plain,(join(X1,join(composition(converse(X2),complement(composition(X2,complement(X1)))),X3))=join(X1,X3)), inference(spm,[status(thm)],[c_0_53, c_0_33])).
+cnf(c_0_64,plain,(join(complement(composition(X1,X2)),join(X3,composition(X1,join(X4,X2))))=top), inference(spm,[status(thm)],[c_0_56, c_0_54])).
+cnf(c_0_65,plain,(converse(complement(converse(complement(X1))))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_57]), c_0_24])).
+cnf(c_0_66,plain,(join(complement(X1),composition(converse(X2),complement(join(composition(X2,X1),X3))))=complement(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_41]), c_0_17]), c_0_33])).
+cnf(c_0_67,plain,(join(X1,join(X2,X3))=join(X2,join(X1,X3))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_8, c_0_4]), c_0_8])).
+cnf(c_0_68,plain,(join(X1,composition(converse(X2),complement(composition(X2,complement(X1)))))=X1), inference(spm,[status(thm)],[c_0_17, c_0_33])).
+cnf(c_0_69,negated_conjecture,(join(complement(sk3),join(composition(complement(sk1),sk2),X1))=join(complement(sk3),X1)), inference(spm,[status(thm)],[c_0_8, c_0_59])).
+cnf(c_0_70,plain,(join(X1,complement(join(X1,X2)))=join(X1,complement(X2))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_60, c_0_61]), c_0_21]), c_0_8]), c_0_62]), c_0_8]), c_0_4]), c_0_51])).
+cnf(c_0_71,plain,(join(complement(composition(X1,X2)),composition(X1,join(X3,X2)))=top), inference(spm,[status(thm)],[c_0_63, c_0_64])).
+cnf(c_0_72,plain,(complement(converse(complement(X1)))=converse(X1)), inference(spm,[status(thm)],[c_0_1, c_0_65])).
+cnf(c_0_73,plain,(join(X1,composition(converse(X2),complement(join(composition(X2,complement(X1)),X3))))=X1), inference(spm,[status(thm)],[c_0_66, c_0_33])).
+cnf(c_0_74,plain,(join(X1,join(X2,composition(converse(X3),complement(composition(X3,complement(X1))))))=join(X2,X1)), inference(spm,[status(thm)],[c_0_67, c_0_68])).
+cnf(c_0_75,negated_conjecture,(join(complement(sk3),complement(join(composition(complement(sk1),sk2),X1)))=join(complement(sk3),complement(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_69, c_0_70]), c_0_69])).
+cnf(c_0_76,plain,(join(composition(X1,X2),complement(composition(X1,complement(join(complement(X2),X3)))))=top), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_71, c_0_41]), c_0_4])).
+cnf(c_0_77,plain,(converse(complement(X1))=complement(converse(X1))), inference(spm,[status(thm)],[c_0_33, c_0_72])).
+cnf(c_0_78,plain,(join(X1,composition(converse(X2),complement(join(X3,composition(X2,complement(X1))))))=X1), inference(spm,[status(thm)],[c_0_73, c_0_74])).
+cnf(c_0_79,negated_conjecture,(join(complement(sk3),composition(complement(sk1),complement(join(complement(sk2),X1))))=complement(sk3)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_75, c_0_76]), c_0_21]), c_0_62]), c_0_33])).
+cnf(c_0_80,plain,(converse(composition(complement(converse(X1)),X2))=composition(converse(X2),complement(X1))), inference(spm,[status(thm)],[c_0_14, c_0_77])).
+cnf(c_0_81,negated_conjecture,(join(complement(sk2),join(X1,composition(complement(converse(sk1)),sk3)))=join(complement(sk2),X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_78, c_0_79]), c_0_77]), c_0_33]), c_0_8])).
+cnf(c_0_82,plain,(converse(join(X1,composition(complement(converse(X2)),X3)))=join(converse(X1),composition(converse(X3),complement(X2)))), inference(spm,[status(thm)],[c_0_10, c_0_80])).
+cnf(c_0_83,negated_conjecture,(join(complement(sk2),composition(complement(converse(sk1)),sk3))=complement(sk2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_63, c_0_81]), c_0_33]), c_0_17])).
+cnf(c_0_84,negated_conjecture,(join(complement(converse(sk2)),composition(converse(sk3),complement(sk1)))=complement(converse(sk2))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_82, c_0_83]), c_0_77]), c_0_77])).
+cnf(c_0_85,negated_conjecture,(join(sk1,composition(sk3,converse(sk2)))!=sk1), inference(rw,[status(thm)],[c_0_13, c_0_4])).
+cnf(c_0_86,negated_conjecture,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_78, c_0_84]), c_0_1]), c_0_33]), c_0_85]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

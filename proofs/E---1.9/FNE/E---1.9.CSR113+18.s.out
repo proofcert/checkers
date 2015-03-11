@@ -1,0 +1,38 @@
+% Problem    : CSR113+18 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n107.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:38:41 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:((((((attr(X3,X2)&loc(X4,X1))&scar(X4,X5))&sub(X2,name_1_1))&sub(X5,freiheitsstatue_1_1))&subs(X4,stehen_1_1))&val(X2,new_york_0))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_003_mira_wp_222_a19713)).
+fof(c_0_1, hypothesis, (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((supl(c34,bekannt_1_1,c35)&prop(c4,c34))&sub(c4,freiheitsstatue_1_1))&attr(c41,c42))&sub(c41,stadt__1_1))&sub(c42,name_1_1))&val(c42,new_york_0))&mexp(c44,c50))&semrel(c44,c8))&subs(c44,sehen_1_1))&vor(c53,c41))&loc(c8,c53))&scar(c8,c4))&subs(c8,stehen_1_1))&assoc(freiheitsstatue_1_1,freiheit_1_1))&sub(freiheitsstatue_1_1,statue_1_1))&sort(c34,tq))&sort(bekannt_1_1,nq))&sort(c35,o))&card(c35,card_c))&etype(c35,int1))&etype(c35,int2))&fact(c35,real))&gener(c35,gener_c))&quant(c35,quant_c))&refer(c35,refer_c))&varia(c35,varia_c))&sort(c4,d))&card(c4,int1))&etype(c4,int0))&fact(c4,real))&gener(c4,sp))&quant(c4,one))&refer(c4,det))&varia(c4,con))&sort(freiheitsstatue_1_1,d))&card(freiheitsstatue_1_1,int1))&etype(freiheitsstatue_1_1,int0))&fact(freiheitsstatue_1_1,real))&gener(freiheitsstatue_1_1,ge))&quant(freiheitsstatue_1_1,one))&refer(freiheitsstatue_1_1,refer_c))&varia(freiheitsstatue_1_1,varia_c))&sort(c41,d))&sort(c41,io))&card(c41,int1))&etype(c41,int0))&fact(c41,real))&gener(c41,sp))&quant(c41,one))&refer(c41,det))&varia(c41,con))&sort(c42,na))&card(c42,int1))&etype(c42,int0))&fact(c42,real))&gener(c42,sp))&quant(c42,one))&refer(c42,indet))&varia(c42,varia_c))&sort(stadt__1_1,d))&sort(stadt__1_1,io))&card(stadt__1_1,int1))&etype(stadt__1_1,int0))&fact(stadt__1_1,real))&gener(stadt__1_1,ge))&quant(stadt__1_1,one))&refer(stadt__1_1,refer_c))&varia(stadt__1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(new_york_0,fe))&sort(c44,dn))&fact(c44,real))&gener(c44,sp))&sort(c50,d))&card(c50,int1))&etype(c50,int0))&fact(c50,real))&gener(c50,sp))&quant(c50,one))&refer(c50,det))&varia(c50,varia_c))&sort(c8,st))&fact(c8,real))&gener(c8,sp))&sort(sehen_1_1,dn))&fact(sehen_1_1,real))&gener(sehen_1_1,ge))&sort(c53,l))&card(c53,int1))&etype(c53,int0))&fact(c53,real))&gener(c53,sp))&quant(c53,one))&refer(c53,det))&varia(c53,con))&sort(stehen_1_1,st))&fact(stehen_1_1,real))&gener(stehen_1_1,ge))&sort(freiheit_1_1,as))&sort(freiheit_1_1,io))&card(freiheit_1_1,int1))&etype(freiheit_1_1,int0))&fact(freiheit_1_1,real))&gener(freiheit_1_1,ge))&quant(freiheit_1_1,one))&refer(freiheit_1_1,refer_c))&varia(freiheit_1_1,varia_c))&sort(statue_1_1,d))&card(statue_1_1,int1))&etype(statue_1_1,int0))&fact(statue_1_1,real))&gener(statue_1_1,ge))&quant(statue_1_1,one))&refer(statue_1_1,refer_c))&varia(statue_1_1,varia_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_003_mira_wp_222_a19713)).
+fof(c_0_2, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:((((((attr(X3,X2)&loc(X4,X1))&scar(X4,X5))&sub(X2,name_1_1))&sub(X5,freiheitsstatue_1_1))&subs(X4,stehen_1_1))&val(X2,new_york_0)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_3, negated_conjecture, (![X6]:![X7]:![X8]:![X9]:![X10]:((((((~attr(X8,X7)|~loc(X9,X6))|~scar(X9,X10))|~sub(X7,name_1_1))|~sub(X10,freiheitsstatue_1_1))|~subs(X9,stehen_1_1))|~val(X7,new_york_0))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_4,negated_conjecture,(~val(X1,new_york_0)|~subs(X2,stehen_1_1)|~sub(X3,freiheitsstatue_1_1)|~sub(X1,name_1_1)|~scar(X2,X3)|~loc(X2,X4)|~attr(X5,X1)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_5,hypothesis,(val(c42,new_york_0)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_6,hypothesis,(sub(c42,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_7,hypothesis,(~attr(X1,c42)|~scar(X2,X3)|~loc(X2,X4)|~subs(X2,stehen_1_1)|~sub(X3,freiheitsstatue_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_4, c_0_5]), c_0_6])])).
+cnf(c_0_8,hypothesis,(attr(c41,c42)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_9,hypothesis,(~scar(X1,X2)|~loc(X1,X3)|~subs(X1,stehen_1_1)|~sub(X2,freiheitsstatue_1_1)), inference(spm,[status(thm)],[c_0_7, c_0_8])).
+cnf(c_0_10,hypothesis,(scar(c8,c4)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_11,hypothesis,(subs(c8,stehen_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_12,hypothesis,(sub(c4,freiheitsstatue_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_13,hypothesis,(loc(c8,c53)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_14,hypothesis,(~loc(c8,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9, c_0_10]), c_0_11]), c_0_12])])).
+cnf(c_0_15,hypothesis,($false), inference(sr,[status(thm)],[c_0_13, c_0_14]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

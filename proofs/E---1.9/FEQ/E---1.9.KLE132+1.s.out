@@ -1,0 +1,82 @@
+% Problem    : KLE132+1 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n127.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:20:26 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___100_C18_F1_PI_AE_Q4_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:multiplication(addition(X1,X2),X3)=addition(multiplication(X1,X3),multiplication(X2,X3))), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', left_distributivity)).
+fof(c_0_1, axiom, (![X4]:multiplication(antidomain(X4),X4)=zero), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+4.ax', domain1)).
+fof(c_0_2, axiom, (![X1]:addition(X1,zero)=X1), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', additive_identity)).
+fof(c_0_3, axiom, (![X1]:![X2]:addition(X1,X2)=addition(X2,X1)), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', additive_commutativity)).
+fof(c_0_4, axiom, (![X4]:addition(antidomain(antidomain(X4)),antidomain(X4))=one), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+4.ax', domain3)).
+fof(c_0_5, conjecture, (![X4]:(![X5]:addition(forward_diamond(X4,domain(X5)),forward_diamond(star(X4),domain_difference(domain(X5),forward_diamond(X4,domain(X5)))))=forward_diamond(star(X4),domain_difference(domain(X5),forward_diamond(X4,domain(X5))))=>![X6]:(addition(domain(X6),forward_diamond(X4,domain(X6)))=forward_diamond(X4,domain(X6))=>domain(X6)=zero))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', goals)).
+fof(c_0_6, axiom, (![X4]:![X5]:forward_diamond(X4,X5)=domain(multiplication(X4,domain(X5)))), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+6.ax', forward_diamond)).
+fof(c_0_7, axiom, (![X4]:domain(X4)=antidomain(antidomain(X4))), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+4.ax', domain4)).
+fof(c_0_8, axiom, (![X1]:![X2]:![X3]:multiplication(X1,addition(X2,X3))=addition(multiplication(X1,X2),multiplication(X1,X3))), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', right_distributivity)).
+fof(c_0_9, axiom, (![X1]:multiplication(one,X1)=X1), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', multiplicative_left_identity)).
+fof(c_0_10, axiom, (![X4]:![X5]:domain_difference(X4,X5)=multiplication(domain(X4),antidomain(X5))), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+6.ax', domain_difference)).
+fof(c_0_11, axiom, (![X1]:multiplication(X1,one)=X1), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', multiplicative_right_identity)).
+fof(c_0_12, axiom, (![X1]:multiplication(X1,zero)=zero), file('/export/starexec/sandbox/benchmark/Axioms/KLE001+0.ax', right_annihilation)).
+fof(c_0_13, plain, (![X4]:![X5]:![X6]:multiplication(addition(X4,X5),X6)=addition(multiplication(X4,X6),multiplication(X5,X6))), inference(variable_rename,[status(thm)],[c_0_0])).
+fof(c_0_14, plain, (![X5]:multiplication(antidomain(X5),X5)=zero), inference(variable_rename,[status(thm)],[c_0_1])).
+fof(c_0_15, plain, (![X2]:addition(X2,zero)=X2), inference(variable_rename,[status(thm)],[c_0_2])).
+cnf(c_0_16,plain,(multiplication(addition(X1,X2),X3)=addition(multiplication(X1,X3),multiplication(X2,X3))), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_17,plain,(multiplication(antidomain(X1),X1)=zero), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_18,plain,(addition(X1,zero)=X1), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_19, plain, (![X3]:![X4]:addition(X3,X4)=addition(X4,X3)), inference(variable_rename,[status(thm)],[c_0_3])).
+fof(c_0_20, plain, (![X5]:addition(antidomain(antidomain(X5)),antidomain(X5))=one), inference(variable_rename,[status(thm)],[c_0_4])).
+fof(c_0_21, negated_conjecture, (~(![X4]:(![X5]:addition(forward_diamond(X4,domain(X5)),forward_diamond(star(X4),domain_difference(domain(X5),forward_diamond(X4,domain(X5)))))=forward_diamond(star(X4),domain_difference(domain(X5),forward_diamond(X4,domain(X5))))=>![X6]:(addition(domain(X6),forward_diamond(X4,domain(X6)))=forward_diamond(X4,domain(X6))=>domain(X6)=zero)))), inference(assume_negation,[status(cth)],[c_0_5])).
+fof(c_0_22, plain, (![X6]:![X7]:forward_diamond(X6,X7)=domain(multiplication(X6,domain(X7)))), inference(variable_rename,[status(thm)],[c_0_6])).
+fof(c_0_23, plain, (![X5]:domain(X5)=antidomain(antidomain(X5))), inference(variable_rename,[status(thm)],[c_0_7])).
+fof(c_0_24, plain, (![X4]:![X5]:![X6]:multiplication(X4,addition(X5,X6))=addition(multiplication(X4,X5),multiplication(X4,X6))), inference(variable_rename,[status(thm)],[c_0_8])).
+cnf(c_0_25,plain,(multiplication(addition(X1,antidomain(X2)),X2)=multiplication(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_18])).
+cnf(c_0_26,plain,(addition(X1,X2)=addition(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_27,plain,(addition(antidomain(antidomain(X1)),antidomain(X1))=one), inference(split_conjunct,[status(thm)],[c_0_20])).
+fof(c_0_28, plain, (![X2]:multiplication(one,X2)=X2), inference(variable_rename,[status(thm)],[c_0_9])).
+fof(c_0_29, plain, (![X6]:![X7]:domain_difference(X6,X7)=multiplication(domain(X6),antidomain(X7))), inference(variable_rename,[status(thm)],[c_0_10])).
+fof(c_0_30, negated_conjecture, (![X8]:(addition(forward_diamond(esk1_0,domain(X8)),forward_diamond(star(esk1_0),domain_difference(domain(X8),forward_diamond(esk1_0,domain(X8)))))=forward_diamond(star(esk1_0),domain_difference(domain(X8),forward_diamond(esk1_0,domain(X8))))&(addition(domain(esk2_0),forward_diamond(esk1_0,domain(esk2_0)))=forward_diamond(esk1_0,domain(esk2_0))&domain(esk2_0)!=zero))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_21])])])])).
+cnf(c_0_31,plain,(forward_diamond(X1,X2)=domain(multiplication(X1,domain(X2)))), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_32,plain,(domain(X1)=antidomain(antidomain(X1))), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_33,plain,(multiplication(X1,addition(X2,X3))=addition(multiplication(X1,X2),multiplication(X1,X3))), inference(split_conjunct,[status(thm)],[c_0_24])).
+fof(c_0_34, plain, (![X2]:multiplication(X2,one)=X2), inference(variable_rename,[status(thm)],[c_0_11])).
+cnf(c_0_35,plain,(multiplication(addition(antidomain(X1),X2),X1)=multiplication(X2,X1)), inference(spm,[status(thm)],[c_0_25, c_0_26])).
+cnf(c_0_36,plain,(addition(antidomain(X1),antidomain(antidomain(X1)))=one), inference(rw,[status(thm)],[c_0_27, c_0_26])).
+cnf(c_0_37,plain,(multiplication(one,X1)=X1), inference(split_conjunct,[status(thm)],[c_0_28])).
+cnf(c_0_38,plain,(domain_difference(X1,X2)=multiplication(domain(X1),antidomain(X2))), inference(split_conjunct,[status(thm)],[c_0_29])).
+cnf(c_0_39,negated_conjecture,(addition(domain(esk2_0),forward_diamond(esk1_0,domain(esk2_0)))=forward_diamond(esk1_0,domain(esk2_0))), inference(split_conjunct,[status(thm)],[c_0_30])).
+cnf(c_0_40,plain,(antidomain(antidomain(multiplication(X1,antidomain(antidomain(X2)))))=forward_diamond(X1,X2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_31, c_0_32]), c_0_32])).
+cnf(c_0_41,plain,(multiplication(antidomain(X1),addition(X2,X1))=multiplication(antidomain(X1),X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_33, c_0_17]), c_0_18])).
+cnf(c_0_42,plain,(multiplication(X1,one)=X1), inference(split_conjunct,[status(thm)],[c_0_34])).
+cnf(c_0_43,plain,(multiplication(antidomain(antidomain(X1)),X1)=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_35, c_0_36]), c_0_37])).
+cnf(c_0_44,negated_conjecture,(addition(forward_diamond(esk1_0,domain(X1)),forward_diamond(star(esk1_0),domain_difference(domain(X1),forward_diamond(esk1_0,domain(X1)))))=forward_diamond(star(esk1_0),domain_difference(domain(X1),forward_diamond(esk1_0,domain(X1))))), inference(split_conjunct,[status(thm)],[c_0_30])).
+cnf(c_0_45,plain,(multiplication(antidomain(antidomain(X1)),antidomain(X2))=domain_difference(X1,X2)), inference(rw,[status(thm)],[c_0_38, c_0_32])).
+cnf(c_0_46,negated_conjecture,(addition(antidomain(antidomain(esk2_0)),antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(antidomain(antidomain(esk2_0))))))))=antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(antidomain(antidomain(esk2_0)))))))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_39, c_0_32]), c_0_32]), c_0_32]), c_0_40]), c_0_40])).
+cnf(c_0_47,plain,(antidomain(antidomain(antidomain(X1)))=antidomain(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_36]), c_0_42]), c_0_43])).
+cnf(c_0_48,negated_conjecture,(addition(antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(antidomain(antidomain(X1))))))),antidomain(antidomain(multiplication(star(esk1_0),antidomain(antidomain(multiplication(antidomain(antidomain(antidomain(antidomain(X1)))),antidomain(antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(antidomain(antidomain(X1)))))))))))))))=antidomain(antidomain(multiplication(star(esk1_0),antidomain(antidomain(multiplication(antidomain(antidomain(antidomain(antidomain(X1)))),antidomain(antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(antidomain(antidomain(X1))))))))))))))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_44, c_0_32]), c_0_32]), c_0_32]), c_0_32]), c_0_32]), c_0_40]), c_0_40]), c_0_40]), c_0_40]), c_0_40]), c_0_45]), c_0_45])).
+cnf(c_0_49,negated_conjecture,(addition(antidomain(antidomain(esk2_0)),antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(esk2_0))))))=antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(esk2_0)))))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_46, c_0_47]), c_0_47])).
+cnf(c_0_50,plain,(antidomain(one)=zero), inference(spm,[status(thm)],[c_0_17, c_0_42])).
+cnf(c_0_51,plain,(addition(zero,X1)=X1), inference(spm,[status(thm)],[c_0_18, c_0_26])).
+fof(c_0_52, plain, (![X2]:multiplication(X2,zero)=zero), inference(variable_rename,[status(thm)],[c_0_12])).
+cnf(c_0_53,negated_conjecture,(addition(antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(X1))))),antidomain(antidomain(multiplication(star(esk1_0),antidomain(antidomain(multiplication(antidomain(antidomain(X1)),antidomain(multiplication(esk1_0,antidomain(antidomain(X1)))))))))))=antidomain(antidomain(multiplication(star(esk1_0),antidomain(antidomain(multiplication(antidomain(antidomain(X1)),antidomain(multiplication(esk1_0,antidomain(antidomain(X1))))))))))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_48, c_0_47]), c_0_47]), c_0_47]), c_0_47]), c_0_47]), c_0_47]), c_0_47])).
+cnf(c_0_54,negated_conjecture,(multiplication(antidomain(antidomain(esk2_0)),antidomain(multiplication(esk1_0,antidomain(antidomain(esk2_0)))))=zero), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_25, c_0_49]), c_0_17])).
+cnf(c_0_55,plain,(antidomain(zero)=one), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_36, c_0_50]), c_0_51])).
+cnf(c_0_56,plain,(multiplication(X1,zero)=zero), inference(split_conjunct,[status(thm)],[c_0_52])).
+cnf(c_0_57,negated_conjecture,(domain(esk2_0)!=zero), inference(split_conjunct,[status(thm)],[c_0_30])).
+cnf(c_0_58,negated_conjecture,(antidomain(antidomain(multiplication(esk1_0,antidomain(antidomain(esk2_0)))))=zero), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_53, c_0_54]), c_0_55]), c_0_50]), c_0_56]), c_0_55]), c_0_50]), c_0_18]), c_0_55]), c_0_50]), c_0_56]), c_0_55]), c_0_50])).
+cnf(c_0_59,negated_conjecture,(antidomain(antidomain(esk2_0))!=zero), inference(rw,[status(thm)],[c_0_57, c_0_32])).
+cnf(c_0_60,negated_conjecture,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_49, c_0_58]), c_0_18]), c_0_58]), c_0_59]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

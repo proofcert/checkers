@@ -1,0 +1,52 @@
+% Problem    : GEO300+1 : TPTP v6.1.0. Released v4.1.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n137.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:33:46 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___100_C18_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:((((rR(X2,X1,X3)&?[X4]:(X3=X4&rpoint(X4)))&?[X5]:(X2=X5&rpoint(X5)))&?[X6]:(X1=X6&rpoint(X6)))=>vplus(vf(X1,X2),vf(X2,X3))=vf(X1,X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'qu(cond(axiom(180), 0), imp(cond(axiom(180), 0)))')).
+fof(c_0_1, axiom, (((((((((((((~(?[X8]:(((ron(vd1187,X8)&ron(vd1186,X8))&ron(vd1185,X8))&rline(X8)))&vangle(vd1179,vd1178,vd1180)=vangle(vd1186,vd1185,vd1187))&vf(vd1178,vd1180)=vf(vd1185,vd1187))&vf(vd1178,vd1179)=vf(vd1185,vd1186))&?[X9]:(vd1187=X9&rpoint(X9)))&?[X10]:(vd1186=X10&rpoint(X10)))&?[X11]:(vd1185=X11&rpoint(X11)))&vd1179!=vd1180)&vd1178!=vd1180)&vd1178!=vd1179)&?[X12]:(vd1180=X12&rpoint(X12)))&?[X13]:(vd1179=X13&rpoint(X13)))&?[X14]:(vd1178=X14&rpoint(X14)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'and(neg(neg(conjunct2(conjunct2(conjunct2(plural(comma_conjunct2(268))))))), and(holds(conjunct1(conjunct2(conjunct2(plural(comma_conjunct2(268))))), 1194, 0), and(holds(conjunct1(conjunct2(plural(comma_conjunct2(268)))), 1193, 0), and(holds(conjunct1(plural(comma_conjunct2(268))), 1192, 0), and(qe(s3(plural(comma_conjunct2(268)))), and(qe(s2(plural(comma_conjunct2(268)))), and(qe(s1(plural(comma_conjunct2(268)))), and(pred(comma_conjunct1(268), 9), and(pred(comma_conjunct1(268), 8), and(pred(comma_conjunct1(268), 7), and(qe(s3(plural(268))), and(qe(s2(plural(268))), qe(s1(plural(268)))))))))))))))')).
+fof(c_0_2, conjecture, (vf(vd1185,vd1201)=vplus(vf(vd1185,vd1187),vf(vd1187,vd1201))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'holds(331, 1260, 0)')).
+fof(c_0_3, axiom, (vf(vd1199,vd1201)=vf(vd1185,vd1187)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'holds(314, 1247, 0)')).
+fof(c_0_4, axiom, (vd1199=vd1185), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'holds(291, 1230, 0)')).
+fof(c_0_5, axiom, (?[X7]:(vd1201=X7&rpoint(X7))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'qe(s3(plural(271)))')).
+fof(c_0_6, axiom, (rR(vd1187,vd1185,vd1201)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'holds(330, 1259, 0)')).
+fof(c_0_7, plain, (![X7]:![X8]:![X9]:![X10]:![X11]:![X12]:((((~rR(X8,X7,X9)|(X9!=X10|~rpoint(X10)))|(X8!=X11|~rpoint(X11)))|(X7!=X12|~rpoint(X12)))|vplus(vf(X7,X8),vf(X8,X9))=vf(X7,X9))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])).
+fof(c_0_8, plain, (![X15]:(((((((((((((((~ron(vd1187,X15)|~ron(vd1186,X15))|~ron(vd1185,X15))|~rline(X15))&vangle(vd1179,vd1178,vd1180)=vangle(vd1186,vd1185,vd1187))&vf(vd1178,vd1180)=vf(vd1185,vd1187))&vf(vd1178,vd1179)=vf(vd1185,vd1186))&(vd1187=esk2_0&rpoint(esk2_0)))&(vd1186=esk3_0&rpoint(esk3_0)))&(vd1185=esk4_0&rpoint(esk4_0)))&vd1179!=vd1180)&vd1178!=vd1180)&vd1178!=vd1179)&(vd1180=esk5_0&rpoint(esk5_0)))&(vd1179=esk6_0&rpoint(esk6_0)))&(vd1178=esk7_0&rpoint(esk7_0)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])).
+fof(c_0_9, negated_conjecture, (vf(vd1185,vd1201)!=vplus(vf(vd1185,vd1187),vf(vd1187,vd1201))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_2])])).
+cnf(c_0_10,plain,(vf(vd1199,vd1201)=vf(vd1185,vd1187)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_11,plain,(vd1199=vd1185), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_12,plain,(vplus(vf(X1,X2),vf(X2,X3))=vf(X1,X3)|~rpoint(X4)|X1!=X4|~rpoint(X5)|X2!=X5|~rpoint(X6)|X3!=X6|~rR(X2,X1,X3)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_13,plain,(rpoint(esk2_0)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_14,plain,(vd1187=esk2_0), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_15,plain,(rpoint(esk4_0)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_16,plain,(vd1185=esk4_0), inference(split_conjunct,[status(thm)],[c_0_8])).
+fof(c_0_17, plain, ((vd1201=esk1_0&rpoint(esk1_0))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[c_0_5])])).
+cnf(c_0_18,negated_conjecture,(vf(vd1185,vd1201)!=vplus(vf(vd1185,vd1187),vf(vd1187,vd1201))), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_19,plain,(vf(vd1185,vd1187)=vf(vd1185,vd1201)), inference(rw,[status(thm)],[c_0_10, c_0_11])).
+cnf(c_0_20,plain,(vplus(vf(X1,X2),vf(X2,X3))=vf(X1,X3)|~rpoint(X3)|~rpoint(X2)|~rpoint(X1)|~rR(X2,X1,X3)), inference(er,[status(thm)],[inference(er,[status(thm)],[inference(er,[status(thm)],[c_0_12])])])).
+cnf(c_0_21,plain,(rpoint(vd1187)), inference(rw,[status(thm)],[c_0_13, c_0_14])).
+cnf(c_0_22,plain,(rpoint(vd1185)), inference(rw,[status(thm)],[c_0_15, c_0_16])).
+cnf(c_0_23,plain,(rpoint(esk1_0)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_24,plain,(vd1201=esk1_0), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_25,negated_conjecture,(vplus(vf(vd1185,vd1201),vf(vd1187,vd1201))!=vf(vd1185,vd1201)), inference(rw,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_26,plain,(vplus(vf(vd1185,vd1201),vf(vd1187,X1))=vf(vd1185,X1)|~rpoint(X1)|~rR(vd1187,vd1185,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_20, c_0_19]), c_0_21]), c_0_22])])).
+cnf(c_0_27,plain,(rpoint(vd1201)), inference(rw,[status(thm)],[c_0_23, c_0_24])).
+cnf(c_0_28,plain,(rR(vd1187,vd1185,vd1201)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_29,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_25, c_0_26]), c_0_27]), c_0_28])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

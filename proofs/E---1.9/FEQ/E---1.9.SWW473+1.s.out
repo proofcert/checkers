@@ -1,0 +1,42 @@
+% Problem    : SWW473+1 : TPTP v6.1.0. Released v5.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n118.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:47:36 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___042_C18_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(hAPP_pname_a(mgt_call,pn),g)),image_pname_a(mgt_call,u)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_6)).
+fof(c_0_1, axiom, (![X8]:![X10]:insert_a(X8,X10)=collect_a(cOMBS_a_bool_bool(cOMBB_1972296269bool_a(fdisj,hAPP_a_fun_a_bool(cOMBC_a_a_bool(fequal_a),X8)),hAPP_f2050579477a_bool(cOMBC_1355376034l_bool(member_a),X10)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_194_insert__compr)).
+fof(c_0_2, axiom, (![X11]:![X5]:![X10]:(hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(X11,X5)),X10))<=>(hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,X11),X10))&hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,X5),X10))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_274_insert__subset)).
+fof(c_0_3, hypothesis, (hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,g),image_pname_a(mgt_call,u)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_1)).
+fof(c_0_4, axiom, (![X9]:![X11]:![X5]:(hBOOL(hAPP_f1664156314l_bool(hAPP_p338031245l_bool(member_pname,X11),X5))=>hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,hAPP_pname_a(X9,X11)),image_pname_a(X9,X5))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_261_imageI)).
+fof(c_0_5, hypothesis, (hBOOL(hAPP_f1664156314l_bool(hAPP_p338031245l_bool(member_pname,pn),u))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_4)).
+fof(c_0_6, negated_conjecture, (~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(hAPP_pname_a(mgt_call,pn),g)),image_pname_a(mgt_call,u)))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_0])])).
+fof(c_0_7, plain, (![X11]:![X12]:insert_a(X11,X12)=collect_a(cOMBS_a_bool_bool(cOMBB_1972296269bool_a(fdisj,hAPP_a_fun_a_bool(cOMBC_a_a_bool(fequal_a),X11)),hAPP_f2050579477a_bool(cOMBC_1355376034l_bool(member_a),X12)))), inference(variable_rename,[status(thm)],[c_0_1])).
+fof(c_0_8, plain, (![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:(((hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,X12),X14))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(X12,X13)),X14)))&(hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,X13),X14))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(X12,X13)),X14))))&((~hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,X15),X17))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,X16),X17)))|hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(X15,X16)),X17))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])])).
+cnf(c_0_9,negated_conjecture,(~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(hAPP_pname_a(mgt_call,pn),g)),image_pname_a(mgt_call,u)))), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,plain,(insert_a(X1,X2)=collect_a(cOMBS_a_bool_bool(cOMBB_1972296269bool_a(fdisj,hAPP_a_fun_a_bool(cOMBC_a_a_bool(fequal_a),X1)),hAPP_f2050579477a_bool(cOMBC_1355376034l_bool(member_a),X2)))), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_11,plain,(hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,insert_a(X1,X2)),X3))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,X2),X3))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,X1),X3))), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_12,negated_conjecture,(~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,collect_a(cOMBS_a_bool_bool(cOMBB_1972296269bool_a(fdisj,hAPP_a_fun_a_bool(cOMBC_a_a_bool(fequal_a),hAPP_pname_a(mgt_call,pn))),hAPP_f2050579477a_bool(cOMBC_1355376034l_bool(member_a),g)))),image_pname_a(mgt_call,u)))), inference(rw,[status(thm)],[c_0_9, c_0_10])).
+cnf(c_0_13,plain,(hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,collect_a(cOMBS_a_bool_bool(cOMBB_1972296269bool_a(fdisj,hAPP_a_fun_a_bool(cOMBC_a_a_bool(fequal_a),X1)),hAPP_f2050579477a_bool(cOMBC_1355376034l_bool(member_a),X2)))),X3))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,X1),X3))|~hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,X2),X3))), inference(rw,[status(thm)],[c_0_11, c_0_10])).
+cnf(c_0_14,hypothesis,(hBOOL(hAPP_fun_a_bool_bool(hAPP_f1631501043l_bool(ord_le1311769555a_bool,g),image_pname_a(mgt_call,u)))), inference(split_conjunct,[status(thm)],[c_0_3])).
+fof(c_0_15, plain, (![X12]:![X13]:![X14]:(~hBOOL(hAPP_f1664156314l_bool(hAPP_p338031245l_bool(member_pname,X13),X14))|hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,hAPP_pname_a(X12,X13)),image_pname_a(X12,X14))))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+cnf(c_0_16,negated_conjecture,(~hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,hAPP_pname_a(mgt_call,pn)),image_pname_a(mgt_call,u)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_12, c_0_13]), c_0_14])])).
+cnf(c_0_17,plain,(hBOOL(hAPP_fun_a_bool_bool(hAPP_a85458249l_bool(member_a,hAPP_pname_a(X1,X2)),image_pname_a(X1,X3)))|~hBOOL(hAPP_f1664156314l_bool(hAPP_p338031245l_bool(member_pname,X2),X3))), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_18,hypothesis,(hBOOL(hAPP_f1664156314l_bool(hAPP_p338031245l_bool(member_pname,pn),u))), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_19,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_18])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

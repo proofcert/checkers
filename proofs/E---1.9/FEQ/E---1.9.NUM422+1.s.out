@@ -1,0 +1,77 @@
+% Problem    : NUM422+1 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n097.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:53:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S2d
+# and selection function SelectCQIArEqFirst.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:(aInteger0(X1)=>aInteger0(smndt0(X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mIntNeg)).
+fof(c_0_1, axiom, (![X1]:![X2]:((aInteger0(X1)&aInteger0(X2))=>aInteger0(sdtasdt0(X1,X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mIntMult)).
+fof(c_0_2, axiom, (aInteger0(sz10)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mIntOne)).
+fof(c_0_3, axiom, (![X1]:![X2]:![X3]:(((aInteger0(X1)&aInteger0(X2))&aInteger0(X3))=>(sdtasdt0(X1,sdtpldt0(X2,X3))=sdtpldt0(sdtasdt0(X1,X2),sdtasdt0(X1,X3))&sdtasdt0(sdtpldt0(X1,X2),X3)=sdtpldt0(sdtasdt0(X1,X3),sdtasdt0(X2,X3))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mDistrib)).
+fof(c_0_4, axiom, (![X1]:(aInteger0(X1)=>(sdtasdt0(X1,sz10)=X1&X1=sdtasdt0(sz10,X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mMulOne)).
+fof(c_0_5, hypothesis, (aInteger0(xa)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', m__446)).
+fof(c_0_6, axiom, (![X1]:(aInteger0(X1)=>(sdtpldt0(X1,smndt0(X1))=sz00&sz00=sdtpldt0(smndt0(X1),X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mAddNeg)).
+fof(c_0_7, axiom, (![X1]:(aInteger0(X1)=>(sdtasdt0(X1,sz00)=sz00&sz00=sdtasdt0(sz00,X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mMulZero)).
+fof(c_0_8, axiom, (![X1]:![X2]:((aInteger0(X1)&aInteger0(X2))=>sdtasdt0(X1,X2)=sdtasdt0(X2,X1))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mMulComm)).
+fof(c_0_9, axiom, (![X1]:![X2]:![X3]:(((aInteger0(X1)&aInteger0(X2))&aInteger0(X3))=>sdtpldt0(X1,sdtpldt0(X2,X3))=sdtpldt0(sdtpldt0(X1,X2),X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mAddAsso)).
+fof(c_0_10, axiom, (![X1]:(aInteger0(X1)=>(sdtpldt0(X1,sz00)=X1&X1=sdtpldt0(sz00,X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mAddZero)).
+fof(c_0_11, conjecture, (sdtasdt0(smndt0(sz10),xa)=smndt0(xa)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', m__)).
+fof(c_0_12, plain, (![X2]:(~aInteger0(X2)|aInteger0(smndt0(X2)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])).
+fof(c_0_13, plain, (![X3]:![X4]:((~aInteger0(X3)|~aInteger0(X4))|aInteger0(sdtasdt0(X3,X4)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])).
+cnf(c_0_14,plain,(aInteger0(smndt0(X1))|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_15,plain,(aInteger0(sz10)), inference(split_conjunct,[status(thm)],[c_0_2])).
+fof(c_0_16, plain, (![X4]:![X5]:![X6]:((sdtasdt0(X4,sdtpldt0(X5,X6))=sdtpldt0(sdtasdt0(X4,X5),sdtasdt0(X4,X6))|((~aInteger0(X4)|~aInteger0(X5))|~aInteger0(X6)))&(sdtasdt0(sdtpldt0(X4,X5),X6)=sdtpldt0(sdtasdt0(X4,X6),sdtasdt0(X5,X6))|((~aInteger0(X4)|~aInteger0(X5))|~aInteger0(X6))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])).
+fof(c_0_17, plain, (![X2]:((sdtasdt0(X2,sz10)=X2|~aInteger0(X2))&(X2=sdtasdt0(sz10,X2)|~aInteger0(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])).
+cnf(c_0_18,plain,(aInteger0(sdtasdt0(X1,X2))|~aInteger0(X2)|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_19,plain,(aInteger0(smndt0(sz10))), inference(spm,[status(thm)],[c_0_14, c_0_15])).
+cnf(c_0_20,plain,(sdtasdt0(X3,sdtpldt0(X2,X1))=sdtpldt0(sdtasdt0(X3,X2),sdtasdt0(X3,X1))|~aInteger0(X1)|~aInteger0(X2)|~aInteger0(X3)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_21,hypothesis,(aInteger0(xa)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_22,plain,(sdtasdt0(X1,sz10)=X1|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+fof(c_0_23, plain, (![X2]:((sdtpldt0(X2,smndt0(X2))=sz00|~aInteger0(X2))&(sz00=sdtpldt0(smndt0(X2),X2)|~aInteger0(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])).
+fof(c_0_24, plain, (![X2]:((sdtasdt0(X2,sz00)=sz00|~aInteger0(X2))&(sz00=sdtasdt0(sz00,X2)|~aInteger0(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])).
+fof(c_0_25, plain, (![X3]:![X4]:((~aInteger0(X3)|~aInteger0(X4))|sdtasdt0(X3,X4)=sdtasdt0(X4,X3))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])).
+fof(c_0_26, plain, (![X4]:![X5]:![X6]:(((~aInteger0(X4)|~aInteger0(X5))|~aInteger0(X6))|sdtpldt0(X4,sdtpldt0(X5,X6))=sdtpldt0(sdtpldt0(X4,X5),X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_9])])).
+cnf(c_0_27,plain,(aInteger0(sdtasdt0(X1,smndt0(sz10)))|~aInteger0(X1)), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_28,hypothesis,(sdtpldt0(sdtasdt0(xa,X1),sdtasdt0(xa,X2))=sdtasdt0(xa,sdtpldt0(X1,X2))|~aInteger0(X1)|~aInteger0(X2)), inference(spm,[status(thm)],[c_0_20, c_0_21])).
+cnf(c_0_29,hypothesis,(sdtasdt0(xa,sz10)=xa), inference(spm,[status(thm)],[c_0_22, c_0_21])).
+cnf(c_0_30,plain,(sdtpldt0(X1,smndt0(X1))=sz00|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_31,plain,(sdtasdt0(X1,sz00)=sz00|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_32,plain,(sdtasdt0(X1,X2)=sdtasdt0(X2,X1)|~aInteger0(X2)|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_33,plain,(sdtpldt0(X1,sdtpldt0(X2,X3))=sdtpldt0(sdtpldt0(X1,X2),X3)|~aInteger0(X3)|~aInteger0(X2)|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_34,hypothesis,(aInteger0(sdtasdt0(xa,smndt0(sz10)))), inference(spm,[status(thm)],[c_0_27, c_0_21])).
+cnf(c_0_35,hypothesis,(sdtpldt0(xa,sdtasdt0(xa,X1))=sdtasdt0(xa,sdtpldt0(sz10,X1))|~aInteger0(X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_28, c_0_15]), c_0_29])).
+cnf(c_0_36,plain,(sdtpldt0(sz10,smndt0(sz10))=sz00), inference(spm,[status(thm)],[c_0_30, c_0_15])).
+cnf(c_0_37,hypothesis,(sdtasdt0(xa,sz00)=sz00), inference(spm,[status(thm)],[c_0_31, c_0_21])).
+fof(c_0_38, plain, (![X2]:((sdtpldt0(X2,sz00)=X2|~aInteger0(X2))&(X2=sdtpldt0(sz00,X2)|~aInteger0(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])).
+fof(c_0_39, negated_conjecture, (sdtasdt0(smndt0(sz10),xa)!=smndt0(xa)), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_11])])).
+cnf(c_0_40,hypothesis,(sdtasdt0(X1,xa)=sdtasdt0(xa,X1)|~aInteger0(X1)), inference(spm,[status(thm)],[c_0_32, c_0_21])).
+cnf(c_0_41,hypothesis,(sdtpldt0(sdtpldt0(X1,X2),sdtasdt0(xa,smndt0(sz10)))=sdtpldt0(X1,sdtpldt0(X2,sdtasdt0(xa,smndt0(sz10))))|~aInteger0(X2)|~aInteger0(X1)), inference(spm,[status(thm)],[c_0_33, c_0_34])).
+cnf(c_0_42,hypothesis,(sdtpldt0(xa,sdtasdt0(xa,smndt0(sz10)))=sz00), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_35, c_0_19]), c_0_36]), c_0_37])).
+cnf(c_0_43,plain,(sz00=sdtpldt0(smndt0(X1),X1)|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_44,plain,(X1=sdtpldt0(sz00,X1)|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_38])).
+cnf(c_0_45,plain,(sdtpldt0(X1,sz00)=X1|~aInteger0(X1)), inference(split_conjunct,[status(thm)],[c_0_38])).
+cnf(c_0_46,hypothesis,(aInteger0(smndt0(xa))), inference(spm,[status(thm)],[c_0_14, c_0_21])).
+cnf(c_0_47,negated_conjecture,(sdtasdt0(smndt0(sz10),xa)!=smndt0(xa)), inference(split_conjunct,[status(thm)],[c_0_39])).
+cnf(c_0_48,hypothesis,(sdtasdt0(smndt0(sz10),xa)=sdtasdt0(xa,smndt0(sz10))), inference(spm,[status(thm)],[c_0_40, c_0_19])).
+cnf(c_0_49,hypothesis,(sdtpldt0(sdtpldt0(X1,xa),sdtasdt0(xa,smndt0(sz10)))=sdtpldt0(X1,sz00)|~aInteger0(X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_21]), c_0_42])).
+cnf(c_0_50,hypothesis,(sdtpldt0(smndt0(xa),xa)=sz00), inference(spm,[status(thm)],[c_0_43, c_0_21])).
+cnf(c_0_51,hypothesis,(sdtpldt0(sz00,sdtasdt0(xa,smndt0(sz10)))=sdtasdt0(xa,smndt0(sz10))), inference(spm,[status(thm)],[c_0_44, c_0_34])).
+cnf(c_0_52,hypothesis,(sdtpldt0(smndt0(xa),sz00)=smndt0(xa)), inference(spm,[status(thm)],[c_0_45, c_0_46])).
+cnf(c_0_53,negated_conjecture,(sdtasdt0(xa,smndt0(sz10))!=smndt0(xa)), inference(rw,[status(thm)],[c_0_47, c_0_48])).
+cnf(c_0_54,hypothesis,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_49, c_0_46]), c_0_50]), c_0_51]), c_0_52]), c_0_53]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

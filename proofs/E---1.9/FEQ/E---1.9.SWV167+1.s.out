@@ -1,0 +1,50 @@
+% Problem    : SWV167+1 : TPTP v6.1.0. Bugfixed v3.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n150.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:38:36 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___207_C18_F1_AE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:minus(X1,n1)=pred(X1)), file('/export/starexec/sandbox/benchmark/Axioms/SWV003+0.ax', pred_minus_1)).
+fof(c_0_1, conjecture, (((((((((((((a_select2(mu_init,pv40)=init&a_select2(sigma_init,pv40)=init)&leq(n0,pv40))&leq(pv40,n4))&![X14]:((leq(n0,X14)&leq(X14,n135299))=>![X18]:((leq(n0,X18)&leq(X18,n4))=>a_select3(q_init,X14,X18)=init)))&![X4]:((leq(n0,X4)&leq(X4,n4))=>a_select2(rho_init,X4)=init))&![X20]:((leq(n0,X20)&leq(X20,pred(pv40)))=>a_select2(mu_init,X20)=init))&![X21]:((leq(n0,X21)&leq(X21,pred(pv40)))=>a_select2(sigma_init,X21)=init))&![X22]:((leq(n0,X22)&leq(X22,n4))=>a_select3(center_init,X22,n0)=init))&(gt(loopcounter,n1)=>![X28]:((leq(n0,X28)&leq(X28,n4))=>a_select2(muold_init,X28)=init)))&(gt(loopcounter,n1)=>![X29]:((leq(n0,X29)&leq(X29,n4))=>a_select2(rhoold_init,X29)=init)))&(gt(loopcounter,n1)=>![X5]:((leq(n0,X5)&leq(X5,n4))=>a_select2(sigmaold_init,X5)=init)))=>![X11]:((leq(n0,X11)&leq(X11,pv40))=>a_select2(mu_init,X11)=init))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', cl5_nebula_init_0011)).
+fof(c_0_2, axiom, (![X1]:![X2]:(leq(X1,pred(X2))<=>gt(X2,X1))), file('/export/starexec/sandbox/benchmark/Axioms/SWV003+0.ax', leq_gt_pred)).
+fof(c_0_3, axiom, (![X1]:![X2]:((leq(X1,X2)&X1!=X2)=>gt(X2,X1))), file('/export/starexec/sandbox/benchmark/Axioms/SWV003+0.ax', leq_gt2)).
+fof(c_0_4, plain, ((epred2_0<=>(((((((((((a_select2(mu_init,pv40)=init&a_select2(sigma_init,pv40)=init)&leq(n0,pv40))&leq(pv40,n4))&![X14]:((leq(n0,X14)&leq(X14,n135299))=>![X18]:((leq(n0,X18)&leq(X18,n4))=>a_select3(q_init,X14,X18)=init)))&![X4]:((leq(n0,X4)&leq(X4,n4))=>a_select2(rho_init,X4)=init))&![X20]:((leq(n0,X20)&leq(X20,pred(pv40)))=>a_select2(mu_init,X20)=init))&![X21]:((leq(n0,X21)&leq(X21,pred(pv40)))=>a_select2(sigma_init,X21)=init))&![X22]:((leq(n0,X22)&leq(X22,n4))=>a_select3(center_init,X22,n0)=init))&(gt(loopcounter,n1)=>![X28]:((leq(n0,X28)&leq(X28,n4))=>a_select2(muold_init,X28)=init)))&(gt(loopcounter,n1)=>![X29]:((leq(n0,X29)&leq(X29,n4))=>a_select2(rhoold_init,X29)=init)))&(gt(loopcounter,n1)=>![X5]:((leq(n0,X5)&leq(X5,n4))=>a_select2(sigmaold_init,X5)=init))))), introduced(definition)).
+fof(c_0_5, plain, ((epred2_0=>(((((((((((a_select2(mu_init,pv40)=init&a_select2(sigma_init,pv40)=init)&leq(n0,pv40))&leq(pv40,n4))&![X14]:((leq(n0,X14)&leq(X14,n135299))=>![X18]:((leq(n0,X18)&leq(X18,n4))=>a_select3(q_init,X14,X18)=init)))&![X4]:((leq(n0,X4)&leq(X4,n4))=>a_select2(rho_init,X4)=init))&![X20]:((leq(n0,X20)&leq(X20,pred(pv40)))=>a_select2(mu_init,X20)=init))&![X21]:((leq(n0,X21)&leq(X21,pred(pv40)))=>a_select2(sigma_init,X21)=init))&![X22]:((leq(n0,X22)&leq(X22,n4))=>a_select3(center_init,X22,n0)=init))&(gt(loopcounter,n1)=>![X28]:((leq(n0,X28)&leq(X28,n4))=>a_select2(muold_init,X28)=init)))&(gt(loopcounter,n1)=>![X29]:((leq(n0,X29)&leq(X29,n4))=>a_select2(rhoold_init,X29)=init)))&(gt(loopcounter,n1)=>![X5]:((leq(n0,X5)&leq(X5,n4))=>a_select2(sigmaold_init,X5)=init))))), inference(split_equiv,[status(thm)],[c_0_4])).
+fof(c_0_6, plain, (![X30]:![X31]:![X32]:![X33]:![X34]:![X35]:![X36]:![X37]:![X38]:((((((((((((a_select2(mu_init,pv40)=init|~epred2_0)&(a_select2(sigma_init,pv40)=init|~epred2_0))&(leq(n0,pv40)|~epred2_0))&(leq(pv40,n4)|~epred2_0))&(((~leq(n0,X30)|~leq(X30,n135299))|((~leq(n0,X31)|~leq(X31,n4))|a_select3(q_init,X30,X31)=init))|~epred2_0))&(((~leq(n0,X32)|~leq(X32,n4))|a_select2(rho_init,X32)=init)|~epred2_0))&(((~leq(n0,X33)|~leq(X33,pred(pv40)))|a_select2(mu_init,X33)=init)|~epred2_0))&(((~leq(n0,X34)|~leq(X34,pred(pv40)))|a_select2(sigma_init,X34)=init)|~epred2_0))&(((~leq(n0,X35)|~leq(X35,n4))|a_select3(center_init,X35,n0)=init)|~epred2_0))&((~gt(loopcounter,n1)|((~leq(n0,X36)|~leq(X36,n4))|a_select2(muold_init,X36)=init))|~epred2_0))&((~gt(loopcounter,n1)|((~leq(n0,X37)|~leq(X37,n4))|a_select2(rhoold_init,X37)=init))|~epred2_0))&((~gt(loopcounter,n1)|((~leq(n0,X38)|~leq(X38,n4))|a_select2(sigmaold_init,X38)=init))|~epred2_0))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+fof(c_0_7, plain, (![X2]:minus(X2,n1)=pred(X2)), inference(variable_rename,[status(thm)],[c_0_0])).
+fof(c_0_8, negated_conjecture, (~((epred2_0=>![X11]:((leq(n0,X11)&leq(X11,pv40))=>a_select2(mu_init,X11)=init)))), inference(apply_def,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_1]), c_0_4])).
+cnf(c_0_9,plain,(a_select2(mu_init,X1)=init|~epred2_0|~leq(X1,pred(pv40))|~leq(n0,X1)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,plain,(minus(X1,n1)=pred(X1)), inference(split_conjunct,[status(thm)],[c_0_7])).
+fof(c_0_11, negated_conjecture, ((epred2_0&((leq(n0,esk24_0)&leq(esk24_0,pv40))&a_select2(mu_init,esk24_0)!=init))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])])).
+fof(c_0_12, plain, (![X3]:![X4]:![X5]:![X6]:((~leq(X3,pred(X4))|gt(X4,X3))&(~gt(X6,X5)|leq(X5,pred(X6))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_13,plain,(a_select2(mu_init,X1)=init|~epred2_0|~leq(n0,X1)|~leq(X1,minus(pv40,n1))), inference(rw,[status(thm)],[c_0_9, c_0_10])).
+cnf(c_0_14,negated_conjecture,(epred2_0), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_15,plain,(leq(X1,pred(X2))|~gt(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_16,plain,(a_select2(mu_init,X1)=init|~leq(X1,minus(pv40,n1))|~leq(n0,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_13, c_0_14])])).
+cnf(c_0_17,plain,(leq(X1,minus(X2,n1))|~gt(X2,X1)), inference(rw,[status(thm)],[c_0_15, c_0_10])).
+cnf(c_0_18,negated_conjecture,(a_select2(mu_init,esk24_0)!=init), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_19,plain,(a_select2(mu_init,X1)=init|~leq(n0,X1)|~gt(pv40,X1)), inference(spm,[status(thm)],[c_0_16, c_0_17])).
+cnf(c_0_20,negated_conjecture,(leq(n0,esk24_0)), inference(split_conjunct,[status(thm)],[c_0_11])).
+fof(c_0_21, plain, (![X3]:![X4]:((~leq(X3,X4)|X3=X4)|gt(X4,X3))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+cnf(c_0_22,negated_conjecture,(~gt(pv40,esk24_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_18, c_0_19]), c_0_20])])).
+cnf(c_0_23,plain,(gt(X1,X2)|X2=X1|~leq(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_24,negated_conjecture,(leq(esk24_0,pv40)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_25,plain,(a_select2(mu_init,pv40)=init|~epred2_0), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_26,negated_conjecture,(esk24_0=pv40), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_23]), c_0_24])])).
+cnf(c_0_27,plain,(a_select2(mu_init,pv40)=init), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_25, c_0_14])])).
+cnf(c_0_28,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_18, c_0_26]), c_0_27])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

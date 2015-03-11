@@ -1,0 +1,95 @@
+% Problem    : GEO093+1 : TPTP v6.1.0. Released v2.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n111.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:19:06 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___207_C01_F1_SE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X4]:(X1=sum(X2,X4)<=>![X5]:(incident_c(X5,X1)<=>(incident_c(X5,X2)|incident_c(X5,X4))))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', sum_defn)).
+fof(c_0_1, axiom, (![X3]:![X1]:(inner_point(X3,X1)<=>(incident_c(X3,X1)&~(end_point(X3,X1))))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', inner_point_defn)).
+fof(c_0_2, axiom, (![X1]:![X2]:(part_of(X2,X1)<=>![X3]:(incident_c(X3,X2)=>incident_c(X3,X1)))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', part_of_defn)).
+fof(c_0_3, conjecture, (![X1]:![X2]:![X4]:![X3]:((((open(X1)&part_of(X2,X1))&part_of(X4,X1))&meet(X3,X2,X4))=>open(sum(X2,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', proposition_2_14_2)).
+fof(c_0_4, axiom, (![X1]:(closed(X1)<=>~(?[X3]:end_point(X3,X1)))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', closed_defn)).
+fof(c_0_5, axiom, (![X1]:![X2]:((part_of(X2,X1)&X2!=X1)=>open(X2))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', c1)).
+fof(c_0_6, axiom, (![X1]:(open(X1)<=>?[X3]:end_point(X3,X1))), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', open_defn)).
+fof(c_0_7, axiom, (![X1]:![X2]:(![X3]:(incident_c(X3,X1)<=>incident_c(X3,X2))=>X1=X2)), file('/export/starexec/sandbox/benchmark/Axioms/GEO004+0.ax', c9)).
+fof(c_0_8, plain, (![X6]:![X7]:![X8]:![X9]:![X10]:![X11]:![X12]:![X13]:((((~incident_c(X9,X6)|(incident_c(X9,X7)|incident_c(X9,X8)))|X6!=sum(X7,X8))&(((~incident_c(X10,X7)|incident_c(X10,X6))|X6!=sum(X7,X8))&((~incident_c(X10,X8)|incident_c(X10,X6))|X6!=sum(X7,X8))))&((((~incident_c(esk2_3(X11,X12,X13),X12)|~incident_c(esk2_3(X11,X12,X13),X11))|X11=sum(X12,X13))&((~incident_c(esk2_3(X11,X12,X13),X13)|~incident_c(esk2_3(X11,X12,X13),X11))|X11=sum(X12,X13)))&((incident_c(esk2_3(X11,X12,X13),X11)|(incident_c(esk2_3(X11,X12,X13),X12)|incident_c(esk2_3(X11,X12,X13),X13)))|X11=sum(X12,X13))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])])])])).
+fof(c_0_9, plain, (![X3]:![X1]:(inner_point(X3,X1)<=>(incident_c(X3,X1)&~end_point(X3,X1)))), inference(fof_simplification,[status(thm)],[c_0_1])).
+fof(c_0_10, plain, (![X4]:![X5]:![X6]:![X7]:![X8]:((~part_of(X5,X4)|(~incident_c(X6,X5)|incident_c(X6,X4)))&((incident_c(esk1_2(X7,X8),X8)|part_of(X8,X7))&(~incident_c(esk1_2(X7,X8),X7)|part_of(X8,X7))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])])])).
+cnf(c_0_11,plain,(incident_c(X4,X1)|X1!=sum(X2,X3)|~incident_c(X4,X2)), inference(split_conjunct,[status(thm)],[c_0_8])).
+fof(c_0_12, plain, (![X4]:![X5]:![X6]:![X7]:(((incident_c(X4,X5)|~inner_point(X4,X5))&(~end_point(X4,X5)|~inner_point(X4,X5)))&((~incident_c(X6,X7)|end_point(X6,X7))|inner_point(X6,X7)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_9])])])])])).
+cnf(c_0_13,plain,(incident_c(X4,X1)|X1!=sum(X2,X3)|~incident_c(X4,X3)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_14,plain,(part_of(X1,X2)|~incident_c(esk1_2(X2,X1),X2)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_15,plain,(incident_c(X1,sum(X2,X3))|~incident_c(X1,X2)), inference(er,[status(thm)],[c_0_11])).
+fof(c_0_16, negated_conjecture, (~(![X1]:![X2]:![X4]:![X3]:((((open(X1)&part_of(X2,X1))&part_of(X4,X1))&meet(X3,X2,X4))=>open(sum(X2,X4))))), inference(assume_negation,[status(cth)],[c_0_3])).
+fof(c_0_17, plain, (![X4]:![X5]:![X6]:((~closed(X4)|~end_point(X5,X4))&(end_point(esk6_1(X6),X6)|closed(X6)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])])])).
+cnf(c_0_18,plain,(inner_point(X1,X2)|end_point(X1,X2)|~incident_c(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_19,plain,(incident_c(X1,sum(X2,X3))|~incident_c(X1,X3)), inference(er,[status(thm)],[c_0_13])).
+fof(c_0_20, plain, (![X3]:![X4]:((~part_of(X4,X3)|X4=X3)|open(X4))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])).
+cnf(c_0_21,plain,(part_of(X1,sum(X2,X3))|~incident_c(esk1_2(sum(X2,X3),X1),X2)), inference(spm,[status(thm)],[c_0_14, c_0_15])).
+cnf(c_0_22,plain,(part_of(X1,X2)|incident_c(esk1_2(X2,X1),X1)), inference(split_conjunct,[status(thm)],[c_0_10])).
+fof(c_0_23, plain, (![X4]:![X6]:![X7]:((~open(X4)|end_point(esk7_1(X4),X4))&(~end_point(X7,X6)|open(X6)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])])])).
+fof(c_0_24, negated_conjecture, (((((open(esk14_0)&part_of(esk15_0,esk14_0))&part_of(esk16_0,esk14_0))&meet(esk17_0,esk15_0,esk16_0))&~open(sum(esk15_0,esk16_0)))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_16])])])])).
+fof(c_0_25, plain, (![X4]:![X5]:(((~incident_c(esk13_2(X4,X5),X4)|~incident_c(esk13_2(X4,X5),X5))|X4=X5)&((incident_c(esk13_2(X4,X5),X4)|incident_c(esk13_2(X4,X5),X5))|X4=X5))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])])).
+cnf(c_0_26,plain,(~end_point(X1,X2)|~closed(X2)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_27,plain,(inner_point(X1,sum(X2,X3))|end_point(X1,sum(X2,X3))|~incident_c(X1,X3)), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_28,plain,(open(X1)|X1=X2|~part_of(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_29,plain,(part_of(X1,sum(X1,X2))), inference(spm,[status(thm)],[c_0_21, c_0_22])).
+cnf(c_0_30,plain,(open(X1)|~end_point(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_31,plain,(closed(X1)|end_point(esk6_1(X1),X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_32,plain,(incident_c(X1,X2)|~incident_c(X1,X3)|~part_of(X3,X2)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_33,negated_conjecture,(part_of(esk16_0,esk14_0)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_34,plain,(part_of(X1,sum(X2,X3))|~incident_c(esk1_2(sum(X2,X3),X1),X3)), inference(spm,[status(thm)],[c_0_14, c_0_19])).
+cnf(c_0_35,plain,(X1=X2|incident_c(esk13_2(X1,X2),X2)|incident_c(esk13_2(X1,X2),X1)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_36,plain,(inner_point(X1,sum(X2,X3))|~closed(sum(X2,X3))|~incident_c(X1,X3)), inference(spm,[status(thm)],[c_0_26, c_0_27])).
+cnf(c_0_37,plain,(sum(X1,X2)=X1|open(X1)), inference(spm,[status(thm)],[c_0_28, c_0_29])).
+cnf(c_0_38,plain,(open(X1)|closed(X1)), inference(spm,[status(thm)],[c_0_30, c_0_31])).
+cnf(c_0_39,negated_conjecture,(incident_c(X1,esk14_0)|~incident_c(X1,esk16_0)), inference(spm,[status(thm)],[c_0_32, c_0_33])).
+cnf(c_0_40,plain,(part_of(X1,sum(X2,X1))), inference(spm,[status(thm)],[c_0_34, c_0_22])).
+cnf(c_0_41,plain,(X1=X2|~incident_c(esk13_2(X1,X2),X2)|~incident_c(esk13_2(X1,X2),X1)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_42,plain,(incident_c(X1,X2)|~inner_point(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_43,plain,(X1=X2|inner_point(esk13_2(X1,X2),X2)|end_point(esk13_2(X1,X2),X2)|incident_c(esk13_2(X1,X2),X1)), inference(spm,[status(thm)],[c_0_18, c_0_35])).
+cnf(c_0_44,plain,(open(X1)|inner_point(X2,X1)|~incident_c(X2,X3)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_36, c_0_37]), c_0_38])).
+cnf(c_0_45,negated_conjecture,(incident_c(esk1_2(X1,esk16_0),esk14_0)|part_of(esk16_0,X1)), inference(spm,[status(thm)],[c_0_39, c_0_22])).
+cnf(c_0_46,plain,(X1=sum(X2,X3)|incident_c(esk2_3(X1,X2,X3),X3)|incident_c(esk2_3(X1,X2,X3),X2)|incident_c(esk2_3(X1,X2,X3),X1)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_47,plain,(sum(X1,X2)=X2|open(X2)), inference(spm,[status(thm)],[c_0_28, c_0_40])).
+cnf(c_0_48,plain,(X1=X2|~inner_point(esk13_2(X1,X2),X2)|~incident_c(esk13_2(X1,X2),X1)), inference(spm,[status(thm)],[c_0_41, c_0_42])).
+cnf(c_0_49,plain,(X1=X2|open(X2)|inner_point(esk13_2(X1,X2),X2)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_43]), c_0_44])).
+cnf(c_0_50,negated_conjecture,(part_of(esk16_0,sum(esk14_0,X1))), inference(spm,[status(thm)],[c_0_21, c_0_45])).
+cnf(c_0_51,plain,(sum(X1,X2)=X1|incident_c(esk2_3(X1,X1,X2),X2)|incident_c(esk2_3(X1,X1,X2),X1)), inference(ef,[status(thm)],[c_0_46])).
+cnf(c_0_52,plain,(incident_c(X4,X3)|incident_c(X4,X2)|X1!=sum(X2,X3)|~incident_c(X4,X1)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_53,plain,(open(X1)|part_of(X2,X1)), inference(spm,[status(thm)],[c_0_29, c_0_47])).
+cnf(c_0_54,plain,(X1=X2|open(X2)|~incident_c(esk13_2(X1,X2),X1)), inference(spm,[status(thm)],[c_0_48, c_0_49])).
+cnf(c_0_55,negated_conjecture,(incident_c(X1,sum(esk14_0,X2))|~incident_c(X1,esk16_0)), inference(spm,[status(thm)],[c_0_32, c_0_50])).
+cnf(c_0_56,plain,(X1=sum(X2,X3)|~incident_c(esk2_3(X1,X2,X3),X1)|~incident_c(esk2_3(X1,X2,X3),X3)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_57,plain,(sum(X1,X1)=X1|incident_c(esk2_3(X1,X1,X1),X1)), inference(ef,[status(thm)],[c_0_51])).
+cnf(c_0_58,plain,(incident_c(X1,X2)|incident_c(X1,X3)|~incident_c(X1,sum(X3,X2))), inference(er,[status(thm)],[c_0_52])).
+cnf(c_0_59,negated_conjecture,(~open(sum(esk15_0,esk16_0))), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_60,plain,(X1=X2|open(X2)|open(X1)), inference(spm,[status(thm)],[c_0_28, c_0_53])).
+cnf(c_0_61,negated_conjecture,(part_of(esk15_0,esk14_0)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_62,negated_conjecture,(sum(esk14_0,X1)=X2|open(X2)|~incident_c(esk13_2(sum(esk14_0,X1),X2),esk16_0)), inference(spm,[status(thm)],[c_0_54, c_0_55])).
+cnf(c_0_63,plain,(sum(X1,X1)=X1), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_56, c_0_57]), c_0_57])).
+cnf(c_0_64,plain,(X1=sum(X2,X3)|incident_c(esk13_2(X1,sum(X2,X3)),X1)|incident_c(esk13_2(X1,sum(X2,X3)),X2)|incident_c(esk13_2(X1,sum(X2,X3)),X3)), inference(spm,[status(thm)],[c_0_58, c_0_35])).
+cnf(c_0_65,negated_conjecture,(sum(esk15_0,esk16_0)=X1|open(X1)), inference(spm,[status(thm)],[c_0_59, c_0_60])).
+cnf(c_0_66,negated_conjecture,(incident_c(X1,esk14_0)|~incident_c(X1,esk15_0)), inference(spm,[status(thm)],[c_0_32, c_0_61])).
+cnf(c_0_67,negated_conjecture,(esk14_0=X1|open(X1)|~incident_c(esk13_2(esk14_0,X1),esk16_0)), inference(spm,[status(thm)],[c_0_62, c_0_63])).
+cnf(c_0_68,negated_conjecture,(X1=X2|open(X2)|incident_c(esk13_2(X1,X2),esk16_0)|incident_c(esk13_2(X1,X2),esk15_0)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_64, c_0_65]), c_0_54])).
+cnf(c_0_69,negated_conjecture,(esk14_0=X1|open(X1)|~incident_c(esk13_2(esk14_0,X1),esk15_0)), inference(spm,[status(thm)],[c_0_54, c_0_66])).
+cnf(c_0_70,negated_conjecture,(esk14_0=X1|open(X1)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_67, c_0_68]), c_0_69])).
+cnf(c_0_71,negated_conjecture,(sum(esk15_0,esk16_0)=esk14_0), inference(spm,[status(thm)],[c_0_59, c_0_70])).
+cnf(c_0_72,negated_conjecture,(open(esk14_0)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_73,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_59, c_0_71]), c_0_72])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

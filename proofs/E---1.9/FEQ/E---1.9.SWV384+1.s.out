@@ -1,0 +1,70 @@
+% Problem    : SWV384+1 : TPTP v6.1.0. Released v3.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n116.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:52:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_B42_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (![X1]:![X2]:![X3]:((~(check_cpq(triple(X1,X2,X3)))|~(ok(triple(X1,X2,X3))))=>![X4]:![X5]:![X6]:(succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))=>(~(ok(triple(X4,X5,X6)))|~(check_cpq(triple(X4,X5,X6))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', l20_co)).
+fof(c_0_1, axiom, (![X1]:![X2]:![X3]:(~(ok(triple(X1,X2,X3)))=>X3=bad)), file('/export/starexec/sandbox/benchmark/Axioms/SWV007+3.ax', ax41)).
+fof(c_0_2, axiom, ((![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:(succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))=>((~(check_cpq(triple(X4,X5,X6)))|~(ok(triple(X4,X5,X6))))=>(~(check_cpq(im_succ_cpq(triple(X4,X5,X6))))|~(ok(im_succ_cpq(triple(X4,X5,X6)))))))=>![X7]:![X8]:![X9]:((~(check_cpq(triple(X7,X8,X9)))|~(ok(triple(X7,X8,X9))))=>![X10]:![X11]:![X12]:(succ_cpq(triple(X7,X8,X9),triple(X10,X11,X12))=>(~(ok(triple(X10,X11,X12)))|~(check_cpq(triple(X10,X11,X12)))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', l20_induction)).
+fof(c_0_3, axiom, (![X1]:![X2]:(ok(triple(X1,X2,bad))<=>~$true)), file('/export/starexec/sandbox/benchmark/Axioms/SWV007+3.ax', ax40)).
+fof(c_0_4, lemma, (![X1]:![X2]:![X3]:((~(check_cpq(triple(X1,X2,X3)))|~(ok(triple(X1,X2,X3))))=>(~(check_cpq(im_succ_cpq(triple(X1,X2,X3))))|~(ok(im_succ_cpq(triple(X1,X2,X3))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', l12_l13)).
+fof(c_0_5, negated_conjecture, (~(![X1]:![X2]:![X3]:((~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3)))=>![X4]:![X5]:![X6]:(succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))=>(~ok(triple(X4,X5,X6))|~check_cpq(triple(X4,X5,X6))))))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_0])])).
+fof(c_0_6, plain, (![X1]:![X2]:![X3]:(~ok(triple(X1,X2,X3))=>X3=bad)), inference(fof_simplification,[status(thm)],[c_0_1])).
+fof(c_0_7, plain, ((![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:(succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))=>((~check_cpq(triple(X4,X5,X6))|~ok(triple(X4,X5,X6)))=>(~check_cpq(im_succ_cpq(triple(X4,X5,X6)))|~ok(im_succ_cpq(triple(X4,X5,X6))))))=>![X7]:![X8]:![X9]:((~check_cpq(triple(X7,X8,X9))|~ok(triple(X7,X8,X9)))=>![X10]:![X11]:![X12]:(succ_cpq(triple(X7,X8,X9),triple(X10,X11,X12))=>(~ok(triple(X10,X11,X12))|~check_cpq(triple(X10,X11,X12))))))), inference(fof_simplification,[status(thm)],[c_0_2])).
+fof(c_0_8, negated_conjecture, (((~check_cpq(triple(esk7_0,esk8_0,esk9_0))|~ok(triple(esk7_0,esk8_0,esk9_0)))&(succ_cpq(triple(esk7_0,esk8_0,esk9_0),triple(esk10_0,esk11_0,esk12_0))&(ok(triple(esk10_0,esk11_0,esk12_0))&check_cpq(triple(esk10_0,esk11_0,esk12_0)))))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])).
+fof(c_0_9, plain, (![X4]:![X5]:![X6]:(ok(triple(X4,X5,X6))|X6=bad)), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+fof(c_0_10, plain, (![X19]:![X20]:![X21]:![X22]:![X23]:![X24]:((((check_cpq(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|succ_cpq(triple(esk1_0,esk2_0,esk3_0),triple(esk4_0,esk5_0,esk6_0)))&((ok(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|succ_cpq(triple(esk1_0,esk2_0,esk3_0),triple(esk4_0,esk5_0,esk6_0))))&((((check_cpq(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|(~check_cpq(triple(esk4_0,esk5_0,esk6_0))|~ok(triple(esk4_0,esk5_0,esk6_0))))&((ok(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|(~check_cpq(triple(esk4_0,esk5_0,esk6_0))|~ok(triple(esk4_0,esk5_0,esk6_0)))))&((((check_cpq(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0))))&((ok(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))))&(((check_cpq(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0))))&((ok(triple(X19,X20,X21))|(~succ_cpq(triple(X19,X20,X21),triple(X22,X23,X24))|(~ok(triple(X22,X23,X24))|~check_cpq(triple(X22,X23,X24)))))|ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0))))))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])])])).
+cnf(c_0_11,negated_conjecture,(~ok(triple(esk7_0,esk8_0,esk9_0))|~check_cpq(triple(esk7_0,esk8_0,esk9_0))), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_12,plain,(X1=bad|ok(triple(X2,X3,X1))), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_13,plain,(ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|check_cpq(triple(X4,X5,X6))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_14,negated_conjecture,(succ_cpq(triple(esk7_0,esk8_0,esk9_0),triple(esk10_0,esk11_0,esk12_0))), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_15,negated_conjecture,(ok(triple(esk10_0,esk11_0,esk12_0))), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_16,negated_conjecture,(check_cpq(triple(esk10_0,esk11_0,esk12_0))), inference(split_conjunct,[status(thm)],[c_0_8])).
+fof(c_0_17, plain, (![X1]:![X2]:~ok(triple(X1,X2,bad))), inference(fof_simplification,[status(thm)],[c_0_3])).
+cnf(c_0_18,plain,(check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|check_cpq(triple(X4,X5,X6))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+fof(c_0_19, lemma, (![X1]:![X2]:![X3]:((~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3)))=>(~check_cpq(im_succ_cpq(triple(X1,X2,X3)))|~ok(im_succ_cpq(triple(X1,X2,X3)))))), inference(fof_simplification,[status(thm)],[c_0_4])).
+cnf(c_0_20,plain,(ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|ok(triple(X4,X5,X6))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_21,negated_conjecture,(esk9_0=bad|~check_cpq(triple(esk7_0,esk8_0,esk9_0))), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_22,negated_conjecture,(ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|check_cpq(triple(esk7_0,esk8_0,esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_13, c_0_14]), c_0_15]), c_0_16])])).
+fof(c_0_23, plain, (![X3]:![X4]:~ok(triple(X3,X4,bad))), inference(variable_rename,[status(thm)],[c_0_17])).
+cnf(c_0_24,plain,(check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|ok(triple(X4,X5,X6))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_25,negated_conjecture,(check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|check_cpq(triple(esk7_0,esk8_0,esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_18, c_0_14]), c_0_15]), c_0_16])])).
+fof(c_0_26, lemma, (![X4]:![X5]:![X6]:((check_cpq(triple(X4,X5,X6))|(~check_cpq(im_succ_cpq(triple(X4,X5,X6)))|~ok(im_succ_cpq(triple(X4,X5,X6)))))&(ok(triple(X4,X5,X6))|(~check_cpq(im_succ_cpq(triple(X4,X5,X6)))|~ok(im_succ_cpq(triple(X4,X5,X6))))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_19])])])).
+cnf(c_0_27,negated_conjecture,(ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))|ok(triple(esk7_0,esk8_0,esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_20, c_0_14]), c_0_15]), c_0_16])])).
+cnf(c_0_28,negated_conjecture,(esk9_0=bad|ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))), inference(spm,[status(thm)],[c_0_21, c_0_22])).
+cnf(c_0_29,plain,(~ok(triple(X1,X2,bad))), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_30,negated_conjecture,(ok(triple(esk7_0,esk8_0,esk9_0))|check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_14]), c_0_15]), c_0_16])])).
+cnf(c_0_31,negated_conjecture,(esk9_0=bad|check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))), inference(spm,[status(thm)],[c_0_21, c_0_25])).
+cnf(c_0_32,lemma,(check_cpq(triple(X1,X2,X3))|~ok(im_succ_cpq(triple(X1,X2,X3)))|~check_cpq(im_succ_cpq(triple(X1,X2,X3)))), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_33,negated_conjecture,(ok(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_27, c_0_28]), c_0_29])).
+cnf(c_0_34,negated_conjecture,(check_cpq(im_succ_cpq(triple(esk4_0,esk5_0,esk6_0)))), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_31]), c_0_29])).
+cnf(c_0_35,plain,(check_cpq(triple(X4,X5,X6))|~ok(triple(esk4_0,esk5_0,esk6_0))|~check_cpq(triple(esk4_0,esk5_0,esk6_0))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_36,lemma,(check_cpq(triple(esk4_0,esk5_0,esk6_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_32, c_0_33]), c_0_34])])).
+cnf(c_0_37,lemma,(ok(triple(X1,X2,X3))|~ok(im_succ_cpq(triple(X1,X2,X3)))|~check_cpq(im_succ_cpq(triple(X1,X2,X3)))), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_38,plain,(ok(triple(X4,X5,X6))|~ok(triple(esk4_0,esk5_0,esk6_0))|~check_cpq(triple(esk4_0,esk5_0,esk6_0))|~check_cpq(triple(X1,X2,X3))|~ok(triple(X1,X2,X3))|~succ_cpq(triple(X4,X5,X6),triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_39,plain,(check_cpq(triple(X1,X2,X3))|~ok(triple(esk4_0,esk5_0,esk6_0))|~ok(triple(X4,X5,X6))|~check_cpq(triple(X4,X5,X6))|~succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_35, c_0_36])])).
+cnf(c_0_40,lemma,(ok(triple(esk4_0,esk5_0,esk6_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_37, c_0_33]), c_0_34])])).
+cnf(c_0_41,plain,(ok(triple(X1,X2,X3))|~ok(triple(esk4_0,esk5_0,esk6_0))|~ok(triple(X4,X5,X6))|~check_cpq(triple(X4,X5,X6))|~succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_38, c_0_36])])).
+cnf(c_0_42,plain,(check_cpq(triple(X1,X2,X3))|~ok(triple(X4,X5,X6))|~check_cpq(triple(X4,X5,X6))|~succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_39, c_0_40])])).
+cnf(c_0_43,plain,(ok(triple(X1,X2,X3))|~ok(triple(X4,X5,X6))|~check_cpq(triple(X4,X5,X6))|~succ_cpq(triple(X1,X2,X3),triple(X4,X5,X6))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_41, c_0_40])])).
+cnf(c_0_44,negated_conjecture,(check_cpq(triple(esk7_0,esk8_0,esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_42, c_0_14]), c_0_15]), c_0_16])])).
+cnf(c_0_45,negated_conjecture,(ok(triple(esk7_0,esk8_0,esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_43, c_0_14]), c_0_15]), c_0_16])])).
+cnf(c_0_46,negated_conjecture,(esk9_0=bad), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_21, c_0_44])])).
+cnf(c_0_47,negated_conjecture,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[c_0_45, c_0_46]), c_0_29]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

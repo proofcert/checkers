@@ -1,0 +1,161 @@
+% Problem    : CSR049+3 : TPTP v6.1.0. Released v3.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n137.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:23:41 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C41_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+# No success with AutoSched0
+# Trying AutoSched1 for 73 seconds
+# AutoSched1-Mode selected heuristic G_E___008_C18_F1_AE_Q4_CS_SP_S2S
+# and selection function SelectNewComplexAHP.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X3]:![X18]:![X19]:((disjointwith(X3,X18)&genls(X19,X18))=>disjointwith(X3,X19))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7585)).
+fof(c_0_1, axiom, (genls(c_tptpcol_2_65537,c_tptpcol_1_65536)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_867)).
+fof(c_0_2, axiom, (genls(c_tptpcol_3_81921,c_tptpcol_2_65537)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_593)).
+fof(c_0_3, axiom, (disjointwith(c_tptpcol_1_1,c_tptpcol_1_65536)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1248)).
+fof(c_0_4, axiom, (genls(c_tptpcol_4_90113,c_tptpcol_3_81921)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3629)).
+fof(c_0_5, axiom, (genls(c_tptpcol_5_90114,c_tptpcol_4_90113)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1942)).
+fof(c_0_6, axiom, (genls(c_tptpcol_6_92162,c_tptpcol_5_90114)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1694)).
+fof(c_0_7, axiom, (genls(c_tptpcol_7_92163,c_tptpcol_6_92162)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_569)).
+fof(c_0_8, axiom, (genls(c_tptpcol_8_92164,c_tptpcol_7_92163)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2022)).
+fof(c_0_9, axiom, (genls(c_tptpcol_9_92165,c_tptpcol_8_92164)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2202)).
+fof(c_0_10, axiom, (genls(c_tptpcol_10_92166,c_tptpcol_9_92165)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1145)).
+fof(c_0_11, axiom, (genls(c_tptpcol_11_92230,c_tptpcol_10_92166)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_416)).
+fof(c_0_12, axiom, (genls(c_tptpcol_12_92262,c_tptpcol_11_92230)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3436)).
+fof(c_0_13, axiom, (genls(c_tptpcol_13_92263,c_tptpcol_12_92262)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2008)).
+fof(c_0_14, axiom, (genls(c_tptpcol_14_92264,c_tptpcol_13_92263)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_742)).
+fof(c_0_15, axiom, (genls(c_tptpcol_15_92268,c_tptpcol_14_92264)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1715)).
+fof(c_0_16, axiom, (genls(c_tptpcol_16_92269,c_tptpcol_15_92268)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1180)).
+fof(c_0_17, axiom, (![X15]:![X16]:(disjointwith(X15,X16)=>disjointwith(X16,X15))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7584)).
+fof(c_0_18, axiom, (genls(c_tptpcol_2_2,c_tptpcol_1_1)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3253)).
+fof(c_0_19, axiom, (genls(c_tptpcol_3_16386,c_tptpcol_2_2)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_460)).
+fof(c_0_20, axiom, (genls(c_tptpcol_4_24578,c_tptpcol_3_16386)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3214)).
+fof(c_0_21, axiom, (genls(c_tptpcol_5_24579,c_tptpcol_4_24578)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1009)).
+fof(c_0_22, axiom, (genls(c_tptpcol_6_26627,c_tptpcol_5_24579)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3013)).
+fof(c_0_23, axiom, (genls(c_tptpcol_7_26628,c_tptpcol_6_26627)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1553)).
+fof(c_0_24, axiom, (genls(c_tptpcol_8_26629,c_tptpcol_7_26628)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_83)).
+fof(c_0_25, axiom, (genls(c_tptpcol_9_26885,c_tptpcol_8_26629)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3513)).
+fof(c_0_26, axiom, (genls(c_tptpcol_10_26886,c_tptpcol_9_26885)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_79)).
+fof(c_0_27, axiom, (genls(c_tptpcol_11_26887,c_tptpcol_10_26886)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1073)).
+fof(c_0_28, axiom, (genls(c_tptpcol_12_26919,c_tptpcol_11_26887)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_504)).
+fof(c_0_29, axiom, (genls(c_tptpcol_13_26920,c_tptpcol_12_26919)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_696)).
+fof(c_0_30, axiom, (genls(c_tptpcol_14_26921,c_tptpcol_13_26920)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1917)).
+fof(c_0_31, axiom, (genls(c_tptpcol_15_26925,c_tptpcol_14_26921)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_244)).
+fof(c_0_32, axiom, (genls(c_tptpcol_16_26926,c_tptpcol_15_26925)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1200)).
+fof(c_0_33, conjecture, ((mtvisible(c_unitedstatesgeographypeoplemt)=>disjointwith(c_tptpcol_16_26926,c_tptpcol_16_92269))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', query149)).
+fof(c_0_34, plain, (![X20]:![X21]:![X22]:((~disjointwith(X20,X21)|~genls(X22,X21))|disjointwith(X20,X22))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])).
+cnf(c_0_35,plain,(disjointwith(X1,X2)|~genls(X2,X3)|~disjointwith(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_34])).
+cnf(c_0_36,plain,(genls(c_tptpcol_2_65537,c_tptpcol_1_65536)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_37,plain,(genls(c_tptpcol_3_81921,c_tptpcol_2_65537)), inference(split_conjunct,[status(thm)],[c_0_2])).
+cnf(c_0_38,plain,(disjointwith(X1,c_tptpcol_2_65537)|~disjointwith(X1,c_tptpcol_1_65536)), inference(spm,[status(thm)],[c_0_35, c_0_36])).
+cnf(c_0_39,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_1_65536)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_40,plain,(genls(c_tptpcol_4_90113,c_tptpcol_3_81921)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_41,plain,(disjointwith(X1,c_tptpcol_3_81921)|~disjointwith(X1,c_tptpcol_2_65537)), inference(spm,[status(thm)],[c_0_35, c_0_37])).
+cnf(c_0_42,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_2_65537)), inference(spm,[status(thm)],[c_0_38, c_0_39])).
+cnf(c_0_43,plain,(genls(c_tptpcol_5_90114,c_tptpcol_4_90113)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_44,plain,(disjointwith(X1,c_tptpcol_4_90113)|~disjointwith(X1,c_tptpcol_3_81921)), inference(spm,[status(thm)],[c_0_35, c_0_40])).
+cnf(c_0_45,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_3_81921)), inference(spm,[status(thm)],[c_0_41, c_0_42])).
+cnf(c_0_46,plain,(genls(c_tptpcol_6_92162,c_tptpcol_5_90114)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_47,plain,(disjointwith(X1,c_tptpcol_5_90114)|~disjointwith(X1,c_tptpcol_4_90113)), inference(spm,[status(thm)],[c_0_35, c_0_43])).
+cnf(c_0_48,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_4_90113)), inference(spm,[status(thm)],[c_0_44, c_0_45])).
+cnf(c_0_49,plain,(genls(c_tptpcol_7_92163,c_tptpcol_6_92162)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_50,plain,(disjointwith(X1,c_tptpcol_6_92162)|~disjointwith(X1,c_tptpcol_5_90114)), inference(spm,[status(thm)],[c_0_35, c_0_46])).
+cnf(c_0_51,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_5_90114)), inference(spm,[status(thm)],[c_0_47, c_0_48])).
+cnf(c_0_52,plain,(genls(c_tptpcol_8_92164,c_tptpcol_7_92163)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_53,plain,(disjointwith(X1,c_tptpcol_7_92163)|~disjointwith(X1,c_tptpcol_6_92162)), inference(spm,[status(thm)],[c_0_35, c_0_49])).
+cnf(c_0_54,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_6_92162)), inference(spm,[status(thm)],[c_0_50, c_0_51])).
+cnf(c_0_55,plain,(genls(c_tptpcol_9_92165,c_tptpcol_8_92164)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_56,plain,(disjointwith(X1,c_tptpcol_8_92164)|~disjointwith(X1,c_tptpcol_7_92163)), inference(spm,[status(thm)],[c_0_35, c_0_52])).
+cnf(c_0_57,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_7_92163)), inference(spm,[status(thm)],[c_0_53, c_0_54])).
+cnf(c_0_58,plain,(genls(c_tptpcol_10_92166,c_tptpcol_9_92165)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_59,plain,(disjointwith(X1,c_tptpcol_9_92165)|~disjointwith(X1,c_tptpcol_8_92164)), inference(spm,[status(thm)],[c_0_35, c_0_55])).
+cnf(c_0_60,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_8_92164)), inference(spm,[status(thm)],[c_0_56, c_0_57])).
+cnf(c_0_61,plain,(genls(c_tptpcol_11_92230,c_tptpcol_10_92166)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_62,plain,(disjointwith(X1,c_tptpcol_10_92166)|~disjointwith(X1,c_tptpcol_9_92165)), inference(spm,[status(thm)],[c_0_35, c_0_58])).
+cnf(c_0_63,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_9_92165)), inference(spm,[status(thm)],[c_0_59, c_0_60])).
+cnf(c_0_64,plain,(genls(c_tptpcol_12_92262,c_tptpcol_11_92230)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_65,plain,(disjointwith(X1,c_tptpcol_11_92230)|~disjointwith(X1,c_tptpcol_10_92166)), inference(spm,[status(thm)],[c_0_35, c_0_61])).
+cnf(c_0_66,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_10_92166)), inference(spm,[status(thm)],[c_0_62, c_0_63])).
+cnf(c_0_67,plain,(genls(c_tptpcol_13_92263,c_tptpcol_12_92262)), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_68,plain,(disjointwith(X1,c_tptpcol_12_92262)|~disjointwith(X1,c_tptpcol_11_92230)), inference(spm,[status(thm)],[c_0_35, c_0_64])).
+cnf(c_0_69,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_11_92230)), inference(spm,[status(thm)],[c_0_65, c_0_66])).
+cnf(c_0_70,plain,(genls(c_tptpcol_14_92264,c_tptpcol_13_92263)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_71,plain,(disjointwith(X1,c_tptpcol_13_92263)|~disjointwith(X1,c_tptpcol_12_92262)), inference(spm,[status(thm)],[c_0_35, c_0_67])).
+cnf(c_0_72,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_12_92262)), inference(spm,[status(thm)],[c_0_68, c_0_69])).
+cnf(c_0_73,plain,(genls(c_tptpcol_15_92268,c_tptpcol_14_92264)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_74,plain,(disjointwith(X1,c_tptpcol_14_92264)|~disjointwith(X1,c_tptpcol_13_92263)), inference(spm,[status(thm)],[c_0_35, c_0_70])).
+cnf(c_0_75,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_13_92263)), inference(spm,[status(thm)],[c_0_71, c_0_72])).
+cnf(c_0_76,plain,(genls(c_tptpcol_16_92269,c_tptpcol_15_92268)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_77,plain,(disjointwith(X1,c_tptpcol_15_92268)|~disjointwith(X1,c_tptpcol_14_92264)), inference(spm,[status(thm)],[c_0_35, c_0_73])).
+cnf(c_0_78,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_14_92264)), inference(spm,[status(thm)],[c_0_74, c_0_75])).
+fof(c_0_79, plain, (![X17]:![X18]:(~disjointwith(X17,X18)|disjointwith(X18,X17))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_17])])).
+cnf(c_0_80,plain,(disjointwith(X1,c_tptpcol_16_92269)|~disjointwith(X1,c_tptpcol_15_92268)), inference(spm,[status(thm)],[c_0_35, c_0_76])).
+cnf(c_0_81,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_15_92268)), inference(spm,[status(thm)],[c_0_77, c_0_78])).
+cnf(c_0_82,plain,(genls(c_tptpcol_2_2,c_tptpcol_1_1)), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_83,plain,(disjointwith(X1,X2)|~disjointwith(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_79])).
+cnf(c_0_84,plain,(disjointwith(c_tptpcol_1_1,c_tptpcol_16_92269)), inference(spm,[status(thm)],[c_0_80, c_0_81])).
+cnf(c_0_85,plain,(genls(c_tptpcol_3_16386,c_tptpcol_2_2)), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_86,plain,(disjointwith(X1,c_tptpcol_2_2)|~disjointwith(X1,c_tptpcol_1_1)), inference(spm,[status(thm)],[c_0_35, c_0_82])).
+cnf(c_0_87,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_1_1)), inference(spm,[status(thm)],[c_0_83, c_0_84])).
+cnf(c_0_88,plain,(genls(c_tptpcol_4_24578,c_tptpcol_3_16386)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_89,plain,(disjointwith(X1,c_tptpcol_3_16386)|~disjointwith(X1,c_tptpcol_2_2)), inference(spm,[status(thm)],[c_0_35, c_0_85])).
+cnf(c_0_90,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_2_2)), inference(spm,[status(thm)],[c_0_86, c_0_87])).
+cnf(c_0_91,plain,(genls(c_tptpcol_5_24579,c_tptpcol_4_24578)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_92,plain,(disjointwith(X1,c_tptpcol_4_24578)|~disjointwith(X1,c_tptpcol_3_16386)), inference(spm,[status(thm)],[c_0_35, c_0_88])).
+cnf(c_0_93,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_3_16386)), inference(spm,[status(thm)],[c_0_89, c_0_90])).
+cnf(c_0_94,plain,(genls(c_tptpcol_6_26627,c_tptpcol_5_24579)), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_95,plain,(disjointwith(X1,c_tptpcol_5_24579)|~disjointwith(X1,c_tptpcol_4_24578)), inference(spm,[status(thm)],[c_0_35, c_0_91])).
+cnf(c_0_96,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_4_24578)), inference(spm,[status(thm)],[c_0_92, c_0_93])).
+cnf(c_0_97,plain,(genls(c_tptpcol_7_26628,c_tptpcol_6_26627)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_98,plain,(disjointwith(X1,c_tptpcol_6_26627)|~disjointwith(X1,c_tptpcol_5_24579)), inference(spm,[status(thm)],[c_0_35, c_0_94])).
+cnf(c_0_99,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_5_24579)), inference(spm,[status(thm)],[c_0_95, c_0_96])).
+cnf(c_0_100,plain,(genls(c_tptpcol_8_26629,c_tptpcol_7_26628)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_101,plain,(disjointwith(X1,c_tptpcol_7_26628)|~disjointwith(X1,c_tptpcol_6_26627)), inference(spm,[status(thm)],[c_0_35, c_0_97])).
+cnf(c_0_102,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_6_26627)), inference(spm,[status(thm)],[c_0_98, c_0_99])).
+cnf(c_0_103,plain,(genls(c_tptpcol_9_26885,c_tptpcol_8_26629)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_104,plain,(disjointwith(X1,c_tptpcol_8_26629)|~disjointwith(X1,c_tptpcol_7_26628)), inference(spm,[status(thm)],[c_0_35, c_0_100])).
+cnf(c_0_105,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_7_26628)), inference(spm,[status(thm)],[c_0_101, c_0_102])).
+cnf(c_0_106,plain,(genls(c_tptpcol_10_26886,c_tptpcol_9_26885)), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_107,plain,(disjointwith(X1,c_tptpcol_9_26885)|~disjointwith(X1,c_tptpcol_8_26629)), inference(spm,[status(thm)],[c_0_35, c_0_103])).
+cnf(c_0_108,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_8_26629)), inference(spm,[status(thm)],[c_0_104, c_0_105])).
+cnf(c_0_109,plain,(genls(c_tptpcol_11_26887,c_tptpcol_10_26886)), inference(split_conjunct,[status(thm)],[c_0_27])).
+cnf(c_0_110,plain,(disjointwith(X1,c_tptpcol_10_26886)|~disjointwith(X1,c_tptpcol_9_26885)), inference(spm,[status(thm)],[c_0_35, c_0_106])).
+cnf(c_0_111,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_9_26885)), inference(spm,[status(thm)],[c_0_107, c_0_108])).
+cnf(c_0_112,plain,(genls(c_tptpcol_12_26919,c_tptpcol_11_26887)), inference(split_conjunct,[status(thm)],[c_0_28])).
+cnf(c_0_113,plain,(disjointwith(X1,c_tptpcol_11_26887)|~disjointwith(X1,c_tptpcol_10_26886)), inference(spm,[status(thm)],[c_0_35, c_0_109])).
+cnf(c_0_114,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_10_26886)), inference(spm,[status(thm)],[c_0_110, c_0_111])).
+cnf(c_0_115,plain,(genls(c_tptpcol_13_26920,c_tptpcol_12_26919)), inference(split_conjunct,[status(thm)],[c_0_29])).
+cnf(c_0_116,plain,(disjointwith(X1,c_tptpcol_12_26919)|~disjointwith(X1,c_tptpcol_11_26887)), inference(spm,[status(thm)],[c_0_35, c_0_112])).
+cnf(c_0_117,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_11_26887)), inference(spm,[status(thm)],[c_0_113, c_0_114])).
+cnf(c_0_118,plain,(genls(c_tptpcol_14_26921,c_tptpcol_13_26920)), inference(split_conjunct,[status(thm)],[c_0_30])).
+cnf(c_0_119,plain,(disjointwith(X1,c_tptpcol_13_26920)|~disjointwith(X1,c_tptpcol_12_26919)), inference(spm,[status(thm)],[c_0_35, c_0_115])).
+cnf(c_0_120,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_12_26919)), inference(spm,[status(thm)],[c_0_116, c_0_117])).
+cnf(c_0_121,plain,(genls(c_tptpcol_15_26925,c_tptpcol_14_26921)), inference(split_conjunct,[status(thm)],[c_0_31])).
+cnf(c_0_122,plain,(disjointwith(X1,c_tptpcol_14_26921)|~disjointwith(X1,c_tptpcol_13_26920)), inference(spm,[status(thm)],[c_0_35, c_0_118])).
+cnf(c_0_123,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_13_26920)), inference(spm,[status(thm)],[c_0_119, c_0_120])).
+cnf(c_0_124,plain,(genls(c_tptpcol_16_26926,c_tptpcol_15_26925)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_125,plain,(disjointwith(X1,c_tptpcol_15_26925)|~disjointwith(X1,c_tptpcol_14_26921)), inference(spm,[status(thm)],[c_0_35, c_0_121])).
+cnf(c_0_126,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_14_26921)), inference(spm,[status(thm)],[c_0_122, c_0_123])).
+fof(c_0_127, negated_conjecture, (~((mtvisible(c_unitedstatesgeographypeoplemt)=>disjointwith(c_tptpcol_16_26926,c_tptpcol_16_92269)))), inference(assume_negation,[status(cth)],[c_0_33])).
+cnf(c_0_128,plain,(disjointwith(X1,c_tptpcol_16_26926)|~disjointwith(X1,c_tptpcol_15_26925)), inference(spm,[status(thm)],[c_0_35, c_0_124])).
+cnf(c_0_129,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_15_26925)), inference(spm,[status(thm)],[c_0_125, c_0_126])).
+fof(c_0_130, negated_conjecture, ((mtvisible(c_unitedstatesgeographypeoplemt)&~disjointwith(c_tptpcol_16_26926,c_tptpcol_16_92269))), inference(fof_nnf,[status(thm)],[c_0_127])).
+cnf(c_0_131,plain,(disjointwith(c_tptpcol_16_92269,c_tptpcol_16_26926)), inference(spm,[status(thm)],[c_0_128, c_0_129])).
+cnf(c_0_132,negated_conjecture,(~disjointwith(c_tptpcol_16_26926,c_tptpcol_16_92269)), inference(split_conjunct,[status(thm)],[c_0_130])).
+cnf(c_0_133,plain,($false), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_83, c_0_131]), c_0_132]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

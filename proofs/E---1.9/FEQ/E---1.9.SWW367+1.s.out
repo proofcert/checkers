@@ -1,0 +1,355 @@
+% Problem    : SWW367+1 : TPTP v6.1.0. Released v5.2.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n112.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 07:01:36 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___207_C18_F1_AE_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X42]:![X9]:(c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))=hAPP(c_Set_OCollect(X9),X42)<=>![X3]:~(hBOOL(hAPP(X42,X3))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_empty__Collect__eq)).
+fof(c_0_1, axiom, (![X9]:c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))=hAPP(c_Set_OCollect(X9),hAPP(c_COMBK(tc_HOL_Obool,X9),c_fFalse))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_empty__def)).
+fof(c_0_2, axiom, (![X42]:![X9]:hAPP(c_Set_OCollect(X9),X42)=X42), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_Collect__def)).
+fof(c_0_3, axiom, (![X42]:![X9]:hAPP(c_Set_OCollect(X9),hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X9),c_fNot),X42))=hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X9,tc_HOL_Obool)),hAPP(c_Set_OCollect(X9),X42))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_Collect__neg__eq)).
+fof(c_0_4, axiom, (![X280]:![X279]:![X9]:![X25]:hAPP(hAPP(c_COMBK(X25,X9),X279),X280)=X279), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__COMBK__1)).
+fof(c_0_5, axiom, (![X11]:![X9]:hAPP(c_Set_OCollect(X9),hAPP(hAPP(c_COMBC(X9,tc_fun(X9,tc_HOL_Obool),tc_HOL_Obool),c_member(X9)),X11))=X11), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_Collect__mem__eq)).
+fof(c_0_6, axiom, (![X11]:![X9]:hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X9,tc_HOL_Obool)),hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X9,tc_HOL_Obool)),X11))=X11), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_double__complement)).
+fof(c_0_7, axiom, (![X42]:(~(hBOOL(hAPP(c_fNot,X42)))|~(hBOOL(X42)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__fNot__1)).
+fof(c_0_8, axiom, (![X9]:c_Orderings_Otop__class_Otop(tc_fun(X9,tc_HOL_Obool))=hAPP(c_Set_OCollect(X9),hAPP(c_COMBK(tc_HOL_Obool,X9),c_fTrue))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_UNIV__def)).
+fof(c_0_9, axiom, (![X27]:![X41]:![X42]:![X9]:![X18]:![X7]:hAPP(hAPP(hAPP(c_COMBC(X7,X18,X9),X42),X41),X27)=hAPP(hAPP(X42,X27),X41)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__COMBC__1)).
+fof(c_0_10, axiom, (![X42]:![X9]:(?[X3]:(hBOOL(hAPP(hAPP(c_member(X9),X3),c_Orderings_Otop__class_Otop(tc_fun(X9,tc_HOL_Obool))))&hBOOL(hAPP(X42,X3)))<=>?[X115]:hBOOL(hAPP(X42,X115)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_bex__UNIV)).
+fof(c_0_11, axiom, (![X10]:![X9]:hBOOL(hAPP(hAPP(c_member(X9),X10),c_Orderings_Otop__class_Otop(tc_fun(X9,tc_HOL_Obool))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_UNIV__I)).
+fof(c_0_12, axiom, (![X27]:![X41]:![X42]:![X18]:![X9]:![X7]:hAPP(hAPP(hAPP(c_COMBB(X7,X9,X18),X42),X41),X27)=hAPP(X42,hAPP(X41,X27))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__COMBB__1)).
+fof(c_0_13, axiom, (![X9]:hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X9,tc_HOL_Obool)),c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool)))=c_Orderings_Otop__class_Otop(tc_fun(X9,tc_HOL_Obool))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_Compl__empty__eq)).
+fof(c_0_14, axiom, (![X11]:![X12]:![X9]:hAPP(hAPP(c_Set_Oinsert(X9),X12),X11)!=c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_insert__not__empty)).
+fof(c_0_15, axiom, (![X15]:![X12]:![X2]:![X9]:![X7]:hAPP(c_Set_Oimage(X7,X9,X2),hAPP(hAPP(c_Set_Oinsert(X7),X12),X15))=hAPP(hAPP(c_Set_Oinsert(X9),hAPP(X2,X12)),hAPP(c_Set_Oimage(X7,X9,X2),X15))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_image__insert)).
+fof(c_0_16, axiom, (![X11]:![X12]:![X9]:(hBOOL(hAPP(hAPP(c_member(X9),X12),X11))=>hAPP(hAPP(c_Set_Oinsert(X9),X12),X11)=X11)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_insert__absorb)).
+fof(c_0_17, axiom, (![X9]:hBOOL(hAPP(c_Finite__Set_Ofinite(X9),c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_finite_OemptyI)).
+fof(c_0_18, axiom, (![X11]:![X9]:(~(hBOOL(hAPP(c_Finite__Set_Ofinite(X9),X11)))=>hAPP(c_Finite__Set_Ocard(X9),X11)=c_Groups_Ozero__class_Ozero(tc_Nat_Onat))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_card__infinite)).
+fof(c_0_19, axiom, (![X23]:~(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X23),c_Groups_Ozero__class_Ozero(tc_Nat_Onat))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_less__nat__zero__code)).
+fof(c_0_20, axiom, (![X200]:![X25]:hAPP(c_List_Orev(X25),hAPP(c_List_Orev(X25),X200))=X200), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_rev__rev__ident)).
+fof(c_0_21, axiom, (![X28]:hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X28)=hAPP(c_Orderings_Oord__class_Oless__eq(tc_Nat_Onat),hAPP(c_Nat_OSuc,X28))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_less__eq__Suc__le__raw)).
+fof(c_0_22, axiom, (hAPP(c_Int_Onat,c_Groups_Ozero__class_Ozero(tc_Int_Oint))=c_Groups_Ozero__class_Ozero(tc_Nat_Onat)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_nat__0)).
+fof(c_0_23, axiom, (c_Int_OPls=c_Groups_Ozero__class_Ozero(tc_Int_Oint)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_Pls__def)).
+fof(c_0_24, axiom, (![X11]:![X9]:(?[X3]:hBOOL(hAPP(hAPP(c_member(X9),X3),X11))<=>X11!=c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_ex__in__conv)).
+fof(c_0_25, hypothesis, (hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_Nat_Onat),hAPP(c_Nat_OSuc,v_n)),hAPP(c_Finite__Set_Ocard(t_a),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_2)).
+fof(c_0_26, hypothesis, (hBOOL(hAPP(hAPP(c_member(tc_Com_Opname),v_pn),v_U))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_4)).
+fof(c_0_27, axiom, (![X45]:![X9]:hAPP(c_Set_Oimage(X9,X9,c_COMBI(X9)),X45)=X45), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_image__ident)).
+fof(c_0_28, axiom, (![X15]:![X11]:![X9]:(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X11),X15))=>(hBOOL(hAPP(c_Finite__Set_Ofinite(X9),X15))=>hBOOL(hAPP(c_Finite__Set_Ofinite(X9),X11))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_finite__subset)).
+fof(c_0_29, axiom, (![X15]:![X11]:![X9]:(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X11),X15))=>(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X15),X11))=>X11=X15))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_equalityI)).
+fof(c_0_30, hypothesis, (hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_1)).
+fof(c_0_31, axiom, (![X11]:![X9]:hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X11),c_Orderings_Otop__class_Otop(tc_fun(X9,tc_HOL_Obool))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_subset__UNIV)).
+fof(c_0_32, axiom, (![X11]:![X2]:![X9]:![X7]:(hAPP(c_Set_Oimage(X7,X9,X2),X11)=c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))<=>X11=c_Orderings_Obot__class_Obot(tc_fun(X7,tc_HOL_Obool)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_image__is__empty)).
+fof(c_0_33, axiom, (~(hBOOL(c_fFalse))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__fFalse__1)).
+fof(c_0_34, axiom, (![X42]:(~(~(hBOOL(X42)))|hBOOL(hAPP(c_fNot,X42)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__fNot__2)).
+fof(c_0_35, axiom, (![X25]:(class_Lattices_Oboolean__algebra(X25)=>hAPP(c_Groups_Ouminus__class_Ouminus(X25),c_Orderings_Obot__class_Obot(X25))=c_Orderings_Otop__class_Otop(X25))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_compl__bot__eq)).
+fof(c_0_36, axiom, (![X10]:![X7]:![X9]:(class_Orderings_Obot(X9)=>hAPP(c_Orderings_Obot__class_Obot(tc_fun(X7,X9)),X10)=c_Orderings_Obot__class_Obot(X9))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_bot__apply)).
+fof(c_0_37, axiom, (![X31]:hAPP(c_Int_Onumber__class_Onumber__of(tc_Int_Oint),X31)=X31), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_number__of__is__id)).
+fof(c_0_38, axiom, (![X42]:![X2]:![X7]:![X9]:hAPP(c_Set_Ovimage(X9,X7,X2),hAPP(c_Set_OCollect(X7),X42))=hAPP(c_Set_OCollect(X9),hAPP(hAPP(c_COMBB(X7,tc_HOL_Obool,X9),X42),X2))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_vimage__Collect__eq)).
+fof(c_0_39, hypothesis, (hBOOL(hAPP(c_Finite__Set_Ofinite(tc_Com_Opname),v_U))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_0)).
+fof(c_0_40, axiom, (class_Lattices_Oboolean__algebra(tc_HOL_Obool)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', arity_HOL__Obool__Lattices_Oboolean__algebra)).
+fof(c_0_41, axiom, (class_Orderings_Obot(tc_HOL_Obool)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', arity_HOL__Obool__Orderings_Obot)).
+fof(c_0_42, axiom, (![X11]:![X9]:(class_Finite__Set_Ofinite(X9)=>hBOOL(hAPP(c_Finite__Set_Ofinite(X9),X11)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_finite__code)).
+fof(c_0_43, axiom, (![X199]:![X25]:hAPP(hAPP(c_List_Oappend(X25),c_List_Olist_ONil(X25)),X199)=X199), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_append__Nil)).
+fof(c_0_44, axiom, (![X11]:![X10]:![X9]:(hBOOL(hAPP(hAPP(c_member(X9),X10),X11))<=>hBOOL(hAPP(X11,X10)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_mem__def)).
+fof(c_0_45, axiom, (hBOOL(hAPP(c_Nat__Numeral_Oneg,hAPP(c_Int_Onumber__class_Onumber__of(tc_Int_Oint),c_Int_OMin)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_neg__number__of__Min)).
+fof(c_0_46, axiom, (![X11]:![X9]:hAPP(c_Set_Ovimage(X9,X9,c_Fun_Oid(X9)),X11)=X11), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_vimage__id)).
+fof(c_0_47, axiom, (![X24]:![X25]:(class_Lattices_Oboolean__algebra(X25)=>hAPP(c_Groups_Ouminus__class_Ouminus(X25),hAPP(c_Groups_Ouminus__class_Ouminus(X25),X24))=X24)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_double__compl)).
+fof(c_0_48, axiom, (![X10]:![X7]:![X9]:(class_Orderings_Otop(X9)=>hAPP(c_Orderings_Otop__class_Otop(tc_fun(X7,X9)),X10)=c_Orderings_Otop__class_Otop(X9))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_top__apply)).
+fof(c_0_49, axiom, (![X202]:![X42]:![X9]:(hAPP(c_List_Ofilter(X9,X42),X202)=X202<=>![X3]:(hBOOL(hAPP(hAPP(c_member(X9),X3),hAPP(c_List_Oset(X9),X202)))=>hBOOL(hAPP(X42,X3))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_filter__id__conv)).
+fof(c_0_50, axiom, (class_Finite__Set_Ofinite(tc_Product__Type_Ounit)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', arity_Product____Type__Ounit__Finite__Set_Ofinite)).
+fof(c_0_51, axiom, (class_Orderings_Otop(tc_HOL_Obool)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', arity_HOL__Obool__Orderings_Otop)).
+fof(c_0_52, axiom, (![X45]:![X9]:hAPP(c_Set_Oimage(X9,X9,c_Fun_Oid(X9)),X45)=X45), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_image__id)).
+fof(c_0_53, axiom, (![X9]:![X42]:(?[X115]:hBOOL(hAPP(X42,X115))=>hBOOL(hAPP(X42,c_Hilbert__Choice_OEps(X9,X42))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_someI__ex)).
+fof(c_0_54, axiom, (![X23]:hAPP(c_Int_Onat,hAPP(c_Nat_Osemiring__1__class_Oof__nat(tc_Int_Oint),X23))=X23), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_nat__int)).
+fof(c_0_55, axiom, (hBOOL(c_fTrue)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_c__fTrue__1)).
+fof(c_0_56, axiom, (![X176]:![X25]:hAPP(c_Fun_Oid(X25),X176)=X176), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_id__def)).
+fof(c_0_57, axiom, (![X23]:hAPP(c_Code__Numeral_Onat__of,hAPP(c_Code__Numeral_Oof__nat,X23))=X23), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_nat__of__of__nat)).
+fof(c_0_58, axiom, (class_Finite__Set_Ofinite(tc_HOL_Obool)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', arity_HOL__Obool__Finite__Set_Ofinite)).
+fof(c_0_59, axiom, (![X11]:![X9]:hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X11),X11))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_subset__refl)).
+fof(c_0_60, axiom, (![X11]:![X9]:(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X9,tc_HOL_Obool)),X11),c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))))<=>X11=c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_subset__empty)).
+fof(c_0_61, plain, (![X42]:![X9]:(c_Orderings_Obot__class_Obot(tc_fun(X9,tc_HOL_Obool))=hAPP(c_Set_OCollect(X9),X42)<=>![X3]:~hBOOL(hAPP(X42,X3)))), inference(fof_simplification,[status(thm)],[c_0_0])).
+fof(c_0_62, plain, (![X10]:c_Orderings_Obot__class_Obot(tc_fun(X10,tc_HOL_Obool))=hAPP(c_Set_OCollect(X10),hAPP(c_COMBK(tc_HOL_Obool,X10),c_fFalse))), inference(variable_rename,[status(thm)],[c_0_1])).
+fof(c_0_63, plain, (![X43]:![X44]:hAPP(c_Set_OCollect(X44),X43)=X43), inference(variable_rename,[status(thm)],[c_0_2])).
+fof(c_0_64, plain, (![X43]:![X44]:hAPP(c_Set_OCollect(X44),hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X44),c_fNot),X43))=hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X44,tc_HOL_Obool)),hAPP(c_Set_OCollect(X44),X43))), inference(variable_rename,[status(thm)],[c_0_3])).
+fof(c_0_65, plain, (![X43]:![X44]:![X45]:![X46]:![X48]:((c_Orderings_Obot__class_Obot(tc_fun(X44,tc_HOL_Obool))!=hAPP(c_Set_OCollect(X44),X43)|~hBOOL(hAPP(X43,X45)))&(hBOOL(hAPP(X46,esk249_1(X46)))|c_Orderings_Obot__class_Obot(tc_fun(X48,tc_HOL_Obool))=hAPP(c_Set_OCollect(X48),X46)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_61])])])])])).
+fof(c_0_66, plain, (![X281]:![X282]:![X283]:![X284]:hAPP(hAPP(c_COMBK(X284,X283),X282),X281)=X282), inference(variable_rename,[status(thm)],[c_0_4])).
+cnf(c_0_67,plain,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))=hAPP(c_Set_OCollect(X1),hAPP(c_COMBK(tc_HOL_Obool,X1),c_fFalse))), inference(split_conjunct,[status(thm)],[c_0_62])).
+cnf(c_0_68,plain,(hAPP(c_Set_OCollect(X1),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_63])).
+fof(c_0_69, plain, (![X12]:![X13]:hAPP(c_Set_OCollect(X13),hAPP(hAPP(c_COMBC(X13,tc_fun(X13,tc_HOL_Obool),tc_HOL_Obool),c_member(X13)),X12))=X12), inference(variable_rename,[status(thm)],[c_0_5])).
+fof(c_0_70, plain, (![X12]:![X13]:hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X13,tc_HOL_Obool)),hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X13,tc_HOL_Obool)),X12))=X12), inference(variable_rename,[status(thm)],[c_0_6])).
+cnf(c_0_71,plain,(hAPP(c_Set_OCollect(X1),hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X1),c_fNot),X2))=hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X1,tc_HOL_Obool)),hAPP(c_Set_OCollect(X1),X2))), inference(split_conjunct,[status(thm)],[c_0_64])).
+fof(c_0_72, plain, (![X42]:(~hBOOL(hAPP(c_fNot,X42))|~hBOOL(X42))), inference(fof_simplification,[status(thm)],[c_0_7])).
+cnf(c_0_73,plain,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))=hAPP(c_Set_OCollect(X1),X2)|hBOOL(hAPP(X2,esk249_1(X2)))), inference(split_conjunct,[status(thm)],[c_0_65])).
+cnf(c_0_74,plain,(hAPP(hAPP(c_COMBK(X1,X2),X3),X4)=X3), inference(split_conjunct,[status(thm)],[c_0_66])).
+cnf(c_0_75,plain,(hAPP(c_COMBK(tc_HOL_Obool,X1),c_fFalse)=c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))), inference(rw,[status(thm)],[c_0_67, c_0_68])).
+fof(c_0_76, plain, (![X10]:c_Orderings_Otop__class_Otop(tc_fun(X10,tc_HOL_Obool))=hAPP(c_Set_OCollect(X10),hAPP(c_COMBK(tc_HOL_Obool,X10),c_fTrue))), inference(variable_rename,[status(thm)],[c_0_8])).
+fof(c_0_77, plain, (![X43]:![X44]:![X45]:![X46]:![X47]:![X48]:hAPP(hAPP(hAPP(c_COMBC(X48,X47,X46),X45),X44),X43)=hAPP(hAPP(X45,X43),X44)), inference(variable_rename,[status(thm)],[c_0_9])).
+cnf(c_0_78,plain,(hAPP(c_Set_OCollect(X1),hAPP(hAPP(c_COMBC(X1,tc_fun(X1,tc_HOL_Obool),tc_HOL_Obool),c_member(X1)),X2))=X2), inference(split_conjunct,[status(thm)],[c_0_69])).
+fof(c_0_79, plain, (![X116]:![X117]:![X118]:![X120]:![X121]:![X122]:(((~hBOOL(hAPP(hAPP(c_member(X117),X118),c_Orderings_Otop__class_Otop(tc_fun(X117,tc_HOL_Obool))))|~hBOOL(hAPP(X116,X118)))|hBOOL(hAPP(X116,esk503_1(X116))))&((hBOOL(hAPP(hAPP(c_member(X122),esk504_2(X120,X122)),c_Orderings_Otop__class_Otop(tc_fun(X122,tc_HOL_Obool))))|~hBOOL(hAPP(X120,X121)))&(hBOOL(hAPP(X120,esk504_2(X120,X122)))|~hBOOL(hAPP(X120,X121)))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])])])).
+fof(c_0_80, plain, (![X11]:![X12]:hBOOL(hAPP(hAPP(c_member(X12),X11),c_Orderings_Otop__class_Otop(tc_fun(X12,tc_HOL_Obool))))), inference(variable_rename,[status(thm)],[c_0_11])).
+fof(c_0_81, plain, (![X43]:![X44]:![X45]:![X46]:![X47]:![X48]:hAPP(hAPP(hAPP(c_COMBB(X48,X47,X46),X45),X44),X43)=hAPP(X45,hAPP(X44,X43))), inference(variable_rename,[status(thm)],[c_0_12])).
+cnf(c_0_82,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X1,tc_HOL_Obool)),hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X1,tc_HOL_Obool)),X2))=X2), inference(split_conjunct,[status(thm)],[c_0_70])).
+cnf(c_0_83,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X1,tc_HOL_Obool)),X2)=hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X1),c_fNot),X2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_71, c_0_68]), c_0_68])).
+fof(c_0_84, plain, (![X43]:(~hBOOL(hAPP(c_fNot,X43))|~hBOOL(X43))), inference(variable_rename,[status(thm)],[c_0_72])).
+cnf(c_0_85,plain,(X1=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|hBOOL(hAPP(X1,esk249_1(X1)))), inference(rw,[status(thm)],[c_0_73, c_0_68])).
+cnf(c_0_86,plain,(hAPP(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool)),X2)=c_fFalse), inference(spm,[status(thm)],[c_0_74, c_0_75])).
+fof(c_0_87, plain, (![X10]:hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X10,tc_HOL_Obool)),c_Orderings_Obot__class_Obot(tc_fun(X10,tc_HOL_Obool)))=c_Orderings_Otop__class_Otop(tc_fun(X10,tc_HOL_Obool))), inference(variable_rename,[status(thm)],[c_0_13])).
+cnf(c_0_88,plain,(c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))=hAPP(c_Set_OCollect(X1),hAPP(c_COMBK(tc_HOL_Obool,X1),c_fTrue))), inference(split_conjunct,[status(thm)],[c_0_76])).
+fof(c_0_89, plain, (![X13]:![X14]:![X15]:hAPP(hAPP(c_Set_Oinsert(X15),X14),X13)!=c_Orderings_Obot__class_Obot(tc_fun(X15,tc_HOL_Obool))), inference(variable_rename,[status(thm)],[c_0_14])).
+fof(c_0_90, plain, (![X16]:![X17]:![X18]:![X19]:![X20]:hAPP(c_Set_Oimage(X20,X19,X18),hAPP(hAPP(c_Set_Oinsert(X20),X17),X16))=hAPP(hAPP(c_Set_Oinsert(X19),hAPP(X18,X17)),hAPP(c_Set_Oimage(X20,X19,X18),X16))), inference(variable_rename,[status(thm)],[c_0_15])).
+fof(c_0_91, plain, (![X13]:![X14]:![X15]:(~hBOOL(hAPP(hAPP(c_member(X15),X14),X13))|hAPP(hAPP(c_Set_Oinsert(X15),X14),X13)=X13)), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_16])])).
+cnf(c_0_92,plain,(hAPP(hAPP(hAPP(c_COMBC(X1,X2,X3),X4),X5),X6)=hAPP(hAPP(X4,X6),X5)), inference(split_conjunct,[status(thm)],[c_0_77])).
+cnf(c_0_93,plain,(hAPP(hAPP(c_COMBC(X1,tc_fun(X1,tc_HOL_Obool),tc_HOL_Obool),c_member(X1)),X2)=X2), inference(rw,[status(thm)],[c_0_78, c_0_68])).
+cnf(c_0_94,plain,(hBOOL(hAPP(X1,esk503_1(X1)))|~hBOOL(hAPP(X1,X2))|~hBOOL(hAPP(hAPP(c_member(X3),X2),c_Orderings_Otop__class_Otop(tc_fun(X3,tc_HOL_Obool))))), inference(split_conjunct,[status(thm)],[c_0_79])).
+cnf(c_0_95,plain,(hBOOL(hAPP(hAPP(c_member(X1),X2),c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))))), inference(split_conjunct,[status(thm)],[c_0_80])).
+fof(c_0_96, plain, (![X10]:hBOOL(hAPP(c_Finite__Set_Ofinite(X10),c_Orderings_Obot__class_Obot(tc_fun(X10,tc_HOL_Obool))))), inference(variable_rename,[status(thm)],[c_0_17])).
+fof(c_0_97, plain, (![X11]:![X9]:(~hBOOL(hAPP(c_Finite__Set_Ofinite(X9),X11))=>hAPP(c_Finite__Set_Ocard(X9),X11)=c_Groups_Ozero__class_Ozero(tc_Nat_Onat))), inference(fof_simplification,[status(thm)],[c_0_18])).
+fof(c_0_98, plain, (![X23]:~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X23),c_Groups_Ozero__class_Ozero(tc_Nat_Onat)))), inference(fof_simplification,[status(thm)],[c_0_19])).
+cnf(c_0_99,plain,(hAPP(hAPP(hAPP(c_COMBB(X1,X2,X3),X4),X5),X6)=hAPP(X4,hAPP(X5,X6))), inference(split_conjunct,[status(thm)],[c_0_81])).
+cnf(c_0_100,plain,(hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X1),c_fNot),hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X1),c_fNot),X2))=X2), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_82, c_0_83]), c_0_83])).
+fof(c_0_101, plain, (![X201]:![X202]:hAPP(c_List_Orev(X202),hAPP(c_List_Orev(X202),X201))=X201), inference(variable_rename,[status(thm)],[c_0_20])).
+cnf(c_0_102,plain,(~hBOOL(X1)|~hBOOL(hAPP(c_fNot,X1))), inference(split_conjunct,[status(thm)],[c_0_84])).
+cnf(c_0_103,plain,(c_fFalse=X1|hBOOL(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_74, c_0_85]), c_0_86]), c_0_74])).
+cnf(c_0_104,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_fun(X1,tc_HOL_Obool)),c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool)))=c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))), inference(split_conjunct,[status(thm)],[c_0_87])).
+cnf(c_0_105,plain,(hAPP(c_COMBK(tc_HOL_Obool,X1),c_fTrue)=c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))), inference(rw,[status(thm)],[c_0_88, c_0_68])).
+cnf(c_0_106,plain,(hAPP(hAPP(c_Set_Oinsert(X1),X2),X3)!=c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))), inference(split_conjunct,[status(thm)],[c_0_89])).
+cnf(c_0_107,plain,(hAPP(c_Set_Oimage(X1,X2,X3),hAPP(hAPP(c_Set_Oinsert(X1),X4),X5))=hAPP(hAPP(c_Set_Oinsert(X2),hAPP(X3,X4)),hAPP(c_Set_Oimage(X1,X2,X3),X5))), inference(split_conjunct,[status(thm)],[c_0_90])).
+cnf(c_0_108,plain,(hAPP(hAPP(c_Set_Oinsert(X1),X2),X3)=X3|~hBOOL(hAPP(hAPP(c_member(X1),X2),X3))), inference(split_conjunct,[status(thm)],[c_0_91])).
+cnf(c_0_109,plain,(hAPP(hAPP(c_member(X1),X2),X3)=hAPP(X3,X2)), inference(spm,[status(thm)],[c_0_92, c_0_93])).
+cnf(c_0_110,plain,(hBOOL(hAPP(X1,esk503_1(X1)))|~hBOOL(hAPP(X1,X2))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_94, c_0_95])])).
+cnf(c_0_111,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(X1),c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))))), inference(split_conjunct,[status(thm)],[c_0_96])).
+fof(c_0_112, plain, (![X29]:hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X29)=hAPP(c_Orderings_Oord__class_Oless__eq(tc_Nat_Onat),hAPP(c_Nat_OSuc,X29))), inference(variable_rename,[status(thm)],[c_0_21])).
+fof(c_0_113, plain, (![X12]:![X13]:(hBOOL(hAPP(c_Finite__Set_Ofinite(X13),X12))|hAPP(c_Finite__Set_Ocard(X13),X12)=c_Groups_Ozero__class_Ozero(tc_Nat_Onat))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_97])])).
+cnf(c_0_114,plain,(hAPP(c_Int_Onat,c_Groups_Ozero__class_Ozero(tc_Int_Oint))=c_Groups_Ozero__class_Ozero(tc_Nat_Onat)), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_115,plain,(c_Int_OPls=c_Groups_Ozero__class_Ozero(tc_Int_Oint)), inference(split_conjunct,[status(thm)],[c_0_23])).
+fof(c_0_116, plain, (![X24]:~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X24),c_Groups_Ozero__class_Ozero(tc_Nat_Onat)))), inference(variable_rename,[status(thm)],[c_0_98])).
+fof(c_0_117, plain, (![X12]:![X13]:![X14]:![X15]:![X16]:((~hBOOL(hAPP(hAPP(c_member(X13),X14),X12))|X12!=c_Orderings_Obot__class_Obot(tc_fun(X13,tc_HOL_Obool)))&(X15=c_Orderings_Obot__class_Obot(tc_fun(X16,tc_HOL_Obool))|hBOOL(hAPP(hAPP(c_member(X16),esk8_2(X15,X16)),X15))))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_24])])])])])).
+cnf(c_0_118,plain,(hAPP(c_fNot,hAPP(c_fNot,hAPP(X1,X2)))=hAPP(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_99, c_0_100]), c_0_99])).
+cnf(c_0_119,plain,(hAPP(c_List_Orev(X1),hAPP(c_List_Orev(X1),X2))=X2), inference(split_conjunct,[status(thm)],[c_0_101])).
+cnf(c_0_120,plain,(hAPP(c_fNot,X1)=c_fFalse|~hBOOL(X1)), inference(spm,[status(thm)],[c_0_102, c_0_103])).
+cnf(c_0_121,plain,(hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,X1),c_fNot),c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool)))=c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))), inference(rw,[status(thm)],[c_0_104, c_0_83])).
+cnf(c_0_122,plain,(hAPP(c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool)),X2)=c_fTrue), inference(spm,[status(thm)],[c_0_74, c_0_105])).
+cnf(c_0_123,plain,(hAPP(c_Set_Oimage(X1,X2,X3),hAPP(hAPP(c_Set_Oinsert(X1),X4),X5))!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_106, c_0_107])).
+cnf(c_0_124,plain,(hAPP(hAPP(c_Set_Oinsert(X1),X2),X3)=X3|~hBOOL(hAPP(X3,X2))), inference(rw,[status(thm)],[c_0_108, c_0_109])).
+cnf(c_0_125,plain,(hBOOL(hAPP(X1,esk504_2(X1,X3)))|~hBOOL(hAPP(X1,X2))), inference(split_conjunct,[status(thm)],[c_0_79])).
+cnf(c_0_126,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(X1),esk503_1(c_Finite__Set_Ofinite(X1))))), inference(spm,[status(thm)],[c_0_110, c_0_111])).
+cnf(c_0_127,hypothesis,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_Nat_Onat),hAPP(c_Nat_OSuc,v_n)),hAPP(c_Finite__Set_Ocard(t_a),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U))))), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_128,plain,(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X1)=hAPP(c_Orderings_Oord__class_Oless__eq(tc_Nat_Onat),hAPP(c_Nat_OSuc,X1))), inference(split_conjunct,[status(thm)],[c_0_112])).
+cnf(c_0_129,plain,(hAPP(c_Finite__Set_Ocard(X1),X2)=c_Groups_Ozero__class_Ozero(tc_Nat_Onat)|hBOOL(hAPP(c_Finite__Set_Ofinite(X1),X2))), inference(split_conjunct,[status(thm)],[c_0_113])).
+cnf(c_0_130,plain,(c_Groups_Ozero__class_Ozero(tc_Nat_Onat)=hAPP(c_Int_Onat,c_Int_OPls)), inference(rw,[status(thm)],[c_0_114, c_0_115])).
+cnf(c_0_131,plain,(~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X1),c_Groups_Ozero__class_Ozero(tc_Nat_Onat)))), inference(split_conjunct,[status(thm)],[c_0_116])).
+cnf(c_0_132,plain,(X1!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|~hBOOL(hAPP(hAPP(c_member(X2),X3),X1))), inference(split_conjunct,[status(thm)],[c_0_117])).
+cnf(c_0_133,hypothesis,(hBOOL(hAPP(hAPP(c_member(tc_Com_Opname),v_pn),v_U))), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_134,plain,(hAPP(c_fNot,hAPP(c_fNot,X1))=X1), inference(spm,[status(thm)],[c_0_118, c_0_119])).
+cnf(c_0_135,plain,(hAPP(c_fNot,X1)=c_fFalse|c_fFalse=X1), inference(spm,[status(thm)],[c_0_120, c_0_103])).
+cnf(c_0_136,plain,(hAPP(c_fNot,c_fFalse)=c_fTrue), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_99, c_0_121]), c_0_122]), c_0_86])).
+cnf(c_0_137,plain,(hAPP(c_Set_Oimage(X1,X2,X3),X4)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|~hBOOL(hAPP(X4,X5))), inference(spm,[status(thm)],[c_0_123, c_0_124])).
+cnf(c_0_138,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(X1),esk504_2(c_Finite__Set_Ofinite(X1),X2)))), inference(spm,[status(thm)],[c_0_125, c_0_126])).
+fof(c_0_139, plain, (![X46]:![X47]:hAPP(c_Set_Oimage(X47,X47,c_COMBI(X47)),X46)=X46), inference(variable_rename,[status(thm)],[c_0_27])).
+fof(c_0_140, plain, (![X16]:![X17]:![X18]:(~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X18,tc_HOL_Obool)),X17),X16))|(~hBOOL(hAPP(c_Finite__Set_Ofinite(X18),X16))|hBOOL(hAPP(c_Finite__Set_Ofinite(X18),X17))))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_28])])).
+cnf(c_0_141,hypothesis,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),v_n),hAPP(c_Finite__Set_Ocard(t_a),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U))))), inference(rw,[status(thm)],[c_0_127, c_0_128])).
+cnf(c_0_142,plain,(hAPP(c_Finite__Set_Ocard(X1),X2)=hAPP(c_Int_Onat,c_Int_OPls)|hBOOL(hAPP(c_Finite__Set_Ofinite(X1),X2))), inference(rw,[status(thm)],[c_0_129, c_0_130])).
+cnf(c_0_143,plain,(~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless(tc_Nat_Onat),X1),hAPP(c_Int_Onat,c_Int_OPls)))), inference(rw,[status(thm)],[c_0_131, c_0_130])).
+cnf(c_0_144,plain,(~hBOOL(hAPP(X1,X2))|c_Orderings_Obot__class_Obot(tc_fun(X3,tc_HOL_Obool))!=hAPP(c_Set_OCollect(X3),X1)), inference(split_conjunct,[status(thm)],[c_0_65])).
+cnf(c_0_145,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(tc_Com_Opname,tc_HOL_Obool))!=v_U), inference(spm,[status(thm)],[c_0_132, c_0_133])).
+cnf(c_0_146,plain,(c_fFalse=X1|c_fTrue=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_134, c_0_135]), c_0_136])).
+fof(c_0_147, plain, (![X16]:![X17]:![X18]:(~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X18,tc_HOL_Obool)),X17),X16))|(~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X18,tc_HOL_Obool)),X16),X17))|X17=X16))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_29])])).
+cnf(c_0_148,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_Finite__Set_Ofinite(X4))!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_138])).
+cnf(c_0_149,plain,(hAPP(c_Set_Oimage(X1,X1,c_COMBI(X1)),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_139])).
+cnf(c_0_150,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(X1),X2))|~hBOOL(hAPP(c_Finite__Set_Ofinite(X1),X3))|~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X1,tc_HOL_Obool)),X2),X3))), inference(split_conjunct,[status(thm)],[c_0_140])).
+cnf(c_0_151,hypothesis,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)))), inference(split_conjunct,[status(thm)],[c_0_30])).
+cnf(c_0_152,hypothesis,(hBOOL(hAPP(c_Finite__Set_Ofinite(t_a),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)))), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_141, c_0_142]), c_0_143])).
+cnf(c_0_153,plain,(X1!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|~hBOOL(hAPP(X1,X3))), inference(rw,[status(thm)],[c_0_144, c_0_68])).
+cnf(c_0_154,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(tc_Com_Opname,tc_HOL_Obool))=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_145, c_0_146])).
+fof(c_0_155, plain, (![X12]:![X13]:hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X13,tc_HOL_Obool)),X12),c_Orderings_Otop__class_Otop(tc_fun(X13,tc_HOL_Obool))))), inference(variable_rename,[status(thm)],[c_0_31])).
+cnf(c_0_156,plain,(X1=X2|~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X3,tc_HOL_Obool)),X2),X1))|~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X3,tc_HOL_Obool)),X1),X2))), inference(split_conjunct,[status(thm)],[c_0_147])).
+cnf(c_0_157,plain,(c_Finite__Set_Ofinite(X1)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_148, c_0_149])).
+cnf(c_0_158,hypothesis,(hBOOL(hAPP(c_Finite__Set_Ofinite(t_a),v_G))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_150, c_0_151]), c_0_152])])).
+cnf(c_0_159,hypothesis,(c_fTrue!=v_U|X1!=c_fFalse|~hBOOL(hAPP(X1,X2))), inference(spm,[status(thm)],[c_0_153, c_0_154])).
+cnf(c_0_160,plain,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X1,tc_HOL_Obool)),X2),c_Orderings_Otop__class_Otop(tc_fun(X1,tc_HOL_Obool))))), inference(split_conjunct,[status(thm)],[c_0_155])).
+cnf(c_0_161,hypothesis,(hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)=v_G|~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)),v_G))), inference(spm,[status(thm)],[c_0_156, c_0_151])).
+cnf(c_0_162,hypothesis,(c_Finite__Set_Ofinite(X1)!=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_157, c_0_154])).
+cnf(c_0_163,hypothesis,(c_Finite__Set_Ofinite(t_a)=c_fFalse|hBOOL(hAPP(c_fTrue,v_G))), inference(spm,[status(thm)],[c_0_158, c_0_146])).
+fof(c_0_164, plain, (![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:![X18]:![X19]:((hAPP(c_Set_Oimage(X15,X14,X13),X12)!=c_Orderings_Obot__class_Obot(tc_fun(X14,tc_HOL_Obool))|X12=c_Orderings_Obot__class_Obot(tc_fun(X15,tc_HOL_Obool)))&(X16!=c_Orderings_Obot__class_Obot(tc_fun(X19,tc_HOL_Obool))|hAPP(c_Set_Oimage(X19,X18,X17),X16)=c_Orderings_Obot__class_Obot(tc_fun(X18,tc_HOL_Obool))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_32])])])])).
+cnf(c_0_165,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X1,tc_HOL_Obool)),X2)!=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_159, c_0_160])).
+cnf(c_0_166,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U))=c_fFalse|hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)=v_G|~hBOOL(hAPP(c_fTrue,v_G))), inference(spm,[status(thm)],[c_0_161, c_0_146])).
+cnf(c_0_167,hypothesis,(hBOOL(hAPP(c_fTrue,v_G))|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_162, c_0_163])).
+cnf(c_0_168,plain,(X1=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|hAPP(c_Set_Oimage(X2,X3,X4),X1)!=c_Orderings_Obot__class_Obot(tc_fun(X3,tc_HOL_Obool))), inference(split_conjunct,[status(thm)],[c_0_164])).
+cnf(c_0_169,hypothesis,(hAPP(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call),v_U)=v_G|c_fTrue!=v_U), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_165, c_0_166]), c_0_167])).
+fof(c_0_170, plain, (~hBOOL(c_fFalse)), inference(fof_simplification,[status(thm)],[c_0_33])).
+fof(c_0_171, plain, (![X42]:(hBOOL(X42)|hBOOL(hAPP(c_fNot,X42)))), inference(fof_simplification,[status(thm)],[c_0_34])).
+cnf(c_0_172,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(t_a,tc_HOL_Obool))!=v_G|c_fTrue!=v_U), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_168, c_0_169]), c_0_145])).
+cnf(c_0_173,plain,(~hBOOL(c_fFalse)), inference(split_conjunct,[status(thm)],[c_0_170])).
+fof(c_0_174, plain, (![X26]:(~class_Lattices_Oboolean__algebra(X26)|hAPP(c_Groups_Ouminus__class_Ouminus(X26),c_Orderings_Obot__class_Obot(X26))=c_Orderings_Otop__class_Otop(X26))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_35])])).
+fof(c_0_175, plain, (![X11]:![X12]:![X13]:(~class_Orderings_Obot(X13)|hAPP(c_Orderings_Obot__class_Obot(tc_fun(X12,X13)),X11)=c_Orderings_Obot__class_Obot(X13))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_36])])).
+fof(c_0_176, plain, (![X43]:(hBOOL(X43)|hBOOL(hAPP(c_fNot,X43)))), inference(variable_rename,[status(thm)],[c_0_171])).
+fof(c_0_177, plain, (![X32]:hAPP(c_Int_Onumber__class_Onumber__of(tc_Int_Oint),X32)=X32), inference(variable_rename,[status(thm)],[c_0_37])).
+fof(c_0_178, plain, (![X43]:![X44]:![X45]:![X46]:hAPP(c_Set_Ovimage(X46,X45,X44),hAPP(c_Set_OCollect(X45),X43))=hAPP(c_Set_OCollect(X46),hAPP(hAPP(c_COMBB(X45,tc_HOL_Obool,X46),X43),X44))), inference(variable_rename,[status(thm)],[c_0_38])).
+cnf(c_0_179,hypothesis,(hBOOL(hAPP(c_Finite__Set_Ofinite(tc_Com_Opname),v_U))), inference(split_conjunct,[status(thm)],[c_0_39])).
+cnf(c_0_180,hypothesis,(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call)!=c_fFalse|c_fTrue!=v_U|~hBOOL(v_G)), inference(spm,[status(thm)],[c_0_159, c_0_169])).
+cnf(c_0_181,hypothesis,(c_Set_Oimage(tc_Com_Opname,t_a,v_mgt__call)=c_fFalse|hAPP(c_fTrue,v_U)=v_G|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_169, c_0_146])).
+cnf(c_0_182,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))!=v_G|c_fTrue!=v_U), inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_172, c_0_85]), c_0_86]), c_0_173])).
+cnf(c_0_183,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(X1),c_Orderings_Obot__class_Obot(X1))=c_Orderings_Otop__class_Otop(X1)|~class_Lattices_Oboolean__algebra(X1)), inference(split_conjunct,[status(thm)],[c_0_174])).
+cnf(c_0_184,plain,(class_Lattices_Oboolean__algebra(tc_HOL_Obool)), inference(split_conjunct,[status(thm)],[c_0_40])).
+cnf(c_0_185,plain,(hAPP(c_Orderings_Obot__class_Obot(tc_fun(X1,X2)),X3)=c_Orderings_Obot__class_Obot(X2)|~class_Orderings_Obot(X2)), inference(split_conjunct,[status(thm)],[c_0_175])).
+cnf(c_0_186,plain,(class_Orderings_Obot(tc_HOL_Obool)), inference(split_conjunct,[status(thm)],[c_0_41])).
+fof(c_0_187, plain, (![X12]:![X13]:(~class_Finite__Set_Ofinite(X13)|hBOOL(hAPP(c_Finite__Set_Ofinite(X13),X12)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_42])])).
+fof(c_0_188, plain, (![X200]:![X201]:hAPP(hAPP(c_List_Oappend(X201),c_List_Olist_ONil(X201)),X200)=X200), inference(variable_rename,[status(thm)],[c_0_43])).
+cnf(c_0_189,plain,(hBOOL(hAPP(c_fNot,X1))|hBOOL(X1)), inference(split_conjunct,[status(thm)],[c_0_176])).
+fof(c_0_190, plain, (![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:((~hBOOL(hAPP(hAPP(c_member(X14),X13),X12))|hBOOL(hAPP(X12,X13)))&(~hBOOL(hAPP(X15,X16))|hBOOL(hAPP(hAPP(c_member(X17),X16),X15))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_44])])])])).
+cnf(c_0_191,plain,(hBOOL(hAPP(c_Nat__Numeral_Oneg,hAPP(c_Int_Onumber__class_Onumber__of(tc_Int_Oint),c_Int_OMin)))), inference(split_conjunct,[status(thm)],[c_0_45])).
+cnf(c_0_192,plain,(hAPP(c_Int_Onumber__class_Onumber__of(tc_Int_Oint),X1)=X1), inference(split_conjunct,[status(thm)],[c_0_177])).
+fof(c_0_193, plain, (![X12]:![X13]:hAPP(c_Set_Ovimage(X13,X13,c_Fun_Oid(X13)),X12)=X12), inference(variable_rename,[status(thm)],[c_0_46])).
+cnf(c_0_194,plain,(hAPP(c_Set_Ovimage(X1,X2,X3),hAPP(c_Set_OCollect(X2),X4))=hAPP(c_Set_OCollect(X1),hAPP(hAPP(c_COMBB(X2,tc_HOL_Obool,X1),X4),X3))), inference(split_conjunct,[status(thm)],[c_0_178])).
+cnf(c_0_195,hypothesis,(c_Finite__Set_Ofinite(tc_Com_Opname)=c_fFalse|hBOOL(hAPP(c_fTrue,v_U))), inference(spm,[status(thm)],[c_0_179, c_0_146])).
+cnf(c_0_196,hypothesis,(hAPP(c_fTrue,v_U)=v_G|c_fTrue!=v_U|~hBOOL(v_G)), inference(spm,[status(thm)],[c_0_180, c_0_181])).
+cnf(c_0_197,hypothesis,(v_G!=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_182, c_0_154])).
+fof(c_0_198, plain, (![X26]:![X27]:(~class_Lattices_Oboolean__algebra(X27)|hAPP(c_Groups_Ouminus__class_Ouminus(X27),hAPP(c_Groups_Ouminus__class_Ouminus(X27),X26))=X26)), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_47])])).
+fof(c_0_199, plain, (![X11]:![X12]:![X13]:(~class_Orderings_Otop(X13)|hAPP(c_Orderings_Otop__class_Otop(tc_fun(X12,X13)),X11)=c_Orderings_Otop__class_Otop(X13))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_48])])).
+cnf(c_0_200,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),c_Orderings_Obot__class_Obot(tc_HOL_Obool))=c_Orderings_Otop__class_Otop(tc_HOL_Obool)), inference(spm,[status(thm)],[c_0_183, c_0_184])).
+cnf(c_0_201,plain,(c_Orderings_Obot__class_Obot(tc_HOL_Obool)=c_fFalse), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_185, c_0_186]), c_0_86])).
+fof(c_0_202, plain, (![X203]:![X204]:![X205]:![X206]:![X207]:![X208]:![X209]:((hAPP(c_List_Ofilter(X205,X204),X203)!=X203|(~hBOOL(hAPP(hAPP(c_member(X205),X206),hAPP(c_List_Oset(X205),X203)))|hBOOL(hAPP(X204,X206))))&((hBOOL(hAPP(hAPP(c_member(X209),esk424_3(X207,X208,X209)),hAPP(c_List_Oset(X209),X207)))|hAPP(c_List_Ofilter(X209,X208),X207)=X207)&(~hBOOL(hAPP(X208,esk424_3(X207,X208,X209)))|hAPP(c_List_Ofilter(X209,X208),X207)=X207)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_49])])])])])])).
+cnf(c_0_203,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(X1),X2))|~class_Finite__Set_Ofinite(X1)), inference(split_conjunct,[status(thm)],[c_0_187])).
+cnf(c_0_204,plain,(class_Finite__Set_Ofinite(tc_Product__Type_Ounit)), inference(split_conjunct,[status(thm)],[c_0_50])).
+cnf(c_0_205,plain,(hAPP(hAPP(c_List_Oappend(X1),c_List_Olist_ONil(X1)),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_188])).
+cnf(c_0_206,plain,(hBOOL(hAPP(c_fNot,esk503_1(c_fNot)))|hBOOL(X1)), inference(spm,[status(thm)],[c_0_110, c_0_189])).
+cnf(c_0_207,plain,(hBOOL(hAPP(X1,X2))|~hBOOL(hAPP(hAPP(c_member(X3),X2),X1))), inference(split_conjunct,[status(thm)],[c_0_190])).
+cnf(c_0_208,plain,(hBOOL(hAPP(c_Nat__Numeral_Oneg,c_Int_OMin))), inference(rw,[status(thm)],[c_0_191, c_0_192])).
+cnf(c_0_209,plain,(hAPP(c_Set_Ovimage(X1,X1,c_Fun_Oid(X1)),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_193])).
+cnf(c_0_210,plain,(hAPP(c_Set_Ovimage(X1,X2,X3),X4)=hAPP(hAPP(c_COMBB(X2,tc_HOL_Obool,X1),X4),X3)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_194, c_0_68]), c_0_68])).
+cnf(c_0_211,hypothesis,(hBOOL(hAPP(c_fTrue,v_U))|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_162, c_0_195])).
+cnf(c_0_212,hypothesis,(hAPP(c_fTrue,v_U)=v_G|c_fTrue!=v_U), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_196, c_0_103]), c_0_197])).
+cnf(c_0_213,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(X1),hAPP(c_Groups_Ouminus__class_Ouminus(X1),X2))=X2|~class_Lattices_Oboolean__algebra(X1)), inference(split_conjunct,[status(thm)],[c_0_198])).
+cnf(c_0_214,plain,(hAPP(c_Orderings_Otop__class_Otop(tc_fun(X1,X2)),X3)=c_Orderings_Otop__class_Otop(X2)|~class_Orderings_Otop(X2)), inference(split_conjunct,[status(thm)],[c_0_199])).
+cnf(c_0_215,plain,(class_Orderings_Otop(tc_HOL_Obool)), inference(split_conjunct,[status(thm)],[c_0_51])).
+cnf(c_0_216,plain,(c_Orderings_Otop__class_Otop(tc_HOL_Obool)=hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),c_fFalse)), inference(rw,[status(thm)],[c_0_200, c_0_201])).
+cnf(c_0_217,plain,(hAPP(c_List_Ofilter(X1,X2),X3)=X3|~hBOOL(hAPP(X2,esk424_3(X3,X2,X1)))), inference(split_conjunct,[status(thm)],[c_0_202])).
+cnf(c_0_218,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(tc_Product__Type_Ounit),X1))), inference(spm,[status(thm)],[c_0_203, c_0_204])).
+cnf(c_0_219,plain,(hBOOL(esk503_1(hAPP(c_List_Oappend(X1),c_List_Olist_ONil(X1))))|~hBOOL(X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_110, c_0_205]), c_0_205])).
+cnf(c_0_220,plain,(hBOOL(hAPP(c_fNot,esk503_1(c_fNot)))), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_102, c_0_206]), c_0_206])).
+cnf(c_0_221,hypothesis,(hBOOL(hAPP(v_U,v_pn))), inference(spm,[status(thm)],[c_0_207, c_0_133])).
+cnf(c_0_222,plain,(hBOOL(hAPP(c_Nat__Numeral_Oneg,esk503_1(c_Nat__Numeral_Oneg)))), inference(spm,[status(thm)],[c_0_110, c_0_208])).
+fof(c_0_223, plain, (![X46]:![X47]:hAPP(c_Set_Oimage(X47,X47,c_Fun_Oid(X47)),X46)=X46), inference(variable_rename,[status(thm)],[c_0_52])).
+cnf(c_0_224,plain,(hAPP(hAPP(c_COMBB(X1,tc_HOL_Obool,X1),X2),c_Fun_Oid(X1))=X2), inference(rw,[status(thm)],[c_0_209, c_0_210])).
+cnf(c_0_225,hypothesis,(hBOOL(v_G)|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_211, c_0_212])).
+cnf(c_0_226,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),X1))=X1), inference(spm,[status(thm)],[c_0_213, c_0_184])).
+cnf(c_0_227,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),c_fFalse)=c_fTrue), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_214, c_0_215]), c_0_122]), c_0_216])).
+fof(c_0_228, plain, (![X116]:![X117]:![X118]:(~hBOOL(hAPP(X117,X118))|hBOOL(hAPP(X117,c_Hilbert__Choice_OEps(X116,X117))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_53])])])).
+fof(c_0_229, plain, (![X24]:hAPP(c_Int_Onat,hAPP(c_Nat_Osemiring__1__class_Oof__nat(tc_Int_Oint),X24))=X24), inference(variable_rename,[status(thm)],[c_0_54])).
+cnf(c_0_230,plain,(hAPP(c_List_Ofilter(X1,c_Finite__Set_Ofinite(tc_Product__Type_Ounit)),X2)=X2), inference(spm,[status(thm)],[c_0_217, c_0_218])).
+cnf(c_0_231,plain,(hBOOL(esk503_1(c_Set_Oimage(X1,X1,c_COMBI(X1))))|~hBOOL(X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_110, c_0_149]), c_0_149])).
+cnf(c_0_232,plain,(hBOOL(esk503_1(hAPP(c_List_Oappend(X1),c_List_Olist_ONil(X1))))), inference(spm,[status(thm)],[c_0_219, c_0_220])).
+cnf(c_0_233,hypothesis,(hBOOL(hAPP(v_U,esk503_1(v_U)))), inference(spm,[status(thm)],[c_0_110, c_0_221])).
+cnf(c_0_234,plain,(hBOOL(hAPP(c_Nat__Numeral_Oneg,esk504_2(c_Nat__Numeral_Oneg,X1)))), inference(spm,[status(thm)],[c_0_125, c_0_222])).
+cnf(c_0_235,plain,(hAPP(c_Set_Oimage(X1,X1,c_Fun_Oid(X1)),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_223])).
+cnf(c_0_236,plain,(c_Fun_Oid(tc_HOL_Obool)=hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,tc_HOL_Obool),c_fNot),c_fNot)), inference(spm,[status(thm)],[c_0_100, c_0_224])).
+cnf(c_0_237,hypothesis,(hAPP(c_fNot,v_G)=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_120, c_0_225])).
+cnf(c_0_238,plain,(hBOOL(c_fTrue)), inference(split_conjunct,[status(thm)],[c_0_55])).
+cnf(c_0_239,plain,(hAPP(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool),c_fTrue)=c_fFalse), inference(spm,[status(thm)],[c_0_226, c_0_227])).
+cnf(c_0_240,hypothesis,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G),esk503_1(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G))))), inference(spm,[status(thm)],[c_0_110, c_0_151])).
+cnf(c_0_241,plain,(hBOOL(hAPP(X1,c_Hilbert__Choice_OEps(X2,X1)))|~hBOOL(hAPP(X1,X3))), inference(split_conjunct,[status(thm)],[c_0_228])).
+cnf(c_0_242,plain,(hAPP(c_Int_Onat,hAPP(c_Nat_Osemiring__1__class_Oof__nat(tc_Int_Oint),X1))=X1), inference(split_conjunct,[status(thm)],[c_0_229])).
+cnf(c_0_243,plain,(hBOOL(esk503_1(c_List_Ofilter(X1,c_Finite__Set_Ofinite(tc_Product__Type_Ounit))))|~hBOOL(X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_110, c_0_230]), c_0_230])).
+cnf(c_0_244,plain,(hBOOL(esk503_1(c_Set_Oimage(X1,X1,c_COMBI(X1))))), inference(spm,[status(thm)],[c_0_231, c_0_232])).
+cnf(c_0_245,hypothesis,(hBOOL(hAPP(v_U,esk504_2(v_U,X1)))), inference(spm,[status(thm)],[c_0_125, c_0_233])).
+cnf(c_0_246,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_Nat__Numeral_Oneg)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_234])).
+cnf(c_0_247,plain,(hAPP(c_Set_Oimage(tc_HOL_Obool,tc_HOL_Obool,hAPP(hAPP(c_COMBB(tc_HOL_Obool,tc_HOL_Obool,tc_HOL_Obool),c_fNot),c_fNot)),X1)=X1), inference(spm,[status(thm)],[c_0_235, c_0_236])).
+cnf(c_0_248,hypothesis,(v_G=c_fTrue|c_fTrue!=v_U), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_134, c_0_237]), c_0_136])).
+cnf(c_0_249,hypothesis,(c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool)!=c_fFalse|c_fTrue!=v_U), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_159, c_0_227]), c_0_238])])).
+cnf(c_0_250,plain,(hAPP(c_fTrue,c_fTrue)=c_fFalse|c_Groups_Ouminus__class_Ouminus(tc_HOL_Obool)=c_fFalse), inference(spm,[status(thm)],[c_0_239, c_0_146])).
+cnf(c_0_251,hypothesis,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G),esk504_2(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G),X1)))), inference(spm,[status(thm)],[c_0_125, c_0_240])).
+cnf(c_0_252,plain,(hBOOL(hAPP(c_Int_Onat,c_Hilbert__Choice_OEps(X1,c_Int_Onat)))|~hBOOL(X2)), inference(spm,[status(thm)],[c_0_241, c_0_242])).
+cnf(c_0_253,plain,(hBOOL(esk503_1(c_List_Ofilter(X1,c_Finite__Set_Ofinite(tc_Product__Type_Ounit))))), inference(spm,[status(thm)],[c_0_243, c_0_244])).
+cnf(c_0_254,hypothesis,(hAPP(c_Set_Oimage(X1,X2,X3),v_U)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_245])).
+cnf(c_0_255,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=c_Nat__Numeral_Oneg), inference(spm,[status(thm)],[c_0_246, c_0_247])).
+cnf(c_0_256,hypothesis,(hBOOL(hAPP(c_fTrue,c_fTrue))|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_167, c_0_248])).
+cnf(c_0_257,hypothesis,(hAPP(c_fTrue,c_fTrue)=c_fFalse|c_fTrue!=v_U), inference(spm,[status(thm)],[c_0_249, c_0_250])).
+fof(c_0_258, plain, (![X177]:![X178]:hAPP(c_Fun_Oid(X178),X177)=X177), inference(variable_rename,[status(thm)],[c_0_56])).
+cnf(c_0_259,hypothesis,(hAPP(c_Set_Oimage(X1,X2,X3),hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G))!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_251])).
+cnf(c_0_260,plain,(hBOOL(hAPP(c_Int_Onat,c_Hilbert__Choice_OEps(X1,c_Int_Onat)))), inference(spm,[status(thm)],[c_0_252, c_0_253])).
+cnf(c_0_261,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_fNot)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_137, c_0_136]), c_0_238])])).
+cnf(c_0_262,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))!=v_U), inference(spm,[status(thm)],[c_0_254, c_0_149])).
+cnf(c_0_263,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|c_fTrue!=c_Nat__Numeral_Oneg), inference(spm,[status(thm)],[c_0_255, c_0_146])).
+cnf(c_0_264,hypothesis,(c_fTrue!=v_U), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_256, c_0_257]), c_0_173])).
+fof(c_0_265, plain, (![X24]:hAPP(c_Code__Numeral_Onat__of,hAPP(c_Code__Numeral_Oof__nat,X24))=X24), inference(variable_rename,[status(thm)],[c_0_57])).
+cnf(c_0_266,plain,(hAPP(c_Fun_Oid(X1),X2)=X2), inference(split_conjunct,[status(thm)],[c_0_258])).
+cnf(c_0_267,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)), inference(spm,[status(thm)],[c_0_259, c_0_247])).
+cnf(c_0_268,plain,(hBOOL(hAPP(c_Int_Onat,esk504_2(c_Int_Onat,X1)))), inference(spm,[status(thm)],[c_0_125, c_0_260])).
+cnf(c_0_269,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=c_fNot), inference(spm,[status(thm)],[c_0_261, c_0_247])).
+cnf(c_0_270,hypothesis,(c_fFalse!=v_U|c_fTrue!=c_Nat__Numeral_Oneg), inference(spm,[status(thm)],[c_0_262, c_0_263])).
+cnf(c_0_271,hypothesis,(c_fFalse=X1|X1!=v_U), inference(spm,[status(thm)],[c_0_264, c_0_146])).
+cnf(c_0_272,plain,(hAPP(c_Code__Numeral_Onat__of,hAPP(c_Code__Numeral_Oof__nat,X1))=X1), inference(split_conjunct,[status(thm)],[c_0_265])).
+cnf(c_0_273,plain,(hBOOL(esk504_2(c_Fun_Oid(X1),X2))|~hBOOL(X3)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_125, c_0_266]), c_0_266])).
+cnf(c_0_274,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fTrue), inference(spm,[status(thm)],[c_0_267, c_0_146])).
+cnf(c_0_275,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_Int_Onat)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_268])).
+cnf(c_0_276,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|c_fTrue!=c_fNot), inference(spm,[status(thm)],[c_0_269, c_0_146])).
+cnf(c_0_277,hypothesis,(c_fFalse=X1|c_fFalse!=v_U|X1!=c_Nat__Numeral_Oneg), inference(spm,[status(thm)],[c_0_270, c_0_146])).
+cnf(c_0_278,hypothesis,(c_fFalse=v_U), inference(er,[status(thm)],[c_0_271])).
+cnf(c_0_279,plain,(hBOOL(hAPP(c_Code__Numeral_Onat__of,esk504_2(c_Code__Numeral_Onat__of,X1)))|~hBOOL(X2)), inference(spm,[status(thm)],[c_0_125, c_0_272])).
+cnf(c_0_280,plain,(hBOOL(esk504_2(c_Fun_Oid(X1),X2))), inference(spm,[status(thm)],[c_0_273, c_0_253])).
+cnf(c_0_281,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fTrue|c_fFalse!=v_U), inference(spm,[status(thm)],[c_0_262, c_0_274])).
+cnf(c_0_282,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=c_Int_Onat), inference(spm,[status(thm)],[c_0_275, c_0_247])).
+cnf(c_0_283,hypothesis,(c_fFalse!=v_U|c_fTrue!=c_fNot), inference(spm,[status(thm)],[c_0_262, c_0_276])).
+cnf(c_0_284,hypothesis,(v_U=X1|X1!=c_Nat__Numeral_Oneg), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_277, c_0_278]), c_0_278])])).
+cnf(c_0_285,plain,(hBOOL(hAPP(c_Code__Numeral_Onat__of,esk504_2(c_Code__Numeral_Onat__of,X1)))), inference(spm,[status(thm)],[c_0_279, c_0_280])).
+cnf(c_0_286,plain,(class_Finite__Set_Ofinite(tc_HOL_Obool)), inference(split_conjunct,[status(thm)],[c_0_58])).
+cnf(c_0_287,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)=c_fFalse|c_fFalse!=v_U), inference(spm,[status(thm)],[c_0_281, c_0_146])).
+cnf(c_0_288,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|c_fTrue!=c_Int_Onat), inference(spm,[status(thm)],[c_0_282, c_0_146])).
+cnf(c_0_289,hypothesis,(c_fFalse=X1|c_fFalse!=v_U|X1!=c_fNot), inference(spm,[status(thm)],[c_0_283, c_0_146])).
+cnf(c_0_290,hypothesis,(v_U=c_Nat__Numeral_Oneg), inference(er,[status(thm)],[c_0_284])).
+cnf(c_0_291,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_Code__Numeral_Onat__of)!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_285])).
+cnf(c_0_292,plain,(hBOOL(hAPP(c_Finite__Set_Ofinite(tc_HOL_Obool),X1))), inference(spm,[status(thm)],[c_0_203, c_0_286])).
+fof(c_0_293, plain, (![X12]:![X13]:hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X13,tc_HOL_Obool)),X12),X12))), inference(variable_rename,[status(thm)],[c_0_59])).
+cnf(c_0_294,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)=v_U), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_287, c_0_278]), c_0_278])])).
+cnf(c_0_295,hypothesis,(c_fFalse!=v_U|c_fTrue!=c_Int_Onat), inference(spm,[status(thm)],[c_0_262, c_0_288])).
+cnf(c_0_296,hypothesis,(c_Nat__Numeral_Oneg=X1|X1!=c_fNot), inference(rw,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_289, c_0_278]), c_0_278])]), c_0_290])).
+cnf(c_0_297,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_291, c_0_247])).
+cnf(c_0_298,plain,(hAPP(c_Set_Oimage(X1,X2,X3),c_Finite__Set_Ofinite(tc_HOL_Obool))!=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))), inference(spm,[status(thm)],[c_0_137, c_0_292])).
+cnf(c_0_299,plain,(hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X1,tc_HOL_Obool)),X2),X2))), inference(split_conjunct,[status(thm)],[c_0_293])).
+cnf(c_0_300,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)=c_Nat__Numeral_Oneg), inference(rw,[status(thm)],[c_0_294, c_0_290])).
+cnf(c_0_301,hypothesis,(c_fFalse=X1|c_fFalse!=v_U|X1!=c_Int_Onat), inference(spm,[status(thm)],[c_0_295, c_0_146])).
+cnf(c_0_302,hypothesis,(c_Nat__Numeral_Oneg=c_fNot), inference(er,[status(thm)],[c_0_296])).
+cnf(c_0_303,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|c_fTrue!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_297, c_0_146])).
+cnf(c_0_304,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))!=c_Finite__Set_Ofinite(tc_HOL_Obool)), inference(spm,[status(thm)],[c_0_298, c_0_247])).
+cnf(c_0_305,plain,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_291, c_0_149])).
+cnf(c_0_306,hypothesis,(hBOOL(hAPP(c_Nat__Numeral_Oneg,v_G))), inference(spm,[status(thm)],[c_0_299, c_0_300])).
+cnf(c_0_307,hypothesis,(c_fNot=X1|X1!=c_Int_Onat), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_301, c_0_278]), c_0_278])]), c_0_290]), c_0_302])).
+cnf(c_0_308,hypothesis,(c_fFalse!=v_U|c_fTrue!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_262, c_0_303])).
+cnf(c_0_309,hypothesis,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))!=hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)), inference(spm,[status(thm)],[c_0_259, c_0_149])).
+cnf(c_0_310,plain,(c_Orderings_Obot__class_Obot(tc_fun(tc_HOL_Obool,tc_HOL_Obool))=c_fFalse|c_Finite__Set_Ofinite(tc_HOL_Obool)!=c_fTrue), inference(spm,[status(thm)],[c_0_304, c_0_146])).
+cnf(c_0_311,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fTrue|c_fFalse!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_305, c_0_274])).
+cnf(c_0_312,hypothesis,(hBOOL(hAPP(c_fNot,v_G))), inference(rw,[status(thm)],[c_0_306, c_0_302])).
+cnf(c_0_313,hypothesis,(c_fNot=c_Int_Onat), inference(er,[status(thm)],[c_0_307])).
+cnf(c_0_314,hypothesis,(c_fFalse=X1|c_fFalse!=v_U|X1!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_308, c_0_146])).
+cnf(c_0_315,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fFalse|c_Finite__Set_Ofinite(tc_HOL_Obool)!=c_fTrue), inference(spm,[status(thm)],[c_0_309, c_0_310])).
+cnf(c_0_316,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)=c_fFalse|c_fFalse!=c_Code__Numeral_Onat__of), inference(spm,[status(thm)],[c_0_311, c_0_146])).
+cnf(c_0_317,hypothesis,(~hBOOL(v_G)), inference(spm,[status(thm)],[c_0_102, c_0_312])).
+cnf(c_0_318,plain,(c_fTrue=X1|c_Int_Onat=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_146, c_0_278]), c_0_290]), c_0_302]), c_0_313])).
+cnf(c_0_319,hypothesis,(c_fNot=X1|X1!=c_Code__Numeral_Onat__of), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_314, c_0_278]), c_0_278])]), c_0_290]), c_0_302])).
+cnf(c_0_320,hypothesis,(c_Finite__Set_Ofinite(tc_HOL_Obool)=c_fFalse|hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fFalse), inference(spm,[status(thm)],[c_0_315, c_0_146])).
+fof(c_0_321, plain, (![X12]:![X13]:![X14]:![X15]:((~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X13,tc_HOL_Obool)),X12),c_Orderings_Obot__class_Obot(tc_fun(X13,tc_HOL_Obool))))|X12=c_Orderings_Obot__class_Obot(tc_fun(X13,tc_HOL_Obool)))&(X14!=c_Orderings_Obot__class_Obot(tc_fun(X15,tc_HOL_Obool))|hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X15,tc_HOL_Obool)),X14),c_Orderings_Obot__class_Obot(tc_fun(X15,tc_HOL_Obool))))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_60])])])])).
+cnf(c_0_322,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)=v_U|v_U!=c_Code__Numeral_Onat__of), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_316, c_0_278]), c_0_278])).
+cnf(c_0_323,hypothesis,(v_G=c_Int_Onat), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_317, c_0_318]), c_0_238])])).
+cnf(c_0_324,hypothesis,(c_Code__Numeral_Onat__of=c_fNot), inference(er,[status(thm)],[c_0_319])).
+cnf(c_0_325,hypothesis,(hBOOL(hAPP(c_fFalse,X1))|hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),v_G)!=c_fFalse), inference(spm,[status(thm)],[c_0_292, c_0_320])).
+cnf(c_0_326,plain,(X1=c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))|~hBOOL(hAPP(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(X2,tc_HOL_Obool)),X1),c_Orderings_Obot__class_Obot(tc_fun(X2,tc_HOL_Obool))))), inference(split_conjunct,[status(thm)],[c_0_321])).
+cnf(c_0_327,hypothesis,(hAPP(c_Orderings_Oord__class_Oless__eq(tc_fun(t_a,tc_HOL_Obool)),c_Int_Onat)=c_Int_Onat), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_322, c_0_290]), c_0_290]), c_0_323]), c_0_302]), c_0_313]), c_0_324]), c_0_313]), c_0_302]), c_0_313])])).
+cnf(c_0_328,plain,(c_Orderings_Obot__class_Obot(tc_fun(X1,tc_HOL_Obool))!=c_Int_Onat), inference(spm,[status(thm)],[c_0_275, c_0_149])).
+cnf(c_0_329,hypothesis,(hBOOL(hAPP(v_U,X1))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_325, c_0_278]), c_0_278]), c_0_294])])).
+cnf(c_0_330,hypothesis,(~hBOOL(hAPP(c_Int_Onat,c_Orderings_Obot__class_Obot(tc_fun(t_a,tc_HOL_Obool))))), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_326, c_0_327]), c_0_328])).
+cnf(c_0_331,hypothesis,(hBOOL(hAPP(c_Int_Onat,X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_329, c_0_290]), c_0_302]), c_0_313])).
+cnf(c_0_332,hypothesis,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_330, c_0_331])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

@@ -1,0 +1,214 @@
+% Problem    : GRP187-1 : TPTP v6.1.0. Bugfixed v1.2.1.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n146.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 06:11:46 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___100_C18_F1_PI_AE_Q4_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(multiply(multiply(X1,X2),X3)=multiply(X1,multiply(X2,X3))), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-0.ax', associativity)).
+cnf(c_0_1,axiom,(multiply(inverse(X1),X1)=identity), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-0.ax', left_inverse)).
+cnf(c_0_2,axiom,(multiply(identity,X1)=X1), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-0.ax', left_identity)).
+cnf(c_0_3,axiom,(multiply(greatest_lower_bound(X1,X2),X3)=greatest_lower_bound(multiply(X1,X3),multiply(X2,X3))), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', monotony_glb2)).
+cnf(c_0_4,axiom,(greatest_lower_bound(X1,X2)=greatest_lower_bound(X2,X1)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', symmetry_of_glb)).
+cnf(c_0_5,axiom,(multiply(X1,greatest_lower_bound(X2,X3))=greatest_lower_bound(multiply(X1,X2),multiply(X1,X3))), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', monotony_glb1)).
+cnf(c_0_6,axiom,(multiply(X1,least_upper_bound(X2,X3))=least_upper_bound(multiply(X1,X2),multiply(X1,X3))), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', monotony_lub1)).
+cnf(c_0_7,axiom,(least_upper_bound(X1,least_upper_bound(X2,X3))=least_upper_bound(least_upper_bound(X1,X2),X3)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', associativity_of_lub)).
+cnf(c_0_8,axiom,(least_upper_bound(X1,greatest_lower_bound(X1,X2))=X1), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', lub_absorbtion)).
+cnf(c_0_9,axiom,(multiply(least_upper_bound(X1,X2),X3)=least_upper_bound(multiply(X1,X3),multiply(X2,X3))), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', monotony_lub2)).
+cnf(c_0_10,axiom,(least_upper_bound(X1,X2)=least_upper_bound(X2,X1)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', symmetry_of_lub)).
+cnf(c_0_11,axiom,(greatest_lower_bound(X1,greatest_lower_bound(X2,X3))=greatest_lower_bound(greatest_lower_bound(X1,X2),X3)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', associativity_of_glb)).
+cnf(c_0_12,axiom,(greatest_lower_bound(X1,least_upper_bound(X1,X2))=X1), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', glb_absorbtion)).
+cnf(c_0_13,axiom,(greatest_lower_bound(X1,X1)=X1), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', idempotence_of_gld)).
+cnf(c_0_14,hypothesis,(greatest_lower_bound(least_upper_bound(a,inverse(a)),least_upper_bound(b,inverse(b)))=identity), file('/export/starexec/sandbox/benchmark/theBenchmark.p', p33_1)).
+cnf(c_0_15,axiom,(least_upper_bound(X1,X1)=X1), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', idempotence_of_lub)).
+cnf(c_0_16,negated_conjecture,(multiply(a,b)!=multiply(b,a)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_p33)).
+cnf(c_0_17,plain,(multiply(inverse(X1),multiply(X1,X2))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_0, c_0_1]), c_0_2])).
+cnf(c_0_18,plain,(multiply(inverse(inverse(X1)),identity)=X1), inference(spm,[status(thm)],[c_0_17, c_0_1])).
+cnf(c_0_19,plain,(multiply(inverse(inverse(X1)),X2)=multiply(X1,X2)), inference(spm,[status(thm)],[c_0_17, c_0_17])).
+cnf(c_0_20,plain,(multiply(X1,identity)=X1), inference(rw,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_21,plain,(greatest_lower_bound(X1,multiply(X2,X1))=multiply(greatest_lower_bound(X2,identity),X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_2]), c_0_4])).
+cnf(c_0_22,plain,(greatest_lower_bound(X1,multiply(X1,X2))=multiply(X1,greatest_lower_bound(identity,X2))), inference(spm,[status(thm)],[c_0_5, c_0_20])).
+cnf(c_0_23,plain,(inverse(inverse(X1))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_19, c_0_20]), c_0_20])).
+cnf(c_0_24,plain,(least_upper_bound(X1,multiply(X1,X2))=multiply(X1,least_upper_bound(identity,X2))), inference(spm,[status(thm)],[c_0_6, c_0_20])).
+cnf(c_0_25,plain,(multiply(greatest_lower_bound(X1,identity),X1)=multiply(X1,greatest_lower_bound(identity,X1))), inference(spm,[status(thm)],[c_0_21, c_0_22])).
+cnf(c_0_26,plain,(multiply(X1,inverse(X1))=identity), inference(spm,[status(thm)],[c_0_1, c_0_23])).
+cnf(c_0_27,plain,(least_upper_bound(X1,least_upper_bound(greatest_lower_bound(X1,X2),X3))=least_upper_bound(X1,X3)), inference(spm,[status(thm)],[c_0_7, c_0_8])).
+cnf(c_0_28,plain,(least_upper_bound(greatest_lower_bound(X1,identity),multiply(X1,greatest_lower_bound(identity,X1)))=multiply(greatest_lower_bound(X1,identity),least_upper_bound(identity,X1))), inference(spm,[status(thm)],[c_0_24, c_0_25])).
+cnf(c_0_29,plain,(least_upper_bound(X1,multiply(X2,X1))=multiply(least_upper_bound(X2,identity),X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9, c_0_2]), c_0_10])).
+cnf(c_0_30,plain,(multiply(X1,multiply(X2,inverse(multiply(X1,X2))))=identity), inference(spm,[status(thm)],[c_0_0, c_0_26])).
+cnf(c_0_31,plain,(least_upper_bound(X1,multiply(greatest_lower_bound(X1,identity),least_upper_bound(identity,X1)))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_27, c_0_28]), c_0_24]), c_0_8]), c_0_20])).
+cnf(c_0_32,plain,(multiply(greatest_lower_bound(identity,X1),X1)=multiply(X1,greatest_lower_bound(identity,X1))), inference(spm,[status(thm)],[c_0_25, c_0_4])).
+cnf(c_0_33,plain,(multiply(least_upper_bound(X1,identity),X1)=multiply(X1,least_upper_bound(identity,X1))), inference(spm,[status(thm)],[c_0_29, c_0_24])).
+cnf(c_0_34,plain,(multiply(X1,inverse(multiply(X2,X1)))=inverse(X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_30]), c_0_20])).
+cnf(c_0_35,plain,(least_upper_bound(X1,multiply(greatest_lower_bound(identity,X1),least_upper_bound(identity,X1)))=X1), inference(spm,[status(thm)],[c_0_31, c_0_4])).
+cnf(c_0_36,plain,(multiply(greatest_lower_bound(identity,X1),least_upper_bound(identity,X1))=multiply(least_upper_bound(X1,identity),greatest_lower_bound(identity,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_32]), c_0_29])).
+cnf(c_0_37,plain,(greatest_lower_bound(X1,greatest_lower_bound(least_upper_bound(X1,X2),X3))=greatest_lower_bound(X1,X3)), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_38,plain,(greatest_lower_bound(least_upper_bound(X1,identity),multiply(X1,least_upper_bound(identity,X1)))=multiply(least_upper_bound(X1,identity),greatest_lower_bound(identity,X1))), inference(spm,[status(thm)],[c_0_22, c_0_33])).
+cnf(c_0_39,plain,(greatest_lower_bound(identity,multiply(inverse(X1),X2))=multiply(inverse(X1),greatest_lower_bound(X2,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_5, c_0_1]), c_0_4])).
+cnf(c_0_40,plain,(greatest_lower_bound(X1,greatest_lower_bound(X1,X2))=greatest_lower_bound(X1,X2)), inference(spm,[status(thm)],[c_0_11, c_0_13])).
+cnf(c_0_41,plain,(multiply(inverse(multiply(X1,X2)),X1)=inverse(X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_34, c_0_34]), c_0_23])).
+cnf(c_0_42,plain,(multiply(X1,multiply(inverse(X1),X2))=X2), inference(spm,[status(thm)],[c_0_17, c_0_23])).
+cnf(c_0_43,plain,(least_upper_bound(X1,multiply(least_upper_bound(X1,identity),greatest_lower_bound(identity,X1)))=X1), inference(rw,[status(thm)],[c_0_35, c_0_36])).
+cnf(c_0_44,plain,(greatest_lower_bound(X1,multiply(least_upper_bound(X1,identity),greatest_lower_bound(identity,X1)))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_37, c_0_38]), c_0_22]), c_0_12]), c_0_20])).
+cnf(c_0_45,plain,(greatest_lower_bound(X1,multiply(X2,multiply(X3,X1)))=multiply(greatest_lower_bound(identity,multiply(X2,X3)),X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_0]), c_0_4])).
+cnf(c_0_46,plain,(greatest_lower_bound(identity,multiply(inverse(greatest_lower_bound(X1,X2)),X1))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_39, c_0_40]), c_0_1])).
+cnf(c_0_47,plain,(inverse(multiply(inverse(X1),X2))=multiply(inverse(X2),X1)), inference(spm,[status(thm)],[c_0_41, c_0_42])).
+cnf(c_0_48,plain,(greatest_lower_bound(X1,least_upper_bound(X2,X1))=X1), inference(spm,[status(thm)],[c_0_12, c_0_10])).
+cnf(c_0_49,plain,(multiply(inverse(X1),inverse(X2))=inverse(multiply(X2,X1))), inference(spm,[status(thm)],[c_0_17, c_0_34])).
+cnf(c_0_50,plain,(least_upper_bound(X1,multiply(least_upper_bound(X1,identity),greatest_lower_bound(X1,identity)))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_43, c_0_21]), c_0_20]), c_0_20]), c_0_20]), c_0_20])).
+cnf(c_0_51,plain,(greatest_lower_bound(X1,multiply(least_upper_bound(X1,identity),greatest_lower_bound(X1,identity)))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_44, c_0_21]), c_0_20]), c_0_20]), c_0_20]), c_0_20])).
+cnf(c_0_52,plain,(multiply(greatest_lower_bound(identity,multiply(X1,inverse(X2))),X2)=greatest_lower_bound(X2,X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_45, c_0_1]), c_0_20])).
+cnf(c_0_53,plain,(greatest_lower_bound(identity,multiply(inverse(greatest_lower_bound(X1,X2)),X2))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_46, c_0_39]), c_0_47]), c_0_0]), c_0_20])).
+cnf(c_0_54,plain,(greatest_lower_bound(X1,greatest_lower_bound(X2,X1))=greatest_lower_bound(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_8]), c_0_11])).
+cnf(c_0_55,plain,(greatest_lower_bound(inverse(X1),inverse(multiply(X1,X2)))=multiply(greatest_lower_bound(identity,inverse(X2)),inverse(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_49]), c_0_4])).
+cnf(c_0_56,plain,(multiply(least_upper_bound(X1,identity),greatest_lower_bound(X1,identity))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_50]), c_0_4]), c_0_51])).
+cnf(c_0_57,plain,(multiply(greatest_lower_bound(X1,identity),inverse(X1))=greatest_lower_bound(identity,inverse(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_26]), c_0_4])).
+cnf(c_0_58,plain,(multiply(X1,greatest_lower_bound(inverse(X1),X2))=greatest_lower_bound(identity,multiply(X1,X2))), inference(spm,[status(thm)],[c_0_5, c_0_26])).
+cnf(c_0_59,plain,(greatest_lower_bound(X1,inverse(greatest_lower_bound(X2,inverse(X1))))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_52, c_0_53]), c_0_2])).
+cnf(c_0_60,plain,(least_upper_bound(X1,greatest_lower_bound(X2,X1))=X1), inference(spm,[status(thm)],[c_0_8, c_0_4])).
+cnf(c_0_61,plain,(greatest_lower_bound(X1,greatest_lower_bound(X2,least_upper_bound(X1,X3)))=greatest_lower_bound(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_37, c_0_54]), c_0_37])).
+cnf(c_0_62,hypothesis,(greatest_lower_bound(a,least_upper_bound(b,inverse(b)))=greatest_lower_bound(a,identity)), inference(spm,[status(thm)],[c_0_37, c_0_14])).
+cnf(c_0_63,plain,(greatest_lower_bound(X1,greatest_lower_bound(X2,X3))=greatest_lower_bound(X3,greatest_lower_bound(X1,X2))), inference(spm,[status(thm)],[c_0_4, c_0_11])).
+cnf(c_0_64,plain,(least_upper_bound(identity,multiply(inverse(X1),X2))=multiply(inverse(X1),least_upper_bound(X2,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_6, c_0_1]), c_0_10])).
+cnf(c_0_65,plain,(least_upper_bound(X1,least_upper_bound(X1,X2))=least_upper_bound(X1,X2)), inference(spm,[status(thm)],[c_0_7, c_0_15])).
+cnf(c_0_66,plain,(least_upper_bound(identity,multiply(inverse(X1),X2))=multiply(inverse(X1),least_upper_bound(X1,X2))), inference(spm,[status(thm)],[c_0_6, c_0_1])).
+cnf(c_0_67,plain,(multiply(greatest_lower_bound(identity,inverse(X1)),inverse(X2))=multiply(greatest_lower_bound(X1,identity),inverse(multiply(X2,X1)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_34]), c_0_4]), c_0_55])).
+cnf(c_0_68,plain,(greatest_lower_bound(identity,inverse(X1))=inverse(least_upper_bound(X1,identity))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_34, c_0_56]), c_0_57])).
+cnf(c_0_69,plain,(greatest_lower_bound(multiply(X1,X2),multiply(X3,multiply(X4,X2)))=multiply(greatest_lower_bound(X1,multiply(X3,X4)),X2)), inference(spm,[status(thm)],[c_0_3, c_0_0])).
+cnf(c_0_70,plain,(greatest_lower_bound(identity,multiply(X1,inverse(greatest_lower_bound(X2,X1))))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_59]), c_0_26]), c_0_23])).
+cnf(c_0_71,plain,(least_upper_bound(X1,greatest_lower_bound(X2,greatest_lower_bound(X3,X1)))=X1), inference(spm,[status(thm)],[c_0_60, c_0_11])).
+cnf(c_0_72,hypothesis,(greatest_lower_bound(a,greatest_lower_bound(b,identity))=greatest_lower_bound(a,b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_61, c_0_62]), c_0_63]), c_0_4]), c_0_4])).
+cnf(c_0_73,plain,(least_upper_bound(identity,multiply(inverse(least_upper_bound(X1,X2)),X1))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_64, c_0_65]), c_0_1])).
+cnf(c_0_74,plain,(multiply(least_upper_bound(X1,identity),greatest_lower_bound(identity,X1))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_56]), c_0_4]), c_0_12]), c_0_54])).
+cnf(c_0_75,plain,(multiply(inverse(X1),least_upper_bound(X1,identity))=least_upper_bound(identity,inverse(X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_29, c_0_66]), c_0_10]), c_0_20])).
+cnf(c_0_76,plain,(greatest_lower_bound(X1,least_upper_bound(X2,least_upper_bound(X3,X1)))=X1), inference(spm,[status(thm)],[c_0_48, c_0_7])).
+cnf(c_0_77,plain,(multiply(greatest_lower_bound(X1,identity),inverse(multiply(X2,X1)))=inverse(multiply(X2,least_upper_bound(X1,identity)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_67, c_0_68]), c_0_49])).
+cnf(c_0_78,plain,(multiply(greatest_lower_bound(X1,multiply(X2,X3)),inverse(X3))=greatest_lower_bound(multiply(X1,inverse(X3)),X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_69, c_0_26]), c_0_20])).
+cnf(c_0_79,plain,(multiply(inverse(X1),least_upper_bound(X2,multiply(X1,X3)))=least_upper_bound(multiply(inverse(X1),X2),X3)), inference(spm,[status(thm)],[c_0_6, c_0_17])).
+cnf(c_0_80,plain,(greatest_lower_bound(identity,multiply(least_upper_bound(X1,X2),inverse(X1)))=identity), inference(spm,[status(thm)],[c_0_70, c_0_12])).
+cnf(c_0_81,hypothesis,(least_upper_bound(identity,greatest_lower_bound(a,b))=identity), inference(spm,[status(thm)],[c_0_71, c_0_72])).
+cnf(c_0_82,plain,(least_upper_bound(identity,inverse(least_upper_bound(identity,X1)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_29, c_0_73]), c_0_20]), c_0_10])).
+cnf(c_0_83,plain,(multiply(greatest_lower_bound(X1,X2),inverse(greatest_lower_bound(identity,multiply(inverse(X2),X1))))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_34, c_0_39]), c_0_23])).
+cnf(c_0_84,plain,(inverse(greatest_lower_bound(identity,X1))=least_upper_bound(identity,inverse(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_74]), c_0_75])).
+cnf(c_0_85,plain,(greatest_lower_bound(X1,greatest_lower_bound(X2,least_upper_bound(X3,X1)))=greatest_lower_bound(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_76, c_0_8]), c_0_11])).
+cnf(c_0_86,hypothesis,(greatest_lower_bound(b,least_upper_bound(a,inverse(a)))=greatest_lower_bound(b,identity)), inference(spm,[status(thm)],[c_0_61, c_0_14])).
+cnf(c_0_87,plain,(greatest_lower_bound(X1,greatest_lower_bound(X2,X3))=greatest_lower_bound(X2,greatest_lower_bound(X1,X3))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_11, c_0_4]), c_0_11])).
+cnf(c_0_88,plain,(inverse(least_upper_bound(inverse(X1),X2))=greatest_lower_bound(inverse(X2),X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_77, c_0_17]), c_0_4]), c_0_78]), c_0_2]), c_0_10]), c_0_79]), c_0_20])).
+cnf(c_0_89,plain,(greatest_lower_bound(identity,multiply(X1,multiply(least_upper_bound(identity,X2),inverse(X1))))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_80, c_0_24]), c_0_0])).
+cnf(c_0_90,hypothesis,(least_upper_bound(identity,inverse(greatest_lower_bound(a,b)))=inverse(greatest_lower_bound(a,b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_64, c_0_81]), c_0_20]), c_0_20])).
+cnf(c_0_91,plain,(least_upper_bound(identity,inverse(least_upper_bound(X1,identity)))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_82, c_0_29]), c_0_20])).
+cnf(c_0_92,plain,(multiply(greatest_lower_bound(X1,X2),least_upper_bound(identity,multiply(inverse(X1),X2)))=X2), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_83, c_0_84]), c_0_47])).
+cnf(c_0_93,plain,(least_upper_bound(identity,multiply(inverse(X1),greatest_lower_bound(X2,X1)))=identity), inference(spm,[status(thm)],[c_0_8, c_0_39])).
+cnf(c_0_94,plain,(inverse(multiply(X1,inverse(X2)))=multiply(X2,inverse(X1))), inference(spm,[status(thm)],[c_0_42, c_0_34])).
+cnf(c_0_95,plain,(greatest_lower_bound(identity,multiply(inverse(X1),X2))=multiply(inverse(X1),greatest_lower_bound(X1,X2))), inference(spm,[status(thm)],[c_0_5, c_0_1])).
+cnf(c_0_96,hypothesis,(greatest_lower_bound(b,greatest_lower_bound(identity,inverse(a)))=greatest_lower_bound(b,inverse(a))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_85, c_0_86]), c_0_63]), c_0_4]), c_0_87]), c_0_4])).
+cnf(c_0_97,plain,(inverse(greatest_lower_bound(inverse(X1),X2))=least_upper_bound(inverse(X2),X1)), inference(spm,[status(thm)],[c_0_23, c_0_88])).
+cnf(c_0_98,plain,(greatest_lower_bound(identity,multiply(X1,inverse(X2)))=multiply(greatest_lower_bound(X2,X1),inverse(X2))), inference(spm,[status(thm)],[c_0_3, c_0_26])).
+cnf(c_0_99,hypothesis,(greatest_lower_bound(a,greatest_lower_bound(identity,inverse(b)))=greatest_lower_bound(a,inverse(b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_85, c_0_62]), c_0_63]), c_0_4]), c_0_87]), c_0_4])).
+cnf(c_0_100,hypothesis,(greatest_lower_bound(identity,multiply(X1,inverse(multiply(X1,greatest_lower_bound(a,b)))))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_89, c_0_90]), c_0_49])).
+cnf(c_0_101,plain,(multiply(greatest_lower_bound(identity,multiply(X1,X2)),X1)=multiply(X1,greatest_lower_bound(identity,multiply(X2,X1)))), inference(spm,[status(thm)],[c_0_22, c_0_45])).
+cnf(c_0_102,plain,(multiply(X1,inverse(multiply(X1,least_upper_bound(identity,X1))))=inverse(least_upper_bound(X1,identity))), inference(spm,[status(thm)],[c_0_34, c_0_33])).
+cnf(c_0_103,plain,(greatest_lower_bound(identity,inverse(least_upper_bound(X1,identity)))=inverse(least_upper_bound(X1,identity))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_91]), c_0_4])).
+cnf(c_0_104,plain,(greatest_lower_bound(identity,inverse(least_upper_bound(identity,X1)))=inverse(least_upper_bound(identity,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_82]), c_0_4])).
+cnf(c_0_105,plain,(greatest_lower_bound(identity,inverse(greatest_lower_bound(identity,X1)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_46]), c_0_20]), c_0_4])).
+cnf(c_0_106,plain,(multiply(greatest_lower_bound(X1,X2),multiply(inverse(X1),least_upper_bound(X2,X1)))=X2), inference(spm,[status(thm)],[c_0_92, c_0_64])).
+cnf(c_0_107,plain,(least_upper_bound(identity,multiply(greatest_lower_bound(X1,X2),inverse(X2)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_93, c_0_70]), c_0_94]), c_0_0]), c_0_20])).
+cnf(c_0_108,plain,(multiply(inverse(greatest_lower_bound(X1,X2)),X1)=least_upper_bound(identity,multiply(inverse(X2),X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_84, c_0_95]), c_0_47]), c_0_47])).
+cnf(c_0_109,hypothesis,(greatest_lower_bound(b,inverse(least_upper_bound(a,identity)))=greatest_lower_bound(b,inverse(a))), inference(rw,[status(thm)],[c_0_96, c_0_68])).
+cnf(c_0_110,plain,(inverse(greatest_lower_bound(X1,inverse(X2)))=least_upper_bound(inverse(X1),X2)), inference(spm,[status(thm)],[c_0_97, c_0_4])).
+cnf(c_0_111,plain,(multiply(least_upper_bound(X1,inverse(X2)),X2)=least_upper_bound(identity,multiply(X1,X2))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9, c_0_1]), c_0_10])).
+cnf(c_0_112,plain,(multiply(X1,inverse(greatest_lower_bound(X1,X2)))=least_upper_bound(identity,multiply(X1,inverse(X2)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_84, c_0_98]), c_0_94]), c_0_94])).
+cnf(c_0_113,hypothesis,(greatest_lower_bound(a,inverse(least_upper_bound(b,identity)))=greatest_lower_bound(a,inverse(b))), inference(rw,[status(thm)],[c_0_99, c_0_68])).
+cnf(c_0_114,plain,(multiply(X1,least_upper_bound(X2,inverse(X1)))=least_upper_bound(identity,multiply(X1,X2))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_6, c_0_26]), c_0_10])).
+cnf(c_0_115,hypothesis,(greatest_lower_bound(identity,multiply(inverse(multiply(greatest_lower_bound(a,b),X1)),X1))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_100, c_0_41]), c_0_23])).
+cnf(c_0_116,plain,(multiply(inverse(X1),multiply(inverse(X2),X3))=multiply(inverse(multiply(X2,X1)),X3)), inference(spm,[status(thm)],[c_0_0, c_0_49])).
+cnf(c_0_117,plain,(multiply(inverse(least_upper_bound(X1,identity)),X1)=multiply(X1,inverse(least_upper_bound(identity,X1)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_101, c_0_102]), c_0_103]), c_0_41]), c_0_104])).
+cnf(c_0_118,plain,(multiply(inverse(X1),greatest_lower_bound(identity,X1))=greatest_lower_bound(identity,inverse(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_1]), c_0_4])).
+cnf(c_0_119,plain,(greatest_lower_bound(identity,inverse(greatest_lower_bound(X1,identity)))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_105, c_0_21]), c_0_20])).
+cnf(c_0_120,plain,(multiply(inverse(identity),X1)=X1), inference(spm,[status(thm)],[c_0_17, c_0_2])).
+cnf(c_0_121,plain,(multiply(greatest_lower_bound(X1,X2),multiply(inverse(X2),least_upper_bound(X1,X2)))=X1), inference(spm,[status(thm)],[c_0_106, c_0_4])).
+cnf(c_0_122,hypothesis,(least_upper_bound(identity,multiply(X1,multiply(greatest_lower_bound(a,b),inverse(X1))))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_107, c_0_100]), c_0_94]), c_0_0]), c_0_2])).
+cnf(c_0_123,plain,(greatest_lower_bound(multiply(X1,X2),least_upper_bound(X3,multiply(least_upper_bound(X4,X1),X2)))=multiply(X1,X2)), inference(spm,[status(thm)],[c_0_76, c_0_9])).
+cnf(c_0_124,hypothesis,(least_upper_bound(identity,multiply(least_upper_bound(a,identity),b))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_108, c_0_109]), c_0_110]), c_0_10]), c_0_111]), c_0_23])).
+cnf(c_0_125,plain,(greatest_lower_bound(multiply(X1,X2),least_upper_bound(X3,multiply(X1,least_upper_bound(X4,X2))))=multiply(X1,X2)), inference(spm,[status(thm)],[c_0_76, c_0_6])).
+cnf(c_0_126,hypothesis,(least_upper_bound(identity,multiply(a,least_upper_bound(b,identity)))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_112, c_0_113]), c_0_110]), c_0_10]), c_0_114]), c_0_23])).
+cnf(c_0_127,plain,(multiply(inverse(X1),greatest_lower_bound(X2,multiply(X1,X3)))=greatest_lower_bound(multiply(inverse(X1),X2),X3)), inference(spm,[status(thm)],[c_0_5, c_0_17])).
+cnf(c_0_128,hypothesis,(greatest_lower_bound(identity,multiply(inverse(multiply(a,b)),least_upper_bound(a,b)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_106]), c_0_116]), c_0_10])).
+cnf(c_0_129,plain,(multiply(X1,multiply(inverse(multiply(X2,X1)),X3))=multiply(inverse(X2),X3)), inference(spm,[status(thm)],[c_0_0, c_0_34])).
+cnf(c_0_130,plain,(multiply(X1,inverse(least_upper_bound(identity,X1)))=greatest_lower_bound(X1,identity)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_56]), c_0_117])).
+cnf(c_0_131,plain,(multiply(X1,greatest_lower_bound(inverse(multiply(X2,X1)),X3))=greatest_lower_bound(inverse(X2),multiply(X1,X3))), inference(spm,[status(thm)],[c_0_5, c_0_34])).
+cnf(c_0_132,plain,(multiply(least_upper_bound(X1,inverse(multiply(X2,X3))),X2)=least_upper_bound(multiply(X1,X2),inverse(X3))), inference(spm,[status(thm)],[c_0_9, c_0_41])).
+cnf(c_0_133,plain,(multiply(inverse(greatest_lower_bound(X1,identity)),greatest_lower_bound(identity,X1))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_118, c_0_54]), c_0_119])).
+cnf(c_0_134,plain,(multiply(X1,greatest_lower_bound(X2,multiply(inverse(X1),X3)))=greatest_lower_bound(multiply(X1,X2),X3)), inference(spm,[status(thm)],[c_0_5, c_0_42])).
+cnf(c_0_135,plain,(multiply(inverse(inverse(identity)),X1)=X1), inference(spm,[status(thm)],[c_0_17, c_0_120])).
+cnf(c_0_136,plain,(multiply(X1,multiply(least_upper_bound(X2,inverse(X1)),X3))=multiply(least_upper_bound(identity,multiply(X1,X2)),X3)), inference(spm,[status(thm)],[c_0_0, c_0_114])).
+cnf(c_0_137,plain,(multiply(least_upper_bound(inverse(X1),X2),greatest_lower_bound(inverse(X2),X1))=identity), inference(spm,[status(thm)],[c_0_26, c_0_88])).
+cnf(c_0_138,hypothesis,(least_upper_bound(identity,multiply(b,least_upper_bound(a,identity)))=least_upper_bound(identity,multiply(b,a))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_112, c_0_109]), c_0_110]), c_0_10]), c_0_114]), c_0_23])).
+cnf(c_0_139,hypothesis,(least_upper_bound(identity,multiply(least_upper_bound(b,identity),a))=least_upper_bound(identity,multiply(b,a))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_108, c_0_113]), c_0_110]), c_0_10]), c_0_111]), c_0_23])).
+cnf(c_0_140,hypothesis,(greatest_lower_bound(identity,multiply(inverse(multiply(b,a)),least_upper_bound(a,b)))=identity), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_121]), c_0_116])).
+cnf(c_0_141,hypothesis,(least_upper_bound(identity,multiply(inverse(X1),multiply(greatest_lower_bound(a,b),X1)))=identity), inference(spm,[status(thm)],[c_0_122, c_0_23])).
+cnf(c_0_142,plain,(multiply(greatest_lower_bound(X1,X2),multiply(inverse(X1),least_upper_bound(X1,X2)))=X2), inference(spm,[status(thm)],[c_0_92, c_0_66])).
+cnf(c_0_143,hypothesis,(greatest_lower_bound(b,least_upper_bound(identity,multiply(a,b)))=b), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_123, c_0_124]), c_0_2]), c_0_2])).
+cnf(c_0_144,hypothesis,(greatest_lower_bound(a,least_upper_bound(identity,multiply(a,b)))=a), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_125, c_0_126]), c_0_20]), c_0_20])).
+cnf(c_0_145,hypothesis,(greatest_lower_bound(multiply(a,b),least_upper_bound(a,b))=multiply(a,b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_127, c_0_128]), c_0_23]), c_0_0]), c_0_20]), c_0_23]), c_0_0]), c_0_20])).
+cnf(c_0_146,hypothesis,(greatest_lower_bound(identity,multiply(inverse(least_upper_bound(b,inverse(b))),least_upper_bound(a,inverse(a))))=inverse(least_upper_bound(b,inverse(b)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_39, c_0_14]), c_0_20])).
+cnf(c_0_147,plain,(inverse(least_upper_bound(X1,inverse(X2)))=greatest_lower_bound(inverse(X1),X2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_129, c_0_130]), c_0_131]), c_0_20]), c_0_49]), c_0_132]), c_0_2])).
+cnf(c_0_148,plain,(least_upper_bound(inverse(X1),multiply(X2,inverse(multiply(X1,X3))))=multiply(least_upper_bound(X2,X3),inverse(multiply(X1,X3)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9, c_0_34]), c_0_10])).
+cnf(c_0_149,plain,(multiply(inverse(greatest_lower_bound(X1,X2)),greatest_lower_bound(X2,X1))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_133, c_0_39]), c_0_4]), c_0_116]), c_0_134]), c_0_20])).
+cnf(c_0_150,plain,(inverse(identity)=identity), inference(spm,[status(thm)],[c_0_1, c_0_135])).
+cnf(c_0_151,plain,(multiply(least_upper_bound(identity,multiply(X1,inverse(X2))),greatest_lower_bound(X1,X2))=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_136, c_0_137]), c_0_20]), c_0_23])).
+cnf(c_0_152,hypothesis,(greatest_lower_bound(b,least_upper_bound(identity,multiply(b,a)))=b), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_125, c_0_138]), c_0_20]), c_0_20])).
+cnf(c_0_153,hypothesis,(greatest_lower_bound(a,least_upper_bound(identity,multiply(b,a)))=a), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_123, c_0_139]), c_0_2]), c_0_2])).
+cnf(c_0_154,hypothesis,(greatest_lower_bound(multiply(b,a),least_upper_bound(a,b))=multiply(b,a)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_127, c_0_140]), c_0_23]), c_0_0]), c_0_20]), c_0_23]), c_0_0]), c_0_20])).
+cnf(c_0_155,plain,(multiply(X1,least_upper_bound(multiply(inverse(X1),X2),X3))=least_upper_bound(X2,multiply(X1,X3))), inference(spm,[status(thm)],[c_0_6, c_0_42])).
+cnf(c_0_156,plain,(least_upper_bound(X1,least_upper_bound(X2,least_upper_bound(identity,multiply(inverse(X1),X2))))=multiply(least_upper_bound(identity,inverse(X1)),least_upper_bound(X1,X2))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_29, c_0_66]), c_0_7]), c_0_10])).
+cnf(c_0_157,hypothesis,(least_upper_bound(identity,multiply(inverse(least_upper_bound(a,b)),multiply(a,b)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_141, c_0_106]), c_0_47]), c_0_0]), c_0_10])).
+cnf(c_0_158,hypothesis,(least_upper_bound(b,least_upper_bound(identity,multiply(a,b)))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_142, c_0_143]), c_0_42])).
+cnf(c_0_159,hypothesis,(least_upper_bound(a,least_upper_bound(identity,multiply(a,b)))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_142, c_0_144]), c_0_42])).
+cnf(c_0_160,hypothesis,(least_upper_bound(a,multiply(least_upper_bound(a,identity),b))=least_upper_bound(a,b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_106, c_0_145]), c_0_7]), c_0_29]), c_0_0]), c_0_129]), c_0_42])).
+cnf(c_0_161,plain,(least_upper_bound(X1,least_upper_bound(X2,X3))=least_upper_bound(X3,least_upper_bound(X1,X2))), inference(spm,[status(thm)],[c_0_10, c_0_7])).
+cnf(c_0_162,plain,(least_upper_bound(X1,least_upper_bound(X2,X3))=least_upper_bound(X2,least_upper_bound(X1,X3))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_7, c_0_10]), c_0_7])).
+cnf(c_0_163,plain,(least_upper_bound(X1,greatest_lower_bound(X2,greatest_lower_bound(X1,X3)))=X1), inference(spm,[status(thm)],[c_0_71, c_0_4])).
+cnf(c_0_164,hypothesis,(greatest_lower_bound(identity,multiply(greatest_lower_bound(b,inverse(b)),least_upper_bound(a,inverse(a))))=greatest_lower_bound(b,inverse(b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_146, c_0_147]), c_0_4]), c_0_147]), c_0_4])).
+cnf(c_0_165,plain,(inverse(greatest_lower_bound(X1,identity))=least_upper_bound(identity,inverse(X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_56]), c_0_75])).
+cnf(c_0_166,plain,(least_upper_bound(greatest_lower_bound(X1,X2),X3)=least_upper_bound(X3,greatest_lower_bound(X2,X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_148, c_0_149]), c_0_23]), c_0_150]), c_0_20]), c_0_150]), c_0_20])).
+cnf(c_0_167,hypothesis,(multiply(least_upper_bound(identity,multiply(b,a)),greatest_lower_bound(b,inverse(a)))=b), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_151, c_0_109]), c_0_23]), c_0_138])).
+cnf(c_0_168,hypothesis,(least_upper_bound(identity,multiply(inverse(least_upper_bound(a,b)),multiply(b,a)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_141, c_0_121]), c_0_47]), c_0_0])).
+cnf(c_0_169,hypothesis,(least_upper_bound(b,least_upper_bound(identity,multiply(b,a)))=least_upper_bound(identity,multiply(b,a))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_142, c_0_152]), c_0_42])).
+cnf(c_0_170,hypothesis,(least_upper_bound(a,least_upper_bound(identity,multiply(b,a)))=least_upper_bound(identity,multiply(b,a))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_142, c_0_153]), c_0_42])).
+cnf(c_0_171,hypothesis,(least_upper_bound(a,multiply(b,least_upper_bound(a,identity)))=least_upper_bound(a,b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_106, c_0_154]), c_0_7]), c_0_24]), c_0_10]), c_0_0]), c_0_129]), c_0_79]), c_0_155])).
+cnf(c_0_172,hypothesis,(least_upper_bound(a,least_upper_bound(b,identity))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_156, c_0_157]), c_0_10]), c_0_7]), c_0_158]), c_0_159]), c_0_7]), c_0_29]), c_0_160]), c_0_111]), c_0_2]), c_0_161]), c_0_10]), c_0_162])).
+cnf(c_0_173,plain,(least_upper_bound(X1,least_upper_bound(X2,greatest_lower_bound(X1,X3)))=least_upper_bound(X1,X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_163, c_0_37]), c_0_7])).
+cnf(c_0_174,hypothesis,(least_upper_bound(greatest_lower_bound(a,inverse(a)),greatest_lower_bound(b,inverse(b)))=identity), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_149, c_0_164]), c_0_165]), c_0_132]), c_0_2]), c_0_147]), c_0_4]), c_0_166]), c_0_4])).
+cnf(c_0_175,plain,(multiply(X1,greatest_lower_bound(X2,inverse(multiply(X3,X1))))=greatest_lower_bound(multiply(X1,X2),inverse(X3))), inference(spm,[status(thm)],[c_0_5, c_0_34])).
+cnf(c_0_176,hypothesis,(multiply(inverse(least_upper_bound(identity,multiply(b,a))),b)=greatest_lower_bound(b,inverse(a))), inference(spm,[status(thm)],[c_0_17, c_0_167])).
+cnf(c_0_177,hypothesis,(least_upper_bound(identity,multiply(b,a))=least_upper_bound(identity,multiply(a,b))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_156, c_0_168]), c_0_10]), c_0_7]), c_0_169]), c_0_170]), c_0_7]), c_0_24]), c_0_10]), c_0_171]), c_0_111]), c_0_2]), c_0_161]), c_0_10]), c_0_162]), c_0_172])).
+cnf(c_0_178,hypothesis,(least_upper_bound(b,greatest_lower_bound(a,inverse(a)))=least_upper_bound(b,identity)), inference(spm,[status(thm)],[c_0_173, c_0_174])).
+cnf(c_0_179,plain,(multiply(X1,inverse(least_upper_bound(identity,multiply(X2,X1))))=greatest_lower_bound(X1,inverse(X2))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_175, c_0_68]), c_0_10]), c_0_20])).
+cnf(c_0_180,hypothesis,(multiply(inverse(least_upper_bound(identity,multiply(a,b))),b)=greatest_lower_bound(b,inverse(a))), inference(rw,[status(thm)],[c_0_176, c_0_177])).
+cnf(c_0_181,hypothesis,(least_upper_bound(identity,multiply(a,b))=least_upper_bound(a,b)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_173, c_0_178]), c_0_172])).
+cnf(c_0_182,plain,(multiply(X1,multiply(inverse(least_upper_bound(X1,X2)),X2))=greatest_lower_bound(X1,X2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_179, c_0_64]), c_0_47]), c_0_23])).
+cnf(c_0_183,hypothesis,(multiply(inverse(least_upper_bound(a,b)),b)=greatest_lower_bound(b,inverse(a))), inference(rw,[status(thm)],[c_0_180, c_0_181])).
+cnf(c_0_184,plain,(multiply(X1,greatest_lower_bound(X2,inverse(X1)))=greatest_lower_bound(identity,multiply(X1,X2))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_5, c_0_26]), c_0_4])).
+cnf(c_0_185,plain,(multiply(X1,inverse(multiply(X2,multiply(X3,X1))))=inverse(multiply(X2,X3))), inference(spm,[status(thm)],[c_0_34, c_0_0])).
+cnf(c_0_186,hypothesis,(multiply(inverse(a),least_upper_bound(a,b))=least_upper_bound(b,inverse(a))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_79, c_0_181]), c_0_20]), c_0_10])).
+cnf(c_0_187,hypothesis,(greatest_lower_bound(identity,multiply(a,b))=greatest_lower_bound(a,b)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_182, c_0_183]), c_0_184])).
+cnf(c_0_188,plain,(multiply(X1,inverse(multiply(X2,least_upper_bound(identity,multiply(X3,X1)))))=inverse(multiply(X2,least_upper_bound(X3,inverse(X1))))), inference(spm,[status(thm)],[c_0_185, c_0_111])).
+cnf(c_0_189,hypothesis,(multiply(greatest_lower_bound(a,b),least_upper_bound(b,inverse(a)))=b), inference(spm,[status(thm)],[c_0_142, c_0_186])).
+cnf(c_0_190,hypothesis,(multiply(greatest_lower_bound(a,b),least_upper_bound(a,b))=multiply(a,b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_106, c_0_187]), c_0_150]), c_0_10]), c_0_181]), c_0_2])).
+cnf(c_0_191,hypothesis,(multiply(a,inverse(multiply(a,b)))=inverse(b)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_188, c_0_189]), c_0_177]), c_0_181]), c_0_190])).
+cnf(c_0_192,hypothesis,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_191]), c_0_23]), c_0_23]), c_0_16]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

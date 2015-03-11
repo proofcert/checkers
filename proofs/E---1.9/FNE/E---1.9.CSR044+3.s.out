@@ -1,0 +1,57 @@
+% Problem    : CSR044+3 : TPTP v6.1.0. Released v3.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n129.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:51:41 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C41_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X15]:(mtvisible(c_tptp_member3633_mt)=>(tptp_9_720(c_tptpexecutionbyfiringsquad_90,X15)&tptpcol_16_29490(X15)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', query144)).
+fof(c_0_1, axiom, (![X15]:(isa(X15,c_tptpcol_16_29490)=>tptpcol_16_29490(X15))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_5730)).
+fof(c_0_2, axiom, (![X7]:((mtvisible(c_cyclistsmt)&executionbyfiringsquad(X7))=>tptp_9_720(X7,f_relationallexistsfn(X7,c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2495)).
+fof(c_0_3, axiom, (executionbyfiringsquad(c_tptpexecutionbyfiringsquad_90)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_19)).
+fof(c_0_4, axiom, (![X7]:![X8]:![X9]:![X10]:((isa(X7,X8)&relationallexists(X9,X8,X10))=>isa(f_relationallexistsfn(X7,X9,X8,X10),X10))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2981)).
+fof(c_0_5, axiom, ((mtvisible(c_cyclistsmt)=>relationallexists(c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2496)).
+fof(c_0_6, axiom, (![X21]:![X22]:((mtvisible(X21)&genlmt(X21,X22))=>mtvisible(X22))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7997)).
+fof(c_0_7, axiom, (![X15]:(executionbyfiringsquad(X15)=>isa(X15,c_executionbyfiringsquad))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7920)).
+fof(c_0_8, axiom, (genlmt(c_tptp_member3633_mt,c_tptp_spindleheadmt)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_142)).
+fof(c_0_9, axiom, (genlmt(c_tptp_spindleheadmt,c_cyclistsmt)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_4288)).
+fof(c_0_10, negated_conjecture, (~(?[X15]:(mtvisible(c_tptp_member3633_mt)=>(tptp_9_720(c_tptpexecutionbyfiringsquad_90,X15)&tptpcol_16_29490(X15))))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_11, negated_conjecture, (![X16]:(mtvisible(c_tptp_member3633_mt)&(~tptp_9_720(c_tptpexecutionbyfiringsquad_90,X16)|~tptpcol_16_29490(X16)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])).
+fof(c_0_12, plain, (![X16]:(~isa(X16,c_tptpcol_16_29490)|tptpcol_16_29490(X16))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])).
+cnf(c_0_13,negated_conjecture,(~tptpcol_16_29490(X1)|~tptp_9_720(c_tptpexecutionbyfiringsquad_90,X1)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_14,plain,(tptpcol_16_29490(X1)|~isa(X1,c_tptpcol_16_29490)), inference(split_conjunct,[status(thm)],[c_0_12])).
+fof(c_0_15, plain, (![X8]:((~mtvisible(c_cyclistsmt)|~executionbyfiringsquad(X8))|tptp_9_720(X8,f_relationallexistsfn(X8,c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_16,negated_conjecture,(~tptp_9_720(c_tptpexecutionbyfiringsquad_90,X1)|~isa(X1,c_tptpcol_16_29490)), inference(spm,[status(thm)],[c_0_13, c_0_14])).
+cnf(c_0_17,plain,(tptp_9_720(X1,f_relationallexistsfn(X1,c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490))|~executionbyfiringsquad(X1)|~mtvisible(c_cyclistsmt)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_18,plain,(executionbyfiringsquad(c_tptpexecutionbyfiringsquad_90)), inference(split_conjunct,[status(thm)],[c_0_3])).
+fof(c_0_19, plain, (![X11]:![X12]:![X13]:![X14]:((~isa(X11,X12)|~relationallexists(X13,X12,X14))|isa(f_relationallexistsfn(X11,X13,X12,X14),X14))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+fof(c_0_20, plain, ((~mtvisible(c_cyclistsmt)|relationallexists(c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490))), inference(fof_nnf,[status(thm)],[c_0_5])).
+fof(c_0_21, plain, (![X23]:![X24]:((~mtvisible(X23)|~genlmt(X23,X24))|mtvisible(X24))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+cnf(c_0_22,negated_conjecture,(~isa(f_relationallexistsfn(c_tptpexecutionbyfiringsquad_90,c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490),c_tptpcol_16_29490)|~mtvisible(c_cyclistsmt)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_18])])).
+cnf(c_0_23,plain,(isa(f_relationallexistsfn(X1,X2,X3,X4),X4)|~relationallexists(X2,X3,X4)|~isa(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_24,plain,(relationallexists(c_tptp_9_720,c_executionbyfiringsquad,c_tptpcol_16_29490)|~mtvisible(c_cyclistsmt)), inference(split_conjunct,[status(thm)],[c_0_20])).
+fof(c_0_25, plain, (![X16]:(~executionbyfiringsquad(X16)|isa(X16,c_executionbyfiringsquad))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])).
+cnf(c_0_26,plain,(mtvisible(X1)|~genlmt(X2,X1)|~mtvisible(X2)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_27,plain,(genlmt(c_tptp_member3633_mt,c_tptp_spindleheadmt)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_28,negated_conjecture,(mtvisible(c_tptp_member3633_mt)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_29,negated_conjecture,(~isa(c_tptpexecutionbyfiringsquad_90,c_executionbyfiringsquad)|~mtvisible(c_cyclistsmt)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_23]), c_0_24])).
+cnf(c_0_30,plain,(isa(X1,c_executionbyfiringsquad)|~executionbyfiringsquad(X1)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_31,plain,(genlmt(c_tptp_spindleheadmt,c_cyclistsmt)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_32,plain,(mtvisible(c_tptp_spindleheadmt)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_26, c_0_27]), c_0_28])])).
+cnf(c_0_33,negated_conjecture,(~mtvisible(c_cyclistsmt)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_29, c_0_30]), c_0_18])])).
+cnf(c_0_34,plain,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_26, c_0_31]), c_0_32])]), c_0_33]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

@@ -1,0 +1,41 @@
+% Problem    : KRS265+1 : TPTP v6.1.0. Bugfixed v5.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n092.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:16:06 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C18_F1_PI_AE_Q4_CS_SP_PS_S4S
+# and selection function SelectNewComplexAHPNS.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (?[X10]:![X9]:~(model(X9,X10))), file('/export/starexec/sandbox/benchmark/Axioms/KRS001+1.ax', contradiction)).
+fof(c_0_1, axiom, (![X1]:![X2]:(![X3]:(model(X3,X1)=>model(X3,X2))<=>status(X1,X2,thm))), file('/export/starexec/sandbox/benchmark/Axioms/KRS001+0.ax', thm)).
+fof(c_0_2, axiom, (![X7]:![X8]:(?[X1]:?[X2]:(status(X1,X2,X7)&status(X1,X2,X8))<=>mighta(X7,X8))), file('/export/starexec/sandbox/benchmark/Axioms/KRS001+1.ax', mighta)).
+fof(c_0_3, axiom, (![X1]:![X2]:(~(?[X3]:model(X3,X1))<=>status(X1,X2,cax))), file('/export/starexec/sandbox/benchmark/Axioms/KRS001+0.ax', cax)).
+fof(c_0_4, conjecture, (mighta(cax,thm)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', mighta_cax_thm)).
+fof(c_0_5, plain, (?[X10]:![X9]:~model(X9,X10)), inference(fof_simplification,[status(thm)],[c_0_0])).
+fof(c_0_6, plain, (![X12]:~model(X12,esk57_0)), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[c_0_5])])).
+fof(c_0_7, plain, (![X4]:![X5]:![X7]:![X8]:![X9]:(((model(esk10_2(X4,X5),X4)|status(X4,X5,thm))&(~model(esk10_2(X4,X5),X5)|status(X4,X5,thm)))&(~status(X7,X8,thm)|(~model(X9,X7)|model(X9,X8))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])])])).
+fof(c_0_8, plain, (![X9]:![X10]:![X11]:![X12]:![X13]:![X14]:(((~status(X11,X12,X9)|~status(X11,X12,X10))|mighta(X9,X10))&((status(esk43_2(X13,X14),esk44_2(X13,X14),X13)|~mighta(X13,X14))&(status(esk43_2(X13,X14),esk44_2(X13,X14),X14)|~mighta(X13,X14))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])])])).
+cnf(c_0_9,plain,(~model(X1,esk57_0)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,plain,(status(X1,X2,thm)|model(esk10_2(X1,X2),X1)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_11,plain,(mighta(X1,X2)|~status(X3,X4,X2)|~status(X3,X4,X1)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_12,plain,(status(esk57_0,X1,thm)), inference(spm,[status(thm)],[c_0_9, c_0_10])).
+fof(c_0_13, plain, (![X4]:![X6]:![X7]:![X8]:![X9]:((model(esk30_1(X4),X4)|status(X4,X6,cax))&(~status(X7,X8,cax)|~model(X9,X7)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])).
+fof(c_0_14, negated_conjecture, (~mighta(cax,thm)), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_4])])).
+cnf(c_0_15,plain,(mighta(X1,thm)|~status(esk57_0,X2,X1)), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_16,plain,(status(X1,X2,cax)|model(esk30_1(X1),X1)), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_17,negated_conjecture,(~mighta(cax,thm)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_18,plain,($false), inference(sr,[status(thm)],[inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_15, c_0_16]), c_0_17]), c_0_9]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

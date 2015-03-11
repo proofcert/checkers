@@ -1,0 +1,33 @@
+% Problem    : AGT016+2 : TPTP v6.1.0. Bugfixed v3.1.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n124.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:29:46 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S4c
+# and selection function SelectCQPrecWNTNp.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X7]:?[X8]:~(accept_population(muslimcountrybhumanitarianorganization,X7,X8))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', query_16)).
+fof(c_0_1, axiom, (![X1]:(((((accept_population(X1,atheist,n75)&accept_population(X1,christian,n24))&accept_population(X1,muslim,n1))&accept_population(X1,native,n0))&accept_population(X1,other,n0))<=>accept_city(X1,towna))), file('/export/starexec/sandbox/benchmark/Axioms/AGT001+0.ax', a2_9)).
+fof(c_0_2, axiom, (~(accept_city(muslimcountrybhumanitarianorganization,towna))), file('/export/starexec/sandbox/benchmark/Axioms/AGT001+2.ax', deduced_366)).
+fof(c_0_3, negated_conjecture, (~(?[X7]:?[X8]:~accept_population(muslimcountrybhumanitarianorganization,X7,X8))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_0])])).
+fof(c_0_4, plain, (![X2]:![X3]:((((((~accept_population(X2,atheist,n75)|~accept_population(X2,christian,n24))|~accept_population(X2,muslim,n1))|~accept_population(X2,native,n0))|~accept_population(X2,other,n0))|accept_city(X2,towna))&(((((accept_population(X3,atheist,n75)|~accept_city(X3,towna))&(accept_population(X3,christian,n24)|~accept_city(X3,towna)))&(accept_population(X3,muslim,n1)|~accept_city(X3,towna)))&(accept_population(X3,native,n0)|~accept_city(X3,towna)))&(accept_population(X3,other,n0)|~accept_city(X3,towna))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])])).
+fof(c_0_5, negated_conjecture, (![X9]:![X10]:accept_population(muslimcountrybhumanitarianorganization,X9,X10)), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+fof(c_0_6, plain, (~accept_city(muslimcountrybhumanitarianorganization,towna)), inference(fof_simplification,[status(thm)],[c_0_2])).
+cnf(c_0_7,plain,(accept_city(X1,towna)|~accept_population(X1,other,n0)|~accept_population(X1,native,n0)|~accept_population(X1,muslim,n1)|~accept_population(X1,christian,n24)|~accept_population(X1,atheist,n75)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_8,negated_conjecture,(accept_population(muslimcountrybhumanitarianorganization,X1,X2)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_9,plain,(~accept_city(muslimcountrybhumanitarianorganization,towna)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,negated_conjecture,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_7, c_0_8]), c_0_8]), c_0_8]), c_0_8]), c_0_8])]), c_0_9]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

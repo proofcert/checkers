@@ -1,0 +1,57 @@
+% Problem    : CSR060+3 : TPTP v6.1.0. Released v3.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n132.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:15:56 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C41_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X15]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885))=>(tptp_9_51(X15,c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802)&tptpcol_16_27189(X15)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', query160)).
+fof(c_0_1, axiom, (![X15]:(isa(X15,c_tptpcol_16_27189)=>tptpcol_16_27189(X15))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_5691)).
+fof(c_0_2, axiom, (![X21]:![X22]:((mtvisible(X21)&genlmt(X21,X22))=>mtvisible(X22))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7997)).
+fof(c_0_3, axiom, (![X7]:((mtvisible(c_currentworlddatacollectormt_nonhomocentric)&isa(X7,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)))=>tptp_9_51(f_relationexistsallfn(X7,c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)),X7))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2567)).
+fof(c_0_4, axiom, (genlmt(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885),c_machinelearningspindleheadmt)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_711)).
+fof(c_0_5, axiom, (isa(c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_1361)).
+fof(c_0_6, axiom, (![X7]:![X8]:![X9]:![X10]:((isa(X7,X8)&relationexistsall(X9,X10,X8))=>isa(f_relationexistsallfn(X7,X9,X10,X8),X10))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_453)).
+fof(c_0_7, axiom, ((mtvisible(c_currentworlddatacollectormt_nonhomocentric)=>relationexistsall(c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_2568)).
+fof(c_0_8, axiom, (genlmt(c_analystdatabasemt,c_currentworlddatacollectormt_nonhomocentric)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3332)).
+fof(c_0_9, axiom, (genlmt(c_machinelearningspindleheadmt,c_analystdatabasemt)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_943)).
+fof(c_0_10, negated_conjecture, (~(?[X15]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885))=>(tptp_9_51(X15,c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802)&tptpcol_16_27189(X15))))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_11, negated_conjecture, (![X16]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885))&(~tptp_9_51(X16,c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802)|~tptpcol_16_27189(X16)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])).
+fof(c_0_12, plain, (![X16]:(~isa(X16,c_tptpcol_16_27189)|tptpcol_16_27189(X16))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])).
+fof(c_0_13, plain, (![X23]:![X24]:((~mtvisible(X23)|~genlmt(X23,X24))|mtvisible(X24))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_14,negated_conjecture,(~tptpcol_16_27189(X1)|~tptp_9_51(X1,c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_15,plain,(tptpcol_16_27189(X1)|~isa(X1,c_tptpcol_16_27189)), inference(split_conjunct,[status(thm)],[c_0_12])).
+fof(c_0_16, plain, (![X8]:((~mtvisible(c_currentworlddatacollectormt_nonhomocentric)|~isa(X8,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)))|tptp_9_51(f_relationexistsallfn(X8,c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)),X8))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+cnf(c_0_17,plain,(mtvisible(X1)|~genlmt(X2,X1)|~mtvisible(X2)), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_18,plain,(genlmt(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885),c_machinelearningspindleheadmt)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_19,negated_conjecture,(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwsurgerydoorcoukmedconsprintasprecno23068988)),c_translation_0_885))), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_20,negated_conjecture,(~tptp_9_51(X1,c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802)|~isa(X1,c_tptpcol_16_27189)), inference(spm,[status(thm)],[c_0_14, c_0_15])).
+cnf(c_0_21,plain,(tptp_9_51(f_relationexistsallfn(X1,c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)),X1)|~isa(X1,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma))|~mtvisible(c_currentworlddatacollectormt_nonhomocentric)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_22,plain,(isa(c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma))), inference(split_conjunct,[status(thm)],[c_0_5])).
+fof(c_0_23, plain, (![X11]:![X12]:![X13]:![X14]:((~isa(X11,X12)|~relationexistsall(X13,X14,X12))|isa(f_relationexistsallfn(X11,X13,X14,X12),X14))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+fof(c_0_24, plain, ((~mtvisible(c_currentworlddatacollectormt_nonhomocentric)|relationexistsall(c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)))), inference(fof_nnf,[status(thm)],[c_0_7])).
+cnf(c_0_25,plain,(genlmt(c_analystdatabasemt,c_currentworlddatacollectormt_nonhomocentric)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_26,plain,(genlmt(c_machinelearningspindleheadmt,c_analystdatabasemt)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_27,plain,(mtvisible(c_machinelearningspindleheadmt)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_18]), c_0_19])])).
+cnf(c_0_28,negated_conjecture,(~isa(f_relationexistsallfn(c_tptpnsubcollectionofwithrelationtofnshipobjectfoundinlocationcityofbostonma_802,c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma)),c_tptpcol_16_27189)|~mtvisible(c_currentworlddatacollectormt_nonhomocentric)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_20, c_0_21]), c_0_22])])).
+cnf(c_0_29,plain,(isa(f_relationexistsallfn(X1,X2,X3,X4),X3)|~relationexistsall(X2,X3,X4)|~isa(X1,X4)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_30,plain,(relationexistsall(c_tptp_9_51,c_tptpcol_16_27189,f_subcollectionofwithrelationtofn(c_ship,c_objectfoundinlocation,c_cityofbostonma))|~mtvisible(c_currentworlddatacollectormt_nonhomocentric)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_31,plain,(mtvisible(c_currentworlddatacollectormt_nonhomocentric)|~mtvisible(c_analystdatabasemt)), inference(spm,[status(thm)],[c_0_17, c_0_25])).
+cnf(c_0_32,plain,(mtvisible(c_analystdatabasemt)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_26]), c_0_27])])).
+cnf(c_0_33,negated_conjecture,(~mtvisible(c_currentworlddatacollectormt_nonhomocentric)), inference(csr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_28, c_0_29]), c_0_22])]), c_0_30])).
+cnf(c_0_34,plain,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_31, c_0_32])]), c_0_33]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

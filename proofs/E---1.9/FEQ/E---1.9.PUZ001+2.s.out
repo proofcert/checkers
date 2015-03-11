@@ -1,0 +1,58 @@
+% Problem    : PUZ001+2 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n102.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:40:36 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____011_C07_F1_PI_AE_Q4_CS_SP_PS_S0V
+# and selection function PSelectComplexExceptRRHorn.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (?[X1]:?[X2]:?[X3]:((((((((((((($true&predicate1(X2,live,X1))&modifier_pp(X2,in,'DreadburyMansion'))&predicate2(X3,kill,X1,'AuntAgatha'))&![X4]:![X5]:((($true&predicate1(X5,live,X4))&modifier_pp(X5,in,'DreadburyMansion'))=>((X4='AuntAgatha'|X4='Butler')|X4='Charles')))&![X6]:($true=>![X7]:![X8]:(($true&predicate2(X8,kill,X6,X7))=>?[X9]:predicate2(X9,hate,X6,X7))))&![X10]:($true=>~(?[X11]:?[X12]:?[X13]:((($true&predicate2(X12,kill,X10,X11))&property2(X13,rich,comp_than,X11))&X10=X13))))&![X14]:![X15]:(($true&predicate2(X15,hate,'AuntAgatha',X14))=>~(?[X16]:predicate2(X16,hate,'Charles',X14))))&~(?[X17]:predicate2(X17,hate,'AuntAgatha','Butler')))&![X18]:(($true&X18!='Butler')=>?[X19]:predicate2(X19,hate,'AuntAgatha',X18)))&![X20]:(($true&~(?[X21]:(property2(X21,rich,comp_than,'AuntAgatha')&X20=X21)))=>?[X22]:predicate2(X22,hate,'Butler',X20)))&![X23]:![X24]:(($true&predicate2(X24,hate,'AuntAgatha',X23))=>?[X25]:predicate2(X25,hate,'Butler',X23)))&![X26]:($true=>~(![X27]:($true=>?[X28]:predicate2(X28,hate,X26,X27)))))&'AuntAgatha'!='Butler')), file('/export/starexec/sandbox/benchmark/theBenchmark.p', background)).
+fof(c_0_1, conjecture, (?[X1]:predicate2(X1,kill,'AuntAgatha','AuntAgatha')), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove)).
+fof(c_0_2, plain, (?[X1]:?[X2]:?[X3]:((((((((((((predicate1(X2,live,X1)&modifier_pp(X2,in,'DreadburyMansion'))&predicate2(X3,kill,X1,'AuntAgatha'))&![X4]:![X5]:((predicate1(X5,live,X4)&modifier_pp(X5,in,'DreadburyMansion'))=>((X4='AuntAgatha'|X4='Butler')|X4='Charles')))&![X6]:![X7]:![X8]:(predicate2(X8,kill,X6,X7)=>?[X9]:predicate2(X9,hate,X6,X7)))&![X10]:~(?[X11]:?[X12]:?[X13]:((predicate2(X12,kill,X10,X11)&property2(X13,rich,comp_than,X11))&X10=X13)))&![X14]:![X15]:(predicate2(X15,hate,'AuntAgatha',X14)=>~(?[X16]:predicate2(X16,hate,'Charles',X14))))&~(?[X17]:predicate2(X17,hate,'AuntAgatha','Butler')))&![X18]:(X18!='Butler'=>?[X19]:predicate2(X19,hate,'AuntAgatha',X18)))&![X20]:(~(?[X21]:(property2(X21,rich,comp_than,'AuntAgatha')&X20=X21))=>?[X22]:predicate2(X22,hate,'Butler',X20)))&![X23]:![X24]:(predicate2(X24,hate,'AuntAgatha',X23)=>?[X25]:predicate2(X25,hate,'Butler',X23)))&![X26]:~(![X27]:?[X28]:predicate2(X28,hate,X26,X27)))&'AuntAgatha'!='Butler')), inference(fof_simplification,[status(thm)],[c_0_0])).
+fof(c_0_3, plain, (![X32]:![X33]:![X34]:![X35]:![X36]:![X38]:![X39]:![X40]:![X41]:![X42]:![X43]:![X44]:![X45]:![X46]:![X48]:![X51]:![X52]:![X54]:![X56]:((((((((((((predicate1(esk2_0,live,esk1_0)&modifier_pp(esk2_0,in,'DreadburyMansion'))&predicate2(esk3_0,kill,esk1_0,'AuntAgatha'))&((~predicate1(X33,live,X32)|~modifier_pp(X33,in,'DreadburyMansion'))|((X32='AuntAgatha'|X32='Butler')|X32='Charles')))&(~predicate2(X36,kill,X34,X35)|predicate2(esk4_2(X34,X35),hate,X34,X35)))&((~predicate2(X40,kill,X38,X39)|~property2(X41,rich,comp_than,X39))|X38!=X41))&(~predicate2(X43,hate,'AuntAgatha',X42)|~predicate2(X44,hate,'Charles',X42)))&~predicate2(X45,hate,'AuntAgatha','Butler'))&(X46='Butler'|predicate2(esk5_1(X46),hate,'AuntAgatha',X46)))&((property2(esk6_1(X48),rich,comp_than,'AuntAgatha')|predicate2(esk7_1(X48),hate,'Butler',X48))&(X48=esk6_1(X48)|predicate2(esk7_1(X48),hate,'Butler',X48))))&(~predicate2(X52,hate,'AuntAgatha',X51)|predicate2(esk8_1(X51),hate,'Butler',X51)))&~predicate2(X56,hate,X54,esk9_1(X54)))&'AuntAgatha'!='Butler')), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])])])).
+cnf(c_0_4,plain,(predicate2(esk8_1(X1),hate,'Butler',X1)|~predicate2(X2,hate,'AuntAgatha',X1)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_5,plain,(predicate2(esk5_1(X1),hate,'AuntAgatha',X1)|X1='Butler'), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_6,plain,(X1='Charles'|X1='Butler'|X1='AuntAgatha'|~modifier_pp(X2,in,'DreadburyMansion')|~predicate1(X2,live,X1)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_7,plain,(modifier_pp(esk2_0,in,'DreadburyMansion')), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_8,plain,(~predicate2(X1,hate,X2,esk9_1(X2))), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_9,plain,(predicate2(esk7_1(X1),hate,'Butler',X1)|X1=esk6_1(X1)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_10,plain,('Butler'=X1|predicate2(esk8_1(X1),hate,'Butler',X1)), inference(spm,[status(thm)],[c_0_4, c_0_5])).
+cnf(c_0_11,plain,(~predicate2(X1,hate,'Charles',X2)|~predicate2(X3,hate,'AuntAgatha',X2)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_12,plain,('Charles'=X1|'Butler'=X1|'AuntAgatha'=X1|~predicate1(esk2_0,live,X1)), inference(spm,[status(thm)],[c_0_6, c_0_7])).
+cnf(c_0_13,plain,(predicate1(esk2_0,live,esk1_0)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_14,plain,(esk6_1(esk9_1('Butler'))=esk9_1('Butler')), inference(spm,[status(thm)],[c_0_8, c_0_9])).
+cnf(c_0_15,plain,(esk9_1('Butler')='Butler'), inference(spm,[status(thm)],[c_0_8, c_0_10])).
+cnf(c_0_16,plain,('Butler'=X1|~predicate2(X2,hate,'Charles',X1)), inference(spm,[status(thm)],[c_0_11, c_0_5])).
+cnf(c_0_17,plain,(esk1_0='AuntAgatha'|esk1_0='Butler'|'Charles'=esk1_0), inference(spm,[status(thm)],[c_0_12, c_0_13])).
+cnf(c_0_18,plain,(predicate2(esk4_2(X1,X2),hate,X1,X2)|~predicate2(X3,kill,X1,X2)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_19,plain,(predicate2(esk3_0,kill,esk1_0,'AuntAgatha')), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_20,plain,(X1!=X2|~property2(X2,rich,comp_than,X3)|~predicate2(X4,kill,X1,X3)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_21,plain,(predicate2(esk7_1(X1),hate,'Butler',X1)|property2(esk6_1(X1),rich,comp_than,'AuntAgatha')), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_22,plain,(esk6_1('Butler')='Butler'), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_14, c_0_15]), c_0_15])).
+cnf(c_0_23,plain,(~predicate2(X1,hate,'Butler','Butler')), inference(spm,[status(thm)],[c_0_8, c_0_15])).
+cnf(c_0_24,plain,(esk1_0='Butler'|esk1_0='AuntAgatha'|'Butler'=X1|~predicate2(X2,hate,esk1_0,X1)), inference(spm,[status(thm)],[c_0_16, c_0_17])).
+cnf(c_0_25,plain,(predicate2(esk4_2(esk1_0,'AuntAgatha'),hate,esk1_0,'AuntAgatha')), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_26,plain,('AuntAgatha'!='Butler'), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_27,plain,(~property2(X1,rich,comp_than,X2)|~predicate2(X3,kill,X1,X2)), inference(er,[status(thm)],[c_0_20])).
+cnf(c_0_28,plain,(property2('Butler',rich,comp_than,'AuntAgatha')), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_22]), c_0_23])).
+fof(c_0_29, negated_conjecture, (~(?[X1]:predicate2(X1,kill,'AuntAgatha','AuntAgatha'))), inference(assume_negation,[status(cth)],[c_0_1])).
+cnf(c_0_30,plain,(esk1_0='AuntAgatha'|esk1_0='Butler'), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_25]), c_0_26])).
+cnf(c_0_31,plain,(~predicate2(X1,kill,'Butler','AuntAgatha')), inference(spm,[status(thm)],[c_0_27, c_0_28])).
+fof(c_0_32, negated_conjecture, (![X2]:~predicate2(X2,kill,'AuntAgatha','AuntAgatha')), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_29])])).
+cnf(c_0_33,plain,(esk1_0='AuntAgatha'), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_19, c_0_30]), c_0_31])).
+cnf(c_0_34,negated_conjecture,(~predicate2(X1,kill,'AuntAgatha','AuntAgatha')), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_35,plain,($false), inference(sr,[status(thm)],[inference(rw,[status(thm)],[c_0_19, c_0_33]), c_0_34]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

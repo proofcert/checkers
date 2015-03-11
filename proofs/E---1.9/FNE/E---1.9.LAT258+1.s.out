@@ -1,0 +1,140 @@
+% Problem    : LAT258+1 : TPTP v6.1.0. Released v3.2.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n123.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:38:56 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___200_B02_F1_SE_CS_SP_PI_S0S
+# and selection function SelectComplexG.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:![X4]:(((meet(X1,X2,X3)&less_than(X4,X1))&less_than(X4,X2))=>less_than(X4,X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', greatest_lower_bound_meet)).
+fof(c_0_1, axiom, (![X1]:![X2]:?[X3]:meet(X1,X2,X3)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', do_lattice)).
+fof(c_0_2, axiom, (![X1]:![X2]:![X3]:(meet(X1,X2,X3)=>(less_than(X3,X1)&less_than(X3,X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', lower_bound_meet)).
+fof(c_0_3, axiom, (![X1]:![X2]:![X3]:(join(X1,X2,X3)=>join(X2,X1,X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', commutitivity_join)).
+fof(c_0_4, axiom, (![X1]:![X2]:![X3]:(join(X1,X2,X3)=>(less_than(X1,X3)&less_than(X2,X3)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', upper_bound_join)).
+fof(c_0_5, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:(((((join(X2,X3,X8)&meet(X1,X8,X4))&meet(X1,X2,X5))&meet(X1,X3,X6))&join(X5,X6,X7))=>less_than(X4,X7))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', lo_le_distr)).
+fof(c_0_6, axiom, (![X1]:![X2]:![X3]:(meet(X1,X2,X3)=>meet(X2,X1,X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', commutitivity_meet)).
+fof(c_0_7, axiom, ((meet(y,z,w)&join(x,w,p))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', meet_join_assumption)).
+fof(c_0_8, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:(((join(X1,X2,X4)&join(X4,X3,X5))&join(X2,X3,X6))=>join(X1,X6,X5))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', associativity_join)).
+fof(c_0_9, axiom, ((join(x,y,t)&join(x,z,u))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', join_assumption)).
+fof(c_0_10, axiom, (![X1]:![X2]:(less_than(X1,X2)=>(meet(X1,X2,X1)&join(X1,X2,X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', less_than_meet_join)).
+fof(c_0_11, axiom, (![X1]:![X2]:![X3]:((less_than(X1,X2)&less_than(X2,X3))=>less_than(X1,X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', less_than_transitive)).
+fof(c_0_12, axiom, (![X1]:![X2]:![X3]:![X4]:(((join(X1,X2,X3)&less_than(X1,X4))&less_than(X2,X4))=>less_than(X3,X4))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', least_upper_bound_join)).
+fof(c_0_13, axiom, (![X1]:less_than(X1,X1)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', less_than_reflexive)).
+fof(c_0_14, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:(((meet(X1,X2,X4)&meet(X4,X3,X5))&meet(X2,X3,X6))=>meet(X1,X6,X5))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', associativity_meet)).
+fof(c_0_15, axiom, (meet(t,u,v)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', meet_assumption)).
+fof(c_0_16, axiom, ((less_than(v,p)=>goal)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', goal_ax)).
+fof(c_0_17, conjecture, (goal), file('/export/starexec/sandbox/benchmark/theBenchmark.p', goal_to_be_proved)).
+fof(c_0_18, plain, (![X5]:![X6]:![X7]:![X8]:(((~meet(X5,X6,X7)|~less_than(X8,X5))|~less_than(X8,X6))|less_than(X8,X7))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])).
+fof(c_0_19, plain, (![X4]:![X5]:meet(X4,X5,esk1_2(X4,X5))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[c_0_1])])).
+fof(c_0_20, plain, (![X4]:![X5]:![X6]:((less_than(X6,X4)|~meet(X4,X5,X6))&(less_than(X6,X5)|~meet(X4,X5,X6)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])).
+fof(c_0_21, plain, (![X4]:![X5]:![X6]:(~join(X4,X5,X6)|join(X5,X4,X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+fof(c_0_22, plain, (![X4]:![X5]:![X6]:((less_than(X4,X6)|~join(X4,X5,X6))&(less_than(X5,X6)|~join(X4,X5,X6)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])).
+fof(c_0_23, plain, (![X9]:![X10]:![X11]:![X12]:![X13]:![X14]:![X15]:![X16]:(((((~join(X10,X11,X16)|~meet(X9,X16,X12))|~meet(X9,X10,X13))|~meet(X9,X11,X14))|~join(X13,X14,X15))|less_than(X12,X15))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+fof(c_0_24, plain, (![X4]:![X5]:![X6]:(~meet(X4,X5,X6)|meet(X5,X4,X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+cnf(c_0_25,plain,(less_than(X1,X2)|~less_than(X1,X3)|~less_than(X1,X4)|~meet(X4,X3,X2)), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_26,plain,(meet(X1,X2,esk1_2(X1,X2))), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_27,plain,(less_than(X3,X2)|~meet(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_28,plain,(meet(y,z,w)), inference(split_conjunct,[status(thm)],[c_0_7])).
+fof(c_0_29, plain, (![X7]:![X8]:![X9]:![X10]:![X11]:![X12]:(((~join(X7,X8,X10)|~join(X10,X9,X11))|~join(X8,X9,X12))|join(X7,X12,X11))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])).
+cnf(c_0_30,plain,(join(X1,X2,X3)|~join(X2,X1,X3)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_31,plain,(join(x,z,u)), inference(split_conjunct,[status(thm)],[c_0_9])).
+fof(c_0_32, plain, (![X3]:![X4]:((meet(X3,X4,X3)|~less_than(X3,X4))&(join(X3,X4,X4)|~less_than(X3,X4)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])).
+cnf(c_0_33,plain,(less_than(X1,X3)|~join(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_34,plain,(join(x,w,p)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_35,plain,(less_than(X1,X2)|~join(X3,X4,X2)|~meet(X5,X6,X4)|~meet(X5,X7,X3)|~meet(X5,X8,X1)|~join(X7,X6,X8)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_36,plain,(meet(X1,X2,X3)|~meet(X2,X1,X3)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_37,plain,(less_than(X1,esk1_2(X2,X3))|~less_than(X1,X2)|~less_than(X1,X3)), inference(spm,[status(thm)],[c_0_25, c_0_26])).
+cnf(c_0_38,plain,(less_than(w,z)), inference(spm,[status(thm)],[c_0_27, c_0_28])).
+cnf(c_0_39,plain,(less_than(X2,X3)|~join(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_40,plain,(join(x,y,t)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_41,plain,(less_than(X3,X1)|~meet(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_42,plain,(join(X1,X2,X3)|~join(X4,X5,X2)|~join(X6,X5,X3)|~join(X1,X4,X6)), inference(split_conjunct,[status(thm)],[c_0_29])).
+cnf(c_0_43,plain,(join(z,x,u)), inference(spm,[status(thm)],[c_0_30, c_0_31])).
+cnf(c_0_44,plain,(join(X1,X2,X2)|~less_than(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_45,plain,(less_than(esk1_2(X1,X2),X2)), inference(spm,[status(thm)],[c_0_27, c_0_26])).
+cnf(c_0_46,plain,(less_than(x,p)), inference(spm,[status(thm)],[c_0_33, c_0_34])).
+cnf(c_0_47,plain,(less_than(esk1_2(X1,X2),X3)|~meet(X1,X4,X5)|~meet(X1,X6,X7)|~join(X4,X6,X2)|~join(X5,X7,X3)), inference(spm,[status(thm)],[c_0_35, c_0_26])).
+cnf(c_0_48,plain,(meet(z,y,w)), inference(spm,[status(thm)],[c_0_36, c_0_28])).
+cnf(c_0_49,plain,(less_than(w,esk1_2(z,X1))|~less_than(w,X1)), inference(spm,[status(thm)],[c_0_37, c_0_38])).
+cnf(c_0_50,plain,(less_than(w,p)), inference(spm,[status(thm)],[c_0_39, c_0_34])).
+cnf(c_0_51,plain,(join(y,x,t)), inference(spm,[status(thm)],[c_0_30, c_0_40])).
+cnf(c_0_52,plain,(less_than(w,y)), inference(spm,[status(thm)],[c_0_41, c_0_28])).
+fof(c_0_53, plain, (![X4]:![X5]:![X6]:((~less_than(X4,X5)|~less_than(X5,X6))|less_than(X4,X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_11])])).
+cnf(c_0_54,plain,(join(X1,X2,u)|~join(X3,x,X2)|~join(X1,X3,z)), inference(spm,[status(thm)],[c_0_42, c_0_43])).
+cnf(c_0_55,plain,(join(w,x,p)), inference(spm,[status(thm)],[c_0_30, c_0_34])).
+cnf(c_0_56,plain,(join(w,z,z)), inference(spm,[status(thm)],[c_0_44, c_0_38])).
+cnf(c_0_57,plain,(join(esk1_2(X1,X2),X2,X2)), inference(spm,[status(thm)],[c_0_44, c_0_45])).
+cnf(c_0_58,plain,(less_than(x,esk1_2(p,X1))|~less_than(x,X1)), inference(spm,[status(thm)],[c_0_37, c_0_46])).
+cnf(c_0_59,plain,(less_than(esk1_2(z,X1),X2)|~meet(z,X3,X4)|~join(y,X3,X1)|~join(w,X4,X2)), inference(spm,[status(thm)],[c_0_47, c_0_48])).
+cnf(c_0_60,plain,(less_than(w,esk1_2(z,p))), inference(spm,[status(thm)],[c_0_49, c_0_50])).
+cnf(c_0_61,plain,(join(X1,X2,t)|~join(X3,x,X2)|~join(X1,X3,y)), inference(spm,[status(thm)],[c_0_42, c_0_51])).
+cnf(c_0_62,plain,(join(w,y,y)), inference(spm,[status(thm)],[c_0_44, c_0_52])).
+fof(c_0_63, plain, (![X5]:![X6]:![X7]:![X8]:(((~join(X5,X6,X7)|~less_than(X5,X8))|~less_than(X6,X8))|less_than(X7,X8))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])).
+cnf(c_0_64,plain,(less_than(X1,X2)|~less_than(X3,X2)|~less_than(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_53])).
+cnf(c_0_65,plain,(less_than(y,t)), inference(spm,[status(thm)],[c_0_39, c_0_40])).
+cnf(c_0_66,plain,(join(X1,p,u)|~join(X1,w,z)), inference(spm,[status(thm)],[c_0_54, c_0_55])).
+cnf(c_0_67,plain,(join(z,w,z)), inference(spm,[status(thm)],[c_0_30, c_0_56])).
+cnf(c_0_68,plain,(join(X1,esk1_2(X2,X1),X1)), inference(spm,[status(thm)],[c_0_30, c_0_57])).
+cnf(c_0_69,plain,(less_than(x,esk1_2(p,p))), inference(spm,[status(thm)],[c_0_58, c_0_46])).
+cnf(c_0_70,plain,(less_than(esk1_2(z,X1),X2)|~join(w,esk1_2(z,X3),X2)|~join(y,X3,X1)), inference(spm,[status(thm)],[c_0_59, c_0_26])).
+cnf(c_0_71,plain,(join(w,esk1_2(z,p),esk1_2(z,p))), inference(spm,[status(thm)],[c_0_44, c_0_60])).
+cnf(c_0_72,plain,(join(X1,p,t)|~join(X1,w,y)), inference(spm,[status(thm)],[c_0_61, c_0_55])).
+cnf(c_0_73,plain,(join(y,w,y)), inference(spm,[status(thm)],[c_0_30, c_0_62])).
+fof(c_0_74, plain, (![X2]:less_than(X2,X2)), inference(variable_rename,[status(thm)],[c_0_13])).
+cnf(c_0_75,plain,(less_than(X1,X2)|~less_than(X3,X2)|~less_than(X4,X2)|~join(X4,X3,X1)), inference(split_conjunct,[status(thm)],[c_0_63])).
+cnf(c_0_76,plain,(less_than(X1,t)|~less_than(X1,y)), inference(spm,[status(thm)],[c_0_64, c_0_65])).
+cnf(c_0_77,plain,(join(z,p,u)), inference(spm,[status(thm)],[c_0_66, c_0_67])).
+cnf(c_0_78,plain,(join(X1,X2,X3)|~join(X4,esk1_2(X5,X3),X2)|~join(X1,X4,X3)), inference(spm,[status(thm)],[c_0_42, c_0_68])).
+cnf(c_0_79,plain,(join(x,esk1_2(p,p),esk1_2(p,p))), inference(spm,[status(thm)],[c_0_44, c_0_69])).
+cnf(c_0_80,plain,(less_than(esk1_2(z,X1),esk1_2(z,p))|~join(y,p,X1)), inference(spm,[status(thm)],[c_0_70, c_0_71])).
+cnf(c_0_81,plain,(join(y,p,t)), inference(spm,[status(thm)],[c_0_72, c_0_73])).
+fof(c_0_82, plain, (![X7]:![X8]:![X9]:![X10]:![X11]:![X12]:(((~meet(X7,X8,X10)|~meet(X10,X9,X11))|~meet(X8,X9,X12))|meet(X7,X12,X11))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_14])])).
+cnf(c_0_83,plain,(meet(X1,X2,X1)|~less_than(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_84,plain,(less_than(X1,X1)), inference(split_conjunct,[status(thm)],[c_0_74])).
+cnf(c_0_85,plain,(less_than(p,X1)|~less_than(x,X1)|~less_than(w,X1)), inference(spm,[status(thm)],[c_0_75, c_0_34])).
+cnf(c_0_86,plain,(less_than(x,t)), inference(spm,[status(thm)],[c_0_33, c_0_40])).
+cnf(c_0_87,plain,(less_than(w,t)), inference(spm,[status(thm)],[c_0_76, c_0_52])).
+cnf(c_0_88,plain,(join(p,z,u)), inference(spm,[status(thm)],[c_0_30, c_0_77])).
+cnf(c_0_89,plain,(join(X1,esk1_2(p,p),p)|~join(X1,x,p)), inference(spm,[status(thm)],[c_0_78, c_0_79])).
+cnf(c_0_90,plain,(meet(t,u,v)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_91,plain,(less_than(X1,X2)|~less_than(X1,esk1_2(X3,X2))), inference(spm,[status(thm)],[c_0_64, c_0_45])).
+cnf(c_0_92,plain,(less_than(esk1_2(z,t),esk1_2(z,p))), inference(spm,[status(thm)],[c_0_80, c_0_81])).
+fof(c_0_93, plain, ((~less_than(v,p)|goal)), inference(fof_nnf,[status(thm)],[c_0_16])).
+fof(c_0_94, negated_conjecture, (~goal), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_17])])).
+cnf(c_0_95,plain,(meet(X1,X2,X3)|~meet(X4,X5,X2)|~meet(X6,X5,X3)|~meet(X1,X4,X6)), inference(split_conjunct,[status(thm)],[c_0_82])).
+cnf(c_0_96,plain,(meet(X1,X1,X1)), inference(spm,[status(thm)],[c_0_83, c_0_84])).
+cnf(c_0_97,plain,(less_than(p,t)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_85, c_0_86]), c_0_87])])).
+cnf(c_0_98,plain,(join(X1,X2,u)|~join(X3,z,X2)|~join(X1,X3,p)), inference(spm,[status(thm)],[c_0_42, c_0_88])).
+cnf(c_0_99,plain,(join(w,esk1_2(p,p),p)), inference(spm,[status(thm)],[c_0_89, c_0_55])).
+cnf(c_0_100,plain,(less_than(v,X1)|~meet(t,X2,X3)|~meet(t,X4,X5)|~join(X2,X4,u)|~join(X3,X5,X1)), inference(spm,[status(thm)],[c_0_35, c_0_90])).
+cnf(c_0_101,plain,(meet(X1,X2,esk1_2(X2,X1))), inference(spm,[status(thm)],[c_0_36, c_0_26])).
+cnf(c_0_102,plain,(less_than(esk1_2(z,t),p)), inference(spm,[status(thm)],[c_0_91, c_0_92])).
+cnf(c_0_103,plain,(goal|~less_than(v,p)), inference(split_conjunct,[status(thm)],[c_0_93])).
+cnf(c_0_104,negated_conjecture,(~goal), inference(split_conjunct,[status(thm)],[c_0_94])).
+cnf(c_0_105,plain,(meet(X1,X2,X3)|~meet(X4,X3,X2)|~meet(X1,X4,X3)), inference(spm,[status(thm)],[c_0_95, c_0_96])).
+cnf(c_0_106,plain,(meet(p,t,p)), inference(spm,[status(thm)],[c_0_83, c_0_97])).
+cnf(c_0_107,plain,(join(X1,z,u)|~join(X1,w,p)), inference(spm,[status(thm)],[c_0_98, c_0_56])).
+cnf(c_0_108,plain,(join(esk1_2(p,p),w,p)), inference(spm,[status(thm)],[c_0_30, c_0_99])).
+cnf(c_0_109,plain,(less_than(v,X1)|~meet(t,X2,X3)|~join(esk1_2(X4,t),X3,X1)|~join(X4,X2,u)), inference(spm,[status(thm)],[c_0_100, c_0_101])).
+cnf(c_0_110,plain,(join(esk1_2(z,t),p,p)), inference(spm,[status(thm)],[c_0_44, c_0_102])).
+cnf(c_0_111,plain,(~less_than(v,p)), inference(sr,[status(thm)],[c_0_103, c_0_104])).
+cnf(c_0_112,plain,(meet(X1,esk1_2(X2,X3),X3)|~meet(X1,X2,X3)), inference(spm,[status(thm)],[c_0_105, c_0_26])).
+cnf(c_0_113,plain,(meet(t,p,p)), inference(spm,[status(thm)],[c_0_36, c_0_106])).
+cnf(c_0_114,plain,(join(esk1_2(p,p),z,u)), inference(spm,[status(thm)],[c_0_107, c_0_108])).
+cnf(c_0_115,plain,(~meet(t,X1,p)|~join(z,X1,u)), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_109, c_0_110]), c_0_111])).
+cnf(c_0_116,plain,(meet(t,esk1_2(p,p),p)), inference(spm,[status(thm)],[c_0_112, c_0_113])).
+cnf(c_0_117,plain,(join(z,esk1_2(p,p),u)), inference(spm,[status(thm)],[c_0_30, c_0_114])).
+cnf(c_0_118,plain,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_116]), c_0_117])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

@@ -1,0 +1,48 @@
+% Problem    : CSR115+47 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n094.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:48:41 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:((((((((((agt(X4,X3)&attr(X3,X2))&attr(X5,X6))&has_card_leq(X7,int1994))&obj(X4,X1))&sub(X1,firma_1_1))&sub(X2,name_1_1))&sub(X6,jahr__1_1))&temp(X4,X5))&val(X2,bmw_0))&val(X6,X7))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_007_mira_news_1287_a19984)).
+fof(c_0_1, hypothesis, ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((mcont(c417,c519)&mexp(c417,c419))&subs(c417,erw__344gen_1_1))&attr(c419,c420))&sub(c419,firma_1_1))&sub(c420,name_1_1))&val(c420,bmw_0))&attr(c506,c507))&sub(c506,firma_1_1))&sub(c507,name_1_1))&val(c507,rover_0))&attr(c517,c518))&sub(c518,jahr__1_1))&val(c518,c508))&agt(c519,c419))&obj(c519,c506))&subs(c519,festigen_1_1))&temp(c519,c517))&temp(c519,schon_1_1))&sort(c417,da))&fact(c417,real))&gener(c417,sp))&sort(c519,da))&fact(c519,hypo))&gener(c519,sp))&sort(c419,d))&sort(c419,io))&card(c419,int1))&etype(c419,int0))&fact(c419,real))&gener(c419,sp))&quant(c419,one))&refer(c419,det))&varia(c419,con))&sort(erw__344gen_1_1,da))&fact(erw__344gen_1_1,real))&gener(erw__344gen_1_1,ge))&sort(c420,na))&card(c420,int1))&etype(c420,int0))&fact(c420,real))&gener(c420,sp))&quant(c420,one))&refer(c420,indet))&varia(c420,varia_c))&sort(firma_1_1,d))&sort(firma_1_1,io))&card(firma_1_1,int1))&etype(firma_1_1,int0))&fact(firma_1_1,real))&gener(firma_1_1,ge))&quant(firma_1_1,one))&refer(firma_1_1,refer_c))&varia(firma_1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(bmw_0,fe))&sort(c506,d))&sort(c506,io))&card(c506,int1))&etype(c506,int0))&fact(c506,real))&gener(c506,sp))&quant(c506,one))&refer(c506,det))&varia(c506,con))&sort(c507,na))&card(c507,int1))&etype(c507,int0))&fact(c507,real))&gener(c507,sp))&quant(c507,one))&refer(c507,indet))&varia(c507,varia_c))&sort(rover_0,fe))&sort(c517,t))&card(c517,int1))&etype(c517,int0))&fact(c517,real))&gener(c517,sp))&quant(c517,one))&refer(c517,det))&varia(c517,con))&sort(c518,me))&sort(c518,oa))&sort(c518,ta))&card(c518,card_c))&etype(c518,etype_c))&fact(c518,real))&gener(c518,sp))&quant(c518,quant_c))&refer(c518,refer_c))&varia(c518,varia_c))&sort(jahr__1_1,me))&sort(jahr__1_1,oa))&sort(jahr__1_1,ta))&card(jahr__1_1,card_c))&etype(jahr__1_1,etype_c))&fact(jahr__1_1,real))&gener(jahr__1_1,ge))&quant(jahr__1_1,quant_c))&refer(jahr__1_1,refer_c))&varia(jahr__1_1,varia_c))&sort(c508,nu))&card(c508,int1994))&sort(festigen_1_1,da))&fact(festigen_1_1,real))&gener(festigen_1_1,ge))&sort(schon_1_1,t))&card(schon_1_1,int1))&etype(schon_1_1,int0))&fact(schon_1_1,real))&gener(schon_1_1,sp))&quant(schon_1_1,one))&refer(schon_1_1,refer_c))&varia(schon_1_1,varia_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_007_mira_news_1287_a19984)).
+fof(c_0_2, axiom, (![X1]:![X2]:(card(X1,X2)=>has_card_leq(X1,X2))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', has_card_eq)).
+fof(c_0_3, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:((((((((((agt(X4,X3)&attr(X3,X2))&attr(X5,X6))&has_card_leq(X7,int1994))&obj(X4,X1))&sub(X1,firma_1_1))&sub(X2,name_1_1))&sub(X6,jahr__1_1))&temp(X4,X5))&val(X2,bmw_0))&val(X6,X7)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_4, negated_conjecture, (![X8]:![X9]:![X10]:![X11]:![X12]:![X13]:![X14]:((((((((((~agt(X11,X10)|~attr(X10,X9))|~attr(X12,X13))|~has_card_leq(X14,int1994))|~obj(X11,X8))|~sub(X8,firma_1_1))|~sub(X9,name_1_1))|~sub(X13,jahr__1_1))|~temp(X11,X12))|~val(X9,bmw_0))|~val(X13,X14))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+cnf(c_0_5,negated_conjecture,(~val(X1,X2)|~val(X3,bmw_0)|~temp(X4,X5)|~sub(X1,jahr__1_1)|~sub(X3,name_1_1)|~sub(X6,firma_1_1)|~obj(X4,X6)|~has_card_leq(X2,int1994)|~attr(X5,X1)|~attr(X7,X3)|~agt(X4,X7)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_6,hypothesis,(val(c420,bmw_0)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_7,hypothesis,(sub(c420,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_8,hypothesis,(~val(X1,X2)|~attr(X3,c420)|~attr(X4,X1)|~agt(X5,X3)|~obj(X5,X6)|~temp(X5,X4)|~sub(X6,firma_1_1)|~sub(X1,jahr__1_1)|~has_card_leq(X2,int1994)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_5, c_0_6]), c_0_7])])).
+cnf(c_0_9,hypothesis,(attr(c419,c420)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_10, plain, (![X3]:![X4]:(~card(X3,X4)|has_card_leq(X3,X4))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_11,hypothesis,(~val(X1,X2)|~attr(X3,X1)|~agt(X4,c419)|~obj(X4,X5)|~temp(X4,X3)|~sub(X5,firma_1_1)|~sub(X1,jahr__1_1)|~has_card_leq(X2,int1994)), inference(spm,[status(thm)],[c_0_8, c_0_9])).
+cnf(c_0_12,plain,(has_card_leq(X1,X2)|~card(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_13,hypothesis,(~val(X1,X2)|~attr(X3,X1)|~agt(X4,c419)|~obj(X4,X5)|~temp(X4,X3)|~sub(X5,firma_1_1)|~sub(X1,jahr__1_1)|~card(X2,int1994)), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_14,hypothesis,(card(c508,int1994)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_15,hypothesis,(~val(X1,c508)|~attr(X2,X1)|~agt(X3,c419)|~obj(X3,X4)|~temp(X3,X2)|~sub(X4,firma_1_1)|~sub(X1,jahr__1_1)), inference(spm,[status(thm)],[c_0_13, c_0_14])).
+cnf(c_0_16,hypothesis,(val(c518,c508)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_17,hypothesis,(sub(c518,jahr__1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_18,hypothesis,(~attr(X1,c518)|~agt(X2,c419)|~obj(X2,X3)|~temp(X2,X1)|~sub(X3,firma_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_15, c_0_16]), c_0_17])])).
+cnf(c_0_19,hypothesis,(obj(c519,c506)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_20,hypothesis,(agt(c519,c419)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_21,hypothesis,(sub(c506,firma_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_22,hypothesis,(~attr(X1,c518)|~temp(c519,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_18, c_0_19]), c_0_20]), c_0_21])])).
+cnf(c_0_23,hypothesis,(temp(c519,c517)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_24,hypothesis,(attr(c517,c518)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_25,hypothesis,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_23]), c_0_24])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF
