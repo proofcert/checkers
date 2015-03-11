@@ -15,21 +15,27 @@ type sub list atm -> sub.
 % binary resolution: the two indices of the clauses and lists of mappings to each clause.
 % We can assume each clause is in prefix normal form (being clauses).
 kind res type.
-type res int -> int -> sub -> sub -> res.
+type res int -> int -> int -> sub -> sub -> res.
+
+kind map type.
+type map list (pair int form) -> map.
 
 % rlist where:
 % list res is a list of resolution steps, each with two indices of clauses and and a substitution for each clause.
 % list form is the list of the cut formulas. I.e. the negation of the factoring of the resolvent.
 % The last list is a map from clauses to their indices. It must include all clauses used in the first list.
-type rlist (list res) -> (list form) -> (list (pair form int)) -> cert.
+type rlist (list res) -> cert.
 type dlist list int -> list sub -> cert.
 type lastd cert.
 type ddone cert.
 
 type queue form -> cert -> o.
 
-type example  int -> form -> cert -> o.
+type example  int -> form -> cert -> map -> o.
 type testAllRes		o.
+type resolve (list (pair int form)) -> form -> cert -> o.
+
+type mapsto int -> form -> o.
 
 /* Signature of the resolution problems */
 type r1, r2, a, b,c,d,e atm.
