@@ -21,6 +21,8 @@ orNeg_kc    Cert _  Cert :- prinn "orNeg_kc ".
 store_kc    (rlist A B M) C (idx I) (rlist A B M) :- (member (pr C I) M), prinn "store_kc1".
 % storing when the index is not given and therefore, not used by experts
 store_kc    Cert _ lit Cert :- prinn "store_kc4".
+% storing true (last cut)
+store_kc Cert t+ tlit Cert :- prinn "store_kc4".
 andPos_ke   Cert _  Cert Cert :- prinn "andPos_ke ".
 initial_ke  _ _  :- prinn "initial_ke ".
 release_ke  Cert Cert :- prinn "release_ke ".
@@ -28,18 +30,18 @@ release_ke  Cert Cert :- prinn "release_ke ".
 decide_ke (dlist [I,J]) (idx I) (dlist [J]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I,J]) (idx J) (dlist [I]) :- prinn "decide_ke2 ".
 decide_ke (dlist [I]) (idx J) (dlist []) :- prinn "decide_ke2 ".
-decide_ke (dlist []) _ (ddone) :- prinn "decide_ke2 ".
+decide_ke (dlist _) _ (ddone) :- prinn "decide_ke2 ".
 % Cuts correspond to resolve steps except for the last resolve
 cut_ke    (rlist [(pr I J) | R1] [CutForm | R2] M) CutForm (dlist [I,J]) (rlist R1 R2 M) :-
   prinn "cut_ke".
 % last cut on cut formula false, we could just use decide ND on one of the formulas but
 % there is more logic to that in the fol case so we use the cut rule.
-cut_ke    (rlist [pr I J] [] _) f- (dlist [I,J]) (lastd [I,J]) :-
+cut_ke    (rlist [pr I J] [] _) f- (dlist [I,J]) lastd :-
   prinn "cut_ke".
 % this decide is being called after the last cut
-decide_ke (lastd [I,J]) (idx I) ddone :- prinn "decide_ke ".
-decide_ke (lastd [I,J]) (idx J) ddone :- prinn "decide_ke ".
+decide_ke lastd tlit ddone :- prinn "decide_ke ".
 false_kc Cert Cert :- prinn "false_kc".
+true_ke _ :- prinn "true_ke ".
 
 
 % example Number Theorem Cert Map

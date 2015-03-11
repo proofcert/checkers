@@ -15,11 +15,11 @@ print_r G :- print G.
 if P Q R :- P, !, Q.
 if P Q R :- R.
 
-spyV 1 Stra G :-
+spyV 0 Stra G :-
 
 	(print ">>> ", print Stra, print " ", term_to_string G Str,  print Str,  print "\n", G,
 	 print "+++ ", print Stra, print " ", term_to_string G Strx, print Strx, print "\n")
 	;
 	(print "<<< ", print Stra, print " ", term_to_string G Str,  print Str,  print "\n", fail).
 
-spyV 0 Stra G :- G.
+spyV 1 Stra G :- G.
