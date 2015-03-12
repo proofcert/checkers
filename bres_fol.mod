@@ -4,8 +4,6 @@ accumulate debug.
 accumulate  lkf-kernel.
 accumulate lists.
 
-
-
 testAllRes :-
   example Number F Cert (map Map),
   print "Running on example ", term_to_string Number Str, print Str, print ":\n",
@@ -21,8 +19,8 @@ resolve [(pr I C) | R] F Cert :-
 
 
 type prinn string -> o.
- prinn S.
- %prinn S :- print S, print "\n".
+ %prinn S.
+ prinn S :- print S, print "\n".
 
 orNeg_kc    Cert _  Cert :- prinn "orNeg_kc ".
 % storing according to an index held in the Map

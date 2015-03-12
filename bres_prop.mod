@@ -1,7 +1,8 @@
 module bres_prop.
 
-accumulate debug.
 accumulate  lkf-kernel.
+accumulate  debug.
+accumulate  lists.
 
 
 testAllRes :-

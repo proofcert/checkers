@@ -1,7 +1,5 @@
 % 29 july 2014.
-% Paper Fidelity.
 module lkf-kernel.
-accumulate debug.
 accumulate lists.
 
 % Entry point
@@ -81,7 +79,7 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   some_ke Cert T Cert',
-  check Cert' (foc (B T)),
+  check Cert' (foc (B T)).
 
 % Units
 check Cert (foc t+) :-
