@@ -39,7 +39,7 @@ decide_ke (dlist [I] [S]) (idx I) (dlist [] [S]) :- prinn "decide_ke2 ".
 decide_ke (dlist _ _) _ (ddone) :- prinn "decide_ke2 ".
 % clauses are in prefix normal form and we just apply the sub in the right order
 some_ke (dlist I [(sub [T])|S2]) T (dlist I S2) :- prinn "some_ke1".
-some_ke (dlist I [(sub [T|R])|S2]) T (dlist I [(sub R)|S2]) :- prinn "some_ke2".
+some_ke (dlist I [(sub [T,T2|R])|S2]) T (dlist I [(sub [T2|R])|S2]) :- prinn "some_ke2".
 % last cut on cut formula false, we could just use decide ND on one of the formulas but
 % there is more logic to that in the fol case so we use the cut rule.
 cut_ke    (rlist [res I J K S1 S2]) f- (dlist [I,J] [S1,S2]) lastd :- mapsto K t+,
@@ -69,14 +69,14 @@ example 1
    pr 3 (some (x\ (p (g (x))) &+& (n (g (h (x)))))),
    pr 4 (n (g (h (a)))),
    pr 5 (n (g (h (h (a))))),
-   pr 0 t+]).
+   pr 0 t+]) :- not true.
 
 example 2
   (some (x\ (n (g x))) !-! p (g a))
   (rlist [res 1 2 0 (sub [a]) (sub [])])
   (map [pr 1 (some (x\ (n (g x)))),
    pr 2 (p (g a)),
-   pr 0 t+]).
+   pr 0 t+]) :- not true.
 
 example 3
  ((some (x\ (some y\ (n(g(x)) &+& n(g(f x y))) &+& n(g(y))))) !-!

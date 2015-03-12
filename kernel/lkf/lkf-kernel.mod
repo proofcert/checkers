@@ -1,6 +1,7 @@
 % 29 july 2014.
 module lkf-kernel.
 accumulate lists.
+accumulate debug.
 
 % Entry point
 entry_pointLKF Cert Form :-
@@ -12,10 +13,10 @@ entry_pointLKF Cert Form :-
 
 % decide
 check Cert (unfK nil) :-
-  decide_ke Cert Indx Cert',
+  spy (decide_ke Cert Indx Cert'),
   inCtxt Indx P,
   isPos P,
-  check Cert' (foc P).
+  spy (check Cert' (foc P)).
 % release
 check Cert (foc N) :-
   isNeg N,
@@ -78,9 +79,11 @@ check Cert (foc (A !+! B)) :-
    (Choice = right, check Cert' (foc B))).
 % quantifers
 check Cert (foc (some B)) :-
-  some_ke Cert T Cert',
-  check Cert' (foc (B T)).
-
+  spy (some_ke Cert T Cert'),
+  print "1\n",
+  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
+  check Cert' (foc (C)),
+  print "2\n".
 % Units
 check Cert (foc t+) :-
   true_ke Cert.
@@ -91,6 +94,8 @@ check Cert (foc (d+ A)) :-
 %%%%%%%%%%%
 % Utilities
 %%%%%%%%%%%
+
+eager_normalize A B :- A = B.
 
 isNegForm (_ &-& _).
 isNegForm (_ !-! _).
