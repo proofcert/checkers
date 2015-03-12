@@ -13,10 +13,10 @@ entry_pointLKF Cert Form :-
 
 % decide
 check Cert (unfK nil) :-
-  spy (decide_ke Cert Indx Cert'),
+  decide_ke Cert Indx Cert',
   inCtxt Indx P,
   isPos P,
-  spy (check Cert' (foc P)).
+  check Cert' (foc P).
 % release
 check Cert (foc N) :-
   isNeg N,
@@ -79,11 +79,9 @@ check Cert (foc (A !+! B)) :-
    (Choice = right, check Cert' (foc B))).
 % quantifers
 check Cert (foc (some B)) :-
-  spy (some_ke Cert T Cert'),
-  print "1\n",
+  some_ke Cert T Cert',
   eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
-  check Cert' (foc (C)),
-  print "2\n".
+  check Cert' (foc (C)).
 % Units
 check Cert (foc t+) :-
   true_ke Cert.
