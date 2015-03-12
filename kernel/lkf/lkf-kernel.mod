@@ -6,7 +6,7 @@ accumulate lists.
 
 % Entry point
 entry_pointLKF Cert Form :-
-  spyV 1 "entring" (check Cert (unfK [Form])).
+  check Cert (unfK [Form]).
 
 %%%%%%%%%%%%%%%%%%
 % Structural Rules
@@ -14,31 +14,30 @@ entry_pointLKF Cert Form :-
 
 % decide
 check Cert (unfK nil) :-
-  spyV 1 "deciding" (decide_ke Cert Indx Cert'),
-  spyV 1 "deciding" (inCtxt Indx P),
+  decide_ke Cert Indx Cert',
+  inCtxt Indx P,
   isPos P,
-  spyV 1 "decided" (check Cert' (foc P)).
+  check Cert' (foc P).
 % release
 check Cert (foc N) :-
   isNeg N,
   release_ke Cert Cert',
-  spyV 1 "released" (check Cert' (unfK [N])).
+  check Cert' (unfK [N]).
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
-  spyV 1 "storing " (store_kc Cert C Indx Cert'),
-  inCtxt Indx C => spyV 1 "stored" (check Cert' (unfK Rest)).
+  store_kc Cert C Indx Cert',
+  inCtxt Indx C => check Cert' (unfK Rest).
 % initial
 check Cert (foc (p A)) :-
   initial_ke Cert Indx,
-  spyV 1 "INITIAL" (inCtxt Indx (n A)).
-  %,print "INITIAL succeeded \n".
+  inCtxt Indx (n A).
 % cut
 check Cert (unfK nil) :-
   cut_ke Cert F CertA CertB,
-  spyV 1 "negating ?" (negate F NF),
-  spyV 1 "left of cut" (check CertA (unfK [F])),
-  spyV 1 "right of cut" (check CertB (unfK [NF])).
+  negate F NF,
+  check CertA (unfK [F]),
+  check CertB (unfK [NF]).
 
 %%%%%%%%%%%%%%%%%%%%
 % Asynchronous Rules
@@ -47,7 +46,7 @@ check Cert (unfK nil) :-
 % orNeg
 check Cert (unfK [A !-! B | Rest]) :-
   orNeg_kc Cert (A !-! B)  Cert',
-  spyV 1 "!-! breaking" (check Cert' (unfK [A, B| Rest])).
+  check Cert' (unfK [A, B| Rest]).
 % conjunction
 check Cert (unfK [A &-& B | Rest]) :-
   andNeg_kc Cert (A &-& B) CertA CertB,
@@ -61,10 +60,10 @@ check Cert (unfK [all B | Theta]) :-
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
   false_kc Cert Cert',
-  spyV 1 "f- removing" (check Cert' (unfK Gamma)).
+  check Cert' (unfK Gamma).
 % delay
 check Cert (unfK [d- A| Teta]) :-
-      check Cert (unfK [A| Teta]).
+  check Cert (unfK [A| Teta]).
 
 %%%%%%%%%%%%%%%%%%%
 % Synchronous Rules
@@ -72,8 +71,8 @@ check Cert (unfK [d- A| Teta]) :-
 % conjunction
 check Cert (foc (A &+& B)) :-
    andPos_ke Cert (A &+& B) CertA CertB,
-   spyV 1 "left of &+&" (check CertA (foc A)),
-   spyV 1 "right of &+&" (check CertB (foc B)).
+   check CertA (foc A),
+   check CertB (foc B).
 % disjunction
 check Cert (foc (A !+! B)) :-
   orPos_ke Cert (A !+! B) Choice Cert',
@@ -82,15 +81,14 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   some_ke Cert T Cert',
-(term_to_string (check Cert' (foc (B T))) _),
-  spyV 1 "some" (check Cert' (foc (B T))).
+  check Cert' (foc (B T)),
 
 % Units
 check Cert (foc t+) :-
-  spyV 1 "TRUE" (true_ke Cert).
+  true_ke Cert.
 % delay
 check Cert (foc (d+ A)) :-
-      check Cert (foc A).
+  check Cert (foc A).
 
 %%%%%%%%%%%
 % Utilities
