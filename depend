@@ -1,6 +1,6 @@
-bres_prop.lpo: bres_prop.mod bres_prop.sig kernel/utils/debug.sig kernel/lkf/lkf-kernel.sig kernel/utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
-bres_fol.lpo: bres_fol.mod bres_fol.sig kernel/utils/debug.sig kernel/lkf/lkf-kernel.sig kernel/utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
-binaryResolution.lpo: binaryResolution.mod binaryResolution.sig kernel/utils/debug.sig kernel/imbed/imbed.sig kernel/lkf/lkf-kernel.sig kernel/ljf/ljf-kernel.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
-bres_prop.lp: bres_prop.lpo kernel/utils/debug.lpo kernel/lkf/lkf-kernel.lpo kernel/utils/lists.lpo
-bres_fol.lp: bres_fol.lpo kernel/utils/debug.lpo kernel/lkf/lkf-kernel.lpo kernel/utils/lists.lpo
-binaryResolution.lp: binaryResolution.lpo kernel/utils/debug.lpo kernel/imbed/imbed.lpo kernel/lkf/lkf-kernel.lpo kernel/ljf/ljf-kernel.lpo
+bres_prop.lpo: bres_prop.mod bres_prop.sig utils/debug.sig kernel/lkf/lkf-kernel.sig utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
+bres_fol.lpo: bres_fol.mod bres_fol.sig utils/debug.sig kernel/lkf/lkf-kernel.sig utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
+binaryResolution.lpo: binaryResolution.mod binaryResolution.sig utils/debug.sig kernel/imbed/imbed.sig kernel/lkf/lkf-kernel.sig kernel/ljf/ljf-kernel.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig kernel/ljf/certificatesLJF.sig kernel/ljf/ljf-syntax.sig
+bres_prop.lp: bres_prop.lpo utils/debug.lpo kernel/lkf/lkf-kernel.lpo utils/lists.lpo
+bres_fol.lp: bres_fol.lpo utils/debug.lpo kernel/lkf/lkf-kernel.lpo utils/lists.lpo
+binaryResolution.lp: binaryResolution.lpo utils/debug.lpo kernel/imbed/imbed.lpo kernel/lkf/lkf-kernel.lpo kernel/ljf/ljf-kernel.lpo

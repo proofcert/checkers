@@ -1,7 +1,7 @@
 MODULE=lkf-kernel
 
 # Path of the dependencies.
-export TJPATH=../utils
+export TJPATH=../../utils
 
 .PHONY: all
 all: $(MODULE).lp

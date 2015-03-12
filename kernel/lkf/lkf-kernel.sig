@@ -2,6 +2,7 @@
 sig lkf-kernel.
 accum_sig certificatesLKF.
 accum_sig debug.
+accum_sig lists.
 
 type entry_pointLKF  cert -> form -> o.
 type check cert -> seq -> o.

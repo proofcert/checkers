@@ -1,5 +1,9 @@
 sig bres_fol.
 accum_sig lkf-kernel.
+accum_sig certificatesLKF.
+accum_sig debug.
+accum_sig lists.
+
 
 type print_clause           int -> form -> o.
 type  print'   A -> o.
@@ -40,3 +44,4 @@ type mapsto int -> form -> o.
 /* Signature of the resolution problems */
 type r1, r2, a, b,c,d,e atm.
 type g, h 		atm -> atm.
+type f 		atm -> atm -> atm.

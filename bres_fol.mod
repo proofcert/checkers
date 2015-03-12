@@ -2,6 +2,8 @@ module bres_fol.
 
 accumulate debug.
 accumulate  lkf-kernel.
+accumulate lists.
+
 
 
 testAllRes :-
@@ -14,12 +16,13 @@ resolve [] F Cert :-
       (print "Success\n==============================================\n")
 		  (print "Fail\n", halt), fail.
 resolve [(pr I C) | R] F Cert :-
+  %term_to_string I Ind, term_to_string C Cl, print Ind, print " mapsto ", print Cl, print "\n",
   mapsto I C => resolve R F Cert.
 
 
 type prinn string -> o.
  prinn S.
-% prinn S :- print S, print "\n".
+ %prinn S :- print S, print "\n".
 
 orNeg_kc    Cert _  Cert :- prinn "orNeg_kc ".
 % storing according to an index held in the Map
@@ -37,29 +40,26 @@ decide_ke (dlist [I,J] [S1, S2]) (idx J) (dlist [I] [S2,S1]) :- prinn "decide_ke
 decide_ke (dlist [I] [S]) (idx I) (dlist [] [S]) :- prinn "decide_ke2 ".
 decide_ke (dlist _ _) _ (ddone) :- prinn "decide_ke2 ".
 % clauses are in prefix normal form and we just apply the sub in the right order
-some_ke (dlist [I] [sub [T], S2]) T (dlist [I] [S2]) :- prinn "some_ke".
-some_ke (dlist [I] [sub [T|R],S2]) T (dlist [I] [sub R,S2]) :- prinn "some_ke".
-% Cuts correspond to resolve steps except for the last resolve
-cut_ke    (rlist [(res I J K S1 S2) | R1]) CutForm (dlist [I,J] [S1,S2]) (rlist R1) :-
-  mapsto K CutForm,
-  prinn "cut_ke".
+some_ke (dlist I [(sub [T])|S2]) T (dlist I S2) :- prinn "some_ke1".
+some_ke (dlist I [(sub [T|R])|S2]) T (dlist I [(sub R)|S2]) :- prinn "some_ke2".
 % last cut on cut formula false, we could just use decide ND on one of the formulas but
 % there is more logic to that in the fol case so we use the cut rule.
-cut_ke    (rlist [res I J K S1 S2]) f- (dlist [I,J] [S1,S2]) lastd :- mapsto K f-,
-  prinn "cut_ke".
+cut_ke    (rlist [res I J K S1 S2]) f- (dlist [I,J] [S1,S2]) lastd :- mapsto K t+,
+  prinn "cut_ke1".
+% Cuts correspond to resolve steps except for the last resolve
+cut_ke    (rlist [(res I J K S1 S2) | R1]) NC (dlist [I,J] [S1,S2]) (rlist R1):-
+  mapsto K CutForm,
+  negate CutForm NC, %we would like to do the dlist on the left and also to input the resolvent as cut formulas, therefore we must negate it.
+  prinn "cut_ke2".
 % this decide is being called after the last cut
 decide_ke lastd tlit ddone :- prinn "decide_ke ".
 false_kc Cert Cert :- prinn "false_kc".
 true_ke _ :- prinn "true_ke ".
 
-
-
-
 % example Number Theorem Cert Map
 % Theorem - the theorem to prove
-% Cert - a certificate obtained from a resolution refutation of the negation of the theorem
-% Cert contains a list of n resolve steps, a list of n-1 cut formulas (the last resolve is a cut on f- and is ommited
-% Map - a mapping of all indices used in the refutation to formulas
+% Cert
+% Mapping of indicies to clauses used in the refutation
 
 example 1
   (n (g a) !-!
@@ -69,28 +69,31 @@ example 1
   (map [pr 1 (n (g a)),
    pr 2 (p (g (h (h (a))))),
    pr 3 (some (x\ (p (g (x))) &+& (n (g (h (x)))))),
-   pr 4 (p (g (h (a)))),
-   pr 5 (p (g (h (h (a))))),
-   pr 0 f-]).
+   pr 4 (n (g (h (a)))),
+   pr 5 (n (g (h (h (a))))),
+   pr 0 t+]).
 
 example 2
   (some (x\ (n (g x))) !-! p (g a))
   (rlist [res 1 2 0 (sub [a]) (sub [])])
   (map [pr 1 (some (x\ (n (g x)))),
    pr 2 (p (g a)),
-   pr 0 f-]).
+   pr 0 t+]).
 
-%example 3
-%((some (x\ (some y\ (n(g(x)) &+& n(g(f(x,y))) &+& n(g(y)))))) !-!
-%  (p (g(a))) !-!
-%  (p (g(f(a,b)))) !-!
-%  (p (g(b))))
-%[]
-%[pr (some (x\ (some y\ (n(g(x)) &+& n(g(f(x,y))) &+& n(g(y)))))) 1,
-% pr (p (g(a))) 2,
-% pr (p (g(f(a,b)))) 3,
-% pr (p (g(b))) 4
-%].
+example 3
+ ((some (x\ (some y\ (n(g(x)) &+& n(g(f x y))) &+& n(g(y))))) !-!
+  (p (g(a))) !-!
+  (p (g(f a b))) !-!
+  (p (g(b))))
+ (rlist [res 1 3 5 (sub [a,b]) (sub []), res 5 2 6 (sub []) (sub []), res 6 4 0 (sub []) (sub [])])
+ (map [
+ pr 1 (some (x\ (some y\ ((n(g(x)) &+& n(g(f x y))) &+& n(g(y)))))),
+ pr 2 (p (g(a))),
+ pr 3 (p (g(f a b))),
+ pr 4 (p (g(b))),
+ pr 5 (n(g(a)) &+& n(g(b))),
+ pr 6 (n(g(b))),
+ pr 0 t+]).
 
 % add an example with cut formula which is not an atom.
 

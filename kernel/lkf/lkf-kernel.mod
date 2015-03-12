@@ -82,7 +82,9 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   some_ke Cert T Cert',
+(term_to_string (check Cert' (foc (B T))) _),
   spyV 1 "some" (check Cert' (foc (B T))).
+
 % Units
 check Cert (foc t+) :-
   spyV 1 "TRUE" (true_ke Cert).
