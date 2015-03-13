@@ -13,30 +13,30 @@ entry_pointLKF Cert Form :-
 
 % decide
 check Cert (unfK nil) :-
-  spy(decide_ke Cert Indx Cert'),
+  spy "" (decide_ke Cert Indx Cert'),
   inCtxt Indx P,
   isPos P,
-  spy(check Cert' (foc P)).
+  spy "Deciding " (check Cert' (foc P)).
 % release
 check Cert (foc N) :-
   isNeg N,
-  spy(release_ke Cert Cert'),
-  spy(check Cert' (unfK [N])).
+  spy "" (release_ke Cert Cert'),
+  spy "Releasing " (check Cert' (unfK [N])).
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
-  spy (store_kc Cert C Indx Cert'),
-  inCtxt Indx C => spy(check Cert' (unfK Rest)).
+  spy "" (store_kc Cert C Indx Cert'),
+  inCtxt Indx C => spy "Storing " (check Cert' (unfK Rest)).
 % initial
 check Cert (foc (p A)) :-
-  spy(initial_ke Cert Indx),
-  inCtxt Indx (n A).
+  spy "" (initial_ke Cert Indx),
+  spy "Init " (inCtxt Indx (n A)).
 % cut
 check Cert (unfK nil) :-
-  spy(cut_ke Cert F CertA CertB),
+  spy "" (cut_ke Cert F CertA CertB),
   negate F NF,
-  spy(check CertA (unfK [F])),
-  spy(check CertB (unfK [NF])).
+  spy "Cut left " (check CertA (unfK [F])),
+  spy "Cut right " (check CertB (unfK [NF])).
 
 %%%%%%%%%%%%%%%%%%%%
 % Asynchronous Rules
@@ -44,50 +44,50 @@ check Cert (unfK nil) :-
 
 % orNeg
 check Cert (unfK [A !-! B | Rest]) :-
-  spy (orNeg_kc Cert (A !-! B)  Cert'),
-  spy (check Cert' (unfK [A, B| Rest])).
+  spy "" (orNeg_kc Cert (A !-! B)  Cert'),
+  spy "Or- " (check Cert' (unfK [A, B| Rest])).
 % conjunction
 check Cert (unfK [A &-& B | Rest]) :-
-  spy(andNeg_kc Cert (A &-& B) CertA CertB),
-  spy(check CertA (unfK [A | Rest])),
-  spy(check CertB (unfK [B | Rest])).
+  spy "" (andNeg_kc Cert (A &-& B) CertA CertB),
+  spy "And- left " (check CertA (unfK [A | Rest])),
+  spy "And- right " (check CertB (unfK [B | Rest])).
 % forall
 check Cert (unfK [all B | Theta]) :-
-  spy(all_kc Cert Cert'),
-  spy(pi w\ check (Cert' w) (unfK [B w | Theta] )). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
+  spy "" (all_kc Cert Cert'),
+  spy "All " (pi w\ check (Cert' w) (unfK [B w | Theta] )). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
-  spy(false_kc Cert Cert'),
-  spy(check Cert' (unfK Gamma)).
+  spy "" (false_kc Cert Cert'),
+  spy "False " (check Cert' (unfK Gamma)).
 % delay
 check Cert (unfK [d- A| Teta]) :-
-  spy(check Cert (unfK [A| Teta])).
+  spy "Delay" (check Cert (unfK [A| Teta])).
 
 %%%%%%%%%%%%%%%%%%%
 % Synchronous Rules
 %%%%%%%%%%%%%%%%%%%
 % conjunction
 check Cert (foc (A &+& B)) :-
-   spy(andPos_ke Cert (A &+& B) CertA CertB),
-   spy(check CertA (foc A)),
-   spy(check CertB (foc B)).
+   spy "" (andPos_ke Cert (A &+& B) CertA CertB),
+   spy "And+ left " (check CertA (foc A)),
+   spy "And+ right " (check CertB (foc B)).
 % disjunction
 check Cert (foc (A !+! B)) :-
-  spy(orPos_ke Cert (A !+! B) Choice Cert'),
-  spy(((Choice = left,  check Cert' (foc A));
-   (Choice = right, check Cert' (foc B)))).
+  spy "" (orPos_ke Cert (A !+! B) Choice Cert'),
+  ((Choice = left,  spy "Or+ left " (check Cert' (foc A)));
+   (Choice = right, spy "Or+ right " (check Cert' (foc B)))).
 % quantifers
 check Cert (foc (some B)) :-
-  spy(some_ke Cert T Cert'),
+  spy "" (some_ke Cert T Cert'),
   eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
-  spy(check Cert' (foc (C))).
+  spy "Some " (check Cert' (foc (C))).
 % Units
 check Cert (foc t+) :-
-  spy(true_ke Cert).
+  spy "" (true_ke Cert).
 % delay
 check Cert (foc (d+ A)) :-
-  spy(check Cert (foc A)).
+  spy "" (check Cert (foc A)).
 
 %%%%%%%%%%%
 % Utilities
