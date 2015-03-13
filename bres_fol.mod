@@ -19,12 +19,14 @@ resolve [(pr I C) | R] F Cert :-
 
 
 type prinn string -> o.
- %prinn S.
- prinn S :- print S, print "\n".
+ prinn S.
+ %prinn S :- print S, print "\n".
 
 orNeg_kc    Cert _  Cert :- prinn "orNeg_kc ".
 % storing according to an index held in the Map
-store_kc    (rlist A) C (idx I) (rlist A) :- mapsto I C, prinn "store_kc1".
+store_kc    (rlist A) C (idx I) (rlist A) :-
+  mapsto I C,
+  prinn "store_kc1".
 % storing when the index is not given and therefore, not used by experts
 store_kc    Cert _ lit Cert :- prinn "store_kc4".
 % storing true (last cut)
@@ -42,7 +44,8 @@ some_ke (dlist I [(sub [T])|S2]) T (dlist I S2) :- prinn "some_ke1".
 some_ke (dlist I [(sub [T,T2|R])|S2]) T (dlist I [(sub [T2|R])|S2]) :- prinn "some_ke2".
 % last cut on cut formula false, we could just use decide ND on one of the formulas but
 % there is more logic to that in the fol case so we use the cut rule.
-cut_ke    (rlist [res I J K S1 S2]) f- (dlist [I,J] [S1,S2]) lastd :- mapsto K t+,
+cut_ke    (rlist [res I J K S1 S2]) f- (dlist [I,J] [S1,S2]) lastd :-
+  mapsto K t+,
   prinn "cut_ke1".
 % Cuts correspond to resolve steps except for the last resolve
 cut_ke    (rlist [(res I J K S1 S2) | R1]) NC (dlist [I,J] [S1,S2]) (rlist R1):-
@@ -69,14 +72,14 @@ example 1
    pr 3 (some (x\ (p (g (x))) &+& (n (g (h (x)))))),
    pr 4 (n (g (h (a)))),
    pr 5 (n (g (h (h (a))))),
-   pr 0 t+]) :- not true.
+   pr 0 t+]).
 
 example 2
   (some (x\ (n (g x))) !-! p (g a))
   (rlist [res 1 2 0 (sub [a]) (sub [])])
   (map [pr 1 (some (x\ (n (g x)))),
    pr 2 (p (g a)),
-   pr 0 t+]) :- not true.
+   pr 0 t+]).
 
 example 3
  ((some (x\ (some y\ (n(g(x)) &+& n(g(f x y))) &+& n(g(y))))) !-!
