@@ -5,9 +5,10 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
+export TJPATH = ../../kernel/ljf:../../kernel/lkf:../../kernel/imbed:../../utils
+
 .PHONY: all
 all: $(OBJS)
-
 
 cc: all clean
 
@@ -18,8 +19,11 @@ cc: all clean
 	tjlink  $*
 
 -include depend
+depend: *.mod *.sig
+	tjdepend *.mod > depend-stage
+	mv depend-stage depend
 
 .PHONY: clean
 clean:
-	rm -f *.lpo *.lp
+	rm -f *.lpo *.lp depend
 

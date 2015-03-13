@@ -15,11 +15,14 @@ cc: all clean
 	tjlink  $*
 
 -include depend
+depend: *.mod *.sig
+	tjdepend *.mod > depend-stage
+	mv depend-stage depend
 
 run:
 	tjsim  $(MODULE)
 
 .PHONY: clean
 clean:
-	rm -f *.lpo *.lp
+	rm -f *.lpo *.lp depend
 

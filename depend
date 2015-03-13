@@ -1,4 +1,0 @@
-bres_prop.lpo: bres_prop.mod bres_prop.sig utils/debug.sig kernel/lkf/lkf-kernel.sig utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
-bres_fol.lpo: bres_fol.mod bres_fol.sig utils/debug.sig kernel/lkf/lkf-kernel.sig utils/lists.sig kernel/lkf/certificatesLKF.sig kernel/lkf/lkf-syntax.sig
-bres_prop.lp: bres_prop.lpo utils/debug.lpo kernel/lkf/lkf-kernel.lpo utils/lists.lpo
-bres_fol.lp: bres_fol.lpo utils/debug.lpo kernel/lkf/lkf-kernel.lpo utils/lists.lpo

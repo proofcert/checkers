@@ -14,8 +14,8 @@ cc: all clean
 
 -include depend
 depend: *.mod *.sig
-		tjdepend *.mod  > depend-stage
-		mv depend-stage depend
+	tjdepend *.mod  > depend-stage
+	mv depend-stage depend
 
 run:
 	tjsim  $(MODULE)
