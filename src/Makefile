@@ -5,7 +5,7 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution
+export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution:tests/resolution
 
 .PHONY: all
 all: release_kernel compile
@@ -30,6 +30,7 @@ compile: $(OBJS)
 	cd utils && $(MAKE)
 	cd kernel && $(MAKE)
 	cd fpc && $(MAKE)
+	cd tests && $(MAKE)
 
 cc: all clean
 
@@ -47,6 +48,7 @@ depend: *.mod *.sig
 .PHONY: clean
 clean:
 	rm -f *.lpo *.lp depend
+	cd tests && $(MAKE) clean
 	cd fpc && $(MAKE) clean
 	cd kernel && $(MAKE) clean
 	cd utils && $(MAKE) clean

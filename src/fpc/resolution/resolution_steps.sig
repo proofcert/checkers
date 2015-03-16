@@ -3,6 +3,7 @@ sig resolution_steps.
 accum_sig certificatesLKF.
 accum_sig lists.
 accum_sig base.
+accum_sig runner.
 
 kind rstep type.
 kind resolv type.

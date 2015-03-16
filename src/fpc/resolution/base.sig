@@ -8,5 +8,4 @@ type tlit      index. % index t+
 
 type done cert.
 
-type mapsto int -> form -> o.
 
