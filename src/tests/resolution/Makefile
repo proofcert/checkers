@@ -12,14 +12,14 @@ all: $(OBJS)
 
 cc: all clean
 
-%.lpo : %.mod
+%.lpo : %.mod %.sig
 	tjcc  $*
 
 %.lp : %.lpo
 	tjlink  $*
 
 -include depend
-depend: *.mod
+depend: *.mod *.sig
 	tjdepend *.mod > depend-stage
 	mv depend-stage depend
 
