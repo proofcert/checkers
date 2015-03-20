@@ -1,0 +1,22 @@
+certification script: prover.sh
+
+This script certifies a list of cerificate names which are in the exported TJPATH (see the Makefile).
+The current directory is included.
+
+Certifiacates are of the following form:
+1) a certificate mod file must accumulate the implementation of the kernel, clerks and experts that it is using.
+2) then a predicate problem/4 with the following arguments:
+  1) a name
+  2) a formula (right now in the syntax of the used kernel but should be changed into fol and we need to add a polarize relation from fol to target syntax)
+  3) a certificate
+  4) a map object from index to formulas
+
+Examples of such certificates can be found in tests/resolution
+
+To run the script, type
+
+$ ./prover.sh <list of cert filenames>
+
+for example
+
+$ ./prover.sh bfol1 bprop4
