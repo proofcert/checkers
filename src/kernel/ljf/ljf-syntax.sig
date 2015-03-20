@@ -1,8 +1,9 @@
 % 29 july 2014.
 sig ljf-syntax.
 
-kind form,seq,atm,cert, choice, index, stored type.
-kind pair type -> type -> type.
+accum_sig runner.
+
+kind seq,atm, choice, index, stored type.
 
 type inCtxt index -> form -> o.
 type left, right choice.
@@ -43,6 +44,6 @@ type str+, str- form -> stored.
 type unfJ   list form -> stored -> seq.
 type lf    form -> form -> seq.
 type rf    form -> seq.
-type isNegForm, isNegAtm, 
+type isNegForm, isNegAtm,
      isPosForm, isPosAtm,
-     isNeg, isPos	  form -> o. 
+     isNeg, isPos	  form -> o.

@@ -2,8 +2,8 @@
 sig lkf-kernel.
 accum_sig certificatesLKF.
 accum_sig lists.
+accum_sig runner.
 
-type entry_pointLKF  cert -> form -> o.
 type check cert -> seq -> o.
 
 type eager_normalize form -> form -> o.

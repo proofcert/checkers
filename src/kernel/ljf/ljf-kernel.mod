@@ -4,7 +4,7 @@
 module ljf-kernel.
 
 % Entry point
-entry_pointLJF Cert Form :-
+entry_point Cert Form :-
   check Cert (unfJ nil (str- Form)).
 
 %%%%%%%%%%%%%%%%%%
@@ -14,7 +14,7 @@ entry_pointLJF Cert Form :-
 % decide
 check Cert (unfJ nil (str+ R)) :-
   decideL_je Cert Indx Cert',
-  inCtxt Indx N, 
+  inCtxt Indx N,
   isNeg N,
   check Cert' (lf N R).
 check Cert (unfJ nil (str+ P)) :-
@@ -33,11 +33,11 @@ check Cert (rf N) :-
   check Cert' (unfJ nil (str- N)).
 
 % store
-check Cert (unfJ [C|Rest] Rhs) :-			
+check Cert (unfJ [C|Rest] Rhs) :-
   (isNeg C ; isPosAtm C),
   storeL_jc Cert C Indx Cert',
   inCtxt Indx C => check Cert' (unfJ Rest Rhs).
-check Cert (unfJ nil (str- D)) :-			
+check Cert (unfJ nil (str- D)) :-
   (isPos D ; isNegAtm D),
   storeR_jc Cert D Cert',
   check Cert (unfJ nil (str+ D)).
@@ -57,7 +57,7 @@ check Cert (unfJ nil (str+ R)) :-
   cut_je Cert F CertA CertB,
   check CertA (unfJ nil (str- F)),
   check CertB (unfJ [F] (str+ R)).
-   
+
 
 %%%%%%%%%%%%%%%%%%%%
 % Asynchronous Rules
@@ -117,7 +117,7 @@ check Cert (lf (A arr B) R) :-
 
 % disjunction
 check Cert (rf (A !! B)) :-
-  or_je Cert (A !! B) Choice Cert', 
+  or_je Cert (A !! B) Choice Cert',
   ((Choice = left,  check Cert' (rf A));
    (Choice = right, check Cert' (rf B))).
 
@@ -147,13 +147,13 @@ check Cert (unfJ [t| Theta] R) :-
 
 % delay
 check Cert (rf (d+ A)) :-
-     check Cert (rf A). 
+     check Cert (rf A).
 check Cert (lf (d- A) R) :-
      check Cert (lf A R) .
 
 %%%%%%%%%%%%%%%%%%%
 % Units
-check Cert (rf t) :- 
+check Cert (rf t) :-
   true_je Cert.
 
 % delay
@@ -169,7 +169,7 @@ check Cert (lf (d- A) R) :-
 %%%%%%%%%%%
 isPosForm t.
 isPosForm f.
-isNegForm (_ &-& _). 
+isNegForm (_ &-& _).
 isNegForm (_ arr _).
 isNegForm (d- _).
 isNegForm (all _).

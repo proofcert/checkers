@@ -1,6 +1,4 @@
-
-accumulate  lkf-kernel.
-accumulate  lists.
+accumulate lists.
 accumulate debug.
 
 run :-
@@ -9,7 +7,7 @@ run :-
   resolve Map F Cert.
 
 resolve [] F Cert :-
-  if (entry_pointLKF Cert F)
+  if (entry_point Cert F)
       (print "Success\n==============================================\n")
 		  (print "Fail\n", halt), fail.
 resolve [(pr I C) | R] F Cert :-

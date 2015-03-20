@@ -1,5 +1,6 @@
 module bprop2.
 
+accumulate lkf-kernel.
 accumulate binary_res_prop.
 accumulate resolution_steps.
 

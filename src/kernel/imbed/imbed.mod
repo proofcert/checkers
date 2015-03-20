@@ -13,7 +13,7 @@ accumulate  lkf-kernel, ljf-kernel.
  */
 imbedForm+ (p A)      (p A).
 imbedForm+ (N)        (TN arr f)  :-  isNeg N, imbedForm- N TN.
-imbedForm+ (A !+! B ) (TA  !! TB) & 
+imbedForm+ (A !+! B ) (TA  !! TB) &
 imbedForm+ (A &+& B ) (TA &+& TB) :- imbedForm+ A TA, imbedForm+ B TB.
 imbedForm+ (f+) (f).
 imbedForm+ (t+) (t).
@@ -31,23 +31,23 @@ imbed-AllForm [] [].
 imbed-AllForm [F|R][F'|R'] :- imbedForm- F F', imbed-AllForm R R'.
 
 /*
- first thing to call to engage the checking 
+ first thing to call to engage the checking
 */
 entry_pointImbed Cert Form :-
     imbedSeq (unfK [Form]) Seq,
     check Cert Seq.
-/* 
+/*
 Imbedding of sequent.
 - Disparity with the paper because context is handled by LProlog
-So cannot, for now, embed whole sequent 
+So cannot, for now, embed whole sequent
  => ONLY sequent with empty context. (Sufficient)
   [⊢  . ⇑  Δ]   into   [. ; [Δ]￣  ⊢ f ;.]
 */
 imbedSeq (unfK D) (unfJ TD (str- f)) :-
     imbed-AllForm D TD.
- 
-/* 
-Imbedding the Bureau 
+
+/*
+Imbedding the Bureau
 - fcert is the vacuous cert given to the Agents dealing with "false"
 */
 
@@ -79,16 +79,16 @@ cut_je C F CG CD :-
   cut_ke C F' CA CB,
   ((isNeg F', negate F' FF, imbedForm- FF F, CG = CA, CD = CB)
   ;
-  (isPos F', imbedForm- F' F, CG = CB, CD = CA)).  
+  (isPos F', imbedForm- F' F, CG = CB, CD = CA)).
 
 /********
  Testing
 *********/
 
-test 1 X F :- 
+test 1 X F :-
    imbedForm- ((X &-& X) !-! (X &+& (X !+! X))) F.
 test 2 X F :-
   imbedForm-  F  ((p A !! p A) &+& ((p A arr f) &+& ((p A arr f) !! (p A arr f)) arr f)).
 
 test 3 X F :- imbedForm- (X &-& X) F.
-  
+

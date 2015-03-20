@@ -1,6 +1,8 @@
 MODULE=ljf-kernel
 
-.PHONY: all 
+export TJPATH=../../utils:../..
+
+.PHONY: all
 all: $(MODULE).lp
 
 cc: all clean

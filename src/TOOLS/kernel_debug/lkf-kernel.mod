@@ -3,7 +3,7 @@ module lkf-kernel.
 accumulate lists.
 
 % Entry point
-entry_pointLKF Cert Form :-
+entry_point Cert Form :-
   check Cert (unfK [Form]).
 
 %%%%%%%%%%%%%%%%%%

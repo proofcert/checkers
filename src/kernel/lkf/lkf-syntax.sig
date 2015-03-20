@@ -1,8 +1,9 @@
 % 29 july 2014.
 sig lkf-syntax.
 
-kind form,seq,atm,cert, choice, index type.
-kind pair type -> type -> type.
+accum_sig runner.
+
+kind atm, seq, choice, index type.
 
 type inCtxt index -> form -> o.
 type left, right choice.
@@ -41,7 +42,7 @@ type n, p      	       	  atm -> form.
 
 type unfK list form -> seq.
 type foc form -> seq.
-type isNegForm, isNegAtm, 
+type isNegForm, isNegAtm,
      isPosForm, isPosAtm,
-     isNeg, isPos, isPosUM	  form -> o. 
+     isNeg, isPos, isPosUM	  form -> o.
 type negate form -> form -> o.

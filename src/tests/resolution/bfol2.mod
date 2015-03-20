@@ -1,5 +1,6 @@
 module bfol2.
 
+accumulate lkf-kernel.
 accumulate binary_res_fol.
 accumulate resolution_steps.
 
