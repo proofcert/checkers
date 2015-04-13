@@ -13,10 +13,14 @@ rm -f $RUNNER_TARGET
 
 echo -e "module runner.\\n" >> $RUNNER_TARGET
 
-for (( i=0;i<$ELEMENTS;i++)); do
-      echo -e "accumulate ${ARGS[${i}]}." >> $RUNNER_TARGET
-done
+if [ $ELEMENTS = 0 ]
+  then echo "Error: at least one certificate must be given!"
+  else
+  for (( i=0;i<$ELEMENTS;i++)); do
+        echo -e "accumulate ${ARGS[${i}]}." >> $RUNNER_TARGET
+  done
 
-echo $(cat $RUNNER_BASE) >> $RUNNER_TARGET
+  echo $(cat $RUNNER_BASE) >> $RUNNER_TARGET
 
-make>/dev/null && $CMD && rm -f $RUNNER_TARGET
+  make>/dev/null && $CMD && rm -f $RUNNER_TARGET
+fi
