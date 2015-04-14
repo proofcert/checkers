@@ -68,9 +68,12 @@ check Cert (unfK [d- A| Teta]) :-
 %%%%%%%%%%%%%%%%%%%
 % conjunction
 check Cert (foc (A &+& B)) :-
-   andPos_ke Cert (A &+& B) CertA CertB,
+   andPos_k Cert (A &+& B) Direction CertA CertB,
+   ((Direction = left-first,
    check CertA (foc A),
-   check CertB (foc B).
+   check CertB (foc B));
+   (Direction = right-first,
+    check CertB (foc B),check CertA (foc A))).
 % disjunction
 check Cert (foc (A !+! B)) :-
   orPos_ke Cert (A !+! B) Choice Cert',
@@ -125,3 +128,12 @@ negate (A &-& B)  (NA !+! NB) &
 negate (A !+! B)  (NA &-& NB) :- negate A NA, negate B NB.
 negate (all B)  (some NB) &
 negate (some B) (all NB) :- pi x\ negate (B x) (NB x).
+
+
+/* Temporary : for backwards compatibility. 
+Once the andPos_ke has been changed everywhere, andPos_k can be changed to andPos_ke, 
+for now andPos_k calls on andPos_ke.
+*/
+
+andPos_k Cert (A &+& B) left-first CertA CertB :-
+   andPos_ke Cert (A &+& B) CertA CertB.
