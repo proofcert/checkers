@@ -76,9 +76,9 @@ formula:
 | formula AND formula   { $1 ^ " &+& " ^ $3 }
 | formula OR formula	{ $1 ^ " !-! " ^ $3 }
 | formula IMP formula	{ $1 ^ " arr " ^ $3 }
-| FALSE			{ "false" }
-| TRUE 			{ "true" }
-| atom			{ $1 }
+| FALSE			{ "f-" }
+| TRUE 			{ "t+" }
+| atom			{ "p " ^ $1 }
 
 atom:
 | WORD LPAREN args RPAREN { $1 ^ "(" ^ $3 ^ ")"}
