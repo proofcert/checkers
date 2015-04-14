@@ -11,6 +11,7 @@ type initial_ke					cert -> index -> o.
 type all_kc					cert -> (A -> cert) -> o.
 type some_ke					cert -> A -> cert -> o.
 type andNeg_kc,	 andPos_ke			cert -> form -> cert -> cert -> o.
+type andPos_k	 				cert -> form -> direction -> cert -> cert -> o.
 type orNeg_kc 	 				cert -> form -> cert -> o.
 type orPos_ke    	    			cert -> form -> choice -> cert -> o.
 type true_ke 					cert -> o.

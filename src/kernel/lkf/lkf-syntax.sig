@@ -3,8 +3,9 @@ sig lkf-syntax.
 
 accum_sig runner.
 
-kind atm, seq, choice, index type.
+kind atm, seq, choice, index, direction type.
 
+type left-first, right-first direction.
 type inCtxt index -> form -> o.
 type left, right choice.
 type pr A -> B -> pair A B.
