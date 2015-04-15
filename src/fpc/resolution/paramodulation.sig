@@ -20,7 +20,7 @@ kind i, arity type.
 type ==, =*=		i -> i -> atm.
 infix ==, =*= 45.
 
-type inAr	A -> o.
+type inSig	A -> o.
 
 type f		i -> i -> i.
 type g		i -> i	.
@@ -33,10 +33,10 @@ type chainI int -> index.
 /* Certificate */
 type c>>, c<< cert -> cert -> cert.
 infix c<<, c>> 30.
-
+type witC cert -> cert.
 type doneWith, decOn index -> cert.
 type rewC      	      index -> int -> cert.
-
+type fromC	      index -> cert.
 
 type id index -> rclause.
 

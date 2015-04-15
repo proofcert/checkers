@@ -22,9 +22,9 @@ inCtxt predI (some S\ some T\ some T'\
 Signature (to be moved to individual tests)
 */
 
-inAr  f.
-inAr  g.
-inAr  h.
+inSig  f.
+inSig  g.
+inSig  h.
 
 /* Bureau in order of appearance*/
 
@@ -32,6 +32,7 @@ all_kc (dlist (id From) (id Into)) (x\ dlist (id From) (id Into)).
 store_kc (dlist (id From) (id Into)) _ resI (dlist (id From) (id Into)).
 decide_ke (dlist (id From) (id Into)) predI ((rewC From 0) c>>  ((decOn Into)  c>> (doneWith resI))).
 andPos_k (Cl c>> Cr) _ right-first Cl Cr. 
+andPos_k (Cl c<< Cr) _ left-first Cl Cr. 
 /*rightest branch*/
 initial_ke (doneWith I) I.
 /*middle branch*/
@@ -41,12 +42,17 @@ decide_ke (decOn Into) Into (doneWith intoI).
 	  	 % Then initial already defined
 /*leftest branch : the rewrite */
 release_ke (rewC From I) (rewC From I).
-store_kc (rewC From I) _ (chainI I) (rewC From I).
-
-%######### decide, chain, etc.
+store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
+/*either :*/ decide_ke (rewC From I) congI (witC ((rewC From I) c>> (doneWith (chainI I)))).
+             some_ke (witC C) FunctionSymbol C :- inSig FunctionSymbol.
+	     orPos_ke (doneWith I) _ _ (doneWith I).
+/* or    :*/ decide_ke (rewC From I) eqI ((fromC From) c<< (doneWith (chainI I))).
+   	     release_ke (fromC I) (fromC I).
+	     store_kc (fromC I) _ fromI (fromC I).
+	     decide_ke (fromC I) I (doneWith fromI).
 
 /*Common (maybe move the initial_ke here*/
-some_ke C V C :- (C = (_ c>> _));(C = (doneWith _)).
+some_ke C V C :- (C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)).
 
 % Proving the sequent can be proved by deciding clauses C1, C2 and some other clause.
 /*
