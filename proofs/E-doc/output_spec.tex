@@ -24,8 +24,10 @@ equality literal. $F$ denotes an arbitrary formula.
   Equality resolution: $x \neq a \vee x = x \Rightarrow a = a$
 
   \[
-  \infer[\mathtt{er}]{a = a \vee C}{x \neq a \vee x = x \vee C}
+  \infer[\mathtt{er}]{\sigma(C)}{u \neq v \vee C}
   \]
+
+  Where $\sigma = mgu(u,v)$.
 
 \item \texttt{pm}: 
   Paramodulation. Note that E considers all literals as
