@@ -69,9 +69,15 @@ check Cert (unfK [d- A| Teta]) :-
 %%%%%%%%%%%%%%%%%%%
 % conjunction
 check Cert (foc (A &+& B)) :-
-   spy "" (andPos_ke Cert (A &+& B) CertA CertB),
+   spy "" (andPos_k Cert (A &+& B) Direction CertA CertB),
+   ((Direction = left-first,
    spy "And+ left " (check CertA (foc A)),
-   spy "And+ right " (check CertB (foc B)).
+   spy "And+ right " (check CertB (foc B)));
+   (Direction = right-first,
+    spy "And+ right " (check CertB (foc B)),
+    spy "And+ left " (check CertA (foc A)))).
+%   spy "And+ left " (check CertA (foc A)),
+%   spy "And+ right " (check CertB (foc B)).
 % disjunction
 check Cert (foc (A !+! B)) :-
   spy "" (orPos_ke Cert (A !+! B) Choice Cert'),
@@ -126,3 +132,7 @@ negate (A &-& B)  (NA !+! NB) &
 negate (A !+! B)  (NA &-& NB) :- negate A NA, negate B NB.
 negate (all B)  (some NB) &
 negate (some B) (all NB) :- pi x\ negate (B x) (NB x).
+
+andPos_k Cert (A &+& B) left-first CertA CertB :-
+   andPos_ke Cert (A &+& B) CertA CertB.
+
