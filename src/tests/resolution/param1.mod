@@ -12,8 +12,8 @@ problem "param1"
 	  resolv (rclause 2 (sub [])) (rclause 5 (sub [])) 0])
   (map []).
 
-*/
-/* SIgnature */
+
+ SIgnature */
 inSig  g.
 
 
