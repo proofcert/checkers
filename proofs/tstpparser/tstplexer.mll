@@ -48,6 +48,27 @@ rule tstpproof = parse
 | "status"     		{ STATUS }
 | "thm"			{ THM }
 | "cth"			{ CTH }
+(* E-prover's inferences *)
+| "er"				{ ER }
+| "pm"				{ PM }
+| "spm"				{ SPM }
+| "ef"				{ EF }
+| "apply_def"			{ APPLY_DEF }
+| "introduced(definition)"	{ INTRODUCED_DEF }
+| "rw"				{ RW }
+| "sr"				{ SR }
+| "csr"				{ CSR }
+| "ar"				{ AR }
+| "cn"				{ CN }
+| "condense"			{ CONDENSE }
+| "assume_negation"		{ ASSUME_NEGATION }
+| "fof_nnf"			{ FOF_NNF }
+| "shift_quantors"		{ SHIFT_QUANTORS }
+| "variable_rename"		{ VARIABLE_RENAME }
+| "skolemize"			{ SKOLEMIZE }
+| "distribute"			{ DISTRIBUTE }
+| "split_conjunct"		{ SPLIT_CONJUNCT }
+| "fof_simplification"		{ FOF_SIMPLIFICATION }
 | word as w             { WORD(w) }
 | integer as i          { INTEGER(int_of_string i) }
 | filepath		{ FILEPATH }
