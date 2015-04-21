@@ -13,6 +13,7 @@ let incrline lexbuf =
 }
 
 let word = ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
+let var = ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
 let integer = ['0'-'9']+
 let filepath = ''' [^''']* '''
 let comment_line = ['%'] [^'\n']* (* comments start with % *)
@@ -37,6 +38,10 @@ rule tstpproof = parse
 | "~"                   { NOT }
 | "&"                   { AND }
 | "=>" 			{ IMP }
+| "!="			{ NEQ }
+| "="			{ EQ }
+| "!"			{ FORALL }
+| "?"			{ EXISTS }
 | "$false"		{ FALSE }
 | "$true"		{ TRUE }
 | "("    		{ LPAREN }
@@ -45,6 +50,7 @@ rule tstpproof = parse
 | "]"			{ RBRACKET }
 | "," 			{ COMMA }
 | "."           	{ DOT }
+| ":"			{ COLON }
 | "status"     		{ STATUS }
 | "thm"			{ THM }
 | "cth"			{ CTH }
@@ -69,7 +75,8 @@ rule tstpproof = parse
 | "distribute"			{ DISTRIBUTE }
 | "split_conjunct"		{ SPLIT_CONJUNCT }
 | "fof_simplification"		{ FOF_SIMPLIFICATION }
-| word as w             { WORD(w) }
+| word as w             { print_endline w; WORD(w) }
+| var as v             	{ VAR(v) }
 | integer as i          { INTEGER(int_of_string i) }
 | filepath		{ FILEPATH }
 | eof                   { raise EoF }
