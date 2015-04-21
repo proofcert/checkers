@@ -1,7 +1,6 @@
 # Makefile for the imbedding
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
-TJROOT = /home/shaolin/usr/bin
 #VPATH = ../common
 
 #export TJPATH = ../common
