@@ -1,7 +1,7 @@
 % 29 july 2014.
 sig ljf-syntax.
 
-accum_sig runner.
+accum_sig base.
 
 kind seq,atm, choice, index, stored type.
 

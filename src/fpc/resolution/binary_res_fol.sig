@@ -1,7 +1,7 @@
 sig binary_res_fol.
 
 accum_sig resolution_steps.
-accum_sig base.
+accum_sig res_base.
 accum_sig lists.
 accum_sig certificatesLKF.
 

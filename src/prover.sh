@@ -1,26 +1,33 @@
 #!/bin/sh
-# Copyright (C) 2013 INRIA and Microsoft Corporation
+# Copyright (C) 2015 INRIA
 
 BASEDIR="`pwd`"
-RUNNER_BASE=$BASEDIR/TOOLS/runner.file
-RUNNER_TARGET=$BASEDIR/runner.mod
+TOOLS=$BASEDIR/TOOLS
+RUNNER_MOD_BASE=$TOOLS/runner.mod.file
+RUNNER_SIG_BASE=$TOOLS/runner.sig.file
+RUNNER_MOD_TARGET=$BASEDIR/runner.mod
+RUNNER_SIG_TARGET=$BASEDIR/runner.sig
 export CMD="tjsim -b runner -s run."
 
 ARGS=("$@")
 ELEMENTS=${#ARGS[@]}
 
-rm -f $RUNNER_TARGET
+rm -f $RUNNER_MOD_TARGET
+rm -f $RUNNER_SIG_TARGET
 
-echo -e "module runner.\\n" >> $RUNNER_TARGET
+echo -e "module runner.\\n" >> $RUNNER_MOD_TARGET
+echo -e "sig runner.\\n" >> $RUNNER_SIG_TARGET
 
 if [ $ELEMENTS = 0 ]
   then echo "Error: at least one certificate must be given!"
   else
   for (( i=0;i<$ELEMENTS;i++)); do
-        echo -e "accumulate ${ARGS[${i}]}." >> $RUNNER_TARGET
+        echo -e "accum_sig ${ARGS[${i}]}." >> $RUNNER_SIG_TARGET
+        echo -e "accumulate ${ARGS[${i}]}." >> $RUNNER_MOD_TARGET
   done
 
-  echo $(cat $RUNNER_BASE) >> $RUNNER_TARGET
+  echo $(cat $RUNNER_SIG_BASE) >> $RUNNER_SIG_TARGET
+  echo $(cat $RUNNER_MOD_BASE) >> $RUNNER_MOD_TARGET
 
-  make>/dev/null && $CMD && rm -f $RUNNER_TARGET
+  make>/dev/null && $CMD && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
 fi

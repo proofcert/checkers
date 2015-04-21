@@ -1,5 +1,5 @@
 sig imbed.
-accum_sig lkf-kernel, ljf-kernel, runner.
+accum_sig lkf-kernel, ljf-kernel, base.
 
 %maybe even form and seq should be turned into formK and formJ and seqK and seqJ?
 type entry_pointImbed  		cert -> form -> o.

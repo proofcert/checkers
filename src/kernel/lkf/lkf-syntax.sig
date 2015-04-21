@@ -1,7 +1,7 @@
 % 29 july 2014.
 sig lkf-syntax.
 
-accum_sig runner.
+accum_sig base.
 
 kind atm, seq, choice, index, direction type.
 

@@ -1,4 +1,4 @@
-sig base.
+sig res_base.
 
 accum_sig certificatesLKF.
 

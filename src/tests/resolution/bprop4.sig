@@ -1,6 +1,9 @@
 sig bprop4.
 
-accum_sig runner.
+accum_sig lkf-kernel.
+accum_sig binary_res_prop.
+accum_sig resolution_steps.
+accum_sig base.
 accum_sig lkf-syntax.
 
 /* Signature of the resolution problems */

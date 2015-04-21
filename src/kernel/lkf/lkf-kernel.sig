@@ -2,7 +2,7 @@
 sig lkf-kernel.
 accum_sig certificatesLKF.
 accum_sig lists.
-accum_sig runner.
+accum_sig base.
 
 type check cert -> seq -> o.
 
