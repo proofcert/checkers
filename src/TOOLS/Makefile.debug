@@ -13,14 +13,14 @@ compile: $(OBJS)
 cc: all clean
 
 %.lpo : %.mod %.sig
-	$(TJROOT)/tjcc  $*
+	tjcc  $*
 
 %.lp : %.lpo
-	$(TJROOT)/tjlink  $*
+	tjlink  $*
 
 -include depend
 depend: *.mod *.sig
-		$(TJROOT)/tjdepend *.mod  > depend-stage
+		tjdepend *.mod  > depend-stage
 		mv depend-stage depend
 
 .PHONY: clean
