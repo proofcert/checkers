@@ -4,16 +4,30 @@ accumulate lkf-kernel.
 accumulate paramodulation.
 accumulate resolution_steps.
 
-/*
+
 problem "param1"
   (f-)
- (rsteps [resolv (rclause 1 (sub [])) (rclause 3 (sub [a])) 4, 
- 	  resolv (rclause 3 (sub [h (a)])) (rclause 4 (sub [])) 5, 
-	  resolv (rclause 2 (sub [])) (rclause 5 (sub [])) 0])
+ (rsteps [resolv (id (idx 3 )) (id (idx 4 )) 6, 
+ 	  resolv (id (idx 4 )) (id (idx 3 )) 7, 
+	  resolv (id (idx 1 )) (id (idx 7 )) 8, 
+	  resolv (id (idx 6 )) (id (idx 8 )) 9, 
+	  resolv (id (idx 2 )) (id (idx 9 )) 10, 
+ 	  resolv (id (idx 8 )) (id (idx 10)) 11, 
+	  resolv (id (idx 11)) (id (idx 5 )) 0])
+
   (map []).
 
 
- SIgnature */
+/*
+[resolv (id (idx 1)) (id (idx 2)) 4,
+  	  resolv (id (idx 3)) (id (idx 4)) 0]
+(g Y  (g X Y)) ===  X
+X ===  (g Y (g Y X))
+
+(g X Y) ===  (g Y X)
+*/
+
+/* SIgnature */
 inSig  g.
 
 

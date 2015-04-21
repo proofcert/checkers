@@ -21,7 +21,7 @@ inCtxt predI (some S\ some T\ some T'\
 
 
 /* Bureau in order of appearance*/
-
+false_kc C C.
 all_kc (dlist (id From) (id Into)) (x\ dlist (id From) (id Into)).
 store_kc (dlist (id From) (id Into)) _ resI (dlist (id From) (id Into)).
 decide_ke (dlist (id From) (id Into)) predI ((rewC From 0) c>>  ((decOn Into)  c>> (doneWith resI))).
@@ -39,7 +39,7 @@ release_ke (rewC From I) (rewC From I).
 store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
 /*either :*/ decide_ke (rewC From I) congI (witC ((rewC From I) c>> (doneWith (chainI I)))).
              some_ke (witC C) FunctionSymbol C :- inSig FunctionSymbol.
-	     orPos_ke (doneWith I) _ _ (doneWith I).
+	     orPos_ke C _ _ C :- (C = (doneWith I)) ; (C = (_ c>> _)).
 /* or    :*/ decide_ke (rewC From I) eqI ((fromC From) c<< (doneWith (chainI I))).
    	     release_ke (fromC I) (fromC I).
 	     store_kc (fromC I) _ fromI (fromC I).
@@ -49,6 +49,9 @@ store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
 some_ke C V C :- (C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)).
 
 /* Last of last of back bone of cuts : no rewrite, just instanciation. One of them is necessarily a negative
-atom (otherwise, not stored) let's say From is the positive and into is the negative*/
+atom (otherwise, not stored) 
+We can say " From is the positive and into is the negative"
+Then we are able to remove one of the following */
 
 decide_ke (dlist (id From) (id Into)) From (doneWith Into).
+decide_ke (dlist (id From) (id Into)) Into (doneWith From).
