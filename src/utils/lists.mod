@@ -7,6 +7,8 @@ type rev list A -> list A -> list A -> o.
 member X [X|_].
 member X [Y|R] :- member X R.
 
+normalize G :- term_to_string G S, G.
+
 
 append nil K K.
 append (X::L) K (X::M) :- append L K M.

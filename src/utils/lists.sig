@@ -10,3 +10,4 @@ type member A -> list A -> o.
 type foldl (A -> B -> B -> o) -> list A -> B -> B -> o.
 type length list A -> int -> o.
 
+type normalize    o -> o.

@@ -12,20 +12,12 @@ problem "param1"
 	  resolv (id (idx 1 )) (id (idx 7 )) 8, 
 	  resolv (id (idx 6 )) (id (idx 8 )) 9, 
 	  resolv (id (idx 2 )) (id (idx 9 )) 10, 
- 	  resolv (id (idx 8 )) (id (idx 10)) 11, 
+ 	  resolv (id (idx 10 )) (id (idx 8)) 11, 
 	  resolv (id (idx 11)) (id (idx 5 )) 0])
 
   (map []).
 
 
-/*
-[resolv (id (idx 1)) (id (idx 2)) 4,
-  	  resolv (id (idx 3)) (id (idx 4)) 0]
-(g Y  (g X Y)) ===  X
-X ===  (g Y (g Y X))
-
-(g X Y) ===  (g Y X)
-*/
 
 /* SIgnature */
 inSig  g.
@@ -36,6 +28,7 @@ inCtxt (idx 1) (some X\ p ((g e X) == X)).
 inCtxt (idx 2) (some X\ p ((g X e) == X)).
 inCtxt (idx 3) (some X\ some Y\ some Z\ p ((g (g X Y) Z) ==  (g X (g Y Z)))).
 inCtxt (idx 4) (some X\ p ((g X X) == e)).
+inCtxt (idx 5) (n ((g a b) == (g b a))).
 
 /*Derived clauses*/
 clause 6  (all X\ all Y\ n	((g X  (g Y  (g X  Y))) ==  e)).

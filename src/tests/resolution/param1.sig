@@ -12,6 +12,6 @@ type f 		atm -> atm -> atm.
 */
 
 type g		i -> i -> i.
-type e		i.
+type e,a,b		i.
 
 type clause int -> form -> o.
