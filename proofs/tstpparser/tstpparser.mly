@@ -44,7 +44,7 @@ proof:
 	  else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
 	| _ -> $9
       in
-      print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);
+      (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
       proof_dag
     | _ -> failwith ("Unsupported theory: " ^ (theoryToString $1))
@@ -61,7 +61,7 @@ proof:
 	  else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
 	| _ -> $9
       in
-      print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);
+      (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
       proof_dag
     | _ -> failwith ("Unsupported theory: " ^ (theoryToString $1))
@@ -87,12 +87,7 @@ role:
 /* TODO: print the formulas correctly */
 formula:
 | LPAREN formula RPAREN 			{ $2 }
-| term EQ term		  			{ "p eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
-| term NEQ term		  			{ "n eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
-| atom						{ "p " ^ $1 }
-| NOT atom					{ "n " ^ $2 }
-/* TODO treat this properly */
-| NOT formula					{ failwith "Not in NNF." }
+| atom						{ $1 }
 | formula AND formula   			{ $1 ^ " &+& " ^ $3 }
 | formula OR formula				{ $1 ^ " !-! " ^ $3 }
 | formula IMP formula				{ $1 ^ " arr " ^ $3 }
@@ -102,6 +97,18 @@ formula:
 | TRUE 						{ "t+" }
 
 atom:
+| LPAREN atom RPAREN { $2 }
+| pos_atom	     { "p " ^ $1 }
+| neg_atom	     { "n " ^ $1 }
+
+neg_atom:
+| term NEQ term		         { "eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
+| NOT LPAREN term EQ term RPAREN { "eq(" ^ $3 ^ ", " ^ $5 ^ ")" }
+| NOT WORD LPAREN args RPAREN    { $2 ^ "(" ^ $4 ^ ")"}
+| NOT WORD 		         { $2 }
+
+pos_atom:
+| term EQ term		  { "eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
 | WORD LPAREN args RPAREN { $1 ^ "(" ^ $3 ^ ")"}
 | WORD 			  { $1 }
 
@@ -121,6 +128,7 @@ var:
 annotation: 
 | file_info 	 { (AXIOM, []) }
 | inference_info { $1 }
+| WORD		 { (DONE, [$1]) } /* for the last inference in verbose mode */
 
 file_info:
 | FILE LPAREN FILEPATH COMMA name RPAREN { "" }

@@ -35,7 +35,7 @@ equality literal. $F$ denotes an arbitrary formula.
   paramodulation and (implicit) clause normalization.
 
   \[
-  \infer[\mathtt{pm} + \mbox{ implicit factoring}]{C \vee L[s] \vee D}{
+  \infer[\mathtt{pm?} + \mbox{ implicit factoring}]{C \vee L[s] \vee D}{
     C \vee L[t] &
     t = s \vee D
   }
@@ -47,7 +47,7 @@ equality literal. $F$ denotes an arbitrary formula.
   clause in one step.
 
   \[
-  \infer[\mathtt{spm} + \mbox{ implicit factoring}]{C[s] \vee D}{
+  \infer[\mathtt{spm?} + \mbox{ implicit factoring}]{C[s] \vee D}{
     C[t] &
     t = s \vee D
   }
@@ -60,8 +60,11 @@ equality literal. $F$ denotes an arbitrary formula.
   $x = a \vee b = c \vee x = d \Rightarrow a \neq c \vee b = c \vee b = d$
 
   \[
-  \infer[\mathtt{ef}]{?}{?}
+  \infer[\mathtt{ef}]{\sigma(t \neq v \vee u = v \vee C)}{
+    s = t \vee u = v \vee C
+  }
   \]
+  Where $\sigma = mgu(s,u)$.
 
 \item \texttt{apply\_def}: 
   Apply a definition, usually replacing a complex
@@ -87,7 +90,7 @@ equality literal. $F$ denotes an arbitrary formula.
   rewrite step with the named clause. This is also used for equational unfolding.
 
   \[
-  \infer[\mathtt{rm}???]{L[s] \vee C}{
+  \infer[\mathtt{rw}???]{L[s] \vee C}{
     t = s &
     L[t] \vee C
   }

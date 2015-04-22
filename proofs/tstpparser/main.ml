@@ -10,7 +10,6 @@ let _ =
       (*print_string result; print_newline (); flush stdout*)
     done
   with Tstplexer.EoF ->
-    print_endline "\nFinished parsing.";
     print_endline (Proof.printCert !proof_dag); flush stdout;
     exit 0;
 ;;

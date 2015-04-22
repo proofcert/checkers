@@ -16,7 +16,7 @@ let word = ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
 let var = ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
 let integer = ['0'-'9']+
 let filepath = ''' [^''']* '''
-let comment_line = ['%'] [^'\n']* (* comments start with % *)
+let comment_line = ['%' '#'] [^'\n']* (* comments start with % or # *)
 
 rule tstpproof = parse
 
@@ -75,7 +75,7 @@ rule tstpproof = parse
 | "distribute"			{ DISTRIBUTE }
 | "split_conjunct"		{ SPLIT_CONJUNCT }
 | "fof_simplification"		{ FOF_SIMPLIFICATION }
-| word as w             { print_endline w; WORD(w) }
+| word as w             { WORD(w) }
 | var as v             	{ VAR(v) }
 | integer as i          { INTEGER(int_of_string i) }
 | filepath		{ FILEPATH }
