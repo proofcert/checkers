@@ -10,8 +10,8 @@ problem "param3"
     (some Y\ some Z\ p ((h (f (g Y) Z)) == (g Z))) !-!
     (n ((h (g (g e))) == (g (g (g e)))))
     )
- (rsteps [resolv (id (idx 1)) (id (idx 2)) 4,
-  	  resolv (id (idx 4)) (id (idx 3)) 0])
+ (rsteps [resolv (pid (idx 1)) (pid (idx 2)) 4,
+  	  resolv (pid (idx 4)) (pid (idx 3)) 0])
   (map []).
 
 

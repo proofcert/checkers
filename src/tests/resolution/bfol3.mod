@@ -9,7 +9,7 @@ problem "bfol3"
   (p (g(a))) !-!
   (p (g(f a b))) !-!
   (p (g(b))))
- (rsteps [resolv (rclause 1 (sub [a,b])) (rclause 3 (sub [])) 5, resolv (rclause 5 (sub [])) (rclause 2 (sub [])) 6, resolv (rclause 6 (sub [])) (rclause 4 (sub [])) 0])
+ (rsteps [resolv (rid (idx 1) (sub [a,b])) (rid (idx 3) (sub [])) 5, resolv (rid (idx 5) (sub [])) (rid (idx 2) (sub [])) 6, resolv (rid (idx 6) (sub [])) (rid (idx 4) (sub [])) 0])
  (map [
  pr 1 (some (x\ (some y\ ((n(g(x)) &+& n(g(f x y))) &+& n(g(y)))))),
  pr 2 (p (g(a))),

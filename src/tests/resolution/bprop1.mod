@@ -8,7 +8,7 @@ problem "bprop1"
   ((n r1 &+& n r2) !-!
   (p r1 &+& n r2) !-!
 	(p r2))
-	(rsteps [resolv (rclause 1) (rclause 2) 4, resolv (rclause 3) (rclause 4) 0])
+	(rsteps [resolv (rid (idx 1)) (rid (idx 2)) 4, resolv (rid (idx 3)) (rid (idx 4)) 0])
   (map [pr 1 (n r1 &+& n r2),
    pr 2 (p r1 &+& n r2),
    pr 3 (p r2),

@@ -10,6 +10,6 @@ accum_sig certificatesLKF.
 kind sub type.
 type sub list atm -> sub.
 
-type rclause int -> sub -> rclause.
+type rid index -> sub -> rclause.
 type dlist2 rclause -> sub -> cert.
 type dlist3 sub -> cert.

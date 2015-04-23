@@ -7,7 +7,7 @@ accumulate resolution_steps.
 
 problem "param2"
   (f-)
- (rsteps [resolv (id (idx 1)) (id (idx 5)) 0])
+ (rsteps [resolv (pid (idx 1)) (pid (idx 5)) 0])
   (map []).
 
 
@@ -23,7 +23,7 @@ inCtxt (idx 4) (some X\ p ((g X X) == e)).
 inCtxt (idx 5) (n ((g e e) == e)).  % stupid example
 /*Derived clauses*/
 
-clause 0 (f-). 
+clause 0 (f-).
 
 mapsto I Form :- clause I F, negate F Form.
 

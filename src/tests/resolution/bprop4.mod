@@ -10,7 +10,7 @@ problem "bprop4"
  (p a &+& n b &+& n c) !-!
  (n a &+& n b) !-!
  (p c))
- (rsteps [resolv (rclause 1) (rclause 2) 6, resolv (rclause 3) (rclause 4) 7, resolv (rclause 6) (rclause 7) 8, resolv (rclause 5) (rclause 8) 0])
+ (rsteps [resolv (rid (idx 1)) (rid (idx 2)) 6, resolv (rid (idx 3)) (rid (idx 4)) 7, resolv (rid (idx 6)) (rid (idx 7)) 8, resolv (rid (idx 5)) (rid (idx 8)) 0])
  (map [pr 1 (p a &+& p b &+& n c),
    pr 2 (n a &+& p b),
    pr 3 (p a &+& n b &+& n c),

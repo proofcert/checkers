@@ -23,11 +23,11 @@ release_ke (dlist3 S) (dlist3 S).
 % Note that since they might be negative, we will need sometimes to decide on the cut formula
 % This cut formula is indexed by lit but all other resolvents from previous
 % steps are indexed by idx, so we need to either decide on C1, C2 or lit
-decide_ke (dlist (rclause I S) C2) (idx I) (dlist2 C2 S).
-decide_ke (dlist C1 (rclause I S)) (idx I) (dlist2 C1 S).
+decide_ke (dlist (rid I S) C2) I (dlist2 C2 S).
+decide_ke (dlist C1 (rid I S)) I (dlist2 C1 S).
 decide_ke (dlist C1 C2) lit (dlist2 C1 (sub [])).
 decide_ke (dlist C1 C2) lit (dlist2 C2 (sub [])).
-decide_ke (dlist2 (rclause I S) (sub [])) (idx I) (dlist3 S).
+decide_ke (dlist2 (rid I S) (sub [])) I (dlist3 S).
 decide_ke (dlist2 _ (sub [])) lit (dlist3 (sub [])).
 decide_ke (dlist3 (sub [])) lit done.
 % the last cut is over t+ and we need to eliminate its negation
