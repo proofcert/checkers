@@ -102,19 +102,19 @@ atom:
 | neg_atom	     { "n " ^ $1 }
 
 neg_atom:
-| term NEQ term		         { "eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
-| NOT LPAREN term EQ term RPAREN { "eq(" ^ $3 ^ ", " ^ $5 ^ ")" }
+| term NEQ term		         { "(" ^ $1 ^ ") == (" ^ $3 ^ ")" }
+| NOT LPAREN term EQ term RPAREN { "(" ^ $3 ^ ") == (" ^ $5 ^ ")" }
 | NOT WORD LPAREN args RPAREN    { $2 ^ "(" ^ $4 ^ ")"}
 | NOT WORD 		         { $2 }
 
 pos_atom:
-| term EQ term		  { "eq(" ^ $1 ^ ", " ^ $3 ^ ")" }
+| term EQ term		  { "(" ^ $1 ^ ") == (" ^ $3 ^ ")" }
 | WORD LPAREN args RPAREN { $1 ^ "(" ^ $3 ^ ")"}
 | WORD 			  { $1 }
 
 args:
 | term		  { $1 }
-| term COMMA args { $1 ^ ", " ^ $3 }
+| term COMMA args { $1 ^ " " ^ $3 }
 
 term:
 | VAR 			  { $1 }
