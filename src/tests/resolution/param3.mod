@@ -27,7 +27,7 @@ mapsto 3 (n ((h (g (g e))) == (g (g (g e))))).
 mapsto 4 (some Y\ p ((h (g (g Y))) == (g (g (g Y))))).
 /*Derived clauses*/
 
-clause 0 (f-). 
+clause 0 (f-).
 
 mapsto I Form :- clause I F, negate F Form.
 
