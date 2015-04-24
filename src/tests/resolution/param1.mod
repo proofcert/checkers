@@ -13,7 +13,7 @@ problem "param1"
 	  resolv (pid (idx 6 )) (pid (idx 8 )) 9,
 	  resolv (pid (idx 2 )) (pid (idx 9 )) 10,
  	  resolv (pid (idx 10 )) (pid (idx 8)) 11,
-	  resolv (pid (idx 11)) (pid (idx 5 )) 0])
+	  resolv (pid (idx 11)) (pid (idx 5 )) 0] estate)
 
   (map []).
 

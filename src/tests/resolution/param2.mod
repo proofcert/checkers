@@ -7,7 +7,7 @@ accumulate resolution_steps.
 
 problem "param2"
   (f-)
- (rsteps [resolv (pid (idx 1)) (pid (idx 5)) 0])
+ (rsteps [resolv (pid (idx 1)) (pid (idx 5)) 0] estate)
   (map []).
 
 

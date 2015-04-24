@@ -11,7 +11,7 @@ problem "param3"
     (n ((h (g (g e))) == (g (g (g e)))))
     )
  (rsteps [resolv (pid (idx 1)) (pid (idx 2)) 4,
-  	  resolv (pid (idx 4)) (pid (idx 3)) 0])
+  	  resolv (pid (idx 4)) (pid (idx 3)) 0] estate)
   (map []).
 
 
