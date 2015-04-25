@@ -84,17 +84,17 @@ role:
 | NEG_CONJECTURE { "neg_conjecture" }
 | PLAIN		 { "plain" }
 
-/* TODO: print the formulas correctly */
+/* TODO: explain properly why we negate the formulas */
 formula:
 | LPAREN formula RPAREN 			{ $2 }
 | atom						{ $1 }
-| formula AND formula   			{ $1 ^ " &+& " ^ $3 }
-| formula OR formula				{ $1 ^ " !-! " ^ $3 }
-| formula IMP formula				{ $1 ^ " arr " ^ $3 }
-| FORALL LBRACKET var RBRACKET COLON formula 	{ "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| EXISTS LBRACKET var RBRACKET COLON formula 	{ "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| FALSE						{ "f-" }
-| TRUE 						{ "t+" }
+| formula AND formula   			{ $1 ^ " !-! " ^ $3 }
+| formula OR formula				{ $1 ^ " &+& " ^ $3 }
+/*| formula IMP formula				{ $1 ^ " arr " ^ $3 } think what to do */ 
+| FORALL LBRACKET var RBRACKET COLON formula 	{ "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| EXISTS LBRACKET var RBRACKET COLON formula 	{ "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| FALSE						{ "t+" }
+| TRUE 						{ "f-" }
 
 atom:
 | LPAREN atom RPAREN { $2 }
@@ -104,12 +104,12 @@ atom:
 neg_atom:
 | term NEQ term		         { "(" ^ $1 ^ ") == (" ^ $3 ^ ")" }
 | NOT LPAREN term EQ term RPAREN { "(" ^ $3 ^ ") == (" ^ $5 ^ ")" }
-| NOT WORD LPAREN args RPAREN    { $2 ^ "(" ^ $4 ^ ")"}
+| NOT WORD LPAREN args RPAREN    { "("  ^ $2 ^ " " ^ $4 ^ ")"}
 | NOT WORD 		         { $2 }
 
 pos_atom:
 | term EQ term		  { "(" ^ $1 ^ ") == (" ^ $3 ^ ")" }
-| WORD LPAREN args RPAREN { $1 ^ "(" ^ $3 ^ ")"}
+| WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
 | WORD 			  { $1 }
 
 args:
@@ -119,7 +119,7 @@ args:
 term:
 | VAR 			  { $1 }
 | WORD			  { $1 } 
-| WORD LPAREN args RPAREN { $1 ^ "(" ^ $3 ^ ")"}
+| WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
 
 /* TODO: policy for variable syntax in the certificates? */
 var:
