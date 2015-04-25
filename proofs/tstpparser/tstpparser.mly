@@ -171,7 +171,7 @@ status_type:
 /* It looks like e-prover specifies always at most 2 antecedents */
 antecedents:
 | LBRACKET ant RBRACKET		  { $2 }
-| LBRACKET ant COMMA ant RBRACKET { $2 @ $4 }
+| LBRACKET ant COMMA ant RBRACKET { $4 @ $2 }
 
 ant:
 | name		 { [$1] }
