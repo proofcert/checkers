@@ -33,13 +33,12 @@ cut_ke (rsteps [ER | RS] (varmaps S)) K C1 C2 :-
 cut_ke (rsteps [ER | RS] S) K C1 C2 :-
   ignore_rule ER,
   cut_ke (rsteps RS S) K C1 C2.
-% this decide is being called after the last cut
-decide_ke (rsteps [ER | RS] S) tlit A :-
+decide_ke (rsteps [ER | RS] S) A B :-
   ignore_rule ER,
-  decide_ke (rsteps RS S) tlit A.
-store_kc (rsteps [ER | RS] S) t+ A B :-
+  decide_ke (rsteps RS S) A B.
+store_kc (rsteps [ER | RS] S) A B C :-
   ignore_rule ER,
-  store_kc (rsteps RS S) t+ A B
+  store_kc (rsteps RS S) A B C.
 
 param_rule (pm (id (idx I1)) (id (idx I2)) I) I1 I2 I.
 param_rule (rw (id (idx I1)) (id (idx I2)) I) I1 I2 I.
