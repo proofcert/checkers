@@ -11,27 +11,23 @@ accumulate debug.
 
 %binary rules, use the right indices and the right resolution certificate
 cut_ke (rsteps [PM | RS] estate) K C1 C2 :-
-  print "!!!!!!1a\n",
   param_rule PM I1 I2 I,
-  spy "binary " (cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] estate) K C1 C2). % paramodulation step
+  cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] estate) K C1 C2. % paramodulation step
 cut_ke (rsteps [PM | RS] (varmaps S)) K C1 C2 :-
-  print "!!!!!!1b\n",
   param_rule PM II1 II2 I,
-  spy "mapped " (varmapped II1 I1 S),
-  spy "mapped " (varmapped II2 I2 S),
-  spy "binary " (cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] (varmaps S)) K C1 C2). % paramodulation step
+  varmapped II1 I1 S,
+  varmapped II2 I2 S,
+  cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] (varmaps S)) K C1 C2. % paramodulation step
 
 %unary rules, just track the indices
 cut_ke (rsteps [ER | RS] estate) K C1 C2 :-
-  print "!!!!!!2a\n",
   unary_rule ER I1 I2,
-  spy "varmaps " (varmap I2 I1 [] S2), % manage the variable mappings
-  spy "unary " (cut_ke (rsteps RS (varmaps S2)) K C1 C2). % map the new id to the above id and continue the processing of rsteps.
+  varmap I2 I1 [] S2, % manage the variable mappings
+  cut_ke (rsteps RS (varmaps S2)) K C1 C2. % map the new id to the above id and continue the processing of rsteps.
 cut_ke (rsteps [ER | RS] (varmaps S)) K C1 C2 :-
-  print "!!!!!!2b\n",
   unary_rule ER I1 I2,
-  spy "varmaps " (varmap I2 I1 S S2), % manage the variable mappings
-  spy "unary " (cut_ke (rsteps RS (varmaps S2)) K C1 C2). % map the new id to the above id and continue the processing of rsteps.
+  varmap I2 I1 S S2, % manage the variable mappings
+  cut_ke (rsteps RS (varmaps S2)) K C1 C2. % map the new id to the above id and continue the processing of rsteps.
 
 param_rule (pm (id (idx I1)) (id (idx I2)) I) I1 I2 I.
 param_rule (rw (id (idx I1)) (id (idx I2)) I) I1 I2 I.
