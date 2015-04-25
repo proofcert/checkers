@@ -22,6 +22,7 @@ type assume_negation,
      cn
  rclause -> int -> resolv.
 
+type ignore_rule resolv -> o.
 type unary_rule resolv -> int -> int -> o.
 type param_rule resolv -> int -> int -> int -> o.
 

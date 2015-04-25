@@ -29,13 +29,23 @@ cut_ke (rsteps [ER | RS] (varmaps S)) K C1 C2 :-
   varmap I2 I1 S S2, % manage the variable mappings
   cut_ke (rsteps RS (varmaps S2)) K C1 C2. % map the new id to the above id and continue the processing of rsteps.
 
+%ignore rules
+cut_ke (rsteps [ER | RS] S) K C1 C2 :-
+  ignore_rule ER,
+  cut_ke (rsteps RS S) K C1 C2.
+% this decide is being called after the last cut
+decide_ke (rsteps [ER] B) tlit done :-
+  ignore_rule ER.
+store_kc (rsteps [ER] B) t+ tlit (rsteps [] B) :-
+  ignore_rule ER.
+
 param_rule (pm (id (idx I1)) (id (idx I2)) I) I1 I2 I.
 param_rule (rw (id (idx I1)) (id (idx I2)) I) I1 I2 I.
-unary_rule (assume_negation (id (idx I1)) I2) I1 I2.
 unary_rule (fof_simplification (id (idx I1)) I2) I1 I2.
 unary_rule (split_conjunct (id (idx I1)) I2) I1 I2.
 unary_rule (variable_rename (id (idx I1)) I2) I1 I2.
-unary_rule (cn (id (idx I1)) I2) I1 I2.
+ignore_rule (assume_negation (id (idx I1)) I2).
+ignore_rule (cn (id (idx I1)) I2).
 
 varmap I1 I2 [] [[I2,I1]]. % adding a new list
 varmap I1 I2 [[I2 | R] | R2] [[I2, I1 | R] | R2]. % list exists, add new index
