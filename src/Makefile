@@ -47,6 +47,8 @@ depend: *.mod *.sig
 
 .PHONY: clean
 clean:
+	rm -f kernel/lkf/lkf-kernel.mod
+	rm -rf _debug
 	rm -f *.lpo *.lp depend
 	cd tests && $(MAKE) clean
 	cd fpc && $(MAKE) clean
