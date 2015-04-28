@@ -1,4 +1,4 @@
 
-fof(clause_1, axiom, ! [X]: f(X,g(X)) = g(X) ).
-fof(clause_1, axiom, ! [Y]: ! [Z]: h(f(g(Y),Z)) = g(Z) ).
+fof(clause_1, axiom, (! [X]: f(X,g(X)) = g(X)) & (! [Y]: ! [Z]: h(f(g(Y),Z)) = g(Z)) ).
+%fof(clause_1, axiom, ! [Y]: ! [Z]: h(f(g(Y),Z)) = g(Z) ).
 fof(clause_1, conjecture, h(g(g(c))) = g(g(g(c))) ).
