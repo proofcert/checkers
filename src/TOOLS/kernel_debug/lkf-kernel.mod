@@ -53,7 +53,7 @@ check Cert (unfK [A &-& B | Rest]) :-
 % forall
 check Cert (unfK [all B | Theta]) :-
   all_kc Cert Cert',
-  pi w\ check (Cert' w) (unfK [B w | Theta] ).
+  pi w\ normalize (check (Cert' w) (unfK [B w | Theta] )).
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
