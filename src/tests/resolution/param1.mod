@@ -7,11 +7,11 @@ accumulate resolution_steps.
 
 problem "param1"
   (f-)
- (rsteps [resolv (pid (idx 3 )) (pid (idx 4 )) 6,
+ (rsteps [resolv (pid (idx 4 )) (pid (idx 3 )) 6, % I just reversed 4 and 3
  	  resolv (pid (idx 4 )) (pid (idx 3 )) 7,
-	  resolv (pid (idx 1 )) (pid (idx 7 )) 8,
+	  resolv (pid (idx 7 )) (pid (idx 1 )) 8,
 	  resolv (pid (idx 6 )) (pid (idx 8 )) 9,
-	  resolv (pid (idx 2 )) (pid (idx 9 )) 10,
+	  resolv (pid (idx 9 )) (pid (idx 2 )) 10,
  	  resolv (pid (idx 10 )) (pid (idx 8)) 11,
 	  resolv (pid (idx 11)) (pid (idx 5 )) 0] estate)
 
