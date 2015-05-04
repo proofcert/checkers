@@ -192,14 +192,12 @@ let printCert dag =
   let steps = printCert_ last in
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
-  let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ "\n")) "\n\n" (DAG.get_terms dag) in
+  let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ ".\n")) "\n\n" (DAG.get_terms dag) in
   "module eprover.\n\n" ^ 
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
-  "accumulate binary_res_fol_nosub.\n" ^
-  "accumulate paramodulation.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "problem \"eprover\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "])\n (map [\n" ^ pr_map ^ "\n])." ^
+  "problem \"eprover\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "] estate)\n (map [\n" ^ pr_map ^ "\n])." ^
   in_sig
 
 
