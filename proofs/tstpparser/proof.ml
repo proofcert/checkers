@@ -121,7 +121,7 @@ module DAG = struct
 
 end;;
 
-let printCert dag =
+let printCert dag mod_name =
   let map = Hashtbl.create 100 in
   let i = ref 0 in
 
@@ -193,7 +193,7 @@ let printCert dag =
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
   let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ ".\n")) "\n\n" (DAG.get_terms dag) in
-  "module eprover.\n\n" ^ 
+  "module " ^ mod_name ^ ".\n\n" ^ 
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
