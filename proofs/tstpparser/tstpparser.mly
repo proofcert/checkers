@@ -119,7 +119,7 @@ args:
 term:
 | VAR 			  { $1 }
 | WORD			  { $1 } 
-| WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
+| WORD LPAREN args RPAREN { DAG.registerTerm proof_dag $1; "(" ^ $1 ^ " " ^ $3 ^ ")"}
 
 /* TODO: policy for variable syntax in the certificates? */
 var:

@@ -69,9 +69,12 @@ module DAG = struct
     (* parents, inference used, name of clause, formula, children *)
     | Node of dag list * info * dag list
 
-  type t = { nodes: (string, dag) Hashtbl.t }
+  type t = { 
+    nodes: (string, dag) Hashtbl.t;
+    mutable terms: string list
+  }
 
-  let create () = { nodes = Hashtbl.create 100 }
+  let create () = { nodes = Hashtbl.create 100; terms = [] }
 
   let add_kid dag mom_node kid_node = match mom_node with
     | Node( prts, (inf, name, f), kids ) -> 
@@ -88,6 +91,12 @@ module DAG = struct
     List.iter (fun p -> add_kid dag p node) prt_nodes;
     (* Adds the new node to the node hash *)
     Hashtbl.add dag.nodes name node
+
+  let registerTerm dag name = match List.mem name dag.terms with
+    | true -> ()
+    | false -> dag.terms <- (name :: dag.terms)
+
+  let get_terms dag = dag.terms
 
   (* Finds the last node, the one with no kids (this should be unique) *)
   let find_last dag = 
@@ -183,12 +192,14 @@ let printCert dag =
   let steps = printCert_ last in
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
+  let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ "\n")) "\n\n" (DAG.get_terms dag) in
   "module eprover.\n\n" ^ 
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate binary_res_fol_nosub.\n" ^
   "accumulate paramodulation.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "problem \"eprover\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "])\n (map [\n" ^ pr_map ^ "\n])."
+  "problem \"eprover\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "])\n (map [\n" ^ pr_map ^ "\n])." ^
+  in_sig
 
 
