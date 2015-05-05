@@ -1,9 +1,7 @@
 module eprover4.
 
 accumulate lkf-kernel.
-%accumulate eprover.
-accumulate binary_res_fol_nosub.
-accumulate paramodulation.
+accumulate eprover.
 accumulate resolution_steps.
 
 /*
