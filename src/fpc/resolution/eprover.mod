@@ -10,9 +10,9 @@ accumulate debug.
 % gets a sequent |- A !-! B, C, D !-! E, etc.
 
 %binary rules, use the right indices and the right resolution certificate
-cut_ke (rsteps [PM | RS] estate) K C1 C2 :-
+cut_ke (rsteps [PM | RS] (istate IL)) K C1 C2 :-
   param_rule PM I1 I2 I,
-  cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] estate) K C1 C2. % paramodulation step
+  cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] (istate IL)) K C1 C2. % paramodulation step
 cut_ke (rsteps [PM | RS] (varmaps S)) K C1 C2 :-
   param_rule PM II1 II2 I,
   varmapped II1 I1 S,
@@ -20,7 +20,7 @@ cut_ke (rsteps [PM | RS] (varmaps S)) K C1 C2 :-
   cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] (varmaps S)) K C1 C2. % paramodulation step
 
 %unary rules, just track the indices
-cut_ke (rsteps [ER | RS] estate) K C1 C2 :-
+cut_ke (rsteps [ER | RS] (istate _)) K C1 C2 :-
   unary_rule ER I1 I2,
   varmap I2 I1 [] S2, % manage the variable mappings
   cut_ke (rsteps RS (varmaps S2)) K C1 C2. % map the new id to the above id and continue the processing of rsteps.

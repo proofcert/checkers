@@ -8,7 +8,3 @@ accum_sig paramodulation.
 accum_sig base.
 accum_sig lkf-syntax.
 
-/* Signature of the resolution problems */
-type c    i.
-type g, h	i -> i.
-type f 		i -> i -> i.
