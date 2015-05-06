@@ -46,4 +46,5 @@ if [ $ELEMENTS = 0 ]
   echo $(cat $RUNNER_MOD_BASE) >> $RUNNER_MOD_TARGET
 
   cd $DEBUG && make>/dev/null && $CMD
+  rm -rf $DEBUG
 fi
