@@ -2,11 +2,12 @@
 # Copyright (C) 2015 INRIA
 
 BASEDIR="`pwd`"
-TOOLS=$BASEDIR/TOOLS
+SRCDIR=$BASEDIR/src
+TOOLS=$SRCDIR/TOOLS
 RUNNER_MOD_BASE=$TOOLS/runner.mod.file
 RUNNER_SIG_BASE=$TOOLS/runner.sig.file
-RUNNER_MOD_TARGET=$BASEDIR/runner.mod
-RUNNER_SIG_TARGET=$BASEDIR/runner.sig
+RUNNER_MOD_TARGET=$SRCDIR/runner.mod
+RUNNER_SIG_TARGET=$SRCDIR/runner.sig
 export CMD="tjsim -b runner -s run."
 
 ARGS=("$@")
@@ -29,5 +30,5 @@ if [ $ELEMENTS = 0 ]
   echo $(cat $RUNNER_SIG_BASE) >> $RUNNER_SIG_TARGET
   echo $(cat $RUNNER_MOD_BASE) >> $RUNNER_MOD_TARGET
 
-  make>/dev/null && $CMD && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
+  cd $SRCDIR && make>/dev/null && $CMD && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
 fi
