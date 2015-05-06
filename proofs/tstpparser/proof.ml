@@ -71,10 +71,15 @@ module DAG = struct
 
   type t = { 
     nodes: (string, dag) Hashtbl.t;
-    mutable terms: string list
+    terms: (string, int) Hashtbl.t; (* value is dummy *)
+    types: (string, int) Hashtbl.t
   }
 
-  let create () = { nodes = Hashtbl.create 100; terms = [] }
+  let create () = { 
+    nodes = Hashtbl.create 100; 
+    terms = Hashtbl.create 100;
+    types = Hashtbl.create 100
+  }
 
   let add_kid dag mom_node kid_node = match mom_node with
     | Node( prts, (inf, name, f), kids ) -> 
@@ -92,11 +97,13 @@ module DAG = struct
     (* Adds the new node to the node hash *)
     Hashtbl.add dag.nodes name node
 
-  let registerTerm dag name = match List.mem name dag.terms with
-    | true -> ()
-    | false -> dag.terms <- (name :: dag.terms)
+  let registerTerm dag name = Hashtbl.remove dag.terms name; Hashtbl.add dag.terms name 1
 
-  let get_terms dag = dag.terms
+  let registerType dag name arity = Hashtbl.remove dag.types name; Hashtbl.add dag.types name arity
+
+  let get_terms dag = Hashtbl.fold (fun k v lst -> k :: lst) dag.terms []
+  
+  let get_types dag = dag.types
 
   (* Finds the last node, the one with no kids (this should be unique) *)
   let find_last dag = 
@@ -121,7 +128,7 @@ module DAG = struct
 
 end;;
 
-let printCert dag mod_name =
+let printCertMod dag mod_name =
   let map = Hashtbl.create 100 in
   let i = ref 0 in
 
@@ -197,7 +204,24 @@ let printCert dag mod_name =
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "problem \"eprover\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "] estate)\n (map [\n" ^ pr_map ^ "\n])." ^
+  "problem \"" ^ mod_name ^ "\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "] estate)\n (map [\n" ^ pr_map ^ "\n])." ^
   in_sig
+
+let printCertSig dag mod_name =
+  let rec toTypeString arity = match arity with
+    | 0 -> " i"
+    | n -> "i -> " ^ toTypeString (n-1)
+  in
+  let types = Hashtbl.fold (fun name arity acc -> 
+    "type " ^ name ^ " " ^ (toTypeString arity) ^ ".\n" ^ acc
+  ) (DAG.get_types dag) "" in
+  "sig " ^ mod_name ^ ".\n\n" ^
+  "accum_sig lkf-kernel.\n" ^
+  "accum_sig eprover.\n" ^
+  "accum_sig resolution_steps.\n" ^
+  "accum_sig binary_res_fol_nosub.\n" ^
+  "accum_sig paramodulation.\n" ^
+  "accum_sig base.\n" ^
+  "accum_sig lkf-syntax.\n\n" ^ types
 
 
