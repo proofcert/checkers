@@ -17,7 +17,7 @@ let getNumArgs arg_str =
 	else count tl paren
       end
     end
-  in    
+  in
   let str_lst = Str.split (regexp " ") arg_str in
   count str_lst 0
 
@@ -34,15 +34,15 @@ let proof_dag = DAG.create () ;;
 
 %token THF TFF FOF CNF TPI
 %token AXIOM CONJECTURE NEG_CONJECTURE PLAIN
-%token ER PM SPM EF APPLY_DEF INTRODUCED_DEF RW SR CSR AR CN 
+%token ER PM SPM EF APPLY_DEF INTRODUCED_DEF RW SR CSR AR CN
        CONDENSE ASSUME_NEGATION FOF_NNF SHIFT_QUANTORS VARIABLE_RENAME
-       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT FOF_SIMPLIFICATION	
+       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT FOF_SIMPLIFICATION
 %token <string> ATOM
 %token FILE INFERENCE STATUS
-       OR NOT AND IMP FORALL EXISTS EQ NEQ FALSE TRUE
+       OR NOT AND IMP BIMP FORALL EXISTS EQ NEQ FALSE TRUE
        LPAREN RPAREN COMMA DOT COLON LBRACKET RBRACKET
        FILEPATH
-       THM CTH 
+       THM CTH
 %token <string> WORD VAR
 %token <int> INTEGER
 
@@ -54,7 +54,7 @@ let proof_dag = DAG.create () ;;
 proof:
 | theory LPAREN name COMMA role COMMA formula COMMA annotation RPAREN DOT {
   match $1 with
-    | FOF | CNF -> 
+    | FOF | CNF ->
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
@@ -71,7 +71,7 @@ proof:
 /* The last inference seems to have one extra argument */
 | theory LPAREN name COMMA role COMMA formula COMMA annotation COMMA LBRACKET WORD RBRACKET RPAREN DOT {
   match $1 with
-    | FOF | CNF -> 
+    | FOF | CNF ->
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
@@ -109,7 +109,9 @@ formula:
 | atom						{ $1 }
 | formula AND formula   			{ $1 ^ " !-! " ^ $3 }
 | formula OR formula				{ $1 ^ " &+& " ^ $3 }
-/*| formula IMP formula				{ $1 ^ " arr " ^ $3 } think what to do */ 
+/* NOTE: the following two translations are wrong. These clauses should not be used. */
+| formula IMP formula				{ $1 ^ " &+& " ^ $3 }
+| formula BIMP formula				{ $1 ^ " &+& " ^ $3 }
 | FORALL LBRACKET var RBRACKET COLON formula 	{ "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | EXISTS LBRACKET var RBRACKET COLON formula 	{ "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | FALSE						{ "t+" }
@@ -137,9 +139,9 @@ args:
 
 term:
 | VAR 			  { $1 }
-| WORD			  { DAG.registerType proof_dag $1 0; $1 } 
-| WORD LPAREN args RPAREN { 
-  DAG.registerTerm proof_dag $1; 
+| WORD			  { DAG.registerType proof_dag $1 0; $1 }
+| WORD LPAREN args RPAREN {
+  DAG.registerTerm proof_dag $1;
   DAG.registerType proof_dag $1 (getNumArgs $3);
   "( " ^ $1 ^ " " ^ $3 ^ " )" }
 
@@ -147,7 +149,7 @@ term:
 var:
 | VAR	{ $1 }
 
-annotation: 
+annotation:
 | file_info 	 { (AXIOM, []) }
 | inference_info { $1 }
 | WORD		 { (DONE, [$1]) } /* for the last inference in verbose mode */
