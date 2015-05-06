@@ -8,6 +8,7 @@ tptp_parser=$cur/proofs/tstpparser/tstpparser
 prover=$cur/prover.sh
 prob_dir="$tptp_dir/Problems"
 opts="--tstp-format --proof-object --output-level=2 --cpu-limit"
+eprover_to=$2
 
 ecode1=/tmp/ecode1.$$.log
 ecode2=/tmp/ecode2.$$.log
@@ -34,7 +35,7 @@ do
     echo "-1" >$ecode4
     file_name="${problem}.eprover---1.9.proof"
     echo "Running eprover on $problem"
-    timeout 10 eprover $opts < $problem > $file_name
+    timeout $eprover_to eprover $opts < $problem > $file_name
     echo $? | tr -d "\n" >$ecode1
     # deleting uninteresting lines
     sed '/^# Proof found/,$d' $file_name > "${file_name}.out"
