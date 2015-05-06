@@ -2,7 +2,8 @@
 # Copyright (C) 2015 INRIA
 
 BASEDIR="`pwd`"
-TOOLS=$BASEDIR/TOOLS
+SRCDIR=$BASEDIR/src
+TOOLS=$SRCDIR/TOOLS
 DEBUG=$BASEDIR/_debug
 RUNNER_MOD_BASE=$TOOLS/runner.mod.file
 RUNNER_SIG_BASE=$TOOLS/runner.sig.file
@@ -17,15 +18,16 @@ ELEMENTS=${#ARGS[@]}
 rm -rf $DEBUG
 mkdir $DEBUG
 
-cp $BASEDIR/base.sig $DEBUG
-cp `find $BASEDIR/kernel -name "*.sig"` $DEBUG
-cp `find $BASEDIR/utils -name "*.sig"` $DEBUG
-cp `find $BASEDIR/fpc -name "*.sig"` $DEBUG
-cp `find $BASEDIR/tests -name "*.sig"` $DEBUG
-cp `find $BASEDIR/kernel -name "*.mod"` $DEBUG
-cp `find $BASEDIR/utils -name "*.mod"` $DEBUG
-cp `find $BASEDIR/fpc -name "*.mod"` $DEBUG
-cp `find $BASEDIR/tests -name "*.mod"` $DEBUG
+cp $SRCDIR/*.sig $DEBUG
+cp -f $SRCDIR/*.mod $DEBUG
+cp `find $SRCDIR/kernel -name "*.sig"` $DEBUG
+cp `find $SRCDIR/utils -name "*.sig"` $DEBUG
+cp `find $SRCDIR/fpc -name "*.sig"` $DEBUG
+cp `find $SRCDIR/tests -name "*.sig"` $DEBUG
+cp `find $SRCDIR/kernel -name "*.mod"` $DEBUG
+cp `find $SRCDIR/utils -name "*.mod"` $DEBUG
+cp `find $SRCDIR/fpc -name "*.mod"` $DEBUG
+cp `find $SRCDIR/tests -name "*.mod"` $DEBUG
 cp $TOOLS/kernel_debug/lkf-kernel.mod.debug $DEBUG/lkf-kernel.mod
 cp $TOOLS/Makefile.debug $DEBUG/Makefile
 
