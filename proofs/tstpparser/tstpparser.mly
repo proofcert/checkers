@@ -98,44 +98,44 @@ name:
 | INTEGER { string_of_int $1 }
 
 role:
-| AXIOM     { "axiom" }
-| CONJECTURE   { "conjecture" }
+| AXIOM          { "axiom" }
+| CONJECTURE     { "conjecture" }
 | NEG_CONJECTURE { "neg_conjecture" }
-| PLAIN     { "plain" }
+| PLAIN          { "plain" }
 
 /* TODO: explain properly why we negate the formulas */
 formula:
-| LPAREN formula RPAREN       { $2 }
-| atom            { $1 }
-| formula AND formula         { $1 ^ " !-! " ^ $3 }
-| formula OR formula        { $1 ^ " &+& " ^ $3 }
+| LPAREN formula RPAREN { $2 }
+| atom                  { $1 }
+| formula AND formula   { $1 ^ " !-! " ^ $3 }
+| formula OR formula    { $1 ^ " &+& " ^ $3 }
 /* NOTE: the following three translations are wrong. These clauses should not be used. */
-| formula IMP formula        { " unsupported " }
-| formula BIMP formula        { " unsupported " }
-| NOT formula          { " unsupported " }
+| formula IMP formula   { " unsupported " }
+| formula BIMP formula  { " unsupported " }
+| NOT formula           { " unsupported " }
 | FORALL LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | EXISTS LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| FALSE            { "t+" }
-| TRUE             { "f-" }
+| FALSE                 { "t+" }
+| TRUE                  { "f-" }
 
 atom:
 | LPAREN atom RPAREN { $2 }
-| pos_atom       { "(p " ^ $1 ^ ")" }
-| neg_atom       { "(n " ^ $1 ^ ")" }
+| pos_atom           { "(p " ^ $1 ^ ")" }
+| neg_atom           { "(n " ^ $1 ^ ")" }
 
 neg_atom:
-| term NEQ term             { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
+| term NEQ term                  { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
 | NOT LPAREN term EQ term RPAREN { "(" ^ $3 ^ " == " ^ $5 ^ ")" }
 | NOT WORD LPAREN args RPAREN    { "("  ^ $2 ^ " " ^ $4 ^ ")"}
-| NOT WORD              { $2 }
+| NOT WORD                       { $2 }
 
 pos_atom:
-| term EQ term      { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
+| term EQ term            { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
 | WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
-| WORD         { $1 }
+| WORD                    { $1 }
 
 args:
-| term      { $1 }
+| term            { $1 }
 | term COMMA args { $1 ^ " " ^ $3 }
 
 term:
@@ -151,9 +151,9 @@ var:
 | VAR  { $1 }
 
 annotation:
-| file_info    { (AXIOM, []) }
+| file_info      { (AXIOM, []) }
 | inference_info { $1 }
-| WORD     { (DONE, [$1]) } /* for the last inference in verbose mode */
+| WORD           { (DONE, [$1]) } /* for the last inference in verbose mode */
 
 file_info:
 | FILE LPAREN FILEPATH COMMA name RPAREN { "" }
@@ -164,26 +164,26 @@ inference_info:
 }
 
 inf_name:
-| ER       { ER }
-| PM      { PM }
-| SPM      { SPM }
-| EF      { EF }
-| APPLY_DEF    { APPLY_DEF }
-| INTRODUCED_DEF  { INTRODUCED_DEF }
-| RW      { RW }
-| SR      { SR }
-| CSR      { CSR }
-| AR      { AR }
-| CN      { CN }
-| CONDENSE    { CONDENSE }
-| ASSUME_NEGATION  { ASSUME_NEGATION }
-| FOF_NNF    { FOF_NNF }
-| SHIFT_QUANTORS  { SHIFT_QUANTORS }
-| VARIABLE_RENAME  { VARIABLE_RENAME }
-| SKOLEMIZE    { SKOLEMIZE }
-| DISTRIBUTE    { DISTRIBUTE }
-| SPLIT_CONJUNCT  { SPLIT_CONJUNCT }
-| FOF_SIMPLIFICATION  { FOF_SIMPLIFICATION }
+| ER                 { ER }
+| PM                 { PM }
+| SPM                { SPM }
+| EF                 { EF }
+| APPLY_DEF          { APPLY_DEF }
+| INTRODUCED_DEF     { INTRODUCED_DEF }
+| RW                 { RW }
+| SR                 { SR }
+| CSR                { CSR }
+| AR                 { AR }
+| CN                 { CN }
+| CONDENSE           { CONDENSE }
+| ASSUME_NEGATION    { ASSUME_NEGATION }
+| FOF_NNF            { FOF_NNF }
+| SHIFT_QUANTORS     { SHIFT_QUANTORS }
+| VARIABLE_RENAME    { VARIABLE_RENAME }
+| SKOLEMIZE          { SKOLEMIZE }
+| DISTRIBUTE         { DISTRIBUTE }
+| SPLIT_CONJUNCT     { SPLIT_CONJUNCT }
+| FOF_SIMPLIFICATION { FOF_SIMPLIFICATION }
 
 /* Ignoring the status for now */
 status:
