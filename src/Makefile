@@ -5,7 +5,7 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution:tests/resolution
+export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution:tests/resolution:utils
 
 .PHONY: all
 all: release_kernel compile
@@ -47,6 +47,7 @@ depend: *.mod *.sig
 
 .PHONY: clean
 clean:
+	rm -f runner.*
 	rm -f kernel/lkf/lkf-kernel.mod
 	rm -rf _debug
 	rm -f *.lpo *.lp depend
