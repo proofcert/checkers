@@ -9,12 +9,12 @@ let getNumArgs arg_str =
     | hd :: tl -> begin
       if hd = "(" then count tl (paren + 1)
       else if hd = ")" then begin
-	if paren = 1 then ( 1 + (count tl 0) )
-	else ( count tl (paren - 1) )
+  if paren = 1 then ( 1 + (count tl 0) )
+  else ( count tl (paren - 1) )
       end
       else begin
-	if paren = 0 then 1 + count tl 0
-	else count tl paren
+  if paren = 0 then 1 + count tl 0
+  else count tl paren
       end
     end
   in
@@ -36,7 +36,7 @@ let proof_dag = DAG.create () ;;
 %token AXIOM CONJECTURE NEG_CONJECTURE PLAIN
 %token ER PM SPM EF APPLY_DEF INTRODUCED_DEF RW SR CSR AR CN
        CONDENSE ASSUME_NEGATION FOF_NNF SHIFT_QUANTORS VARIABLE_RENAME
-       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT FOF_SIMPLIFICATION
+       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT FOF_SIMPLIFICATION TH_EQ TH_EQ_S
 %token <string> ATOM
 %token FILE INFERENCE STATUS
        OR NOT AND IMP BIMP FORALL EXISTS EQ NEQ FALSE TRUE
@@ -58,10 +58,10 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-	| (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
-	  else if $5 = "conjecture" then (CONJECTURE, [])
-	  else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
-	| _ -> $9
+  | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+    else if $5 = "conjecture" then (CONJECTURE, [])
+    else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+  | _ -> $9
       in
       (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
@@ -75,10 +75,10 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-	| (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
-	  else if $5 = "conjecture" then (CONJECTURE, [])
-	  else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
-	| _ -> $9
+  | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+    else if $5 = "conjecture" then (CONJECTURE, [])
+    else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+  | _ -> $9
       in
       (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
@@ -94,52 +94,53 @@ theory:
 | TPI { TPI }
 
 name:
-| WORD	  { $1 }
+| WORD    { $1 }
 | INTEGER { string_of_int $1 }
 
 role:
-| AXIOM		 { "axiom" }
-| CONJECTURE	 { "conjecture" }
+| AXIOM     { "axiom" }
+| CONJECTURE   { "conjecture" }
 | NEG_CONJECTURE { "neg_conjecture" }
-| PLAIN		 { "plain" }
+| PLAIN     { "plain" }
 
 /* TODO: explain properly why we negate the formulas */
 formula:
-| LPAREN formula RPAREN 			{ $2 }
-| atom						{ $1 }
-| formula AND formula   			{ $1 ^ " !-! " ^ $3 }
-| formula OR formula				{ $1 ^ " &+& " ^ $3 }
-/* NOTE: the following two translations are wrong. These clauses should not be used. */
-| formula IMP formula				{ $1 ^ " &+& " ^ $3 }
-| formula BIMP formula				{ $1 ^ " &+& " ^ $3 }
-| FORALL LBRACKET var RBRACKET COLON formula 	{ "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| EXISTS LBRACKET var RBRACKET COLON formula 	{ "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| FALSE						{ "t+" }
-| TRUE 						{ "f-" }
+| LPAREN formula RPAREN       { $2 }
+| atom            { $1 }
+| formula AND formula         { $1 ^ " !-! " ^ $3 }
+| formula OR formula        { $1 ^ " &+& " ^ $3 }
+/* NOTE: the following three translations are wrong. These clauses should not be used. */
+| formula IMP formula        { " unsupported " }
+| formula BIMP formula        { " unsupported " }
+| NOT formula          { " unsupported " }
+| FORALL LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| EXISTS LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| FALSE            { "t+" }
+| TRUE             { "f-" }
 
 atom:
 | LPAREN atom RPAREN { $2 }
-| pos_atom	     { "(p " ^ $1 ^ ")" }
-| neg_atom	     { "(n " ^ $1 ^ ")" }
+| pos_atom       { "(p " ^ $1 ^ ")" }
+| neg_atom       { "(n " ^ $1 ^ ")" }
 
 neg_atom:
-| term NEQ term		         { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
+| term NEQ term             { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
 | NOT LPAREN term EQ term RPAREN { "(" ^ $3 ^ " == " ^ $5 ^ ")" }
 | NOT WORD LPAREN args RPAREN    { "("  ^ $2 ^ " " ^ $4 ^ ")"}
-| NOT WORD 		         { $2 }
+| NOT WORD              { $2 }
 
 pos_atom:
-| term EQ term		  { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
+| term EQ term      { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
 | WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
-| WORD 			  { $1 }
+| WORD         { $1 }
 
 args:
-| term		  { $1 }
+| term      { $1 }
 | term COMMA args { $1 ^ " " ^ $3 }
 
 term:
-| VAR 			  { $1 }
-| WORD			  { DAG.registerType proof_dag $1 0; $1 }
+| VAR         { $1 }
+| WORD        { DAG.registerType proof_dag $1 0; $1 }
 | WORD LPAREN args RPAREN {
   DAG.registerTerm proof_dag $1;
   DAG.registerType proof_dag $1 (getNumArgs $3);
@@ -147,12 +148,12 @@ term:
 
 /* TODO: policy for variable syntax in the certificates? */
 var:
-| VAR	{ $1 }
+| VAR  { $1 }
 
 annotation:
-| file_info 	 { (AXIOM, []) }
+| file_info    { (AXIOM, []) }
 | inference_info { $1 }
-| WORD		 { (DONE, [$1]) } /* for the last inference in verbose mode */
+| WORD     { (DONE, [$1]) } /* for the last inference in verbose mode */
 
 file_info:
 | FILE LPAREN FILEPATH COMMA name RPAREN { "" }
@@ -163,26 +164,26 @@ inference_info:
 }
 
 inf_name:
-| ER 			{ ER }
-| PM			{ PM }
-| SPM			{ SPM }
-| EF			{ EF }
-| APPLY_DEF		{ APPLY_DEF }
-| INTRODUCED_DEF	{ INTRODUCED_DEF }
-| RW			{ RW }
-| SR			{ SR }
-| CSR			{ CSR }
-| AR			{ AR }
-| CN			{ CN }
-| CONDENSE		{ CONDENSE }
-| ASSUME_NEGATION	{ ASSUME_NEGATION }
-| FOF_NNF		{ FOF_NNF }
-| SHIFT_QUANTORS	{ SHIFT_QUANTORS }
-| VARIABLE_RENAME	{ VARIABLE_RENAME }
-| SKOLEMIZE		{ SKOLEMIZE }
-| DISTRIBUTE		{ DISTRIBUTE }
-| SPLIT_CONJUNCT	{ SPLIT_CONJUNCT }
-| FOF_SIMPLIFICATION	{ FOF_SIMPLIFICATION }
+| ER       { ER }
+| PM      { PM }
+| SPM      { SPM }
+| EF      { EF }
+| APPLY_DEF    { APPLY_DEF }
+| INTRODUCED_DEF  { INTRODUCED_DEF }
+| RW      { RW }
+| SR      { SR }
+| CSR      { CSR }
+| AR      { AR }
+| CN      { CN }
+| CONDENSE    { CONDENSE }
+| ASSUME_NEGATION  { ASSUME_NEGATION }
+| FOF_NNF    { FOF_NNF }
+| SHIFT_QUANTORS  { SHIFT_QUANTORS }
+| VARIABLE_RENAME  { VARIABLE_RENAME }
+| SKOLEMIZE    { SKOLEMIZE }
+| DISTRIBUTE    { DISTRIBUTE }
+| SPLIT_CONJUNCT  { SPLIT_CONJUNCT }
+| FOF_SIMPLIFICATION  { FOF_SIMPLIFICATION }
 
 /* Ignoring the status for now */
 status:
@@ -194,10 +195,16 @@ status_type:
 
 /* It looks like e-prover specifies always at most 2 antecedents */
 antecedents:
-| LBRACKET ant RBRACKET		  { $2 }
-| LBRACKET ant COMMA ant RBRACKET { $4 @ $2 }
+| LBRACKET antlist RBRACKET { $2 }
+
+antlist:
+| ant               { $1 }
+| ant COMMA antlist { $1 @ $3 }
 
 ant:
-| name		 { [$1] }
+| TH_EQ          { [] }
+| TH_EQ_S        { [] }
+| name           { [$1] }
 | inference_info { match $1 with (_, ant) -> ant }
+/* TODO: find out what this means */
 
