@@ -131,6 +131,8 @@ end;;
 let printCertMod dag mod_name =
   let map = Hashtbl.create 100 in
   let i = ref 0 in
+  (* Find a more elegant way to do this *)
+  let leaf_indices = ref [] in
 
   let printClause node = match node with
     | DAG.Node(_, (_, _, f), _) -> begin
@@ -147,6 +149,7 @@ let printCertMod dag mod_name =
       | AXIOM | CONJECTURE ->
 	assert (List.length parents == 0);
 	Hashtbl.add map f !i;
+	if inf = AXIOM then leaf_indices := !i :: !leaf_indices;
 	i := !i + 1; ""
       (* Binary inferences *)
       | PM | RW ->
@@ -176,6 +179,7 @@ let printCertMod dag mod_name =
       | CN | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
 	assert (List.length parents == 1);
 	Hashtbl.add map f !i;
+	if inf = ASSUME_NEGATION then leaf_indices := !i :: !leaf_indices;
 	let idx = string_of_int !i in
 	i := !i + 1;
 	let mom = List.nth parents 0 in
@@ -199,12 +203,13 @@ let printCertMod dag mod_name =
   let steps = printCert_ last in
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
+  let state_str = " (istate [" ^ ( String.concat ", " (List.map (fun i -> string_of_int i) !leaf_indices) ) ^ "])" in
   let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ ".\n")) "\n\n" (DAG.get_terms dag) in
   "module " ^ mod_name ^ ".\n\n" ^ 
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "problem \"" ^ mod_name ^ "\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "] estate)\n (map [\n" ^ pr_map ^ "\n])." ^
+  "problem \"" ^ mod_name ^ "\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
   in_sig
 
 let printCertSig dag mod_name =
