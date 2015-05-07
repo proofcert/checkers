@@ -39,6 +39,8 @@ do
     echo $? | tr -d "\n" >$ecode1
     # deleting uninteresting lines
     sed '/^# Proof found/,$d' $file_name > "${file_name}.out"
+    # Deleting unused file
+    rm $file_name
     mv "${file_name}.out" "$src/problem.out"
     cd $src
     echo "Running tstpparser on src/problem.out"
