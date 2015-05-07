@@ -58,10 +58,10 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-  | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
-    else if $5 = "conjecture" then (CONJECTURE, [])
-    else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
-  | _ -> $9
+        | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+          else if $5 = "conjecture" then (CONJECTURE, [])
+          else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+        | _ -> $9
       in
       (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
@@ -75,10 +75,10 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-  | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
-    else if $5 = "conjecture" then (CONJECTURE, [])
-    else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
-  | _ -> $9
+        | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+          else if $5 = "conjecture" then (CONJECTURE, [])
+          else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+        | _ -> $9
       in
       (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
@@ -107,16 +107,16 @@ role:
 formula:
 | LPAREN formula RPAREN { $2 }
 | atom                  { $1 }
-| formula AND formula   { $1 ^ " !-! " ^ $3 }
-| formula OR formula    { $1 ^ " &+& " ^ $3 }
+| formula AND formula   { $1 ^ " &+& " ^ $3 }
+| formula OR formula    { $1 ^ " !-! " ^ $3 }
 /* NOTE: the following three translations are wrong. These clauses should not be used. */
 | formula IMP formula   { " unsupported " }
 | formula BIMP formula  { " unsupported " }
 | NOT formula           { " unsupported " }
-| FORALL LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| EXISTS LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| FALSE                 { "t+" }
-| TRUE                  { "f-" }
+| FORALL LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| EXISTS LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| FALSE                 { "f-" }
+| TRUE                  { "t+" }
 
 atom:
 | LPAREN atom RPAREN { $2 }

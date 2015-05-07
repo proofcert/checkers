@@ -132,7 +132,7 @@ let printCertMod dag mod_name =
   let map = Hashtbl.create 100 in
   let i = ref 0 in
   (* Find a more elegant way to do this *)
-  let leaf_indices = ref [] in
+  let leaf_clauses = ref [] in
 
   let printClause node = match node with
     | DAG.Node(_, (_, _, f), _) -> begin
@@ -146,12 +146,14 @@ let printCertMod dag mod_name =
   let rec printCert_ node = match node with
     | DAG.Node( parents, (inf, name, f), _) -> begin match inf with
       (* Inferences handled so far *)
+      (* If there is some kind of clausal transformation, this should ideally not be reached *)
       | AXIOM | CONJECTURE ->
 	assert (List.length parents == 0);
 	Hashtbl.add map f !i;
-	if inf = AXIOM then leaf_indices := !i :: !leaf_indices;
+	leaf_clauses := f :: !leaf_clauses;
 	i := !i + 1; ""
       (* Binary inferences *)
+      (* Paramodulation and rewrite occur in the resolution proof *)
       | PM | RW ->
 	assert (List.length parents == 2);
 	Hashtbl.add map f !i;
@@ -176,10 +178,16 @@ let printCertMod dag mod_name =
 	end else
 	  failwith "This should have not been reached."
       (* Unary inferences *)
-      | CN | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
+      (* These are considered axioms since we are not checking the clausal normal form translation *)
+      | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
 	assert (List.length parents == 1);
 	Hashtbl.add map f !i;
-	if inf = ASSUME_NEGATION then leaf_indices := !i :: !leaf_indices;
+	leaf_clauses := f :: !leaf_clauses;
+	i := !i + 1; ""
+      (* Clause normalization occurs in the resolution proof *)
+      | CN -> 
+	assert (List.length parents == 1);
+	Hashtbl.add map f !i;
 	let idx = string_of_int !i in
 	i := !i + 1;
 	let mom = List.nth parents 0 in
@@ -199,17 +207,18 @@ let printCertMod dag mod_name =
   in
 
   let last = DAG.find_last dag in
-  let formula = DAG.get_proved_formula dag in 
   let steps = printCert_ last in
+  let leaves = List.map (fun f -> "(pr " ^ (string_of_int (Hashtbl.find map f)) ^ " " ^ f ^ " )"  ) !leaf_clauses in
+  let indexed_clauses = String.concat ",\n" leaves in
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
-  let state_str = " (istate [" ^ ( String.concat ", " (List.map (fun i -> string_of_int i) !leaf_indices) ) ^ "])" in
+  let state_str = " estate " in
   let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ ".\n")) "\n\n" (DAG.get_terms dag) in
   "module " ^ mod_name ^ ".\n\n" ^ 
   "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "problem \"" ^ mod_name ^ "\" (" ^ formula ^ ") \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
+  "problem \"" ^ mod_name ^ "\" [" ^ indexed_clauses ^ "] \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
   in_sig
 
 let printCertSig dag mod_name =
