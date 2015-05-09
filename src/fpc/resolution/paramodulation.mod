@@ -9,11 +9,11 @@ inCtxt congI (some F\ some X\ some Y\ n (X =*= Y) &+& p (F X =*= F Y)).
 inCtxt congI (some F\ some X\ some Y\ some Z\ n (X =*= Y) &+&
                                                   (p (F X Z =*= F Y Z) !+!
 					     	   p (F Z X =*= F Z Y))).
-inCtxt congI (some F\ some X\ some Y\ some Z\ some W\
-       	     	      	      	       n (X =*= Y) &+&
-                                                  (p (F W X Z =*= F W Y Z) !+!
-					     	   p (F Z W X =*= F Z W Y) !+!
-					     	   p (F Z X W =*= F Z Y W))).
+inCtxt congI (some F\ some X\ some Y\ some Z\ some X'\
+       	     	      	      	       n (X =*= X') &+&
+                                                  (p (F X Y Z =*= F X' Y Z) !+!
+					     	   p (F Y X Z =*= F Y X' Z) !+!
+					     	   p (F Y Z X =*= F Y Z X'))).
 inCtxt predI (some S\ some T\ some T'\
        	     	   n (T =*= T') &+& (n (S == T) &+& p (S == T')
 		     	    	    !+!
