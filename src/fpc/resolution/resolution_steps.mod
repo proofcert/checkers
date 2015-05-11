@@ -1,5 +1,4 @@
 module resolution_steps.
-accumulate debug.
 
 % gets a sequent |- A &+& B, C, D &+& E, etc.
 

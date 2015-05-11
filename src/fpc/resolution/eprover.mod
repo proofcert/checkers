@@ -1,11 +1,7 @@
 module eprover.
 
-accumulate lkf-kernel.
 accumulate binary_res_fol_nosub.
 accumulate paramodulation.
-accumulate resolution_steps.
-
-accumulate debug.
 
 % gets a sequent |- A !-! B, C, D !-! E, etc.
 
