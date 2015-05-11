@@ -76,6 +76,7 @@ rule tstpproof = parse
 | "skolemize"              { SKOLEMIZE }
 | "distribute"             { DISTRIBUTE }
 | "split_conjunct"         { SPLIT_CONJUNCT }
+| "split_equiv"            { SPLIT_EQUIV }
 | "fof_simplification"     { FOF_SIMPLIFICATION }
 | "theory(equality)"       { TH_EQ }
 | "theory(equality,[symmetry])" { TH_EQ_S }

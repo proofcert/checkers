@@ -36,7 +36,7 @@ let proof_dag = DAG.create () ;;
 %token AXIOM CONJECTURE NEG_CONJECTURE PLAIN
 %token ER PM SPM EF APPLY_DEF INTRODUCED_DEF RW SR CSR AR CN
        CONDENSE ASSUME_NEGATION FOF_NNF SHIFT_QUANTORS VARIABLE_RENAME
-       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT FOF_SIMPLIFICATION TH_EQ TH_EQ_S
+       SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT SPLIT_EQUIV FOF_SIMPLIFICATION TH_EQ TH_EQ_S
 %token <string> ATOM
 %token FILE INFERENCE STATUS
        OR NOT AND IMP BIMP FORALL EXISTS EQ NEQ FALSE TRUE
@@ -61,6 +61,7 @@ proof:
         | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+        | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
       (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
@@ -78,6 +79,7 @@ proof:
         | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+        | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
       (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
@@ -126,13 +128,13 @@ atom:
 neg_atom:
 | term NEQ term                  { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
 | NOT LPAREN term EQ term RPAREN { "(" ^ $3 ^ " == " ^ $5 ^ ")" }
-| NOT WORD LPAREN args RPAREN    { "("  ^ $2 ^ " " ^ $4 ^ ")"}
-| NOT WORD                       { $2 }
+| NOT WORD LPAREN args RPAREN    { DAG.set_predicate proof_dag $2 (getNumArgs $4); "("  ^ $2 ^ " " ^ $4 ^ ")"}
+| NOT WORD                       { DAG.set_predicate proof_dag $2 0; $2 }
 
 pos_atom:
 | term EQ term            { "(" ^ $1 ^ " == " ^ $3 ^ ")" }
-| WORD LPAREN args RPAREN { "(" ^ $1 ^ " " ^ $3 ^ ")"}
-| WORD                    { $1 }
+| WORD LPAREN args RPAREN { DAG.set_predicate proof_dag $1 (getNumArgs $3); "(" ^ $1 ^ " " ^ $3 ^ ")"}
+| WORD                    { DAG.set_predicate proof_dag $1 0; $1 }
 
 args:
 | term            { $1 }
@@ -140,10 +142,9 @@ args:
 
 term:
 | VAR         { $1 }
-| WORD        { DAG.registerType proof_dag $1 0; $1 }
+| WORD        { DAG.set_function proof_dag $1 0; $1 }
 | WORD LPAREN args RPAREN {
-  DAG.registerTerm proof_dag $1;
-  DAG.registerType proof_dag $1 (getNumArgs $3);
+  DAG.set_function proof_dag $1 (getNumArgs $3);
   "( " ^ $1 ^ " " ^ $3 ^ " )" }
 
 /* TODO: policy for variable syntax in the certificates? */
@@ -153,6 +154,7 @@ var:
 annotation:
 | file_info      { (AXIOM, []) }
 | inference_info { $1 }
+| INTRODUCED_DEF { (INTRODUCED_DEF, []) }
 | WORD           { (DONE, [$1]) } /* for the last inference in verbose mode */
 
 file_info:
@@ -169,7 +171,6 @@ inf_name:
 | SPM                { SPM }
 | EF                 { EF }
 | APPLY_DEF          { APPLY_DEF }
-| INTRODUCED_DEF     { INTRODUCED_DEF }
 | RW                 { RW }
 | SR                 { SR }
 | CSR                { CSR }
@@ -183,6 +184,7 @@ inf_name:
 | SKOLEMIZE          { SKOLEMIZE }
 | DISTRIBUTE         { DISTRIBUTE }
 | SPLIT_CONJUNCT     { SPLIT_CONJUNCT }
+| SPLIT_EQUIV        { SPLIT_EQUIV }
 | FOF_SIMPLIFICATION { FOF_SIMPLIFICATION }
 
 /* Ignoring the status for now */

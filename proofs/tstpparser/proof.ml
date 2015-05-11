@@ -7,30 +7,31 @@ type theory =
   | TPI
 
 (* Same name as lexer for simplicity *)
-type inference =
-  | AXIOM		(* from file *)
-  | CONJECTURE		(* from file *)
-  | DONE		(* last step, does nothing *)
-  | ER			(* equality resolution *)
-  | PM			(* paramodulation *)
-  | SPM			(* simultaneous paramodulation *)
-  | EF			(* equality factoring *)
-  | APPLY_DEF		(* replace a complex formula by a single literal *)
-  | INTRODUCED_DEF	(* introduce a new definition *)
-  | RW			(* rewriting *)
-  | SR			(* simplify-reflect *)
-  | CSR			(* contextual simplify-reflect *)
-  | AR			(* AC-resolution *)
-  | CN			(* clause normalize (delete trivial and repeated literals *)
-  | CONDENSE		(* apply condensation *)
-  | ASSUME_NEGATION	(* negate a conjecture - proof by refutation *)
-  | FOF_NNF		(* convert to negation normal form *)
-  | SHIFT_QUANTORS	(* move quantifiers *)
-  | VARIABLE_RENAME	(* rename bound variables *)
-  | SKOLEMIZE		(* eliminate existential quantifiers *)
-  | DISTRIBUTE		(* move ^ outwards over v *)
-  | SPLIT_CONJUNCT	(* make a clause from one conjunct from a CNF formula *)
-  | FOF_SIMPLIFICATION	(* standard simplification steps: replace <=, xor, etc *)
+type inference = 
+  | AXIOM               (* from file *)
+  | CONJECTURE          (* from file *)
+  | DONE                (* last step, does nothing *)
+  | ER                  (* equality resolution *)
+  | PM                  (* paramodulation *)
+  | SPM                 (* simultaneous paramodulation *)
+  | EF                  (* equality factoring *)
+  | APPLY_DEF           (* replace a complex formula by a single literal *)
+  | INTRODUCED_DEF      (* introduce a new definition *)
+  | RW                  (* rewriting *)
+  | SR                  (* simplify-reflect *)
+  | CSR                 (* contextual simplify-reflect *)
+  | AR                  (* AC-resolution *)
+  | CN                  (* clause normalize (delete trivial and repeated literals *)
+  | CONDENSE            (* apply condensation *)
+  | ASSUME_NEGATION     (* negate a conjecture - proof by refutation *)
+  | FOF_NNF             (* convert to negation normal form *)
+  | SHIFT_QUANTORS      (* move quantifiers *) 
+  | VARIABLE_RENAME     (* rename bound variables *)
+  | SKOLEMIZE           (* eliminate existential quantifiers *)
+  | DISTRIBUTE          (* move ^ outwards over v *)
+  | SPLIT_CONJUNCT      (* make a clause from one conjunct from a CNF formula *)
+  | SPLIT_EQUIV         (* ?? *)
+  | FOF_SIMPLIFICATION  (* standard simplification steps: replace <=, xor, etc *)
 
 let string_of_inference inf = match inf with
   | AXIOM -> "axiom"
@@ -55,6 +56,7 @@ let string_of_inference inf = match inf with
   | SKOLEMIZE -> "skolemize"
   | DISTRIBUTE -> "distribute"
   | SPLIT_CONJUNCT -> "split_conjunct"
+  | SPLIT_EQUIV -> "split_equiv"
   | FOF_SIMPLIFICATION -> "fof_simplification"
 
 module DAG = struct
@@ -71,14 +73,14 @@ module DAG = struct
 
   type t = {
     nodes: (string, dag) Hashtbl.t;
-    terms: (string, int) Hashtbl.t; (* value is dummy *)
-    types: (string, int) Hashtbl.t
+    functions: (string, int) Hashtbl.t;
+    predicates: (string, int) Hashtbl.t
   }
 
-  let create () = {
-    nodes = Hashtbl.create 100;
-    terms = Hashtbl.create 100;
-    types = Hashtbl.create 100
+  let create () = { 
+    nodes = Hashtbl.create 100; 
+    functions = Hashtbl.create 100;
+    predicates = Hashtbl.create 100
   }
 
   let add_kid dag mom_node kid_node = match mom_node with
@@ -97,13 +99,13 @@ module DAG = struct
     (* Adds the new node to the node hash *)
     Hashtbl.add dag.nodes name node
 
-  let registerTerm dag name = Hashtbl.remove dag.terms name; Hashtbl.add dag.terms name 1
+  let set_function dag name arity = Hashtbl.remove dag.functions name; Hashtbl.add dag.functions name arity
 
-  let registerType dag name arity = Hashtbl.remove dag.types name; Hashtbl.add dag.types name arity
+  let set_predicate dag name arity = Hashtbl.remove dag.predicates name; Hashtbl.add dag.predicates name arity
 
-  let get_terms dag = Hashtbl.fold (fun k v lst -> k :: lst) dag.terms []
-
-  let get_types dag = dag.types
+  let get_functions dag = dag.functions
+  
+  let get_predicates dag = dag.predicates
 
   (* Finds the last node, the one with no kids (this should be unique) *)
   let find_last dag =
@@ -137,7 +139,7 @@ let printCertMod dag mod_name =
   let printClause node = match node with
     | DAG.Node(_, (_, _, f), _) -> begin
       try match Hashtbl.find map f with
-	| n -> "(id (idx " ^ string_of_int n ^ "))"
+        | n -> "(id (idx " ^ string_of_int n ^ "))"
       with Not_found -> failwith ("Undefined clause: " ^ f)
     end
     | DAG.Empty -> ""
@@ -148,59 +150,59 @@ let printCertMod dag mod_name =
       (* Inferences handled so far *)
       (* If there is some kind of clausal transformation, this should ideally not be reached *)
       | AXIOM | CONJECTURE ->
-	assert (List.length parents == 0);
-	Hashtbl.add map f !i;
-	leaf_clauses := f :: !leaf_clauses;
-	i := !i + 1; ""
+        assert (List.length parents == 0);
+        Hashtbl.add map f !i;
+        leaf_clauses := f :: !leaf_clauses;
+        i := !i + 1; ""
       (* Binary inferences *)
       (* Paramodulation and rewrite occur in the resolution proof *)
       | PM | RW ->
-	assert (List.length parents == 2);
-	Hashtbl.add map f !i;
-	let idx = string_of_int !i in
-	i := !i + 1;
-	let mom = List.nth parents 0 in
-	let dad = List.nth parents 1 in
-	let momside = printCert_ mom in
-	let dadside = printCert_ dad in
-	let inf_name = string_of_inference inf in
-	if (momside = "") && (dadside = "") then begin
-	  (inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
-	end else
-	if (momside <> "") && (dadside = "") then begin
-	  (momside ^ ", " ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
-	end else
-	if (momside = "") && (dadside <> "") then begin
-	  (dadside ^ ", "  ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
-	end else
-	if (momside <> "") && (dadside <> "") then begin
-	  (momside ^ ", " ^ dadside ^ ", "  ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
-	end else
-	  failwith "This should have not been reached."
+        assert (List.length parents == 2);
+        Hashtbl.add map f !i;
+        let idx = string_of_int !i in
+        i := !i + 1;
+        let mom = List.nth parents 0 in
+        let dad = List.nth parents 1 in
+        let momside = printCert_ mom in
+        let dadside = printCert_ dad in
+        let inf_name = string_of_inference inf in
+        if (momside = "") && (dadside = "") then begin
+          (inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
+        end else 
+        if (momside <> "") && (dadside = "") then begin
+          (momside ^ ", " ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
+        end else
+        if (momside = "") && (dadside <> "") then begin
+          (dadside ^ ", "  ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
+        end else
+        if (momside <> "") && (dadside <> "") then begin
+          (momside ^ ", " ^ dadside ^ ", "  ^ inf_name ^ " " ^ printClause mom ^ " " ^ printClause dad ^ " " ^ idx)
+        end else
+          failwith "This should have not been reached."
       (* Unary inferences *)
       (* These are considered axioms since we are not checking the clausal normal form translation *)
       | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
-	assert (List.length parents == 1);
-	Hashtbl.add map f !i;
-	leaf_clauses := f :: !leaf_clauses;
-	i := !i + 1; ""
+        assert (List.length parents == 1);
+        Hashtbl.add map f !i;
+        leaf_clauses := f :: !leaf_clauses;
+        i := !i + 1; ""
       (* Clause normalization occurs in the resolution proof *)
-      | CN ->
-	assert (List.length parents == 1);
-	Hashtbl.add map f !i;
-	let idx = string_of_int !i in
-	i := !i + 1;
-	let mom = List.nth parents 0 in
-	let momside = printCert_ mom in
-	let inf_name = string_of_inference inf in
-	if (momside <> "") then begin
-	  (momside ^ ", " ^ inf_name ^ " " ^ printClause mom ^ " " ^ idx)
-	end else
-	  (inf_name ^ " " ^ printClause mom ^ " " ^ idx)
+      | CN -> 
+        assert (List.length parents == 1);
+        Hashtbl.add map f !i;
+        let idx = string_of_int !i in
+        i := !i + 1;
+        let mom = List.nth parents 0 in
+        let momside = printCert_ mom in
+        let inf_name = string_of_inference inf in
+        if (momside <> "") then begin
+          (momside ^ ", " ^ inf_name ^ " " ^ printClause mom ^ " " ^ idx)
+        end else
+          (inf_name ^ " " ^ printClause mom ^ " " ^ idx)
       (* This is only the last node. *)
       | DONE ->
-	assert (List.length parents == 1);
-	printCert_ (List.nth parents 0)
+        assert (List.length parents == 1); 
+        printCert_ (List.nth parents 0)
       | r -> failwith ("Certificate not specified for this inference: " ^ string_of_inference r)
     end
     | DAG.Empty -> ""
@@ -213,22 +215,35 @@ let printCertMod dag mod_name =
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
   let state_str = " estate " in
-  let in_sig = List.fold_left (fun s term -> (s ^ "inSig " ^ term ^ ".\n")) "\n\n" (DAG.get_terms dag) in
-  "module " ^ mod_name ^ ".\n\n" ^
-  "accumulate lkf-kernel.\n" ^
+  let in_sig_f = Hashtbl.fold (fun f ar s -> match ar with
+    | 0 -> s
+    | n -> (s ^ "inSig " ^ f ^ ".\n")
+  ) (DAG.get_functions dag) "\n\n" in
+  let in_sig_p = Hashtbl.fold (fun p ar s -> match ar with
+    | 0 -> s
+    | n -> (s ^ "inSig " ^ p ^ ".\n")
+  ) (DAG.get_predicates dag) "\n\n" in
+  "module " ^ mod_name ^ ".\n\n" ^ 
+  "accumulate lkf-kernel.\n" ^ 
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "resProblem \"" ^ mod_name ^ "\" [" ^ indexed_clauses ^ "] \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
-  in_sig
+  "problem \"" ^ mod_name ^ "\" [" ^ indexed_clauses ^ "] \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
+  in_sig_f ^ in_sig_p
 
 let printCertSig dag mod_name =
-  let rec toTypeString arity = match arity with
-    | 0 -> " i"
-    | n -> "i -> " ^ toTypeString (n-1)
+  let rec toTypeString arity pred = match arity with
+    | 0 -> begin match pred with
+      | true -> "o" 
+      | false -> "i"
+    end
+    | n -> "i -> " ^ toTypeString (n-1) pred
   in
-  let types = Hashtbl.fold (fun name arity acc ->
-    "type " ^ name ^ " " ^ (toTypeString arity) ^ ".\n" ^ acc
-  ) (DAG.get_types dag) "" in
+  let types_f = Hashtbl.fold (fun name arity acc -> 
+    "type " ^ name ^ " " ^ (toTypeString arity false) ^ ".\n" ^ acc
+  ) (DAG.get_functions dag) "\n" in
+  let types_p = Hashtbl.fold (fun name arity acc -> 
+    "type " ^ name ^ " " ^ (toTypeString arity true) ^ ".\n" ^ acc
+  ) (DAG.get_predicates dag) "\n" in
   "sig " ^ mod_name ^ ".\n\n" ^
   "accum_sig lkf-kernel.\n" ^
   "accum_sig eprover.\n" ^
@@ -236,6 +251,6 @@ let printCertSig dag mod_name =
   "accum_sig binary_res_fol_nosub.\n" ^
   "accum_sig paramodulation.\n" ^
   "accum_sig base.\n" ^
-  "accum_sig lkf-syntax.\n\n" ^ types
+  "accum_sig lkf-syntax.\n\n" ^ types_f ^ types_p
 
 
