@@ -8,23 +8,7 @@ OBJS=$(SRCS:.mod=.lp)
 export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution:tests/resolution:utils
 
 .PHONY: all
-all: release_kernel compile
-
-.PHONY: debug
-debug: debug_kernel compile
-
-release_kernel: clean_kernel cp_kernel_release
-
-debug_kernel: clean_kernel cp_kernel_debug
-
-clean_kernel:
-	rm -f kernel/lkf/lkf-kernel.lpo kernel/lkf/lkf-kernel.lp kernel/lkf/lkf-kernel.mod
-
-cp_kernel_release:
-	cp TOOLS/kernel_debug/lkf-kernel.mod kernel/lkf/lkf-kernel.mod
-
-cp_kernel_debug:
-	cp TOOLS/kernel_debug/lkf-kernel.mod.debug kernel/lkf/lkf-kernel.mod
+all: compile
 
 compile: compile_inner $(OBJS)
 
@@ -49,7 +33,6 @@ depend: *.mod *.sig
 
 .PHONY: clean
 clean:
-	rm -f kernel/lkf/lkf-kernel.mod
 	rm -rf _debug
 	rm -f *.lpo *.lp depend
 	cd tests && $(MAKE) clean
