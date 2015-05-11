@@ -58,7 +58,7 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-        | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
@@ -76,7 +76,7 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-        | (AXIOM, []) -> if $5 = "axiom" then (AXIOM, [])
+        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
