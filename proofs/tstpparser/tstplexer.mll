@@ -32,6 +32,7 @@ rule tstpproof = parse
 | "file"          { FILE }
 | "inference"     { INFERENCE }
 | "axiom"              { AXIOM }
+| "hypothesis"         { HYPOTHESIS }
 | "conjecture"         { CONJECTURE }
 | "negated_conjecture" { NEG_CONJECTURE }
 | "plain"              { PLAIN }

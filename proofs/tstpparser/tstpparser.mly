@@ -33,7 +33,7 @@ let proof_dag = DAG.create () ;;
 %}
 
 %token THF TFF FOF CNF TPI
-%token AXIOM CONJECTURE NEG_CONJECTURE PLAIN
+%token AXIOM HYPOTHESIS CONJECTURE NEG_CONJECTURE PLAIN
 %token ER PM SPM EF APPLY_DEF INTRODUCED_DEF RW SR CSR AR CN
        CONDENSE ASSUME_NEGATION FOF_NNF SHIFT_QUANTORS VARIABLE_RENAME
        SKOLEMIZE DISTRIBUTE SPLIT_CONJUNCT SPLIT_EQUIV FOF_SIMPLIFICATION TH_EQ TH_EQ_S
@@ -58,7 +58,7 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture") then (AXIOM, [])
+        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture" || $5 = "hypothesis") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
@@ -76,7 +76,7 @@ proof:
       let name = $3 in
       let formula = $7 in
       let (inference, parents) = match $9 with
-        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture") then (AXIOM, [])
+        | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture" || $5 = "hypothesis") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
           else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
@@ -101,6 +101,7 @@ name:
 
 role:
 | AXIOM          { "axiom" }
+| HYPOTHESIS     { "hypothesis" }
 | CONJECTURE     { "conjecture" }
 | NEG_CONJECTURE { "neg_conjecture" }
 | PLAIN          { "plain" }
