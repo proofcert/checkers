@@ -34,7 +34,7 @@ cp $TOOLS/Makefile.debug $DEBUG/Makefile
 echo -e "module runner.\\n" >> $RUNNER_MOD_TARGET
 echo -e "sig runner.\\n" >> $RUNNER_SIG_TARGET
 
-if [ $ELEMENTS = 0 ]
+if [ $ELEMENTS -ne 1 ]
   then echo "Error: at least one certificate must be given!"
   else
   for (( i=0;i<$ELEMENTS;i++)); do
