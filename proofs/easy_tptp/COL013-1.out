@@ -1,0 +1,129 @@
+cnf(c_0_1,axiom,(apply(apply(apply(s,X1),X2),X3)=apply(apply(X1,X3),apply(X2,X3))), file('<stdin>', s_definition)).
+cnf(c_0_2,axiom,(apply(apply(l,X1),X2)=apply(X1,apply(X2,X2))), file('<stdin>', l_definition)).
+cnf(c_0_3,negated_conjecture,(X1!=apply(combinator,X1)), file('<stdin>', prove_fixed_point)).
+# Initializing proof state
+# Scanning for AC axioms
+cnf(c_0_4,plain,(apply(apply(apply(l,l),X1),X2)=apply(apply(X1,X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_2,c_0_2,theory(equality)])).
+cnf(c_0_5,plain,(apply(X1,apply(apply(l,apply(X2,X2)),X2))=apply(apply(l,X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_2,c_0_2,theory(equality)])).
+cnf(c_0_6,plain,(apply(X1,apply(apply(apply(s,X2),X2),X3))=apply(apply(l,X1),apply(X2,X3))),inference(pm,[status(thm)],[c_0_2,c_0_1,theory(equality)])).
+cnf(c_0_7,plain,(apply(apply(apply(apply(s,X1),X4),X2),apply(X3,apply(X4,X2)))=apply(apply(apply(s,apply(X1,X2)),X3),apply(X4,X2))),inference(pm,[status(thm)],[c_0_1,c_0_1,theory(equality)])).
+cnf(c_0_8,plain,(apply(apply(X1,apply(X4,X3)),apply(apply(apply(s,X2),X4),X3))=apply(apply(apply(s,X1),apply(X2,X3)),apply(X4,X3))),inference(pm,[status(thm)],[c_0_1,c_0_1,theory(equality)])).
+cnf(c_0_9,plain,(apply(apply(apply(s,X1),X2),X2)=apply(apply(l,apply(X1,X2)),X2)),inference(pm,[status(thm)],[c_0_2,c_0_1,theory(equality)])).
+cnf(c_0_10,plain,(apply(apply(apply(apply(s,s),X2),X1),X3)=apply(apply(X1,X3),apply(apply(X2,X1),X3))),inference(pm,[status(thm)],[c_0_1,c_0_1,theory(equality)])).
+cnf(c_0_11,plain,(apply(apply(apply(X1,X4),apply(X2,X4)),apply(X3,X4))=apply(apply(apply(s,apply(apply(s,X1),X2)),X3),X4)),inference(pm,[status(thm)],[c_0_1,c_0_1,theory(equality)])).
+cnf(c_0_12,plain,(apply(apply(X1,X4),apply(apply(X2,X4),apply(X3,X4)))=apply(apply(apply(s,X1),apply(apply(s,X2),X3)),X4)),inference(pm,[status(thm)],[c_0_1,c_0_1,theory(equality)])).
+cnf(c_0_13,plain,(apply(apply(X1,X3),apply(X2,apply(X3,X3)))=apply(apply(apply(s,X1),apply(l,X2)),X3)),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_14,plain,(apply(apply(X1,apply(X3,X3)),apply(apply(l,X2),X3))=apply(apply(apply(s,X1),X2),apply(X3,X3))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_15,plain,(apply(apply(X1,apply(X3,X3)),apply(X2,X3))=apply(apply(apply(s,apply(l,X1)),X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_16,plain,(apply(apply(apply(l,X1),X3),apply(X2,apply(X3,X3)))=apply(apply(apply(s,X1),X2),apply(X3,X3))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_17,plain,(apply(apply(apply(apply(l,s),X1),X2),X3)=apply(apply(apply(X1,X1),X3),apply(X2,X3))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_18,plain,(apply(apply(apply(l,apply(s,X1)),X2),X3)=apply(apply(X1,X3),apply(apply(X2,X2),X3))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_19,plain,(apply(apply(l,apply(X1,apply(X2,X2))),apply(X2,X2))=apply(apply(l,apply(apply(s,X1),apply(X2,X2))),X2)),inference(pm,[status(thm)],[c_0_2,c_0_9,theory(equality)])).
+cnf(c_0_20,plain,(apply(apply(apply(l,apply(X1,X2)),X2),apply(X3,X2))=apply(apply(apply(s,apply(apply(s,X1),X2)),X3),X2)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_21,plain,(apply(apply(X1,X3),apply(apply(l,apply(X2,X3)),X3))=apply(apply(apply(s,X1),apply(apply(s,X2),X3)),X3)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_22,plain,(apply(apply(l,apply(X1,X2)),X2)=apply(apply(X1,X2),apply(X2,X2))),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_23,plain,(apply(apply(apply(apply(l,s),X1),X2),X2)=apply(apply(l,apply(apply(X1,X1),X2)),X2)),inference(pm,[status(thm)],[c_0_9,c_0_2,theory(equality)])).
+cnf(c_0_24,plain,(apply(apply(apply(l,apply(s,X1)),X2),apply(X2,X2))=apply(apply(l,apply(X1,apply(X2,X2))),apply(X2,X2))),inference(pm,[status(thm)],[c_0_9,c_0_2,theory(equality)])).
+cnf(c_0_25,plain,(apply(apply(apply(apply(s,s),X2),X1),apply(X2,X1))=apply(apply(l,apply(X1,apply(X2,X1))),apply(X2,X1))),inference(pm,[status(thm)],[c_0_9,c_0_1,theory(equality)])).
+cnf(c_0_26,negated_conjecture,(apply(apply(l,combinator),X1)!=apply(X1,X1)),inference(pm,[status(thm)],[c_0_3,c_0_2,theory(equality)])).
+cnf(c_0_27,negated_conjecture,(apply(apply(l,combinator),apply(X1,X1))!=apply(apply(l,apply(X1,X1)),X1)),inference(pm,[status(thm)],[c_0_3,c_0_5,theory(equality)])).
+cnf(c_0_28,plain,(apply(apply(apply(l,l),apply(X1,X1)),X2)=apply(apply(apply(l,apply(X1,X1)),X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_2,c_0_5,theory(equality)])).
+cnf(c_0_29,plain,(apply(X1,apply(apply(l,apply(l,apply(apply(apply(l,apply(X2,X2)),X2),apply(apply(l,apply(X2,X2)),X2)))),apply(X2,X2)))=apply(apply(l,X1),apply(apply(apply(l,apply(X2,X2)),X2),apply(apply(l,apply(X2,X2)),X2)))),inference(pm,[status(thm)],[c_0_5,c_0_5,theory(equality)])).
+cnf(c_0_30,plain,(apply(apply(l,apply(apply(s,X1),apply(apply(l,apply(X2,X2)),X2))),apply(X2,X2))=apply(apply(l,apply(X1,apply(apply(l,apply(X2,X2)),X2))),apply(apply(l,apply(X2,X2)),X2))),inference(pm,[status(thm)],[c_0_9,c_0_5,theory(equality)])).
+cnf(c_0_31,plain,(apply(apply(apply(l,apply(s,X1)),apply(X2,X2)),X3)=apply(apply(X1,X3),apply(apply(apply(l,apply(X2,X2)),X2),X3))),inference(pm,[status(thm)],[c_0_1,c_0_5,theory(equality)])).
+cnf(c_0_32,plain,(apply(apply(apply(l,apply(s,X1)),apply(X2,X2)),apply(apply(l,apply(X2,X2)),X2))=apply(apply(l,apply(X1,apply(apply(l,apply(X2,X2)),X2))),apply(apply(l,apply(X2,X2)),X2))),inference(pm,[status(thm)],[c_0_9,c_0_5,theory(equality)])).
+cnf(c_0_33,plain,(apply(apply(l,apply(X1,X2)),apply(X2,X2))=apply(apply(apply(s,X1),apply(l,apply(X2,X2))),X2)),inference(pm,[status(thm)],[c_0_1,c_0_5,theory(equality)])).
+cnf(c_0_34,plain,(apply(apply(apply(apply(l,s),apply(X1,X1)),X2),X3)=apply(apply(apply(apply(l,apply(X1,X1)),X1),X3),apply(X2,X3))),inference(pm,[status(thm)],[c_0_1,c_0_5,theory(equality)])).
+cnf(c_0_35,plain,(apply(apply(apply(apply(l,s),apply(X1,X1)),X2),X2)=apply(apply(l,apply(apply(apply(l,apply(X1,X1)),X1),X2)),X2)),inference(pm,[status(thm)],[c_0_9,c_0_5,theory(equality)])).
+cnf(c_0_36,plain,(apply(X1,apply(apply(l,apply(apply(l,apply(X2,X2)),X2)),apply(X2,X2)))=apply(apply(l,X1),apply(apply(l,apply(X2,X2)),X2))),inference(pm,[status(thm)],[c_0_2,c_0_5,theory(equality)])).
+cnf(c_0_37,plain,(apply(X1,apply(apply(l,apply(apply(l,apply(apply(l,apply(X2,X2)),X2)),apply(X2,X2))),apply(apply(l,apply(X2,X2)),X2)))=apply(apply(l,X1),apply(apply(apply(l,apply(X2,X2)),X2),apply(apply(l,apply(X2,X2)),X2)))),inference(pm,[status(thm)],[c_0_5,c_0_5,theory(equality)])).
+cnf(c_0_38,plain,(apply(apply(apply(l,X1),apply(X3,X3)),apply(X2,apply(apply(l,apply(X3,X3)),X3)))=apply(apply(apply(s,X1),X2),apply(apply(l,apply(X3,X3)),X3))),inference(pm,[status(thm)],[c_0_1,c_0_5,theory(equality)])).
+cnf(c_0_39,plain,(apply(apply(X1,apply(apply(l,apply(X3,X3)),X3)),apply(apply(l,X2),apply(X3,X3)))=apply(apply(apply(s,X1),X2),apply(apply(l,apply(X3,X3)),X3))),inference(pm,[status(thm)],[c_0_1,c_0_5,theory(equality)])).
+cnf(c_0_40,plain,(apply(X1,apply(apply(l,apply(apply(apply(s,X2),X2),X3)),apply(X2,X3)))=apply(apply(l,X1),apply(apply(X2,X3),apply(X2,X3)))),inference(pm,[status(thm)],[c_0_5,c_0_1,theory(equality)])).
+cnf(c_0_41,plain,(apply(X1,apply(apply(l,apply(apply(l,apply(X2,X2)),X2)),apply(X2,X2)))=apply(apply(l,X1),apply(apply(X2,X2),apply(X2,X2)))),inference(pm,[status(thm)],[c_0_5,c_0_2,theory(equality)])).
+cnf(c_0_42,plain,(apply(X1,apply(apply(apply(l,l),X2),X2))=apply(apply(l,X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_5,c_0_2,theory(equality)])).
+cnf(c_0_43,plain,(apply(X1,apply(apply(l,apply(l,apply(apply(X2,X2),apply(X2,X2)))),X2))=apply(apply(l,X1),apply(apply(X2,X2),apply(X2,X2)))),inference(pm,[status(thm)],[c_0_5,c_0_2,theory(equality)])).
+cnf(c_0_44,plain,(apply(X1,apply(apply(X2,X2),apply(X2,X2)))=apply(apply(l,X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_5,c_0_2,theory(equality)])).
+cnf(c_0_45,negated_conjecture,(apply(apply(l,combinator),apply(X1,X2))!=apply(apply(apply(s,X1),X1),X2)),inference(pm,[status(thm)],[c_0_3,c_0_6,theory(equality)])).
+cnf(c_0_46,plain,(apply(apply(apply(l,l),apply(X1,X2)),X3)=apply(apply(apply(apply(s,X1),X1),X2),apply(X3,X3))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_47,plain,(apply(X1,apply(apply(apply(l,l),apply(X2,apply(apply(s,X2),X2))),apply(apply(s,X2),X2)))=apply(apply(l,X1),apply(apply(apply(s,X2),X2),apply(apply(s,X2),X2)))),inference(pm,[status(thm)],[c_0_5,c_0_6,theory(equality)])).
+cnf(c_0_48,plain,(apply(X1,apply(apply(l,apply(l,apply(apply(apply(apply(s,X2),X2),X3),apply(apply(apply(s,X2),X2),X3)))),apply(X2,X3)))=apply(apply(l,X1),apply(apply(apply(apply(s,X2),X2),X3),apply(apply(apply(s,X2),X2),X3)))),inference(pm,[status(thm)],[c_0_5,c_0_6,theory(equality)])).
+cnf(c_0_49,plain,(apply(X1,apply(apply(l,apply(apply(s,X2),X2)),apply(X3,X4)))=apply(apply(l,X1),apply(X2,apply(apply(apply(s,X3),X3),X4)))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_50,plain,(apply(apply(l,apply(apply(s,X1),apply(apply(apply(s,X2),X2),X3))),apply(X2,X3))=apply(apply(l,apply(X1,apply(apply(apply(s,X2),X2),X3))),apply(apply(apply(s,X2),X2),X3))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_51,plain,(apply(apply(apply(l,apply(s,X1)),apply(X2,X3)),X4)=apply(apply(X1,X4),apply(apply(apply(apply(s,X2),X2),X3),X4))),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_52,plain,(apply(apply(apply(l,apply(s,X1)),apply(X2,X3)),apply(apply(apply(s,X2),X2),X3))=apply(apply(l,apply(X1,apply(apply(apply(s,X2),X2),X3))),apply(apply(apply(s,X2),X2),X3))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_53,plain,(apply(X1,apply(apply(apply(l,apply(s,apply(apply(apply(s,X2),X2),X3))),apply(X2,X3)),X4))=apply(apply(l,X1),apply(apply(apply(apply(s,X2),X2),X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_54,plain,(apply(apply(l,apply(X1,X3)),apply(X2,X3))=apply(apply(apply(s,X1),apply(apply(s,X2),X2)),X3)),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_55,plain,(apply(apply(apply(apply(l,s),apply(X1,X2)),X3),X4)=apply(apply(apply(apply(apply(s,X1),X1),X2),X4),apply(X3,X4))),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_56,plain,(apply(apply(apply(apply(l,s),apply(X1,X2)),X3),X3)=apply(apply(l,apply(apply(apply(apply(s,X1),X1),X2),X3)),X3)),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_57,plain,(apply(X1,apply(apply(apply(apply(l,s),apply(X2,X3)),apply(apply(apply(s,X2),X2),X3)),X4))=apply(apply(l,X1),apply(apply(apply(apply(s,X2),X2),X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_58,plain,(apply(X1,apply(apply(l,apply(apply(apply(s,X2),X2),X3)),apply(X2,X3)))=apply(apply(l,X1),apply(apply(apply(s,X2),X2),X3))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_59,plain,(apply(X1,apply(apply(l,apply(apply(l,apply(apply(apply(s,X2),X2),X3)),apply(X2,X3))),apply(apply(apply(s,X2),X2),X3)))=apply(apply(l,X1),apply(apply(apply(apply(s,X2),X2),X3),apply(apply(apply(s,X2),X2),X3)))),inference(pm,[status(thm)],[c_0_5,c_0_6,theory(equality)])).
+cnf(c_0_60,plain,(apply(apply(apply(l,X1),apply(X3,X4)),apply(X2,apply(apply(apply(s,X3),X3),X4)))=apply(apply(apply(s,X1),X2),apply(apply(apply(s,X3),X3),X4))),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_61,plain,(apply(apply(X1,apply(apply(apply(s,X3),X3),X4)),apply(apply(l,X2),apply(X3,X4)))=apply(apply(apply(s,X1),X2),apply(apply(apply(s,X3),X3),X4))),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_62,plain,(apply(apply(l,X1),apply(X2,apply(apply(s,X2),X2)))=apply(apply(l,X1),apply(apply(s,X2),X2))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_63,plain,(apply(X1,apply(apply(apply(apply(l,s),apply(X2,X2)),apply(apply(l,apply(X2,X2)),X2)),X3))=apply(apply(l,X1),apply(apply(apply(l,apply(X2,X2)),X2),X3))),inference(pm,[status(thm)],[c_0_6,c_0_5,theory(equality)])).
+cnf(c_0_64,plain,(apply(X1,apply(apply(apply(apply(l,s),X2),apply(X2,X2)),X3))=apply(apply(l,X1),apply(apply(X2,X2),X3))),inference(pm,[status(thm)],[c_0_6,c_0_2,theory(equality)])).
+cnf(c_0_65,plain,(apply(X1,apply(apply(apply(l,apply(s,apply(apply(l,apply(X2,X2)),X2))),apply(X2,X2)),X3))=apply(apply(l,X1),apply(apply(apply(l,apply(X2,X2)),X2),X3))),inference(pm,[status(thm)],[c_0_6,c_0_5,theory(equality)])).
+cnf(c_0_66,plain,(apply(X1,apply(apply(apply(l,apply(s,apply(X2,X2))),X2),X3))=apply(apply(l,X1),apply(apply(X2,X2),X3))),inference(pm,[status(thm)],[c_0_6,c_0_2,theory(equality)])).
+cnf(c_0_67,plain,(apply(X1,apply(apply(l,apply(apply(s,X2),X2)),apply(X3,X3)))=apply(apply(l,X1),apply(X2,apply(apply(l,apply(X3,X3)),X3)))),inference(pm,[status(thm)],[c_0_6,c_0_5,theory(equality)])).
+cnf(c_0_68,plain,(apply(X1,apply(apply(l,apply(apply(s,X2),X2)),X3))=apply(apply(l,X1),apply(X2,apply(X3,X3)))),inference(pm,[status(thm)],[c_0_6,c_0_2,theory(equality)])).
+cnf(c_0_69,plain,(apply(X1,apply(apply(apply(s,apply(s,X2)),X3),X2))=apply(apply(l,X1),apply(X2,apply(X3,X2)))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_70,plain,(apply(X1,apply(apply(X2,X3),apply(X2,X3)))=apply(apply(l,X1),apply(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_71,plain,(apply(X1,apply(apply(l,apply(X2,X2)),X2))=apply(apply(l,X1),apply(X2,X2))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_72,negated_conjecture,($false),inference(er,[status(thm)],[c_0_26,theory(equality)])).
+cnf(c_0_73,negated_conjecture,(apply(apply(apply(s,X1),X1),X2)!=apply(apply(l,combinator),apply(X1,X2))),inference(pm,[status(thm)],[c_0_26,c_0_1,theory(equality)])).
+cnf(c_0_74,negated_conjecture,(apply(apply(l,apply(apply(l,apply(X1,X1)),X1)),apply(X1,X1))!=apply(apply(l,combinator),apply(apply(l,apply(X1,X1)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_5,theory(equality)])).
+cnf(c_0_75,negated_conjecture,(apply(apply(l,apply(apply(apply(s,X1),X1),X2)),apply(X1,X2))!=apply(apply(l,combinator),apply(apply(apply(s,X1),X1),X2))),inference(pm,[status(thm)],[c_0_26,c_0_6,theory(equality)])).
+cnf(c_0_76,negated_conjecture,(apply(apply(l,apply(X1,X1)),X1)!=apply(apply(l,combinator),apply(X1,X1))),inference(pm,[status(thm)],[c_0_26,c_0_2,theory(equality)])).
+cnf(c_0_77,negated_conjecture,(apply(apply(l,apply(l,combinator)),X1)!=apply(apply(X1,X1),apply(X1,X1))),inference(pm,[status(thm)],[c_0_26,c_0_2,theory(equality)])).
+cnf(c_0_78,negated_conjecture,(apply(combinator,apply(X1,X1))!=apply(X1,X1)),inference(pm,[status(thm)],[c_0_26,c_0_2,theory(equality)])).
+cnf(c_0_79,negated_conjecture,($false), c_0_72,['proof']).
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,negated_conjecture,(X1!=apply(combinator,X1)), file('<stdin>', prove_fixed_point)).
+cnf(c_0_1,axiom,(apply(apply(l,X1),X2)=apply(X1,apply(X2,X2))), file('<stdin>', l_definition)).
+cnf(c_0_2,negated_conjecture,(apply(combinator,X1)!=X1), c_0_0).
+cnf(c_0_3,axiom,(apply(apply(l,X1),X2)=apply(X1,apply(X2,X2))), c_0_1).
+cnf(c_0_4,negated_conjecture,(apply(combinator,X1)!=X1), c_0_2).
+cnf(c_0_5,plain,(apply(apply(l,X1),X2)=apply(X1,apply(X2,X2))), c_0_3).
+cnf(c_0_6,negated_conjecture,(apply(apply(l,combinator),X1)!=apply(X1,X1)), inference(pm,[status(thm)],[c_0_4, c_0_5, theory(equality)])).
+cnf(c_0_7,negated_conjecture,($false), inference(er,[status(thm)],[c_0_6, theory(equality)]), ['proof']).
+# SZS output end CNFRefutation.
+# Parsed axioms                        : 3
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 3
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 3
+# Processed clauses                    : 8
+# ...of these trivial                  : 0
+# ...subsumed                          : 1
+# ...remaining for further processing  : 7
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 0
+# Generated clauses                    : 75
+# ...of the previous two non-trivial   : 65
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 74
+# Factorizations                       : 0
+# Equation resolutions                 : 1
+# Current number of processed clauses  : 7
+#    Positive orientable unit clauses  : 3
+#    Positive unorientable unit clauses: 2
+#    Negative unit clauses             : 2
+#    Non-unit-clauses                  : 0
+# Current number of unprocessed clauses: 60
+# ...number of literals in the above   : 60
+# Clause-clause subsumption calls (NU) : 0
+# Rec. Clause-clause subsumption calls : 0
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 0
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 2
+# BW rewrite match successes           : 0
+# Condensation attempts                : 0
+# Condensation successes               : 0

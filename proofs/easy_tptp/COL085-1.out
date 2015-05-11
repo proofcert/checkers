@@ -1,0 +1,54 @@
+cnf(c_0_1,hypothesis,(response(a,b)=b), file('<stdin>', fond_bird_exists)).
+cnf(c_0_2,negated_conjecture,(response(a,X1)!=X2), file('<stdin>', prove_happiness_1)).
+# Initializing proof state
+# Scanning for AC axioms
+cnf(c_0_3,negated_conjecture,($false),inference(er,[status(thm)],[c_0_2,theory(equality)])).
+cnf(c_0_4,hypothesis,($false),inference(sr,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_5,hypothesis,($false), c_0_4,['proof']).
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,hypothesis,(response(a,b)=b), file('<stdin>', fond_bird_exists)).
+cnf(c_0_1,negated_conjecture,(response(a,X1)!=X2), file('<stdin>', prove_happiness_1)).
+cnf(c_0_2,hypothesis,(response(a,b)=b), c_0_0).
+cnf(c_0_3,negated_conjecture,(response(a,X1)!=X2), c_0_1).
+cnf(c_0_4,hypothesis,(response(a,b)=b), c_0_2).
+cnf(c_0_5,negated_conjecture,(response(a,X1)!=X2), c_0_3).
+cnf(c_0_6,hypothesis,($false), inference(sr,[status(thm)],[c_0_4, c_0_5, theory(equality)]), ['proof']).
+# SZS output end CNFRefutation.
+# Parsed axioms                        : 2
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 2
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 2
+# Processed clauses                    : 2
+# ...of these trivial                  : 0
+# ...subsumed                          : 0
+# ...remaining for further processing  : 2
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 0
+# Generated clauses                    : 2
+# ...of the previous two non-trivial   : 0
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 0
+# Factorizations                       : 0
+# Equation resolutions                 : 1
+# Current number of processed clauses  : 1
+#    Positive orientable unit clauses  : 0
+#    Positive unorientable unit clauses: 0
+#    Negative unit clauses             : 1
+#    Non-unit-clauses                  : 0
+# Current number of unprocessed clauses: 0
+# ...number of literals in the above   : 0
+# Clause-clause subsumption calls (NU) : 0
+# Rec. Clause-clause subsumption calls : 0
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 0
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 0
+# BW rewrite match successes           : 0
+# Condensation attempts                : 0
+# Condensation successes               : 0
