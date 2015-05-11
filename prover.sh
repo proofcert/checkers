@@ -30,5 +30,5 @@ if [ $ELEMENTS = 0 ]
   echo $(cat $RUNNER_SIG_BASE) >> $RUNNER_SIG_TARGET
   echo $(cat $RUNNER_MOD_BASE) >> $RUNNER_MOD_TARGET
 
-  cd $SRCDIR && make>/dev/null && $CMD  && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
+  cd $SRCDIR && make clean && make>/dev/null && $CMD && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
 fi

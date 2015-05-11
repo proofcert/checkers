@@ -26,7 +26,9 @@ cp_kernel_release:
 cp_kernel_debug:
 	cp TOOLS/kernel_debug/lkf-kernel.mod.debug kernel/lkf/lkf-kernel.mod
 
-compile: $(OBJS)
+compile: compile_inner $(OBJS)
+
+compile_inner:
 	cd utils && $(MAKE)
 	cd kernel && $(MAKE)
 	cd fpc && $(MAKE)
@@ -47,7 +49,6 @@ depend: *.mod *.sig
 
 .PHONY: clean
 clean:
-	rm -f runner.*
 	rm -f kernel/lkf/lkf-kernel.mod
 	rm -rf _debug
 	rm -f *.lpo *.lp depend

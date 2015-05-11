@@ -7,7 +7,7 @@ ep_name="eproblem"
 tptp_parser=$cur/proofs/tstpparser/tstpparser
 prover=$cur/prover.sh
 prob_dir="$tptp_dir/Problems"
-opts="--tstp-format --proof-object --output-level=2 --cpu-limit"
+opts="--tstp-format --proof-object --output-level=2"
 eprover_to=$2
 
 ecode1=/tmp/ecode1.$$.log
