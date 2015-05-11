@@ -1,0 +1,127 @@
+cnf(c_0_1,axiom,(join(X1,meet(X2,meet(X1,X3)))=X1), file('<stdin>', mckenzie1)).
+cnf(c_0_2,axiom,(meet(X1,join(X2,join(X1,X3)))=X1), file('<stdin>', mckenzie2)).
+cnf(c_0_3,axiom,(join(join(meet(X1,X2),meet(X2,X3)),X2)=X2), file('<stdin>', mckenzie3)).
+cnf(c_0_4,axiom,(meet(meet(join(X1,X2),join(X2,X3)),X2)=X2), file('<stdin>', mckenzie4)).
+cnf(c_0_5,negated_conjecture,(meet(a,join(a,b))!=a), file('<stdin>', prove_absorbtion)).
+# Initializing proof state
+# Scanning for AC axioms
+cnf(c_0_6,plain,(meet(X1,join(X2,X1))=X1),inference(pm,[status(thm)],[c_0_2,c_0_1,theory(equality)])).
+cnf(c_0_7,plain,(join(X1,meet(X2,X1))=X1),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_8,plain,(join(X1,meet(X2,X1))=X1),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_9,plain,(meet(meet(X1,meet(X2,X3)),X2)=meet(X1,meet(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_10,plain,(meet(X1,join(X2,X1))=X1),inference(pm,[status(thm)],[c_0_2,c_0_7,theory(equality)])).
+cnf(c_0_11,plain,(meet(meet(X1,X2),X2)=meet(X1,X2)),inference(pm,[status(thm)],[c_0_6,c_0_7,theory(equality)])).
+cnf(c_0_12,plain,(join(join(X1,join(X2,X3)),X2)=join(X1,join(X2,X3))),inference(pm,[status(thm)],[c_0_7,c_0_2,theory(equality)])).
+cnf(c_0_13,plain,(join(join(X1,X2),X2)=join(X1,X2)),inference(pm,[status(thm)],[c_0_7,c_0_6,theory(equality)])).
+cnf(c_0_14,plain,(join(X1,meet(X2,meet(X1,X3)))=X1),inference(pm,[status(thm)],[c_0_1,c_0_11,theory(equality)])).
+cnf(c_0_15,plain,(join(meet(X1,X2),meet(X3,meet(X1,X2)))=meet(X1,X2)),inference(pm,[status(thm)],[c_0_1,c_0_11,theory(equality)])).
+cnf(c_0_16,plain,(join(X1,meet(X2,X1))=X1),inference(pm,[status(thm)],[c_0_7,c_0_11,theory(equality)])).
+cnf(c_0_17,plain,(meet(X1,join(X2,join(X1,X3)))=X1),inference(pm,[status(thm)],[c_0_2,c_0_13,theory(equality)])).
+cnf(c_0_18,plain,(meet(join(X1,X2),join(X3,join(X1,X2)))=join(X1,X2)),inference(pm,[status(thm)],[c_0_2,c_0_13,theory(equality)])).
+cnf(c_0_19,plain,(meet(X1,join(X2,X1))=X1),inference(pm,[status(thm)],[c_0_6,c_0_13,theory(equality)])).
+cnf(c_0_20,plain,(join(X1,meet(X1,X3))=X1),inference(pm,[status(thm)],[c_0_1,c_0_4,theory(equality)])).
+cnf(c_0_21,plain,(join(meet(join(X1,X2),join(X2,X3)),meet(X4,X2))=meet(join(X1,X2),join(X2,X3))),inference(pm,[status(thm)],[c_0_1,c_0_4,theory(equality)])).
+cnf(c_0_22,plain,(meet(X2,X2)=meet(meet(join(X1,X2),join(X2,X3)),X2)),inference(pm,[status(thm)],[c_0_11,c_0_4,theory(equality)])).
+cnf(c_0_23,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_7,c_0_4,theory(equality)])).
+cnf(c_0_24,plain,(meet(meet(join(X1,join(X2,X3)),join(X2,X3)),join(X2,X3))=join(X2,X3)),inference(pm,[status(thm)],[c_0_4,c_0_13,theory(equality)])).
+cnf(c_0_25,plain,(meet(meet(join(X1,X2),X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_1,theory(equality)])).
+cnf(c_0_26,plain,(meet(meet(join(X1,X2),X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_7,theory(equality)])).
+cnf(c_0_27,plain,(meet(meet(join(X1,X2),join(X2,X3)),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_13,theory(equality)])).
+cnf(c_0_28,plain,(meet(meet(X1,join(meet(X2,meet(X1,X3)),X4)),meet(X2,meet(X1,X3)))=meet(X2,meet(X1,X3))),inference(pm,[status(thm)],[c_0_4,c_0_1,theory(equality)])).
+cnf(c_0_29,plain,(meet(meet(X1,join(meet(X2,X1),X3)),meet(X2,X1))=meet(X2,X1)),inference(pm,[status(thm)],[c_0_4,c_0_7,theory(equality)])).
+cnf(c_0_30,plain,(meet(join(X1,X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_2,theory(equality)])).
+cnf(c_0_31,plain,(meet(join(X1,X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_6,theory(equality)])).
+cnf(c_0_32,plain,(meet(join(X1,X1),X1)=X1),inference(pm,[status(thm)],[c_0_4,c_0_22,theory(equality)])).
+cnf(c_0_33,plain,(join(X1,meet(X1,X2))=X1),inference(pm,[status(thm)],[c_0_1,c_0_22,theory(equality)])).
+cnf(c_0_34,plain,(join(X1,meet(X2,X1))=X1),inference(pm,[status(thm)],[c_0_1,c_0_22,theory(equality)])).
+cnf(c_0_35,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_7,c_0_22,theory(equality)])).
+cnf(c_0_36,plain,(meet(X1,join(X1,X2))=X1),inference(pm,[status(thm)],[c_0_2,c_0_23,theory(equality)])).
+cnf(c_0_37,plain,(meet(X1,join(X2,X1))=X1),inference(pm,[status(thm)],[c_0_2,c_0_23,theory(equality)])).
+cnf(c_0_38,plain,(meet(meet(X1,join(X1,X2)),X1)=X1),inference(pm,[status(thm)],[c_0_4,c_0_23,theory(equality)])).
+cnf(c_0_39,plain,(meet(meet(join(X1,X2),X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_23,theory(equality)])).
+cnf(c_0_40,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_6,c_0_23,theory(equality)])).
+cnf(c_0_41,plain,(meet(X1,join(X2,X1))=X1),inference(pm,[status(thm)],[c_0_2,c_0_20,theory(equality)])).
+cnf(c_0_42,plain,(meet(meet(X1,join(meet(X1,X2),X3)),meet(X1,X2))=meet(X1,X2)),inference(pm,[status(thm)],[c_0_4,c_0_20,theory(equality)])).
+cnf(c_0_43,plain,(meet(meet(join(X1,X2),X2),X2)=X2),inference(pm,[status(thm)],[c_0_4,c_0_20,theory(equality)])).
+cnf(c_0_44,plain,(meet(meet(X1,X2),X1)=meet(X1,X2)),inference(pm,[status(thm)],[c_0_6,c_0_20,theory(equality)])).
+cnf(c_0_45,plain,(join(meet(join(X1,X2),join(X2,X3)),X2)=meet(join(X1,X2),join(X2,X3))),inference(pm,[status(thm)],[c_0_20,c_0_4,theory(equality)])).
+cnf(c_0_46,plain,(join(meet(X1,X2),meet(X1,X2))=meet(X1,X2)),inference(pm,[status(thm)],[c_0_20,c_0_11,theory(equality)])).
+cnf(c_0_47,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_20,c_0_2,theory(equality)])).
+cnf(c_0_48,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_20,c_0_6,theory(equality)])).
+cnf(c_0_49,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_20,c_0_22,theory(equality)])).
+cnf(c_0_50,plain,(join(X1,meet(X1,X3))=X1),inference(pm,[status(thm)],[c_0_1,c_0_25,theory(equality)])).
+cnf(c_0_51,plain,(join(join(X1,X2),meet(X3,X2))=join(X1,X2)),inference(pm,[status(thm)],[c_0_1,c_0_25,theory(equality)])).
+cnf(c_0_52,plain,(join(join(X1,X2),X2)=join(X1,X2)),inference(pm,[status(thm)],[c_0_20,c_0_25,theory(equality)])).
+cnf(c_0_53,plain,(meet(X2,X2)=meet(join(X1,X2),X2)),inference(pm,[status(thm)],[c_0_11,c_0_25,theory(equality)])).
+cnf(c_0_54,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_7,c_0_25,theory(equality)])).
+cnf(c_0_55,plain,(meet(join(X1,X2),X2)=X2),inference(pm,[status(thm)],[c_0_25,c_0_13,theory(equality)])).
+cnf(c_0_56,plain,(meet(X1,meet(X2,meet(X1,X3)))=meet(X2,meet(X1,X3))),inference(pm,[status(thm)],[c_0_25,c_0_1,theory(equality)])).
+cnf(c_0_57,plain,(meet(X1,meet(X2,X1))=meet(X2,X1)),inference(pm,[status(thm)],[c_0_25,c_0_7,theory(equality)])).
+cnf(c_0_58,plain,(meet(X1,meet(X1,X2))=meet(X1,X2)),inference(pm,[status(thm)],[c_0_25,c_0_20,theory(equality)])).
+cnf(c_0_59,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_25,c_0_23,theory(equality)])).
+cnf(c_0_60,plain,(join(X1,meet(X2,X1))=X1),inference(pm,[status(thm)],[c_0_1,c_0_36,theory(equality)])).
+cnf(c_0_61,plain,(join(X1,X1)=X1),inference(pm,[status(thm)],[c_0_20,c_0_36,theory(equality)])).
+cnf(c_0_62,plain,(join(join(X1,X2),X1)=join(X1,X2)),inference(pm,[status(thm)],[c_0_7,c_0_36,theory(equality)])).
+cnf(c_0_63,plain,(meet(join(X1,X2),join(X1,X2))=join(X1,X2)),inference(pm,[status(thm)],[c_0_36,c_0_13,theory(equality)])).
+cnf(c_0_64,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_36,c_0_1,theory(equality)])).
+cnf(c_0_65,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_36,c_0_7,theory(equality)])).
+cnf(c_0_66,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_36,c_0_20,theory(equality)])).
+cnf(c_0_67,plain,(meet(X1,X1)=X1),inference(pm,[status(thm)],[c_0_36,c_0_23,theory(equality)])).
+cnf(c_0_68,negated_conjecture,($false),inference(cn,[status(thm)],[c_0_5, theory(equality,[symmetry])])).
+cnf(c_0_69,negated_conjecture,($false), c_0_68,['proof']).
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(join(X1,meet(X2,meet(X1,X3)))=X1), file('<stdin>', mckenzie1)).
+cnf(c_0_1,axiom,(meet(X1,join(X2,join(X1,X3)))=X1), file('<stdin>', mckenzie2)).
+cnf(c_0_2,axiom,(meet(meet(join(X1,X2),join(X2,X3)),X2)=X2), file('<stdin>', mckenzie4)).
+cnf(c_0_3,negated_conjecture,(meet(a,join(a,b))!=a), file('<stdin>', prove_absorbtion)).
+cnf(c_0_4,axiom,(join(X1,meet(X2,meet(X1,X3)))=X1), c_0_0).
+cnf(c_0_5,axiom,(meet(X1,join(X2,join(X1,X3)))=X1), c_0_1).
+cnf(c_0_6,plain,(join(X1,meet(X2,meet(X1,X3)))=X1), c_0_4).
+cnf(c_0_7,plain,(meet(X1,join(X2,join(X1,X3)))=X1), c_0_5).
+cnf(c_0_8,axiom,(meet(meet(join(X1,X2),join(X2,X3)),X2)=X2), c_0_2).
+cnf(c_0_9,plain,(join(X1,meet(X2,X1))=X1), inference(pm,[status(thm)],[c_0_6, c_0_7, theory(equality)])).
+cnf(c_0_10,plain,(meet(meet(join(X1,X2),join(X2,X3)),X2)=X2), c_0_8).
+cnf(c_0_11,negated_conjecture,(meet(a,join(a,b))!=a), c_0_3).
+cnf(c_0_12,plain,(join(X1,X1)=X1), inference(pm,[status(thm)],[c_0_9, c_0_10, theory(equality)])).
+cnf(c_0_13,negated_conjecture,(meet(a,join(a,b))!=a), c_0_11).
+cnf(c_0_14,plain,(meet(X1,join(X1,X2))=X1), inference(pm,[status(thm)],[c_0_7, c_0_12, theory(equality)])).
+cnf(c_0_15,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_13, c_0_14, theory(equality)]), theory(equality,[symmetry])]), ['proof']).
+# SZS output end CNFRefutation.
+# Parsed axioms                        : 5
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 5
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 5
+# Processed clauses                    : 20
+# ...of these trivial                  : 7
+# ...subsumed                          : 0
+# ...remaining for further processing  : 13
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 1
+# Generated clauses                    : 62
+# ...of the previous two non-trivial   : 32
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 62
+# Factorizations                       : 0
+# Equation resolutions                 : 0
+# Current number of processed clauses  : 12
+#    Positive orientable unit clauses  : 12
+#    Positive unorientable unit clauses: 0
+#    Negative unit clauses             : 0
+#    Non-unit-clauses                  : 0
+# Current number of unprocessed clauses: 17
+# ...number of literals in the above   : 17
+# Clause-clause subsumption calls (NU) : 0
+# Rec. Clause-clause subsumption calls : 0
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 0
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 28
+# BW rewrite match successes           : 1
+# Condensation attempts                : 0
+# Condensation successes               : 0

@@ -1,0 +1,396 @@
+cnf(c_0_1,axiom,(add(X1,X2)=add(X2,X1)), file('Axioms/ROB001-0.ax', commutativity_of_add)).
+cnf(c_0_2,axiom,(add(add(X1,X2),X3)=add(X1,add(X2,X3))), file('Axioms/ROB001-0.ax', associativity_of_add)).
+cnf(c_0_3,axiom,(negate(add(negate(add(X1,X2)),negate(add(X1,negate(X2)))))=X1), file('Axioms/ROB001-0.ax', robbins_axiom)).
+cnf(c_0_4,hypothesis,(negate(negate(X1))=X1), file('<stdin>', double_negation)).
+cnf(c_0_5,negated_conjecture,(add(negate(add(a,negate(b))),negate(add(negate(a),negate(b))))!=b), file('<stdin>', prove_huntingtons_axiom)).
+# Initializing proof state
+# Scanning for AC axioms
+# add is AC
+# AC handling enabled
+cnf(c_0_6,plain,(add(X1,add(X2,X3))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_7,plain,(add(add(X1,add(X2,X3)),X4)=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_2,c_0_2,theory(equality)])).
+cnf(c_0_8,plain,(add(X2,add(X3,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_9,plain,(add(add(X2,X1),X3)=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_2,c_0_1,theory(equality)])).
+cnf(c_0_10,plain,(add(add(X2,X1),X3)=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_2,c_0_1,theory(equality)])).
+cnf(c_0_11,plain,(add(X3,add(X4,add(X1,X2)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_12,plain,(add(X2,add(X3,X1))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_13,plain,(add(add(X2,add(X3,X1)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_14,plain,(add(X4,add(X2,add(X3,X1)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_15,plain,(add(X1,add(X2,X3))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_16,plain,(add(X1,add(X3,add(X4,X2)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_17,plain,(add(X2,add(X3,X1))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_18,plain,(add(X4,add(add(X1,X2),X3))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_19,plain,(add(X3,add(X1,X2))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_20,plain,(add(add(X3,add(X1,X2)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_6,theory(equality)])).
+cnf(c_0_21,plain,(add(X4,add(X3,add(X1,X2)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_22,plain,(add(X2,add(X3,X1))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_6,theory(equality)])).
+cnf(c_0_23,plain,(add(X1,add(X4,add(X2,X3)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_24,plain,(add(X2,add(X3,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_6,theory(equality)])).
+cnf(c_0_25,plain,(add(X4,add(X1,add(X2,X3)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_6,c_0_2,theory(equality)])).
+cnf(c_0_26,plain,(add(X3,add(X2,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_27,plain,(add(X3,add(X2,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_28,plain,(add(X1,add(X2,add(X3,X4)))=add(X4,add(X1,add(X2,X3)))),inference(pm,[status(thm)],[c_0_6,c_0_2,theory(equality)])).
+cnf(c_0_29,plain,(add(X1,add(X3,X2))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_30,plain,(add(X1,add(X3,X2))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_1,theory(equality)])).
+cnf(c_0_31,plain,(add(X3,add(add(X1,X2),X4))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_9,theory(equality)])).
+cnf(c_0_32,plain,(add(X2,add(X1,X3))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_33,plain,(add(add(X2,add(X1,X3)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_9,theory(equality)])).
+cnf(c_0_34,plain,(add(X4,add(X2,add(X1,X3)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_35,plain,(add(X1,add(X3,X2))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_36,plain,(add(X1,add(X3,add(X2,X4)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_37,plain,(add(X1,add(X3,add(X2,X4)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_9,theory(equality)])).
+cnf(c_0_38,plain,(add(X2,add(X3,add(X1,X4)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_9,theory(equality)])).
+cnf(c_0_39,plain,(add(X2,add(X1,X3))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_40,plain,(add(X1,add(X3,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_41,plain,(add(X3,add(add(X1,X2),X4))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_9,theory(equality)])).
+cnf(c_0_42,plain,(add(X2,add(X1,X3))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_43,plain,(add(add(X2,add(X1,X3)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_9,theory(equality)])).
+cnf(c_0_44,plain,(add(X4,add(X2,add(X1,X3)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_45,plain,(add(X1,add(X3,X2))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_9,theory(equality)])).
+cnf(c_0_46,plain,(add(X1,add(X3,add(X2,X4)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_47,plain,(add(X1,add(X3,add(X2,X4)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_9,theory(equality)])).
+cnf(c_0_48,plain,(add(X2,add(X3,add(X1,X4)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_9,theory(equality)])).
+cnf(c_0_49,plain,(add(X2,add(X1,X3))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_50,plain,(add(X1,add(X3,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_9,theory(equality)])).
+cnf(c_0_51,plain,(add(X3,add(X1,add(X2,X4)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_9,c_0_2,theory(equality)])).
+cnf(c_0_52,plain,(add(X2,add(X4,add(X1,X3)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_53,plain,(add(X2,add(X3,add(X4,X1)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_54,plain,(add(X2,add(X3,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_9,c_0_1,theory(equality)])).
+cnf(c_0_55,plain,(add(X2,add(X3,X1))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_9,c_0_1,theory(equality)])).
+cnf(c_0_56,plain,(add(X1,add(X2,add(X3,X4)))=add(add(X2,X3),add(X1,X4))),inference(pm,[status(thm)],[c_0_9,c_0_2,theory(equality)])).
+cnf(c_0_57,plain,(add(X1,add(X4,add(X2,X3)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_58,plain,(add(X1,add(X3,add(X4,X2)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_6,theory(equality)])).
+cnf(c_0_59,plain,(add(X1,add(X3,X2))=add(X2,add(X1,X3))),inference(pm,[status(thm)],[c_0_9,c_0_1,theory(equality)])).
+cnf(c_0_60,plain,(add(X1,add(X3,X2))=add(X2,add(X1,X3))),inference(pm,[status(thm)],[c_0_9,c_0_1,theory(equality)])).
+cnf(c_0_61,plain,(add(X4,add(X3,add(X1,X2)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_26,theory(equality)])).
+cnf(c_0_62,plain,(add(X3,add(X2,X1))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_26,theory(equality)])).
+cnf(c_0_63,plain,(add(add(X3,add(X2,X1)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_26,theory(equality)])).
+cnf(c_0_64,plain,(add(X4,add(X3,add(X2,X1)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_65,plain,(add(X2,add(X1,X3))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_26,theory(equality)])).
+cnf(c_0_66,plain,(add(X4,add(X2,add(X1,X3)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_26,theory(equality)])).
+cnf(c_0_67,plain,(add(X1,add(X4,add(X3,X2)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_68,plain,(add(X1,add(X4,add(X3,X2)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_69,plain,(add(X1,add(X4,add(X3,X2)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_26,theory(equality)])).
+cnf(c_0_70,plain,(add(X2,add(X4,add(X3,X1)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_71,plain,(add(X3,add(X2,X1))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_72,plain,(add(X3,add(X2,X1))=add(X2,add(X1,X3))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_73,plain,(add(X2,add(X1,X3))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_74,plain,(add(X3,add(X1,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_75,plain,(add(X4,add(X3,add(X1,X2)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_2,c_0_26,theory(equality)])).
+cnf(c_0_76,plain,(add(X3,add(X2,X1))=add(add(X2,X3),X1)),inference(pm,[status(thm)],[c_0_1,c_0_26,theory(equality)])).
+cnf(c_0_77,plain,(add(add(X3,add(X2,X1)),X4)=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_2,c_0_26,theory(equality)])).
+cnf(c_0_78,plain,(add(X4,add(X3,add(X2,X1)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_79,plain,(add(X2,add(X1,X3))=add(add(X1,X2),X3)),inference(pm,[status(thm)],[c_0_1,c_0_26,theory(equality)])).
+cnf(c_0_80,plain,(add(X4,add(X2,add(X1,X3)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_26,theory(equality)])).
+cnf(c_0_81,plain,(add(X1,add(X4,add(X3,X2)))=add(add(X3,X4),add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_82,plain,(add(X1,add(X4,add(X3,X2)))=add(X2,add(X1,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_83,plain,(add(X1,add(X4,add(X3,X2)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_26,theory(equality)])).
+cnf(c_0_84,plain,(add(X2,add(X4,add(X3,X1)))=add(X1,add(X2,add(X3,X4)))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_85,plain,(add(X3,add(X2,X1))=add(X3,add(X1,X2))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_86,plain,(add(X3,add(X2,X1))=add(X2,add(X1,X3))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_87,plain,(add(X2,add(X1,X3))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_6,c_0_26,theory(equality)])).
+cnf(c_0_88,plain,(add(X3,add(X1,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_9,c_0_26,theory(equality)])).
+cnf(c_0_89,plain,(add(X4,add(X2,add(X3,X1)))=add(X1,add(add(X2,X3),X4))),inference(pm,[status(thm)],[c_0_26,c_0_2,theory(equality)])).
+cnf(c_0_90,plain,(add(X4,add(X2,add(X3,X1)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_6,theory(equality)])).
+cnf(c_0_91,plain,(add(X4,add(X1,add(X3,X2)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_9,theory(equality)])).
+cnf(c_0_92,plain,(add(X4,add(X1,add(X2,X3)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_6,theory(equality)])).
+cnf(c_0_93,plain,(add(X4,add(X1,add(X3,X2)))=add(add(X1,X2),add(X3,X4))),inference(pm,[status(thm)],[c_0_26,c_0_9,theory(equality)])).
+cnf(c_0_94,plain,(add(X3,add(X1,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_26,c_0_1,theory(equality)])).
+cnf(c_0_95,plain,(add(X3,add(X1,X2))=add(X1,add(X2,X3))),inference(pm,[status(thm)],[c_0_26,c_0_1,theory(equality)])).
+cnf(c_0_96,plain,(add(X1,add(X2,add(X3,X4)))=add(X4,add(add(X2,X3),X1))),inference(pm,[status(thm)],[c_0_26,c_0_2,theory(equality)])).
+cnf(c_0_97,plain,(add(X1,add(X4,add(X2,X3)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_6,theory(equality)])).
+cnf(c_0_98,plain,(add(X1,add(X3,add(X2,X4)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_9,theory(equality)])).
+cnf(c_0_99,plain,(add(X1,add(X3,add(X4,X2)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_6,theory(equality)])).
+cnf(c_0_100,plain,(add(X1,add(X3,add(X2,X4)))=add(add(X3,X4),add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_9,theory(equality)])).
+cnf(c_0_101,plain,(add(X1,add(X3,X2))=add(X3,add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_1,theory(equality)])).
+cnf(c_0_102,plain,(add(X1,add(X3,X2))=add(X3,add(X2,X1))),inference(pm,[status(thm)],[c_0_26,c_0_1,theory(equality)])).
+cnf(c_0_103,hypothesis,(negate(X1)=add(negate(add(X1,X2)),negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_4,c_0_3,theory(equality)])).
+cnf(c_0_104,plain,(negate(add(negate(add(X1,add(negate(add(X2,X3)),negate(add(X2,negate(X3)))))),negate(add(X1,X2))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_3,theory(equality)])).
+cnf(c_0_105,plain,(negate(add(X1,negate(add(negate(add(X1,X2)),negate(negate(add(X1,negate(X2))))))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_3,c_0_3,theory(equality)])).
+cnf(c_0_106,plain,(negate(add(negate(add(negate(add(X1,X2)),add(X1,negate(X2)))),X1))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_3,c_0_3,theory(equality)])).
+cnf(c_0_107,hypothesis,(negate(add(negate(add(X1,negate(X2))),negate(add(X1,X2))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_4,theory(equality)])).
+cnf(c_0_108,plain,(negate(add(negate(add(add(X1,X2),X3)),negate(add(X1,add(X2,negate(X3))))))=add(X1,X2)),inference(pm,[status(thm)],[c_0_3,c_0_2,theory(equality)])).
+cnf(c_0_109,plain,(negate(add(negate(add(X1,X2)),negate(add(negate(X2),X1))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_1,theory(equality)])).
+cnf(c_0_110,plain,(negate(add(negate(add(X1,X2)),negate(add(negate(X2),X1))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_1,theory(equality)])).
+cnf(c_0_111,plain,(negate(add(negate(add(X1,add(X2,X3))),negate(add(add(X1,X2),negate(X3)))))=add(X1,X2)),inference(pm,[status(thm)],[c_0_3,c_0_2,theory(equality)])).
+cnf(c_0_112,plain,(negate(add(negate(add(X3,add(X1,X2))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_6,theory(equality)])).
+cnf(c_0_113,plain,(negate(add(negate(add(X2,add(X1,X3))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_9,theory(equality)])).
+cnf(c_0_114,plain,(negate(add(negate(add(X3,add(X2,X1))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_26,theory(equality)])).
+cnf(c_0_115,plain,(negate(add(negate(add(X2,add(X3,X1))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_6,theory(equality)])).
+cnf(c_0_116,plain,(negate(add(negate(add(X2,add(X1,X3))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_9,theory(equality)])).
+cnf(c_0_117,plain,(negate(add(negate(add(X3,add(X2,X1))),negate(add(X1,negate(add(X2,X3))))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_26,theory(equality)])).
+cnf(c_0_118,plain,(negate(add(negate(add(X2,X1)),negate(add(X1,negate(X2)))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_1,theory(equality)])).
+cnf(c_0_119,plain,(negate(add(negate(add(X2,X1)),negate(add(X1,negate(X2)))))=X1),inference(pm,[status(thm)],[c_0_3,c_0_1,theory(equality)])).
+cnf(c_0_120,hypothesis,(add(negate(X1),X3)=add(negate(add(X1,X2)),add(negate(add(X1,negate(X2))),X3))),inference(pm,[status(thm)],[c_0_2,c_0_103,theory(equality)])).
+cnf(c_0_121,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,X2)),add(negate(add(X1,negate(X2))),X3))),inference(pm,[status(thm)],[c_0_6,c_0_103,theory(equality)])).
+cnf(c_0_122,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X1,X2)),negate(negate(add(X1,negate(X2)))))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_103,theory(equality)])).
+cnf(c_0_123,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,negate(X2))),add(negate(add(X1,X2)),X3))),inference(pm,[status(thm)],[c_0_26,c_0_103,theory(equality)])).
+cnf(c_0_124,hypothesis,(add(X1,negate(X2))=add(negate(add(X2,negate(X3))),add(X1,negate(add(X2,X3))))),inference(pm,[status(thm)],[c_0_6,c_0_103,theory(equality)])).
+cnf(c_0_125,hypothesis,(add(X1,negate(X2))=add(negate(add(X2,X3)),add(X1,negate(add(X2,negate(X3)))))),inference(pm,[status(thm)],[c_0_9,c_0_103,theory(equality)])).
+cnf(c_0_126,hypothesis,(add(X1,negate(X2))=add(negate(add(X2,negate(X3))),add(negate(add(X2,X3)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_103,theory(equality)])).
+cnf(c_0_127,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,X2)),add(X3,negate(add(X1,negate(X2)))))),inference(pm,[status(thm)],[c_0_9,c_0_103,theory(equality)])).
+cnf(c_0_128,hypothesis,(add(negate(add(negate(add(X1,X2)),add(X1,negate(X2)))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_103,theory(equality)])).
+cnf(c_0_129,hypothesis,(add(negate(add(X1,negate(X2))),negate(add(X1,X2)))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_4,theory(equality)])).
+cnf(c_0_130,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X1,add(X2,negate(X3)))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_103,c_0_2,theory(equality)])).
+cnf(c_0_131,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X2),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_1,theory(equality)])).
+cnf(c_0_132,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X2),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_1,theory(equality)])).
+cnf(c_0_133,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(add(X1,X2),negate(X3))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_103,c_0_2,theory(equality)])).
+cnf(c_0_134,hypothesis,(add(negate(add(X3,add(X1,X2))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_6,theory(equality)])).
+cnf(c_0_135,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_9,theory(equality)])).
+cnf(c_0_136,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_26,theory(equality)])).
+cnf(c_0_137,hypothesis,(add(negate(add(X2,add(X3,X1))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_6,theory(equality)])).
+cnf(c_0_138,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_9,theory(equality)])).
+cnf(c_0_139,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(X1,negate(add(X2,X3)))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_26,theory(equality)])).
+cnf(c_0_140,hypothesis,(add(negate(add(X2,X1)),negate(add(X1,negate(X2))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_1,theory(equality)])).
+cnf(c_0_141,hypothesis,(add(negate(add(X2,X1)),negate(add(X1,negate(X2))))=negate(X1)),inference(pm,[status(thm)],[c_0_103,c_0_1,theory(equality)])).
+cnf(c_0_142,hypothesis,(negate(X1)=add(negate(add(negate(X2),X1)),negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_1,c_0_131,theory(equality)])).
+cnf(c_0_143,hypothesis,(add(negate(X1),X3)=add(negate(add(X1,X2)),add(negate(add(negate(X2),X1)),X3))),inference(pm,[status(thm)],[c_0_2,c_0_131,theory(equality)])).
+cnf(c_0_144,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,X2)),add(negate(add(negate(X2),X1)),X3))),inference(pm,[status(thm)],[c_0_6,c_0_131,theory(equality)])).
+cnf(c_0_145,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(negate(X2),X1))),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_131,theory(equality)])).
+cnf(c_0_146,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X1,X2)),negate(negate(add(negate(X2),X1))))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_131,theory(equality)])).
+cnf(c_0_147,hypothesis,(negate(X2)=add(negate(add(negate(X1),X2)),negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_1,c_0_131,theory(equality)])).
+cnf(c_0_148,hypothesis,(add(X3,negate(X2))=add(negate(add(negate(X1),X2)),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_26,c_0_131,theory(equality)])).
+cnf(c_0_149,hypothesis,(add(X1,negate(X2))=add(negate(add(negate(X3),X2)),add(X1,negate(add(X2,X3))))),inference(pm,[status(thm)],[c_0_6,c_0_131,theory(equality)])).
+cnf(c_0_150,hypothesis,(add(X1,negate(X2))=add(negate(add(X2,X3)),add(X1,negate(add(negate(X3),X2))))),inference(pm,[status(thm)],[c_0_9,c_0_131,theory(equality)])).
+cnf(c_0_151,hypothesis,(add(X1,negate(X2))=add(negate(add(negate(X3),X2)),add(negate(add(X2,X3)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_131,theory(equality)])).
+cnf(c_0_152,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,X2)),add(X3,negate(add(negate(X2),X1))))),inference(pm,[status(thm)],[c_0_9,c_0_131,theory(equality)])).
+cnf(c_0_153,hypothesis,(add(negate(add(negate(add(X1,X2)),add(negate(X2),X1))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_131,theory(equality)])).
+cnf(c_0_154,hypothesis,(add(negate(add(negate(add(negate(X1),X2)),add(X2,X1))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_131,c_0_131,theory(equality)])).
+cnf(c_0_155,hypothesis,(add(negate(add(X1,negate(X2))),negate(add(X2,X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_4,theory(equality)])).
+cnf(c_0_156,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X2,add(negate(X3),X1))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_6,theory(equality)])).
+cnf(c_0_157,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X1,add(negate(X3),X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_9,theory(equality)])).
+cnf(c_0_158,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X2,add(X1,negate(X3)))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_26,theory(equality)])).
+cnf(c_0_159,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X1,add(X2,negate(X3)))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_6,theory(equality)])).
+cnf(c_0_160,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X1,add(negate(X3),X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_9,theory(equality)])).
+cnf(c_0_161,hypothesis,(add(negate(add(add(X1,X2),X3)),negate(add(X2,add(X1,negate(X3)))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_26,theory(equality)])).
+cnf(c_0_162,hypothesis,(add(negate(add(X1,X2)),negate(add(X1,negate(X2))))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_1,theory(equality)])).
+cnf(c_0_163,hypothesis,(add(negate(add(X1,X2)),negate(add(X1,negate(X2))))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_1,theory(equality)])).
+cnf(c_0_164,hypothesis,(add(negate(add(negate(add(X1,negate(X2))),add(X1,X2))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_131,c_0_103,theory(equality)])).
+cnf(c_0_165,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(X1,negate(X2)))),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_103,theory(equality)])).
+cnf(c_0_166,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(negate(X3),add(X1,X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_131,c_0_2,theory(equality)])).
+cnf(c_0_167,hypothesis,(add(negate(add(X3,add(X1,X2))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_6,theory(equality)])).
+cnf(c_0_168,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_9,theory(equality)])).
+cnf(c_0_169,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_26,theory(equality)])).
+cnf(c_0_170,hypothesis,(add(negate(add(X2,add(X3,X1))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_6,theory(equality)])).
+cnf(c_0_171,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_9,theory(equality)])).
+cnf(c_0_172,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(negate(add(X2,X3)),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_26,theory(equality)])).
+cnf(c_0_173,hypothesis,(add(negate(add(X2,X1)),negate(add(negate(X2),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_1,theory(equality)])).
+cnf(c_0_174,hypothesis,(add(negate(add(X2,X1)),negate(add(negate(X2),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_131,c_0_1,theory(equality)])).
+cnf(c_0_175,hypothesis,(negate(X2)=add(negate(add(X2,negate(X1))),negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_1,c_0_140,theory(equality)])).
+cnf(c_0_176,hypothesis,(add(negate(X2),X3)=add(negate(add(X1,X2)),add(negate(add(X2,negate(X1))),X3))),inference(pm,[status(thm)],[c_0_2,c_0_140,theory(equality)])).
+cnf(c_0_177,hypothesis,(add(X3,negate(X2))=add(negate(add(X1,X2)),add(negate(add(X2,negate(X1))),X3))),inference(pm,[status(thm)],[c_0_6,c_0_140,theory(equality)])).
+cnf(c_0_178,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X2,negate(X1))),negate(negate(add(X1,X2))))))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_140,c_0_140,theory(equality)])).
+cnf(c_0_179,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(X2,negate(X1)))),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_140,theory(equality)])).
+cnf(c_0_180,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X1,X2)),negate(negate(add(X2,negate(X1)))))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_140,theory(equality)])).
+cnf(c_0_181,hypothesis,(negate(X1)=add(negate(add(X1,negate(X2))),negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_1,c_0_140,theory(equality)])).
+cnf(c_0_182,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,negate(X2))),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_26,c_0_140,theory(equality)])).
+cnf(c_0_183,hypothesis,(add(X1,negate(X3))=add(negate(add(X3,negate(X2))),add(X1,negate(add(X2,X3))))),inference(pm,[status(thm)],[c_0_6,c_0_140,theory(equality)])).
+cnf(c_0_184,hypothesis,(add(X1,negate(X3))=add(negate(add(X2,X3)),add(X1,negate(add(X3,negate(X2)))))),inference(pm,[status(thm)],[c_0_9,c_0_140,theory(equality)])).
+cnf(c_0_185,hypothesis,(add(X1,negate(X3))=add(negate(add(X3,negate(X2))),add(negate(add(X2,X3)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_140,theory(equality)])).
+cnf(c_0_186,hypothesis,(add(X3,negate(X2))=add(negate(add(X1,X2)),add(X3,negate(add(X2,negate(X1)))))),inference(pm,[status(thm)],[c_0_9,c_0_140,theory(equality)])).
+cnf(c_0_187,hypothesis,(add(negate(add(negate(add(X1,X2)),add(X2,negate(X1)))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_140,theory(equality)])).
+cnf(c_0_188,hypothesis,(add(negate(add(add(X1,negate(X2)),negate(add(X2,X1)))),negate(negate(X1)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_140,c_0_140,theory(equality)])).
+cnf(c_0_189,hypothesis,(add(negate(add(negate(add(X1,negate(X2))),add(X2,X1))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_131,c_0_140,theory(equality)])).
+cnf(c_0_190,hypothesis,(add(negate(add(negate(X1),X2)),negate(add(X2,X1)))=negate(X2)),inference(pm,[status(thm)],[c_0_140,c_0_4,theory(equality)])).
+cnf(c_0_191,hypothesis,(add(negate(add(add(X1,negate(X2)),negate(add(X1,X2)))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_140,c_0_103,theory(equality)])).
+cnf(c_0_192,hypothesis,(add(negate(add(add(negate(X1),X2),negate(add(X2,X1)))),negate(negate(X2)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_140,c_0_131,theory(equality)])).
+cnf(c_0_193,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X2,add(X3,negate(X1)))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_2,theory(equality)])).
+cnf(c_0_194,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X1),X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_140,c_0_1,theory(equality)])).
+cnf(c_0_195,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X1),X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_140,c_0_1,theory(equality)])).
+cnf(c_0_196,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X1,negate(X2))),negate(negate(add(X1,X2))))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_140,c_0_103,theory(equality)])).
+cnf(c_0_197,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(negate(X2),X1)),negate(negate(add(X1,X2))))))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_140,c_0_131,theory(equality)])).
+cnf(c_0_198,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X3,negate(add(X1,X2)))))=negate(X3)),inference(pm,[status(thm)],[c_0_140,c_0_2,theory(equality)])).
+cnf(c_0_199,hypothesis,(add(negate(add(X3,add(X1,X2))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_6,theory(equality)])).
+cnf(c_0_200,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_9,theory(equality)])).
+cnf(c_0_201,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_26,theory(equality)])).
+cnf(c_0_202,hypothesis,(add(negate(add(X2,add(X3,X1))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_6,theory(equality)])).
+cnf(c_0_203,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_9,theory(equality)])).
+cnf(c_0_204,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(add(X2,X3),negate(X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_140,c_0_26,theory(equality)])).
+cnf(c_0_205,hypothesis,(add(negate(add(X2,X1)),negate(add(X2,negate(X1))))=negate(X2)),inference(pm,[status(thm)],[c_0_140,c_0_1,theory(equality)])).
+cnf(c_0_206,hypothesis,(add(negate(add(X2,X1)),negate(add(X2,negate(X1))))=negate(X2)),inference(pm,[status(thm)],[c_0_140,c_0_1,theory(equality)])).
+cnf(c_0_207,hypothesis,(negate(X2)=add(negate(add(X2,X1)),negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_1,c_0_142,theory(equality)])).
+cnf(c_0_208,hypothesis,(add(negate(X2),X3)=add(negate(add(negate(X1),X2)),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_2,c_0_142,theory(equality)])).
+cnf(c_0_209,hypothesis,(add(X3,negate(X2))=add(negate(add(negate(X1),X2)),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_6,c_0_142,theory(equality)])).
+cnf(c_0_210,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X2,X1)),negate(negate(add(negate(X1),X2))))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_140,c_0_142,theory(equality)])).
+cnf(c_0_211,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(X2,X1))),negate(add(negate(X1),X2)))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_131,c_0_142,theory(equality)])).
+cnf(c_0_212,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(negate(X1),X2)),negate(negate(add(X2,X1))))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_103,c_0_142,theory(equality)])).
+cnf(c_0_213,hypothesis,(negate(X1)=add(negate(add(X1,X2)),negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_1,c_0_142,theory(equality)])).
+cnf(c_0_214,hypothesis,(add(negate(add(negate(negate(add(X1,X2))),negate(add(negate(X2),X1)))),negate(negate(X1)))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_142,c_0_142,theory(equality)])).
+cnf(c_0_215,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,X2)),add(negate(add(negate(X2),X1)),X3))),inference(pm,[status(thm)],[c_0_26,c_0_142,theory(equality)])).
+cnf(c_0_216,hypothesis,(add(X1,negate(X3))=add(negate(add(X3,X2)),add(X1,negate(add(negate(X2),X3))))),inference(pm,[status(thm)],[c_0_6,c_0_142,theory(equality)])).
+cnf(c_0_217,hypothesis,(add(X1,negate(X3))=add(negate(add(negate(X2),X3)),add(X1,negate(add(X3,X2))))),inference(pm,[status(thm)],[c_0_9,c_0_142,theory(equality)])).
+cnf(c_0_218,hypothesis,(add(X1,negate(X3))=add(negate(add(X3,X2)),add(negate(add(negate(X2),X3)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_142,theory(equality)])).
+cnf(c_0_219,hypothesis,(add(X3,negate(X2))=add(negate(add(negate(X1),X2)),add(X3,negate(add(X2,X1))))),inference(pm,[status(thm)],[c_0_9,c_0_142,theory(equality)])).
+cnf(c_0_220,hypothesis,(add(negate(add(negate(add(negate(X1),X2)),add(X2,X1))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_103,c_0_142,theory(equality)])).
+cnf(c_0_221,hypothesis,(add(negate(add(add(X1,X2),negate(add(negate(X2),X1)))),negate(negate(X1)))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_140,c_0_142,theory(equality)])).
+cnf(c_0_222,hypothesis,(add(negate(add(negate(add(X1,X2)),add(negate(X2),X1))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_142,theory(equality)])).
+cnf(c_0_223,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X2,X1)),add(negate(X1),X2))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_142,c_0_142,theory(equality)])).
+cnf(c_0_224,hypothesis,(add(negate(add(negate(negate(add(X1,negate(X2)))),negate(add(X1,X2)))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_142,c_0_103,theory(equality)])).
+cnf(c_0_225,hypothesis,(add(negate(add(negate(negate(add(negate(X1),X2))),negate(add(X2,X1)))),negate(negate(X2)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_142,c_0_131,theory(equality)])).
+cnf(c_0_226,hypothesis,(add(negate(add(negate(negate(add(X1,negate(X2)))),negate(add(X2,X1)))),negate(negate(X1)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_142,c_0_140,theory(equality)])).
+cnf(c_0_227,hypothesis,(add(negate(add(negate(X1),add(X2,X3))),negate(add(X2,add(X3,X1))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_2,theory(equality)])).
+cnf(c_0_228,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X2,add(X3,X1))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_6,theory(equality)])).
+cnf(c_0_229,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X1,add(X3,X2))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_9,theory(equality)])).
+cnf(c_0_230,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X2,add(X1,X3))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_26,theory(equality)])).
+cnf(c_0_231,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X1,add(X2,X3))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_6,theory(equality)])).
+cnf(c_0_232,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X1,add(X3,X2))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_9,theory(equality)])).
+cnf(c_0_233,hypothesis,(add(negate(add(negate(add(X1,X2)),X3)),negate(add(X2,add(X1,X3))))=negate(X3)),inference(pm,[status(thm)],[c_0_142,c_0_26,theory(equality)])).
+cnf(c_0_234,hypothesis,(add(negate(add(negate(X1),X2)),negate(add(X1,X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_142,c_0_1,theory(equality)])).
+cnf(c_0_235,hypothesis,(add(negate(add(negate(X1),X2)),negate(add(X1,X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_142,c_0_1,theory(equality)])).
+cnf(c_0_236,hypothesis,(add(negate(add(X1,X2)),negate(add(X2,negate(X1))))=negate(X2)),inference(pm,[status(thm)],[c_0_142,c_0_4,theory(equality)])).
+cnf(c_0_237,hypothesis,(add(negate(add(X3,add(negate(X1),X2))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_6,theory(equality)])).
+cnf(c_0_238,hypothesis,(add(negate(add(X2,add(negate(X1),X3))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_9,theory(equality)])).
+cnf(c_0_239,hypothesis,(add(negate(add(X3,add(X2,negate(X1)))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_26,theory(equality)])).
+cnf(c_0_240,hypothesis,(add(negate(add(X2,add(X3,negate(X1)))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_6,theory(equality)])).
+cnf(c_0_241,hypothesis,(add(negate(add(X2,add(negate(X1),X3))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_9,theory(equality)])).
+cnf(c_0_242,hypothesis,(add(negate(add(X3,add(X2,negate(X1)))),negate(add(add(X2,X3),X1)))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_142,c_0_26,theory(equality)])).
+cnf(c_0_243,hypothesis,(add(negate(add(X2,negate(X1))),negate(add(X2,X1)))=negate(X2)),inference(pm,[status(thm)],[c_0_142,c_0_1,theory(equality)])).
+cnf(c_0_244,hypothesis,(add(negate(add(X2,negate(X1))),negate(add(X2,X1)))=negate(X2)),inference(pm,[status(thm)],[c_0_142,c_0_1,theory(equality)])).
+cnf(c_0_245,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X1,negate(X2))),add(X1,X2))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_142,c_0_103,theory(equality)])).
+cnf(c_0_246,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(negate(X2),X1)),add(X1,X2))))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_142,c_0_131,theory(equality)])).
+cnf(c_0_247,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X2,negate(X1))),add(X1,X2))))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_142,c_0_140,theory(equality)])).
+cnf(c_0_248,hypothesis,(negate(X1)=add(negate(add(X2,X1)),negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_1,c_0_155,theory(equality)])).
+cnf(c_0_249,hypothesis,(add(negate(X1),X3)=add(negate(add(X1,negate(X2))),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_2,c_0_155,theory(equality)])).
+cnf(c_0_250,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,negate(X2))),add(negate(add(X2,X1)),X3))),inference(pm,[status(thm)],[c_0_6,c_0_155,theory(equality)])).
+cnf(c_0_251,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X2,X1)),negate(negate(add(X1,negate(X2)))))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_140,c_0_155,theory(equality)])).
+cnf(c_0_252,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(X2,X1))),negate(add(X1,negate(X2))))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_131,c_0_155,theory(equality)])).
+cnf(c_0_253,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X1,negate(X2))),negate(negate(add(X2,X1))))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_103,c_0_155,theory(equality)])).
+cnf(c_0_254,hypothesis,(negate(X2)=add(negate(add(X1,X2)),negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_1,c_0_155,theory(equality)])).
+cnf(c_0_255,hypothesis,(add(negate(add(negate(negate(add(X1,X2))),negate(add(X2,negate(X1))))),negate(negate(X2)))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_142,c_0_155,theory(equality)])).
+cnf(c_0_256,hypothesis,(add(X3,negate(X2))=add(negate(add(X1,X2)),add(negate(add(X2,negate(X1))),X3))),inference(pm,[status(thm)],[c_0_26,c_0_155,theory(equality)])).
+cnf(c_0_257,hypothesis,(add(negate(add(negate(add(X1,X2)),negate(negate(add(X2,negate(X1)))))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_155,theory(equality)])).
+cnf(c_0_258,hypothesis,(add(X1,negate(X2))=add(negate(add(X3,X2)),add(X1,negate(add(X2,negate(X3)))))),inference(pm,[status(thm)],[c_0_6,c_0_155,theory(equality)])).
+cnf(c_0_259,hypothesis,(add(X1,negate(X2))=add(negate(add(X2,negate(X3))),add(X1,negate(add(X3,X2))))),inference(pm,[status(thm)],[c_0_9,c_0_155,theory(equality)])).
+cnf(c_0_260,hypothesis,(add(X1,negate(X2))=add(negate(add(X3,X2)),add(negate(add(X2,negate(X3))),X1))),inference(pm,[status(thm)],[c_0_26,c_0_155,theory(equality)])).
+cnf(c_0_261,hypothesis,(add(X3,negate(X1))=add(negate(add(X1,negate(X2))),add(X3,negate(add(X2,X1))))),inference(pm,[status(thm)],[c_0_9,c_0_155,theory(equality)])).
+cnf(c_0_262,hypothesis,(add(negate(add(negate(add(X1,negate(X2))),add(X2,X1))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_103,c_0_155,theory(equality)])).
+cnf(c_0_263,hypothesis,(add(negate(negate(X1)),negate(add(add(X2,X1),negate(add(X1,negate(X2))))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_155,c_0_155,theory(equality)])).
+cnf(c_0_264,hypothesis,(add(negate(add(add(X1,X2),negate(add(X2,negate(X1))))),negate(negate(X2)))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_140,c_0_155,theory(equality)])).
+cnf(c_0_265,hypothesis,(add(negate(add(negate(add(X1,X2)),add(X2,negate(X1)))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_155,theory(equality)])).
+cnf(c_0_266,hypothesis,(add(negate(negate(X1)),negate(add(negate(add(X2,X1)),add(X1,negate(X2)))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_142,c_0_155,theory(equality)])).
+cnf(c_0_267,hypothesis,(add(negate(add(negate(add(X1,negate(X2))),negate(negate(add(X1,X2))))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_155,c_0_103,theory(equality)])).
+cnf(c_0_268,hypothesis,(add(negate(add(negate(add(negate(X1),X2)),negate(negate(add(X2,X1))))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_155,c_0_131,theory(equality)])).
+cnf(c_0_269,hypothesis,(add(negate(add(negate(add(X1,X2)),negate(negate(add(negate(X2),X1))))),negate(negate(X1)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_142,theory(equality)])).
+cnf(c_0_270,hypothesis,(add(negate(add(negate(add(X1,negate(X2))),negate(negate(add(X2,X1))))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_155,c_0_140,theory(equality)])).
+cnf(c_0_271,hypothesis,(add(negate(add(X1,negate(add(X2,X3)))),negate(add(X2,add(X3,X1))))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_2,theory(equality)])).
+cnf(c_0_272,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X2,add(X3,X1))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_6,theory(equality)])).
+cnf(c_0_273,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X1,add(X3,X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_9,theory(equality)])).
+cnf(c_0_274,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X2,add(X1,X3))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_26,theory(equality)])).
+cnf(c_0_275,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X1,add(X2,X3))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_6,theory(equality)])).
+cnf(c_0_276,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X1,add(X3,X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_9,theory(equality)])).
+cnf(c_0_277,hypothesis,(add(negate(add(add(X1,X2),negate(X3))),negate(add(X2,add(X1,X3))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_26,theory(equality)])).
+cnf(c_0_278,hypothesis,(add(negate(add(X1,negate(X2))),negate(add(X1,X2)))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_1,theory(equality)])).
+cnf(c_0_279,hypothesis,(add(negate(add(X1,negate(X2))),negate(add(X1,X2)))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_1,theory(equality)])).
+cnf(c_0_280,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X2),X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_4,theory(equality)])).
+cnf(c_0_281,hypothesis,(add(negate(negate(X1)),negate(add(add(X1,negate(X2)),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_103,theory(equality)])).
+cnf(c_0_282,hypothesis,(add(negate(negate(X1)),negate(add(add(negate(X2),X1),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_131,theory(equality)])).
+cnf(c_0_283,hypothesis,(add(negate(negate(X2)),negate(add(add(X2,X1),negate(add(negate(X1),X2)))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_155,c_0_142,theory(equality)])).
+cnf(c_0_284,hypothesis,(add(negate(negate(X2)),negate(add(add(X2,negate(X1)),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_140,theory(equality)])).
+cnf(c_0_285,hypothesis,(add(negate(add(X1,add(X2,negate(X3)))),negate(add(X3,add(X1,X2))))=negate(add(X1,X2))),inference(pm,[status(thm)],[c_0_155,c_0_2,theory(equality)])).
+cnf(c_0_286,hypothesis,(add(negate(add(negate(X2),X1)),negate(add(X2,X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_1,theory(equality)])).
+cnf(c_0_287,hypothesis,(add(negate(add(negate(X2),X1)),negate(add(X2,X1)))=negate(X1)),inference(pm,[status(thm)],[c_0_155,c_0_1,theory(equality)])).
+cnf(c_0_288,hypothesis,(add(negate(X2),X3)=add(negate(add(X1,X2)),add(negate(add(negate(X1),X2)),X3))),inference(pm,[status(thm)],[c_0_2,c_0_173,theory(equality)])).
+cnf(c_0_289,hypothesis,(add(X3,negate(X2))=add(negate(add(X1,X2)),add(negate(add(negate(X1),X2)),X3))),inference(pm,[status(thm)],[c_0_6,c_0_173,theory(equality)])).
+cnf(c_0_290,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(negate(X1),X2)),negate(negate(add(X1,X2))))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_140,c_0_173,theory(equality)])).
+cnf(c_0_291,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(negate(X1),X2))),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_131,c_0_173,theory(equality)])).
+cnf(c_0_292,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(X1,X2)),negate(negate(add(negate(X1),X2))))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_173,theory(equality)])).
+cnf(c_0_293,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(X1,X2))),negate(add(negate(X1),X2)))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_173,c_0_173,theory(equality)])).
+cnf(c_0_294,hypothesis,(add(negate(add(negate(negate(add(negate(X1),X2))),negate(add(X1,X2)))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_142,c_0_173,theory(equality)])).
+cnf(c_0_295,hypothesis,(add(X3,negate(X2))=add(negate(add(negate(X1),X2)),add(negate(add(X1,X2)),X3))),inference(pm,[status(thm)],[c_0_26,c_0_173,theory(equality)])).
+cnf(c_0_296,hypothesis,(add(negate(add(negate(add(negate(X1),X2)),negate(negate(add(X1,X2))))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_155,c_0_173,theory(equality)])).
+cnf(c_0_297,hypothesis,(add(X1,negate(X3))=add(negate(add(negate(X2),X3)),add(X1,negate(add(X2,X3))))),inference(pm,[status(thm)],[c_0_6,c_0_173,theory(equality)])).
+cnf(c_0_298,hypothesis,(add(X1,negate(X3))=add(negate(add(X2,X3)),add(X1,negate(add(negate(X2),X3))))),inference(pm,[status(thm)],[c_0_9,c_0_173,theory(equality)])).
+cnf(c_0_299,hypothesis,(add(X1,negate(X3))=add(negate(add(negate(X2),X3)),add(negate(add(X2,X3)),X1))),inference(pm,[status(thm)],[c_0_26,c_0_173,theory(equality)])).
+cnf(c_0_300,hypothesis,(add(X3,negate(X2))=add(negate(add(X1,X2)),add(X3,negate(add(negate(X1),X2))))),inference(pm,[status(thm)],[c_0_9,c_0_173,theory(equality)])).
+cnf(c_0_301,hypothesis,(add(negate(add(negate(add(X1,X2)),add(negate(X1),X2))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_103,c_0_173,theory(equality)])).
+cnf(c_0_302,hypothesis,(add(negate(negate(X2)),negate(add(add(negate(X1),X2),negate(add(X1,X2)))))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_155,c_0_173,theory(equality)])).
+cnf(c_0_303,hypothesis,(add(negate(add(add(negate(X1),X2),negate(add(X1,X2)))),negate(negate(X2)))=negate(negate(add(X1,X2)))),inference(pm,[status(thm)],[c_0_140,c_0_173,theory(equality)])).
+cnf(c_0_304,hypothesis,(add(negate(add(negate(add(negate(X1),X2)),add(X1,X2))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_131,c_0_173,theory(equality)])).
+cnf(c_0_305,hypothesis,(add(negate(negate(X2)),negate(add(negate(add(negate(X1),X2)),add(X1,X2))))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_142,c_0_173,theory(equality)])).
+cnf(c_0_306,hypothesis,(add(negate(add(add(X1,X2),negate(add(negate(X1),X2)))),negate(negate(X2)))=negate(negate(add(negate(X1),X2)))),inference(pm,[status(thm)],[c_0_173,c_0_173,theory(equality)])).
+cnf(c_0_307,hypothesis,(add(negate(add(negate(X1),X2)),negate(add(X1,X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_173,c_0_4,theory(equality)])).
+cnf(c_0_308,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X3,add(negate(X1),X2))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_6,theory(equality)])).
+cnf(c_0_309,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X2,add(negate(X1),X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_9,theory(equality)])).
+cnf(c_0_310,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X3,add(X2,negate(X1)))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_26,theory(equality)])).
+cnf(c_0_311,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X2,add(X3,negate(X1)))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_6,theory(equality)])).
+cnf(c_0_312,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X2,add(negate(X1),X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_9,theory(equality)])).
+cnf(c_0_313,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(X3,add(X2,negate(X1)))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_26,theory(equality)])).
+cnf(c_0_314,hypothesis,(add(negate(add(X1,X2)),negate(add(X2,negate(X1))))=negate(X2)),inference(pm,[status(thm)],[c_0_173,c_0_1,theory(equality)])).
+cnf(c_0_315,hypothesis,(add(negate(add(X1,X2)),negate(add(X2,negate(X1))))=negate(X2)),inference(pm,[status(thm)],[c_0_173,c_0_1,theory(equality)])).
+cnf(c_0_316,hypothesis,(add(negate(add(add(X1,X2),negate(add(X1,negate(X2))))),negate(negate(X1)))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_173,c_0_103,theory(equality)])).
+cnf(c_0_317,hypothesis,(add(negate(add(add(X1,X2),negate(add(negate(X2),X1)))),negate(negate(X1)))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_173,c_0_131,theory(equality)])).
+cnf(c_0_318,hypothesis,(add(negate(add(add(negate(X1),X2),negate(add(X2,X1)))),negate(negate(X2)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_173,c_0_142,theory(equality)])).
+cnf(c_0_319,hypothesis,(add(negate(add(add(X1,negate(X2)),negate(add(X2,X1)))),negate(negate(X1)))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_173,c_0_155,theory(equality)])).
+cnf(c_0_320,hypothesis,(add(negate(add(add(X1,X2),negate(add(X2,negate(X1))))),negate(negate(X2)))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_173,c_0_140,theory(equality)])).
+cnf(c_0_321,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(X1,X2))),negate(add(X1,negate(X2))))))=negate(negate(add(X1,negate(X2))))),inference(pm,[status(thm)],[c_0_173,c_0_103,theory(equality)])).
+cnf(c_0_322,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(X1,X2))),negate(add(negate(X2),X1)))))=negate(negate(add(negate(X2),X1)))),inference(pm,[status(thm)],[c_0_173,c_0_131,theory(equality)])).
+cnf(c_0_323,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(negate(X1),X2))),negate(add(X2,X1)))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_173,c_0_142,theory(equality)])).
+cnf(c_0_324,hypothesis,(add(negate(negate(X1)),negate(add(negate(negate(add(X1,negate(X2)))),negate(add(X2,X1)))))=negate(negate(add(X2,X1)))),inference(pm,[status(thm)],[c_0_173,c_0_155,theory(equality)])).
+cnf(c_0_325,hypothesis,(add(negate(negate(X2)),negate(add(negate(negate(add(X1,X2))),negate(add(X2,negate(X1))))))=negate(negate(add(X2,negate(X1))))),inference(pm,[status(thm)],[c_0_173,c_0_140,theory(equality)])).
+cnf(c_0_326,hypothesis,(add(negate(add(X1,add(X2,X3))),negate(add(negate(add(X1,X2)),X3)))=negate(X3)),inference(pm,[status(thm)],[c_0_173,c_0_2,theory(equality)])).
+cnf(c_0_327,hypothesis,(add(negate(add(X3,add(X1,X2))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_6,theory(equality)])).
+cnf(c_0_328,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_9,theory(equality)])).
+cnf(c_0_329,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_26,theory(equality)])).
+cnf(c_0_330,hypothesis,(add(negate(add(X2,add(X3,X1))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_6,theory(equality)])).
+cnf(c_0_331,hypothesis,(add(negate(add(X2,add(X1,X3))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_9,theory(equality)])).
+cnf(c_0_332,hypothesis,(add(negate(add(X3,add(X2,X1))),negate(add(negate(X1),add(X2,X3))))=negate(add(X2,X3))),inference(pm,[status(thm)],[c_0_173,c_0_26,theory(equality)])).
+cnf(c_0_333,hypothesis,(add(negate(add(X2,X1)),negate(add(negate(X1),X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_173,c_0_1,theory(equality)])).
+cnf(c_0_334,hypothesis,(add(negate(add(X2,X1)),negate(add(negate(X1),X2)))=negate(X2)),inference(pm,[status(thm)],[c_0_173,c_0_1,theory(equality)])).
+cnf(c_0_335,negated_conjecture,($false),inference(cn,[status(thm)],[c_0_5, theory(equality,[symmetry])])).
+cnf(c_0_336,negated_conjecture,($false), c_0_335,['proof']).
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,hypothesis,(negate(negate(X1))=X1), file('<stdin>', double_negation)).
+cnf(c_0_1,axiom,(negate(add(negate(add(X1,X2)),negate(add(X1,negate(X2)))))=X1), file('Axioms/ROB001-0.ax', robbins_axiom)).
+cnf(c_0_2,axiom,(add(X1,X2)=add(X2,X1)), file('Axioms/ROB001-0.ax', commutativity_of_add)).
+cnf(c_0_3,negated_conjecture,(add(negate(add(a,negate(b))),negate(add(negate(a),negate(b))))!=b), file('<stdin>', prove_huntingtons_axiom)).
+cnf(c_0_4,hypothesis,(negate(negate(X1))=X1), c_0_0).
+cnf(c_0_5,axiom,(negate(add(negate(add(X1,X2)),negate(add(X1,negate(X2)))))=X1), c_0_1).
+cnf(c_0_6,hypothesis,(negate(negate(X1))=X1), c_0_4).
+cnf(c_0_7,plain,(negate(add(negate(add(X1,X2)),negate(add(X1,negate(X2)))))=X1), c_0_5).
+cnf(c_0_8,axiom,(add(X1,X2)=add(X2,X1)), c_0_2).
+cnf(c_0_9,hypothesis,(add(negate(add(X1,X2)),negate(add(X1,negate(X2))))=negate(X1)), inference(pm,[status(thm)],[c_0_6, c_0_7, theory(equality)])).
+cnf(c_0_10,plain,(add(X1,X2)=add(X2,X1)), c_0_8).
+cnf(c_0_11,negated_conjecture,(add(negate(add(a,negate(b))),negate(add(negate(a),negate(b))))!=b), c_0_3).
+cnf(c_0_12,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X2),X1)))=negate(X1)), inference(pm,[status(thm)],[c_0_9, c_0_10, theory(equality)])).
+cnf(c_0_13,negated_conjecture,(add(negate(add(a,negate(b))),negate(add(negate(a),negate(b))))!=b), c_0_11).
+cnf(c_0_14,hypothesis,(add(negate(add(X1,X2)),negate(add(negate(X1),X2)))=negate(X2)), inference(pm,[status(thm)],[c_0_12, c_0_10, theory(equality)])).
+cnf(c_0_15,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_13, c_0_14, theory(equality)]), c_0_6, theory(equality)]), theory(equality,[symmetry])]), ['proof']).
+# SZS output end CNFRefutation.
+# Parsed axioms                        : 5
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 5
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 5
+# Processed clauses                    : 54
+# ...of these trivial                  : 3
+# ...subsumed                          : 37
+# ...remaining for further processing  : 14
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 2
+# Generated clauses                    : 329
+# ...of the previous two non-trivial   : 263
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 329
+# Factorizations                       : 0
+# Equation resolutions                 : 0
+# Current number of processed clauses  : 12
+#    Positive orientable unit clauses  : 8
+#    Positive unorientable unit clauses: 4
+#    Negative unit clauses             : 0
+#    Non-unit-clauses                  : 0
+# Current number of unprocessed clauses: 199
+# ...number of literals in the above   : 199
+# Clause-clause subsumption calls (NU) : 0
+# Rec. Clause-clause subsumption calls : 0
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 6
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 35
+# BW rewrite match successes           : 14
+# Condensation attempts                : 0
+# Condensation successes               : 0
