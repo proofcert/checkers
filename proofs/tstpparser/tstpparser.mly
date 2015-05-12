@@ -208,6 +208,6 @@ ant:
 | TH_EQ          { [] }
 | TH_EQ_S        { [] }
 | name           { [$1] }
-| inference_info { match $1 with (_, ant) -> ant }
+| inference_info { failwith ("Nested inferences are not supported") (*match $1 with (_, ant) -> ant*) }
 /* TODO: find out what this means */
 
