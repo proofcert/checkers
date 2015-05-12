@@ -9,17 +9,8 @@ accum_sig certificatesLKF.
 % constructor for rclause
 type id index -> rclause.
 
-type varmaps list (list int) -> state. % the hd index is the original and all others in the list should be mapped to it
-
-type varmap int -> int -> list (list int) -> list (list int) -> o.
-type varmapped int -> int -> list (list int) -> o.
-
 % unary rules
-type assume_negation,
-     fof_simplification,
-     split_conjunct,
-     variable_rename,
-     cn
+type cn
  rclause -> int -> resolv.
 
 type ignore_rule resolv -> o.
