@@ -13,7 +13,7 @@ let incrline lexbuf =
 }
 
 let word = ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
-let quoted_word = ''' word '''
+let quoted_word = ''' ['a'-'z' 'A'-'Z']+ '''
 let var = ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9' '_']*
 let integer = ['0'-'9']+
 let filepath = ''' [^''']* '''
