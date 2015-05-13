@@ -11,19 +11,20 @@ ecode=/tmp/ecode.$$.log
 
 COUNTER=0
 cd $eout_dir
-for problem in `ls -d *.out | sed 's/\(.*\)\..*/\1/'`
+for problem in `ls -d *.out`
   do
     echo "-1" >$ecode
     echo "Running tstpparser on $problem"
-    $tptp_parser "$problem.out" $problem
+    PNAME=`ls -d $problem | sed -e "s/-.*//" | sed -e "s/\(.*\)/\L\1/"`
+    $tptp_parser "$problem" $PNAME
     echo $? | tr -d "\n" >$ecode
     if [ $? == 0 ] ; then
-      mv $problem.mod $modout_dir
-      mv $problem.sig $modout_dir
+      mv $PNAME.mod $modout_dir
+      mv $PNAME.sig $modout_dir
       let COUNTER=COUNTER+1
       else
-          rm -f $problem.mod
-          rm -f $problem.sig
+          rm -f $PNAME.mod
+          rm -f $PNAME.sig
     fi
   done
 cd $cur
