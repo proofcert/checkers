@@ -21,6 +21,10 @@ let getNumArgs arg_str =
   let str_lst = Str.split (regexp " ") arg_str in
   count str_lst 0
 
+let add_var v lst = match List.mem v !lst with
+  | true -> ()
+  | false -> lst := v :: !lst
+
 let theoryToString thr = match thr with
   | FOF -> "fof"
   | CNF -> "cnf"
@@ -29,6 +33,9 @@ let theoryToString thr = match thr with
   | TPI -> "tpi"
 
 let proof_dag = DAG.create () ;;
+
+let quantified_vars = ref [] ;;
+let used_vars = ref [] ;;
 
 %}
 
@@ -68,7 +75,11 @@ proof:
         | _ -> $9
       in
       (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
-      DAG.insert proof_dag name formula inference parents;
+      let free_vars = List.filter (fun used -> not (List.mem used !quantified_vars) ) !used_vars in
+      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ " ))") formula free_vars in
+      used_vars := [];
+      quantified_vars := [];
+      DAG.insert proof_dag name closed_formula inference parents;
       proof_dag
     | _ -> print_endline ("Unsupported theory: " ^ (theoryToString $1)); exit 4
 }
@@ -89,7 +100,11 @@ proof:
         | _ -> $9
       in
       (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
-      DAG.insert proof_dag name formula inference parents;
+      let free_vars = List.filter (fun used -> not (List.mem used !quantified_vars) ) !used_vars in
+      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ " ))") formula free_vars in
+      used_vars := [];
+      quantified_vars := [];
+      DAG.insert proof_dag name closed_formula inference parents;
       proof_dag
     | _ -> print_endline ("Unsupported theory: " ^ (theoryToString $1)); exit 4
 }
@@ -122,8 +137,8 @@ formula:
 /*| formula IMP formula   { " unsupported " }
 | formula BIMP formula  { " unsupported " }
 | NOT formula           { " unsupported " }*/
-| FORALL LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
-| EXISTS LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| FORALL LBRACKET qvar RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
+| EXISTS LBRACKET qvar RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | FALSE                 { "f-" }
 | TRUE                  { "t+" }
 
@@ -148,15 +163,14 @@ args:
 | term COMMA args { $1 ^ " " ^ $3 }
 
 term:
-| VAR         { $1 }
+| VAR         { add_var $1 used_vars; $1 }
 | WORD        { DAG.set_function proof_dag $1 0; $1 }
 | WORD LPAREN args RPAREN {
   DAG.set_function proof_dag $1 (getNumArgs $3);
   "( " ^ $1 ^ " " ^ $3 ^ " )" }
 
-/* TODO: policy for variable syntax in the certificates? */
-var:
-| VAR  { $1 }
+qvar:
+| VAR  { add_var $1 quantified_vars; $1 }
 
 annotation:
 | file_info      { (AXIOM, []) }
