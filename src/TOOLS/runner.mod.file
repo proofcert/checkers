@@ -2,15 +2,15 @@ accumulate lists.
 accumulate debug.
 
 parseInput [(pr I Cl)] f- [] NCl [I] :-
-  negateNA Cl NCl.
+  negate Cl NCl.
 
 parseInput [(pr I Cl) | Ls] F Il (NCl !-! F2) [I | Il2] :-
   parseInput Ls F Il F2 Il2,
-  negateNA Cl NCl.
+  negate Cl NCl.
 
 negateMap [] [].
 negateMap [(pr I Cl) | Map] [(pr I NCl) | Map2] :-
-  negateNA Cl NCl,
+  negate Cl NCl,
   negateMap Map Map2.
 
 run :-
@@ -31,16 +31,3 @@ resolve [] F Cert :-
 		  (print "Fail\n", halt), fail.
 resolve [(pr I C) | R] F Cert :-
   mapsto I C => resolve R F Cert.
-
-negateNA t+ f-.
-negateNA f- t+.
-negateNA (p A) (p A).
-negateNA (n A) (n A).
-negateNA (A &+& B)  (NA !-! NB) &
-negateNA (A !-! B)  (NA &+& NB) &
-negateNA (A &-& B)  (NA !+! NB) &
-negateNA (A !+! B)  (NA &-& NB) :- negateNA A NA, negateNA B NB.
-negateNA (all B)  (some NB) &
-negateNA (some B) (all NB) :- pi x\ negateNA (B x) (NB x).
-
-

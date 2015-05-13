@@ -1,4 +1,4 @@
-sig grp530.
+sig COL016-1.
 
 accum_sig lkf-kernel.
 accum_sig eprover.
@@ -8,10 +8,10 @@ accum_sig paramodulation.
 accum_sig base.
 accum_sig lkf-syntax.
 
-type divide i -> i -> i.
-type multiply i -> i -> i.
-type inverse i -> i.
-type b2 i.
-type a2 i.
+type m i.
+type l i.
+type combinator i.
+type b i.
+type apply i -> i -> i.
 
 

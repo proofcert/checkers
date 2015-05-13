@@ -1,4 +1,4 @@
-sig rob002.
+sig COL052-1.
 
 accum_sig lkf-kernel.
 accum_sig eprover.
@@ -8,9 +8,12 @@ accum_sig paramodulation.
 accum_sig base.
 accum_sig lkf-syntax.
 
-type add i -> i -> i.
+type common_bird i -> i.
+type odd_bird i.
+type compose i -> i -> i.
+type c i.
+type response i -> i -> i.
 type b i.
-type negatee i -> i.
 type a i.
 
 
