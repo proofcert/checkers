@@ -60,14 +60,17 @@ proof:
       let (inference, parents) = match $9 with
         | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture" || $5 = "hypothesis") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
-          else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+          else begin
+            print_endline ("Unexpected role: \'" ^ $5 ^ "\' for leaf.");
+            exit 3
+          end
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
       (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
       proof_dag
-    | _ -> failwith ("Unsupported theory: " ^ (theoryToString $1))
+    | _ -> print_endline ("Unsupported theory: " ^ (theoryToString $1)); exit 4
 }
 /* The last inference seems to have one extra argument */
 | theory LPAREN name COMMA role COMMA formula COMMA annotation COMMA LBRACKET WORD RBRACKET RPAREN DOT {
@@ -78,14 +81,17 @@ proof:
       let (inference, parents) = match $9 with
         | (AXIOM, []) -> if ($5 = "axiom" || $5 = "neg_conjecture" || $5 = "hypothesis") then (AXIOM, [])
           else if $5 = "conjecture" then (CONJECTURE, [])
-          else failwith ("Unexpected role: \'" ^ $5 ^ "\' for leaf.")
+          else begin
+            print_endline ("Unexpected role: \'" ^ $5 ^ "\' for leaf.");
+            exit 3
+          end
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
       (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       DAG.insert proof_dag name formula inference parents;
       proof_dag
-    | _ -> failwith ("Unsupported theory: " ^ (theoryToString $1))
+    | _ -> print_endline ("Unsupported theory: " ^ (theoryToString $1)); exit 4
 }
 
 theory:
@@ -113,9 +119,9 @@ formula:
 | formula AND formula   { $1 ^ " &+& " ^ $3 }
 | formula OR formula    { $1 ^ " !-! " ^ $3 }
 /* NOTE: the following three translations are wrong. These clauses should not be used. */
-| formula IMP formula   { " unsupported " }
+/*| formula IMP formula   { " unsupported " }
 | formula BIMP formula  { " unsupported " }
-| NOT formula           { " unsupported " }
+| NOT formula           { " unsupported " }*/
 | FORALL LBRACKET var RBRACKET COLON formula   { "(all (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | EXISTS LBRACKET var RBRACKET COLON formula   { "(some (" ^ $3 ^ "\\ " ^ $6 ^ ")) " }
 | FALSE                 { "f-" }
@@ -208,6 +214,6 @@ ant:
 | TH_EQ          { [] }
 | TH_EQ_S        { [] }
 | name           { [$1] }
-| inference_info { failwith ("Nested inferences are not supported") (*match $1 with (_, ant) -> ant*) }
+| inference_info { print_endline ("Nested inferences are not supported"); exit 2 (*match $1 with (_, ant) -> ant*) }
 /* TODO: find out what this means */
 

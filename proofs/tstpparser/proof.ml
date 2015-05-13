@@ -203,7 +203,7 @@ let printCertMod dag mod_name =
       | DONE ->
         assert (List.length parents == 1);
         printCert_ (List.nth parents 0)
-      | r -> failwith ("Certificate not specified for this inference: " ^ string_of_inference r)
+      | r -> print_endline ("Certificate not specified for this inference: " ^ string_of_inference r); exit 5
     end
     | DAG.Empty -> ""
   in
