@@ -17,7 +17,11 @@ inCtxt congI (some F\ some X\ some Y\ some Z\ some X'\
 inCtxt predI (some S\ some T\ some T'\
        	     	   n (T =*= T') &+& (n (S == T) &+& p (S == T')
 		     	    	    !+!
-				     n (T == S) &+& p (T' == S))).
+				     n (T == S) &+& p (T' == S)
+				    !+! 
+				     p (S == T) &+& n (S == T')
+		     	    	    !+!
+				     p (T == S) &+& n (T' == S))).
 
 
 /* Bureau in order of appearance*/
