@@ -18,7 +18,8 @@ for problem in `ls -d *.out`
     PNAME=`ls -d $problem | sed -e "s/-.*//" | sed -e "s/\(.*\)/\L\1/"`
     $tptp_parser "$problem" $PNAME
     echo $? | tr -d "\n" >$ecode
-    if [ $? == 0 ] ; then
+    let V=`cat $ecode`
+    if [ $V == 0 ] ; then
       echo "Copying files to $modout_dir"
       mv $PNAME.mod $modout_dir
       mv $PNAME.sig $modout_dir
