@@ -2,10 +2,10 @@
 
 cur="`pwd`"
 eout_dir=$1
-modout_dir=$2
+modout_dir=$cur/$2
 
 ep_name="eproblem"
-tptp_parser=$1/../tstpparser/tstpparser
+tptp_parser=../../tstpparser/tstpparser
 
 ecode=/tmp/ecode.$$.log
 
@@ -19,6 +19,7 @@ for problem in `ls -d *.out`
     $tptp_parser "$problem" $PNAME
     echo $? | tr -d "\n" >$ecode
     if [ $? == 0 ] ; then
+      echo "Copying files to $modout_dir"
       mv $PNAME.mod $modout_dir
       mv $PNAME.sig $modout_dir
       let COUNTER=COUNTER+1
