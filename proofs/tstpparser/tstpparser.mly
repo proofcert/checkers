@@ -74,9 +74,8 @@ proof:
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
-      (*print_string ("\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       let free_vars = List.filter (fun used -> not (List.mem used !quantified_vars) ) !used_vars in
-      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ " ))") formula free_vars in
+      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ "))") formula free_vars in
       used_vars := [];
       quantified_vars := [];
       DAG.insert proof_dag name closed_formula inference parents;
@@ -99,9 +98,8 @@ proof:
         | (INTRODUCED_DEF, []) -> (AXIOM, [])
         | _ -> $9
       in
-      (*print_string ("\nLAST RULE\nName: " ^ $3 ^ "\nRole: " ^ $5 ^ "\nFormula: " ^ $7 ^ "\nParents: " ^ List.fold_left (fun acc p -> p ^ ", " ^ acc) "" parents);*)
       let free_vars = List.filter (fun used -> not (List.mem used !quantified_vars) ) !used_vars in
-      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ " ))") formula free_vars in
+      let closed_formula = List.fold_left (fun acc fv -> "(all (" ^ fv ^ "\\ " ^ acc ^ "))") formula free_vars in
       used_vars := [];
       quantified_vars := [];
       DAG.insert proof_dag name closed_formula inference parents;
@@ -167,7 +165,7 @@ term:
 | WORD        { DAG.set_function proof_dag $1 0; $1 }
 | WORD LPAREN args RPAREN {
   DAG.set_function proof_dag $1 (getNumArgs $3);
-  "( " ^ $1 ^ " " ^ $3 ^ " )" }
+  "(" ^ $1 ^ " " ^ $3 ^ ")" }
 
 qvar:
 | VAR  { add_var $1 quantified_vars; $1 }
