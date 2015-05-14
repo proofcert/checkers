@@ -9,11 +9,16 @@ RUNNER_MOD_BASE=$TOOLS/runner.mod.file
 RUNNER_SIG_BASE=$TOOLS/runner.sig.file
 RUNNER_MOD_TARGET=$DEBUG/runner.mod
 RUNNER_SIG_TARGET=$DEBUG/runner.sig
+RUNNER_MOD_TARGET_SRC=$SRCDIR/runner.mod
+RUNNER_SIG_TARGET_SRC=$SRCDIR/runner.sig
 
 export CMD="tjsim -b runner -s run."
 
 ARGS=("$@")
 ELEMENTS=${#ARGS[@]}
+
+rm -f $RUNNER_MOD_TARGET_SRC
+rm -f $RUNNER_SIG_TARGET_SRC
 
 rm -rf $DEBUG
 mkdir $DEBUG
