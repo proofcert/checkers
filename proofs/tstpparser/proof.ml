@@ -136,6 +136,11 @@ let printCertMod dag mod_name =
   (* Find a more elegant way to do this *)
   let leaf_clauses = ref [] in
 
+  let add_leaf l lst = match List.mem l !lst with
+    | true -> ()
+    | false -> lst := l :: !lst
+  in
+
   let printClause node = match node with
     | DAG.Node(_, (_, _, f), _) -> begin
       try match Hashtbl.find map f with
@@ -152,7 +157,7 @@ let printCertMod dag mod_name =
       | AXIOM | CONJECTURE ->
         assert (List.length parents == 0);
         Hashtbl.add map f !i;
-        leaf_clauses := f :: !leaf_clauses;
+        add_leaf f leaf_clauses;
         i := !i + 1; ""
       (* Binary inferences *)
       (* Paramodulation and rewrite occur in the resolution proof *)
@@ -184,7 +189,7 @@ let printCertMod dag mod_name =
       | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
         assert (List.length parents == 1);
         Hashtbl.add map f !i;
-        leaf_clauses := f :: !leaf_clauses;
+        add_leaf f leaf_clauses;
         i := !i + 1; ""
       (* Clause normalization occurs in the resolution proof *)
       | CN ->
@@ -214,7 +219,6 @@ let printCertMod dag mod_name =
   let indexed_clauses = String.concat ",\n" leaves in
   let lst_map = Hashtbl.fold (fun form idx acc -> ("pr " ^ string_of_int idx ^ " " ^ form) :: acc) map [] in
   let pr_map = String.concat ",\n" lst_map in
-  let state_str = " estate " in
   let in_sig_f = Hashtbl.fold (fun f ar s -> match ar with
     | 0 -> s
     | n -> (s ^ "inSig " ^ f ^ ".\n")
@@ -227,7 +231,7 @@ let printCertMod dag mod_name =
   "accumulate lkf-kernel.\n" ^
   "accumulate eprover.\n" ^
   "accumulate resolution_steps.\n\n" ^
-  "resProblem \"" ^ mod_name ^ "\" [" ^ indexed_clauses ^ "] \n(rsteps [" ^ steps ^ "]" ^ state_str ^ ")\n (map [\n" ^ pr_map ^ "\n])." ^
+  "resProblem \"" ^ mod_name ^ "\" [" ^ indexed_clauses ^ "] \n(resteps [" ^ steps ^ "])\n (map [\n" ^ pr_map ^ "\n])." ^
   in_sig_f ^ in_sig_p
 
 let printCertSig dag mod_name =
