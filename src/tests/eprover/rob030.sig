@@ -10,7 +10,7 @@ accum_sig lkf-syntax.
 
 type c i.
 type add i -> i -> i.
-type negateE i -> i.
+type negate i -> i.
 type d i.
 
 
