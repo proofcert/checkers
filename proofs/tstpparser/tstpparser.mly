@@ -6,19 +6,18 @@ open Str
 let getNumArgs arg_str =
   let rec count lst paren = match lst with
     | [] -> 0
-    | hd :: tl -> begin
-      if hd = "(" then count tl (paren + 1)
-      else if hd = ")" then begin
-  if paren = 1 then ( 1 + (count tl 0) )
-  else ( count tl (paren - 1) )
-      end
-      else begin
-  if paren = 0 then 1 + count tl 0
-  else count tl paren
-      end
+    | hd :: tl -> begin match hd with
+      | Text(_) ->
+        if paren = 0 then 1 + count tl 0
+        else count tl paren
+      | Delim(p) when p = "(" -> count tl (paren + 1)
+      | Delim(p) when p = ")" -> 
+        if paren = 1 then (1 + count tl 0)
+        else (count tl (paren - 1))
+      | Delim(_) -> print_endline ("Wrong delimiter."); exit 4
     end
   in
-  let str_lst = Str.split (regexp " ") arg_str in
+  let str_lst = Str.full_split (regexp "[()]") arg_str in
   count str_lst 0
 
 let add_var v lst = match List.mem v !lst with
