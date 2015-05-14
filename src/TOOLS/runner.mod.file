@@ -14,7 +14,7 @@ negateMap [(pr I Cl) | Map] [(pr I NCl) | Map2] :-
   negateMap Map Map2.
 
 run :-
-  resProblem Name Ls (rsteps C estate) (map Map),
+  resProblem Name Ls (resteps C) (map Map),
   parseInput Ls f- [] F Istate,
   print "Running on problem ", print Name, print ":\n",
   negateMap Map Map2,
