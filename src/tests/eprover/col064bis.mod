@@ -6,6 +6,7 @@ accumulate resolution_steps.
 
 resProblem "col064bis" [
 (pr 20 (all (X1\ (all (X2\ (n (( apply ( apply t X1 ) X2 ) == ( apply X2 X1 ))) )) )) ),
+(pr 19 (all (X1\ (all (X2\ (all (X3\ (n (( apply ( apply ( apply b X1 ) X2 ) X3 ) == ( apply X1 ( apply X2 X3 ) ))) )) )) )) ),
 (pr 10 (all (X1\ (p (( apply ( apply ( apply X1 ( f X1 ) ) ( g X1 ) ) ( h X1 ) ) == ( apply ( apply ( h X1 ) ( f X1 ) ) ( g X1 ) ))) )) )] 
 (rsteps [pm (id (idx 10)) (id (idx 19)) 9, pm (id (idx 9)) (id (idx 20)) 8, pm (id (idx 8)) (id (idx 19)) 7, pm (id (idx 7)) (id (idx 19)) 6, pm (id (idx 6)) (id (idx 19)) 5, pm (id (idx 5)) (id (idx 19)) 4, pm (id (idx 4)) (id (idx 20)) 3, pm (id (idx 3)) (id (idx 19)) 2, pm (id (idx 2)) (id (idx 19)) 1, pm (id (idx 1)) (id (idx 20)) 0] estate )
  (map [
