@@ -8,11 +8,11 @@ accum_sig paramodulation.
 accum_sig base.
 accum_sig lkf-syntax.
 
-type common_bird i -> i -> i -> i.
+type common_bird i -> i.
 type odd_bird i.
 type compose i -> i -> i.
 type c i.
-type response i -> i -> i -> i -> i -> i.
+type response i -> i -> i.
 type b i.
 type a i.
 

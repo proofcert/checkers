@@ -12,6 +12,6 @@ type m i.
 type l i.
 type combinator i.
 type b i.
-type apply i -> i -> i -> i -> i.
+type apply i -> i -> i.
 
 

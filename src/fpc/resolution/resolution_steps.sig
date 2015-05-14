@@ -15,7 +15,6 @@ type istate list int -> state. %state of input formula operands indices
 
 type resolv rclause -> rclause -> int -> resolv.
 type rsteps list resolv -> state -> cert. % sequence of steps and a state
-type resteps list resolv -> cert. % sequence of steps
 
 type dlist rclause -> rclause -> cert.
 
