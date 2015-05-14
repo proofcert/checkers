@@ -4,6 +4,12 @@ module paramodulation.
 /*
 To avoid adding the rewrit axioms everywhere, I add them here, and "include" them in every paramX.
 */
+/* For debugging*/
+type blurt A -> o.
+blurt PM :-
+term_to_string PM Str, print Str, print "\n".
+
+
 inCtxt eqI (some S\ some T\ (n (S == T) &+& (p (S =*= T) !+! p (T =*= S)))).
 inCtxt congI (some F\ some X\ some Y\ n (X =*= Y) &+& p (F X =*= F Y)).
 inCtxt congI (some F\ some X\ some Y\ some Z\ n (X =*= Y) &+&
@@ -15,13 +21,24 @@ inCtxt congI (some F\ some X\ some Y\ some Z\ some X'\
 					     	   p (F Y X Z =*= F Y X' Z) !+!
 					     	   p (F Y Z X =*= F Y Z X'))).
 inCtxt predI (some S\ some T\ some T'\
-       	     	   n (T =*= T') &+& (n (S == T) &+& p (S == T')
+       	     	   n (T =*= T')  &+& (n (S == T) &+& p (S == T')
 		     	    	    !+!
 				     n (T == S) &+& p (T' == S)
 				    !+! 
 				     p (S == T) &+& n (S == T')
 		     	    	    !+!
-				     p (T == S) &+& n (T' == S))).
+				     p (T == S) &+& n (T' == S) 
+				    !+!
+				     n (T == S) &+& p (S == T')
+		     	    	    !+!
+				     n (S == T) &+& p (T' == S)
+				    !+! 
+				     p (T == S) &+& n (S == T')
+		     	    	    !+!
+				     p (S == T) &+& n (T' == S)  
+)).
+
+inCtxt symI (some S\ some T\  n (S == T) &+& p (T == S)).
 
 
 /* Bureau in order of appearance*/
@@ -51,7 +68,7 @@ store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
 	     decide_ke (fromC I) I (doneWith fromI).
 
 /*Common (maybe move the initial_ke here*/
-some_ke C V C :- (C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)).
+some_ke C V C :- ((C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)); (C = (lastC _))).
 
 /* Last of last of back bone of cuts : no rewrite, just instanciation. One of them is necessarily a negative
 atom (otherwise, not stored)
@@ -60,3 +77,15 @@ Then we are able to remove one of the following */
 
 decide_ke (dlist (pid From) (pid Into)) From (doneWith Into).
 decide_ke (dlist (pid From) (pid Into)) Into (doneWith From).
+/* Or, if using symmetry at the end */
+decide_ke (dlist (pid From) (pid Into)) symI (decOn Into c>> doneWith From).
+decide_ke (dlist (pid From) (pid Into)) symI (decOn From c>> doneWith Into).
+
+/*  Or, if the last one is not a negative atom but an existentially closed negative atom. Have to rip off the existentials first*/
+decide_ke (dlist (pid From) (pid Into)) From (lastC Into).
+decide_ke (dlist (pid From) (pid Into)) Into (lastC From).
+
+release_ke (lastC From) (lastC From).
+store_kc (lastC From) _ lastI (dlist (pid From) (pid lastI)).
+
+

@@ -23,14 +23,14 @@ infix ==, =*= 45.
 type inSig	A -> o.
 
 /* Index */
-type eqI, congI, predI index.
+type eqI, congI, predI, symI,lastI index.
 type resI, intoI, fromI index.
 type chainI int -> index.
 /* Certificate */
 type c>>, c<< cert -> cert -> cert.
 infix c<<, c>> 30.
 type witC cert -> cert.
-type doneWith, decOn index -> cert.
+type doneWith, lastC, decOn index -> cert.
 type rewC      	      index -> int -> cert.
 type fromC	      index -> cert.
 

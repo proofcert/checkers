@@ -7,7 +7,8 @@ accumulate paramodulation.
 
 %binary rules, use the right indices and the right resolution certificate
 cut_ke (rsteps [PM | RS] St) K C1 C2 :-
-  param_rule PM I1 I2 I,
+  param_rule PM I1 I2 I,  
+  term_to_string PM Str, print Str, print "\n",
   cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] St) K C1 C2. % paramodulation step
 
 %unary rules, just track the indices
