@@ -20,26 +20,47 @@ inCtxt congI (some F\ some X\ some Y\ some Z\ some X'\
                                                   (p (F X Y Z =*= F X' Y Z) !+!
 					     	   p (F Y X Z =*= F Y X' Z) !+!
 					     	   p (F Y Z X =*= F Y Z X'))).
+/*Ciurrent changing : 
+Having a negative as a right-most will not do when the cert associated is doneWith.
+So predI is split. predI' is created. The latter has a negative as a rightmost and 
+a cert that releases-stores the NEGATIVE atom and decides on resI (instead of doneWithing it)
+*/
 inCtxt predI (some S\ some T\ some T'\
        	     	   n (T =*= T')  &+& (n (S == T) &+& p (S == T')
 		     	    	    !+!
 				     n (T == S) &+& p (T' == S)
-				    !+! 
-				     p (S == T) &+& n (S == T')
-		     	    	    !+!
-				     p (T == S) &+& n (T' == S) 
-				    !+!
+				    !+!    				  
 				     n (T == S) &+& p (S == T')
 		     	    	    !+!
 				     n (S == T) &+& p (T' == S)
+				  
+)).
+inCtxt predI' (some S\ some T\ some T'\
+       	     	   n (T =*= T')  &+& (p (S == T) &+& n (S == T')
+		     	    	    !+!
+				     p (T == S) &+& n (T' == S) 
 				    !+! 
 				     p (T == S) &+& n (S == T')
 		     	    	    !+!
 				     p (S == T) &+& n (T' == S)  
 )).
 
+
+
+
 inCtxt symI (some S\ some T\  n (S == T) &+& p (T == S)).
 
+/*If the rightmost atom is negative, already know that which of the equalities is used 
+Have to FIRST decide on the Into (to stripp off existentials and get to the atom */
+decide_ke (dlist (pid Into) (pid From)) Into (useC From).
+decide_ke (dlist (pid From) (pid Into)) Into (useC From).
+release_ke (useC From) (useC From).
+store_kc (useC From) _ intoI (useC From).
+/*At this point, the "into" negative atom is stored under "intoI" index, we know it's negative so decide on the second predI'*/
+decide_ke (useC From) predI' ((rewC From 0) c>> ((doneWith intoI) c>> posResC)).
+release_ke posResC posResC.
+store_kc posResC _ lastI posResC.
+decide_ke posResC resI (doneWith lastI).
 
 /* Bureau in order of appearance*/
 false_kc C C.
@@ -68,7 +89,7 @@ store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
 	     decide_ke (fromC I) I (doneWith fromI).
 
 /*Common (maybe move the initial_ke here*/
-some_ke C V C :- ((C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)); (C = (lastC _))).
+some_ke C V C :- ((C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)); (C = (lastC _)); (C = (useC _))).
 
 /* Last of last of back bone of cuts : no rewrite, just instanciation. One of them is necessarily a negative
 atom (otherwise, not stored)
