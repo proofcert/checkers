@@ -1,5 +1,5 @@
 /*
- * Takes a certificate for LKF and double negates it so that
+ * Takes a certificate for LKF and double negateForms it so that
  * it can be checked with LJF.
  * (LKF == imbed + LJF)
  *
@@ -77,7 +77,7 @@ true_jc C C' 		:- false_kc C C'.
 
 cut_je C F CG CD :-
   cut_ke C F' CA CB,
-  ((isNeg F', negate F' FF, imbedForm- FF F, CG = CA, CD = CB)
+  ((isNeg F', negateForm F' FF, imbedForm- FF F, CG = CA, CD = CB)
   ;
   (isPos F', imbedForm- F' F, CG = CB, CD = CA)).
 

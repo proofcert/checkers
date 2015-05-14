@@ -2,15 +2,15 @@ accumulate lists.
 accumulate debug.
 
 parseInput [(pr I Cl)] f- [] NCl [I] :-
-  negate Cl NCl.
+  negateForm Cl NCl.
 
 parseInput [(pr I Cl) | Ls] F Il (NCl !-! F2) [I | Il2] :-
   parseInput Ls F Il F2 Il2,
-  negate Cl NCl.
+  negateForm Cl NCl.
 
 negateMap [] [].
 negateMap [(pr I Cl) | Map] [(pr I NCl) | Map2] :-
-  negate Cl NCl,
+  negateForm Cl NCl,
   negateMap Map Map2.
 
 run :-

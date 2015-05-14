@@ -34,7 +34,7 @@ check Cert (foc (p A)) :-
 % cut
 check Cert (unfK nil) :-
   spy "" (cut_ke Cert F CertA CertB),
-  negate F NF,
+  negateForm F NF,
   spy "Cut left " (check CertA (unfK [F])),
   spy "Cut right " (check CertB (unfK [NF])).
 
@@ -119,19 +119,19 @@ isNeg A :- isNegForm A ; isNegAtm A.
 isPos A :- isPosForm A ; isPosAtm A.
 isPosUM A :- isPos A ; isNegAtm A.
 
-negate f- t+.
-negate t+ f-.
-negate t- f+.
-negate f+ t-.
+negateForm f- t+.
+negateForm t+ f-.
+negateForm t- f+.
+negateForm f+ t-.
 
-negate (p A) (n A).
-negate (n A) (p A).
-negate (A &+& B)  (NA !-! NB) &
-negate (A !-! B)  (NA &+& NB) &
-negate (A &-& B)  (NA !+! NB) &
-negate (A !+! B)  (NA &-& NB) :- negate A NA, negate B NB.
-negate (all B)  (some NB) &
-negate (some B) (all NB) :- pi x\ negate (B x) (NB x).
+negateForm (p A) (n A).
+negateForm (n A) (p A).
+negateForm (A &+& B)  (NA !-! NB) &
+negateForm (A !-! B)  (NA &+& NB) &
+negateForm (A &-& B)  (NA !+! NB) &
+negateForm (A !+! B)  (NA &-& NB) :- negateForm A NA, negateForm B NB.
+negateForm (all B)  (some NB) &
+negateForm (some B) (all NB) :- pi x\ negateForm (B x) (NB x).
 
 andPos_k Cert (A &+& B) left-first CertA CertB :-
    andPos_ke Cert (A &+& B) CertA CertB.

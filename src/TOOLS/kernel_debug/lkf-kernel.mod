@@ -33,7 +33,7 @@ check Cert (foc (p A)) :-
 % cut
 check Cert (unfK nil) :-
   cut_ke Cert F CertA CertB,
-  negate F NF,
+  negateForm F NF,
   check CertA (unfK [F]),
   check CertB (unfK [NF]).
 
@@ -115,23 +115,23 @@ isNeg A :- isNegForm A ; isNegAtm A.
 isPos A :- isPosForm A ; isPosAtm A.
 isPosUM A :- isPos A ; isNegAtm A.
 
-negate f- t+.
-negate t+ f-.
-negate t- f+.
-negate f+ t-.
+negateForm f- t+.
+negateForm t+ f-.
+negateForm t- f+.
+negateForm f+ t-.
 
-negate (p A) (n A).
-negate (n A) (p A).
-negate (A &+& B)  (NA !-! NB) &
-negate (A !-! B)  (NA &+& NB) &
-negate (A &-& B)  (NA !+! NB) &
-negate (A !+! B)  (NA &-& NB) :- negate A NA, negate B NB.
-negate (all B)  (some NB) &
-negate (some B) (all NB) :- pi x\ negate (B x) (NB x).
+negateForm (p A) (n A).
+negateForm (n A) (p A).
+negateForm (A &+& B)  (NA !-! NB) &
+negateForm (A !-! B)  (NA &+& NB) &
+negateForm (A &-& B)  (NA !+! NB) &
+negateForm (A !+! B)  (NA &-& NB) :- negateForm A NA, negateForm B NB.
+negateForm (all B)  (some NB) &
+negateForm (some B) (all NB) :- pi x\ negateForm (B x) (NB x).
 
 
-/* Temporary : for backwards compatibility. 
-Once the andPos_ke has been changed everywhere, andPos_k can be changed to andPos_ke, 
+/* Temporary : for backwards compatibility.
+Once the andPos_ke has been changed everywhere, andPos_k can be changed to andPos_ke,
 for now andPos_k calls on andPos_ke.
 */
 

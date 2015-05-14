@@ -22,7 +22,7 @@ cut_ke (rsteps [resolv I J K] B) f- (dlist I J) (rsteps [] B) :-
 % Cuts correspond to resolve steps except for the last resolve
 cut_ke (rsteps [(resolv I J K),R1 | RR] B) NC (dlist I J) (rsteps [R1|RR] B):-
   mapsto K CutForm,
- negate CutForm NC. %we would like to do the dlist on the left and also to input the resolvent as cut formulas, therefore we must negate it.
+ negateForm CutForm NC. %we would like to do the dlist on the left and also to input the resolvent as cut formulas, therefore we must negateForm it.
 
 
 % this decide is being called after the last cut

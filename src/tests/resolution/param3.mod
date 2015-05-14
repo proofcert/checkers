@@ -29,7 +29,7 @@ mapsto 4 (some Y\ p ((h (g (g Y))) == (g (g (g Y))))).
 
 clause 0 (f-).
 
-mapsto I Form :- clause I F, negate F Form.
+mapsto I Form :- clause I F, negateForm F Form.
 
 
 

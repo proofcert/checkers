@@ -40,7 +40,7 @@ clause 11  (all X\ all Y\ n 	((g X Y) ==  (g Y X))).
 
 clause 0 (f-).
 
-mapsto I Form :- clause I F, negate F Form.
+mapsto I Form :- clause I F, negateForm F Form.
 
 
 

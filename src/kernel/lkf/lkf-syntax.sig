@@ -46,4 +46,4 @@ type foc form -> seq.
 type isNegForm, isNegAtm,
      isPosForm, isPosAtm,
      isNeg, isPos, isPosUM	  form -> o.
-type negate form -> form -> o.
+type negateForm form -> form -> o.
