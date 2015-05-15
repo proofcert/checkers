@@ -143,7 +143,7 @@ let printCertMod dag mod_name =
   
   let index_clause f = match Hashtbl.mem map f with
     | true -> Hashtbl.find map f
-    | false -> Hashtbl.add map f !i; i := !i + 1; !i
+    | false -> Hashtbl.add map f !i; i := !i + 1; (!i - 1)
   in
 
   let printClause node = match node with
