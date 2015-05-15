@@ -5,7 +5,7 @@ eout_dir=$1
 modout_dir=$cur/$2
 
 ep_name="eproblem"
-tptp_parser=../../tstpparser/tstpparser
+tptp_parser=../tstpparser/tstpparser
 timeout=$3
 
 ecode=/tmp/ecode.$$.log
