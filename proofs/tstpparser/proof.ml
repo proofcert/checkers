@@ -140,6 +140,11 @@ let printCertMod dag mod_name =
     | true -> ()
     | false -> lst := l :: !lst
   in
+  
+  let index_clause f = match Hashtbl.mem map f with
+    | true -> Hashtbl.find map f
+    | false -> Hashtbl.add map f !i; i := !i + 1; !i
+  in
 
   let printClause node = match node with
     | DAG.Node(_, (_, _, f), _) -> begin
@@ -156,16 +161,15 @@ let printCertMod dag mod_name =
       (* If there is some kind of clausal transformation, this should ideally not be reached *)
       | AXIOM | CONJECTURE ->
         assert (List.length parents == 0);
-        Hashtbl.add map f !i;
+        let _ = index_clause f in
         add_leaf f leaf_clauses;
-        i := !i + 1; ""
+        ""
       (* Binary inferences *)
       (* Paramodulation and rewrite occur in the resolution proof *)
       | PM | RW ->
         assert (List.length parents == 2);
-        Hashtbl.add map f !i;
-        let idx = string_of_int !i in
-        i := !i + 1;
+        let i = index_clause f in
+        let idx = string_of_int i in
         let mom = List.nth parents 0 in
         let dad = List.nth parents 1 in
         let momside = printCert_ mom in
@@ -188,15 +192,14 @@ let printCertMod dag mod_name =
       (* These are considered axioms since we are not checking the clausal normal form translation *)
       | SPLIT_CONJUNCT | FOF_SIMPLIFICATION | ASSUME_NEGATION | VARIABLE_RENAME ->
         assert (List.length parents == 1);
-        Hashtbl.add map f !i;
+        let _ = index_clause f in
         add_leaf f leaf_clauses;
-        i := !i + 1; ""
+        ""
       (* Clause normalization occurs in the resolution proof *)
       | CN ->
         assert (List.length parents == 1);
-        Hashtbl.add map f !i;
-        let idx = string_of_int !i in
-        i := !i + 1;
+        let i = index_clause f in
+        let idx = string_of_int i in
         let mom = List.nth parents 0 in
         let momside = printCert_ mom in
         let inf_name = string_of_inference inf in
