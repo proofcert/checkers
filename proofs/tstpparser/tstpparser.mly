@@ -14,10 +14,11 @@ let getNumArgs arg_str =
       | Delim(p) when p = ")" -> 
         if paren = 1 then (1 + count tl 0)
         else (count tl (paren - 1))
-      | Delim(_) -> print_endline ("Wrong delimiter."); exit 4
+      | Delim(s) when s = " " -> count tl paren
+      | Delim(d) -> print_endline ("Wrong delimiter: " ^ d); exit 4
     end
   in
-  let str_lst = Str.full_split (regexp "[()]") arg_str in
+  let str_lst = Str.full_split (regexp "[() ]") arg_str in
   count str_lst 0
 
 let add_var v lst = match List.mem v !lst with
