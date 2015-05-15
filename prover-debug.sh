@@ -43,12 +43,12 @@ if [ $ELEMENTS -ne 1 ]
   then echo "Error: at least one certificate must be given!"
   else
   for (( i=0;i<$ELEMENTS;i++)); do
-        echo -e "accum_sig ${ARGS[${i}]}." >> $RUNNER_SIG_TARGET
-        echo -e "accumulate ${ARGS[${i}]}." >> $RUNNER_MOD_TARGET
+        echo -e "accum_sig ${ARGS[${i}]}\\n." >> $RUNNER_SIG_TARGET
+        echo -e "accumulate ${ARGS[${i}]}\\n." >> $RUNNER_MOD_TARGET
   done
 
-  echo $(cat $RUNNER_SIG_BASE) >> $RUNNER_SIG_TARGET
-  echo $(cat $RUNNER_MOD_BASE) >> $RUNNER_MOD_TARGET
+  `cat $RUNNER_SIG_BASE >> $RUNNER_SIG_TARGET`
+  `cat $RUNNER_MOD_BASE >> $RUNNER_MOD_TARGET`
 
   cd $DEBUG && make>/dev/null && $CMD
   rm -rf $DEBUG
