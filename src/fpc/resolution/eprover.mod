@@ -1,6 +1,6 @@
 module eprover.
 
-accumulate binary_res_fol_nosub.
+%accumulate binary_res_fol_nosub.
 accumulate paramodulation.
 
 % gets a sequent |- A !-! B, C, D !-! E, etc.

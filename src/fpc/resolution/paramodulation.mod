@@ -45,9 +45,23 @@ inCtxt predI' (some S\ some T\ some T'\
 				     p (S == T) &+& n (T' == S)  
 )).
 
+inCtxt pred4reflI (some S\ some T\ 
+       	     	   n (T =*= S)  &+& p (S == T)).
+
+/*
+inCtxt pred4reflI (some S\ some T\ some T'\
+       	     	   (n (T =*= T')  &+& p (S == T)) &+& n (S == T')
+		     	    	    !+!
+		   (n (T =*= T')  &+&  p (T == S)) &+& n (T' == S) 
+				    !+! 
+		   (n (T =*= T')  &+&  p (T == S)) &+& n (S == T')
+		     	    	    !+!
+		   (n (T =*= T')  &+&   p (S == T)) &+& n (T' == S)  
+).
+*/
 
 
-
+%inCtxt reflI (some S\ p (S == S)).
 inCtxt symI (some S\ some T\  n (S == T) &+& p (T == S)).
 
 /*If the rightmost atom is negative, already know that which of the equalities is used 
@@ -61,6 +75,8 @@ decide_ke (useC From) predI' ((rewC From 0) c>> ((doneWith intoI) c>> posResC)).
 release_ke posResC posResC.
 store_kc posResC _ lastI posResC.
 decide_ke posResC resI (doneWith lastI).
+/* Or at this point, we should invoke the reflexivty*/
+decide_ke (useC From) pred4reflI ((rewC From 0) c>> (doneWith intoI)).
 
 /* Bureau in order of appearance*/
 false_kc C C.
@@ -80,16 +96,17 @@ decide_ke (decOn Into) Into (doneWith intoI).
 /*leftest branch : the rewrite */
 release_ke (rewC From I) (rewC From I).
 store_kc (rewC From I) _ (chainI I') (rewC From I') :- I' is I + 1.
-/*either :*/ decide_ke (rewC From I) congI (witC ((rewC From I) c>> (doneWith (chainI I)))).
-             some_ke (witC C) FunctionSymbol C :- inSig FunctionSymbol.
-	     orPos_ke C _ _ C :- (C = (doneWith I)) ; (C = (_ c>> _)).
-/* or    :*/ decide_ke (rewC From I) eqI ((fromC From) c<< (doneWith (chainI I))).
+/*either :*/ decide_ke (rewC From I) eqI ((fromC From) c<< (doneWith (chainI I))).
    	     release_ke (fromC I) (fromC I).
 	     store_kc (fromC I) _ fromI (fromC I).
-	     decide_ke (fromC I) I (doneWith fromI).
+	     decide_ke (fromC I) I (doneWith fromI). 
+/* or    :*/decide_ke (rewC From I) congI (witC ((rewC From I) c>> (doneWith (chainI I)))).
+             some_ke (witC C) FunctionSymbol C :- inSig FunctionSymbol.
+	     orPos_ke C _ _ C :- (C = (doneWith I)) ; (C = (_ c>> _)).
 
 /*Common (maybe move the initial_ke here*/
-some_ke C V C :- ((C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _)); (C = (lastC _)); (C = (useC _))).
+some_ke C V C :- ((C = (_ c<< _)) ; (C = (_ c>> _)) ; (C = (doneWith _));
+	      	 (C = (lastC _)); (C = (reflC _)); (C = (useC _))).
 
 /* Last of last of back bone of cuts : no rewrite, just instanciation. One of them is necessarily a negative
 atom (otherwise, not stored)
@@ -109,4 +126,9 @@ decide_ke (dlist (pid From) (pid Into)) Into (lastC From).
 release_ke (lastC From) (lastC From).
 store_kc (lastC From) _ lastI (dlist (pid From) (pid lastI)).
 
+/* Or if the last atom is not false but is violating equality's refl :
+release_ke (doneWith I) (reflC I).
+store_kc (reflC I)  _  lastI (reflC I).
+decide_ke (reflC I) reflI (doneWith lastI).
+*/
 
