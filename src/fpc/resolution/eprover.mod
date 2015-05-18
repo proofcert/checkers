@@ -6,10 +6,14 @@ accumulate paramodulation.
 % gets a sequent |- A !-! B, C, D !-! E, etc.
 
 %binary rules, use the right indices and the right resolution certificate
+% eprover doesnt distinct between the from and into clauses so we try both directions
 cut_ke (rsteps [PM | RS] St) K C1 C2 :-
-  param_rule PM I1 I2 I,  
-  term_to_string PM Str, print Str, print "\n",
+  param_rule PM I1 I2 I,
   cut_ke (rsteps [ resolv (pid (idx I1)) (pid (idx I2)) I | RS] St) K C1 C2. % paramodulation step
+cut_ke (rsteps [PM | RS] St) K C1 C2 :-
+  param_rule PM I1 I2 I,
+  cut_ke (rsteps [ resolv (pid (idx I2)) (pid (idx I1)) I | RS] St) K C1 C2. % paramodulation step
+
 
 %unary rules, just track the indices
 
