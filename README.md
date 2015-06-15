@@ -46,4 +46,7 @@ from the top-level directory, execute:
 does not require the latest version of Teyjus and can be tried without
 the intallation of the later.
 
+```
 ./prover-debug.sh module_name
+
+```
