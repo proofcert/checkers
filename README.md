@@ -1,6 +1,6 @@
 ## Checkers
 
-Checkers is a λ-prolog implementation of a tool for checking 
+Checkers is a λ-prolog implementation of a tool for checking
 proofs output by theorem provers. It is based on the theory of
 foundational proof certificates (see, for example, [here](http://www.lix.polytechnique.fr/~dale/papers/cade2013.pdf)).
 
@@ -28,8 +28,8 @@ proof in `simple.out`.
 Checkers can be (compiled and) run using the `prover.sh` script.
 The sole argument of this script must be the λ-prolog module
 containing the proof certificate the user wants to check.
-Additionally, this module and corresponding signature must be 
-in the `src` directory **or** in one of the subdirectories of 
+Additionally, this module and corresponding signature must be
+in the `src` directory **or** in one of the subdirectories of
 `tests`.
 
 If you don't want to generate your own certificate, there are
@@ -39,3 +39,11 @@ from the top-level directory, execute:
 ```
 ./prover.sh module_name
 ```
+# Comments
+
+* Checkers requires the latest version of Teyjus in order to properly
+  handle paths. It should be noted that the program prover-debug.sh
+does not require the latest version of Teyjus and can be tried without
+the intallation of the later.
+
+./prover-debug.sh module_name
