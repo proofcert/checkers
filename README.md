@@ -49,6 +49,9 @@ files `simple.mod` and `simple.sig`, one needs to place them in the `src` folder
 ./prover.sh simple
 ```
 
+Checkers was tested under Debian 8 and Fedora 21. The shell scripts are
+written for bash.
+
 ### Structure
 
 The program contains the following files and directories.
