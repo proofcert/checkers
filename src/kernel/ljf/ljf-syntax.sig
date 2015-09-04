@@ -34,9 +34,9 @@ type all    (A -> form) -> form.
 /* Units */
 type f, t 	form.
 
-infixr &-&, &+& 6.
-infixr !! 5.
-infixr arr 4.
+infixr &-&, &+& 136.
+infixr !! 135.
+infixr arr 134.
 
 type n, p      	       	  atm -> form.
 
