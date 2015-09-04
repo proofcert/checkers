@@ -25,7 +25,7 @@ if [ -z "$NO_PREPARE" ]; then
   fi
 fi
 
-export CMD="elpi -test ${MODNAME}.elpi"
+export CMD="elpi${VARIANT} -test ${MODNAME}.elpi"
 if [ -z "$NO_RUN" ]; then
     cd $SRCDIR && \
     source TJPATH && \
