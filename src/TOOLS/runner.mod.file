@@ -25,6 +25,10 @@ run :-
   print "Running on problem ", print Name, print ":\n",
   resolve Map F Cert.
 
+run.
+
+main :- run.
+
 resolve [] F Cert :-
   if (entry_point Cert F)
       (print "Success\n==============================================\n")
