@@ -43,10 +43,10 @@ proof in `simple.out`.
 The script `prover.sh` can be used to compile and run \checkers\ on given certificates.
 The argument for Checkers is the name of the `.mod` and `.sig` files of the certificate, which must be placed in the `src` folder.
 For example, in order to check the proof certificate contained in the
-files `simple.mod` and `simple.sig`, one needs to place them in the `src` folder and execute the following command:
+files `param2.mod` and `param2.sig`, one needs to place them in the `src` folder and execute the following command:
 
 ```
-./prover.sh simple
+./prover.sh param2
 ```
 
 Checkers was tested under Debian 8 and Fedora 21. The shell scripts are
