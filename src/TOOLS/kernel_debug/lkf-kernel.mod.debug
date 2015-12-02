@@ -5,7 +5,8 @@ accumulate debug.
 
 % Entry point
 entry_point Cert Form :-
-  check Cert (unfK [Form]).
+spy ""
+  (check Cert (unfK [Form])).
 
 %%%%%%%%%%%%%%%%%%
 % Structural Rules
