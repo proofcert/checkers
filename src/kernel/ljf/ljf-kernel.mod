@@ -35,11 +35,13 @@ check Cert (rf N) :-
 % store
 check Cert (unfJ [C|Rest] Rhs) :-
   (isNeg C ; isPosAtm C),
-  storeL_jc Cert C Indx Cert',
+  eigencopy C' C,
+  storeL_jc Cert C' Indx Cert',
   inCtxt Indx C => check Cert' (unfJ Rest Rhs).
 check Cert (unfJ nil (str- D)) :-
   (isPos D ; isNegAtm D),
-  storeR_jc Cert D Cert',
+  eigencopy D' D,
+  storeR_jc Cert D' Cert',
   check Cert (unfJ nil (str+ D)).
 
 % initial
@@ -85,11 +87,11 @@ check Cert (unfJ nil (str- (A &-& B))) :-
 
 % quantifers
 check Cert (unfJ [some B | Theta] R) :-
-  some_jc Cert Cert',
-  pi w\ check (Cert' w) (unfJ [B w | Theta] R).
+  some_jc Cert A Cert',
+  pi w\ eigencopy A w => check (Cert' w) (unfJ [B w | Theta] R).
 check Cert (unfJ nil (str- (all B))) :-
-  all_jc Cert Cert',
-  pi w\ check (Cert' w) (unfJ nil (str- (B w))).
+  all_jc Cert A Cert',
+  pi w\ eigencopy A w => check (Cert' w) (unfJ nil (str- (B w))).
 
 % Units
 check Cert (unfJ [f| Theta] R).
@@ -134,10 +136,12 @@ check Cert (lf (A &-& B) R) :-
 % quantifers
 check Cert (rf (some B)) :-
   some_je Cert T Cert',
-  check Cert' (rf (B T)).
+  eigencopy T T',
+  check Cert' (rf (B T')).
 check Cert (lf (all B) R) :-
   all_je Cert T Cert',
-  check (Cert') (lf (B T) R).
+  eigencopy T T',
+  check (Cert') (lf (B T') R).
 
 % Units
 check Cert (unfJ [f| Theta] R).
@@ -163,6 +167,20 @@ check Cert (rf (d+ A)) :-
 check Cert (lf (d- A) R) :-
       d-_je Cert Cert',
       check Cert' (lf (A) R).
+
+%%%%%%%%%%%
+% eigencopy
+%%%%%%%%%%%
+
+eigencopy (some B) (some B') :- eigencopy B B'.
+eigencopy (all B) (all B') :- eigencopy B B'.
+eigencopy t t.
+eigencopy f f.
+eigencopy (A !! B) (A' !! B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A &+& B) (A' &+& B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A arr B) (A' arr B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A &-& B) (A' &-& B') :- eigencopy A A', eigencopy B B'.
+
 
 %%%%%%%%%%%
 % Utilities

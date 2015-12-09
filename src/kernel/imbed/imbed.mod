@@ -61,7 +61,7 @@ storeR_jc C f C.
 
 initialR_je C I		:- initial_ke C I.
 
-some_jc C C'  		:- all_kc C C' .
+some_jc C A C'  		:- all_kc C A C' .
 some_je C T C' 		:- some_ke  C T C' .
 
 andPos_jc C F C' 	:- orNeg_kc C _ C'.

@@ -5,10 +5,11 @@ accum_sig lkf-syntax.
 
 type decide_ke					cert -> index -> cert -> o.
 type release_ke 				cert -> cert -> o.
-     
+
 type store_kc					cert -> form -> index -> cert -> o.
 type initial_ke					cert -> index -> o.
-type all_kc					cert -> (A -> cert) -> o.
+/* the first A is the client side eigenvariable while the argument to the second cert is the kernel eigenvariable */
+type all_kc					cert -> A -> (A -> cert) -> o.
 type some_ke					cert -> A -> cert -> o.
 type andNeg_kc,	 andPos_ke			cert -> form -> cert -> cert -> o.
 type andPos_k	 				cert -> form -> direction -> cert -> cert -> o.
