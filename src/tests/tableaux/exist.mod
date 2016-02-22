@@ -15,4 +15,4 @@ accumulate lkf-kernel.
 		pr 3 (n (f c)),
 		pr 4 (p (f c)) ]).
 
-signature (f X) (f Y) [X] [Y].
+eigencopy (f X) (f Y) :- eigencopy X Y.

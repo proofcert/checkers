@@ -80,7 +80,7 @@ decide_ke (useC From) pred4reflI ((rewC From 0) c>> (doneWith intoI)).
 
 /* Bureau in order of appearance*/
 false_kc C C.
-all_kc (dlist (pid From) (pid Into)) (x\ dlist (pid From) (pid Into)).
+all_kc (dlist (pid From) (pid Into)) _ (x\ dlist (pid From) (pid Into)).
 store_kc (dlist (pid From) (pid Into)) _ resI (dlist (pid From) (pid Into)).
 %decide_ke (dlist (pid From) (pid Into)) predI ((rewC From 0) c>>  ((decOn Into)  c>> (doneWith resI))).
 decide_ke (dlist (pid From) (pid Into)) predI ((rewC Into 0) c>>  ((decOn From)  c>> (doneWith resI))).

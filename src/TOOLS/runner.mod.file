@@ -1,5 +1,6 @@
 accumulate lists.
 accumulate debug.
+accumulate resolution_steps.
 
 parseInput [(pr I Cl)] f- [] NCl [I] :-
   negateForm Cl NCl.
@@ -13,12 +14,12 @@ negateMap [(pr I Cl) | Map] [(pr I NCl) | Map2] :-
   negateForm Cl NCl,
   negateMap Map Map2.
 
-%run :-
-%  resProblem Name Ls (resteps C) (map Map),
-%  parseInput Ls f- [] F Istate,
-%  print "Running on problem ", print Name, print ":\n",
-%  negateMap Map Map2,
-%  resolve Map2 F (rsteps C (istate Istate)).
+run :-
+  resProblem Name Ls (resteps C) (map Map),
+  parseInput Ls f- [] F Istate,
+  print "Running on problem ", print Name, print ":\n",
+  negateMap Map Map2,
+  resolve Map2 F (rsteps C (istate Istate)).
 
 run :-
   problem Name F Cert (map Map),

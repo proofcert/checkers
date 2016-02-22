@@ -2,6 +2,11 @@ module resolution_steps.
 
 % gets a sequent |- A &+& B, C, D &+& E, etc.
 
+% here (resolution) we dont care about eigenvariables so we must add that.
+eigencopy A A.
+
+% do we need it here?
+release_ke (rsteps A B) (rsteps A B).
 % breaking the !-! in the formula
 orNeg_kc (rsteps A B) _  (rsteps A B).
 % storing when the index is not given and therefore, not used by experts
