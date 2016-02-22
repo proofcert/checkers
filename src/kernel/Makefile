@@ -7,10 +7,12 @@ all:
 	cd lkf && $(MAKE)
 	cd ljf && $(MAKE)
 	cd imbed && $(MAKE)
+	cd tableaux && $(MAKE)
 
 .PHONY: clean
 clean:
 	cd lkf && $(MAKE) clean
 	cd ljf && $(MAKE) clean
 	cd imbed && $(MAKE) clean
+	cd tableaux && $(MAKE) clean
 
