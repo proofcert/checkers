@@ -1,3 +1,7 @@
+sig runner.
+
+accum_sig tab1.
+
 accum_sig lists.
 accum_sig base.
 

@@ -8,6 +8,7 @@ kind atm, seq, choice, index, direction type.
 type left-first, right-first direction.
 type inCtxt index -> form -> o.
 type left, right choice.
+type pr A -> B -> pair A B.
 
 /* Negative Delay */
 type d-     form -> form.

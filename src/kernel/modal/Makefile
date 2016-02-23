@@ -1,14 +1,10 @@
-# Makefile for the resolution fpcs
+MODULE=modal-kernel
 
-MAKE=make
-
-SRCS=$(wildcard *.mod)
-OBJS=$(SRCS:.mod=.lp)
-
-export TJPATH = ../../kernel/lkf-kernel:../../kernel/tableaux:../../utils:../..
+# Path of the dependencies.
+export TJPATH=../../utils:../..
 
 .PHONY: all
-all: $(OBJS)
+all: $(MODULE).lp
 
 cc: all clean
 
@@ -22,6 +18,9 @@ cc: all clean
 depend: *.mod *.sig
 	tjdepend *.mod > depend-stage
 	mv depend-stage depend
+
+run:
+	tjsim  $(MODULE)
 
 .PHONY: clean
 clean:

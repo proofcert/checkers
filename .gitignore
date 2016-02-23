@@ -1,0 +1,9 @@
+*.lp
+*.lpo
+*.swp
+depend
+depend-stage
+*.old
+*.cmo
+*.cmi
+*.*~
