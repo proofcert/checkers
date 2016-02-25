@@ -12,7 +12,6 @@ orNeg_kc (dlist C1 C2) _  (dlist C1 C2).
 orNeg_kc (dlist2 C1) _  (dlist2 C1).
 orNeg_kc dlist3 _  dlist3.
 initial_ke (dlist _ _) _.
-initial_ke (dlist _ _) _.
 initial_ke (dlist2 _) _.
 initial_ke dlist3 _.
 initial_ke done _.
