@@ -2,7 +2,7 @@ module fvtabsimp.
 
 closure_kc A (fvtabsimp _ (tabp (closureinf A))).
 
-%conj_kc (fvtabsimp L (tabp (conjinf A B))) CA (fvtabsimp L B).
+%conj_kc (fvtabsimp L (tabp (conjinf A B))) A (fvtabsimp L B).
 conj_kc (fvtabsimp L (tabp (conjinf A B))) C (fvtabsimp L B) :-
   term_to_string A A', term_to_string C C', print A', print " -------- ", print C', print "\n".
 
