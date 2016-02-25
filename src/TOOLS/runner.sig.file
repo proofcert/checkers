@@ -3,3 +3,4 @@ accum_sig base.
 
 type run o.
 type resolve (list (pair int form)) -> form -> cert -> o.
+type resolveCert (list (pair int form)) -> form -> cert -> cert -> o.

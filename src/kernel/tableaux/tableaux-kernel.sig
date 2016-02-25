@@ -5,3 +5,6 @@ accum_sig lists.
 accum_sig base.
 
 type check cert -> seq -> o.
+
+type isNegAtm form -> o.
+type isPosAtm form -> o.

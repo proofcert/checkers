@@ -14,6 +14,7 @@ type map list (pair int form) -> map.
 type mapsto int -> form -> o.
 
 type problem  string -> form -> cert -> map -> o.
+type problemCert  string -> form -> cert -> map -> cert -> o.
 type resProblem  string -> (list (pair int form)) -> cert -> map -> o.
 
 /* maps between client and kernel side terms and formulas */
