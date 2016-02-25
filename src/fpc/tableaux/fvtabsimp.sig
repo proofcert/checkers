@@ -3,9 +3,11 @@ sig fvtabsimp.
 accum_sig lists.
 accum_sig certificatesTableaux.
 
-kind tabp, tabinf type.
+kind tabp, tabinf, evars type.
 
-type fvtabsimp  list int -> tabp -> cert.
+type evars list int -> list int -> evars.
+type fvtabsimp  evars -> tabp -> cert.
+type tabres  tabp -> cert.
 
 type tabp tabinf -> tabp.
 
