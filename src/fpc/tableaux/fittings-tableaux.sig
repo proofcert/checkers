@@ -4,31 +4,30 @@ accum_sig certificatesLKF.
 accum_sig lists.
 accum_sig base.
 
-kind dectree, decnode, option type.
+kind dectree, opindex type.
 
 % a certificate is a tuple of:
 % list of indices - 
 % tree of pairs of indices - 
-% list of pairs - 
-type fitproof list index -> dectree -> list pr -> cert.
+% list of pairs - a mapping from indices to LKF-eigenvariables 
+type fitcert list index -> dectree -> list pr -> cert.
 
-% an ntree is a tuple of
+% a dectree is a tree of (index, opindex)
 % index - referring to the position in the tableau inference tree
-% option - optional index referring to complementary formula position for boxes and closures.
-% list ntree - list of subtrees
+% opindex - optional index referring to complementary formula position for boxes and closures.
+% represented as a root (index, opindex) plus a list of dectrees (containing from 0 to 2 dectrees; 0, if the node is a leaf)
+type dectree index -> opindex -> list dectree -> dectree.
 
-%type unode index -> option -> ntree -> ntree.
-
-type decnode index -> option -> decnode.
-type udectree decnode -> dectree -> dectree.
-type bdectree decnode -> dectree -> dectree -> dectree.
+%type decnode index -> opindex -> decnode.
+%type udectree decnode -> dectree -> dectree.
+%type bdectree decnode -> dectree -> dectree -> dectree.
 
 type eind index.
 type lind index -> index.
 type rind index -> index.
 
-type sindex index -> option
-type none -> option
+type sindex index -> opindex
+type none -> opindex
 
 % kind fittab, tabinf, label type.
 

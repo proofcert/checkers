@@ -1,22 +1,20 @@
 module fittings-tableaux.
 
-decide_ke 
+decide_ke (fitcert L (udectree (decnode I O) T) M) I (fitcert [] (udectree (decnode I O) T) M).
 
 
-(*decide_ke (labcert [A|Gamma]) (labindex A) (labcert Gamma). %
-release_ke (labcert Gamma) (labcert Gamma).
-store_kc (labcert Gamma) A (labindex A) (labcert C). %
-initial_ke (labcert Gamma) _.
-all_kc (labcert Gamma) (_ Gamma).
-%some_ke (labcert [T|Tail]) T (labcert Tail). %
-%some_ke (labcert [T|Tail]) (p q !-! n r) (labcert Tail).
-orNeg_kc (labcert Gamma) _ (labcert Gamma).
+%kind dectree, decnode, opindex type.
 
-labcheck A Gamma :-
-  if (entry_point (labcert Gamma) A)
-      (print "Success\n==============================================\n")
-		  (print "Failure\n", halt), fail.
+%type fitcert list index -> dectree -> list pr -> cert.
 
+%type dectree index -> opindex -> list dectree -> dectree.
+
+%type eind index.
+%type lind index -> index.
+%type rind index -> index.
+
+%type sindex index -> opindex
+%type none -> opindex
 
 %type decide_ke					cert -> index -> cert -> o.
 %type release_ke 				cert -> cert -> o.
