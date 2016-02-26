@@ -1,6 +1,0 @@
-labcheck ((p q) !-! (n q)) [(p q) !-! (n q), p q].
-labcheck ((p q(X)) !-! (n q(X))) [(p q(X)) !-! (n q(X)), p q(X)].
-labcheck (p q) [].
-
-labcheck ((p (q w)) !-! (n (q w))) [(p (q w)) !-! (n (q w)), p (q w)].
-labcheck ((p q) !-! (p q)) [].
