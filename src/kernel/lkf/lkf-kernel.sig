@@ -7,5 +7,3 @@ accum_sig base.
 type check cert -> seq -> o.
 
 type eager_normalize form -> form -> o.
-
-

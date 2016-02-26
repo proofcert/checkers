@@ -23,15 +23,16 @@ rm -f $RUNNER_SIG_TARGET_SRC
 rm -rf $DEBUG
 mkdir $DEBUG
 
+cp `find $SRCDIR -name "*.sig"` $DEBUG
 cp `find $SRCDIR/kernel -name "*.sig"` $DEBUG
 cp `find $SRCDIR/utils -name "*.sig"` $DEBUG
-cp `find $SRCDIR/fpc -name "*.sig"` $DEBUG
-cp `find $SRCDIR/tests -name "*.sig"` $DEBUG
+cp `find $SRCDIR/fpc/tableaux -name "*.sig"` $DEBUG
+cp `find $SRCDIR/tests/tableaux -name "*.sig"` $DEBUG
 cp `find $SRCDIR/kernel -name "*.mod"` $DEBUG
 cp `find $SRCDIR/utils -name "*.mod"` $DEBUG
-cp `find $SRCDIR/fpc -name "*.mod"` $DEBUG
-cp `find $SRCDIR/tests -name "*.mod"` $DEBUG
-cp $TOOLS/kernel_debug/lkf-kernel.mod.debug $DEBUG/lkf-kernel.mod
+cp `find $SRCDIR/fpc/tableaux -name "*.mod"` $DEBUG
+cp `find $SRCDIR/tests/tableaux -name "*.mod"` $DEBUG
+cp $TOOLS/kernel_debug/tableaux-kernel.mod.debug $DEBUG/tableaux-kernel.mod
 cp $TOOLS/Makefile.debug $DEBUG/Makefile
 
 echo -e "module runner.\\n" >> $RUNNER_MOD_TARGET
