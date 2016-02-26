@@ -25,6 +25,7 @@ type dectree index -> opindex -> list dectree -> dectree.
 type eind index.
 type lind index -> index.
 type rind index -> index.
+type bind index -> index -> index.
 
 type sindex index -> opindex
 type none -> opindex
