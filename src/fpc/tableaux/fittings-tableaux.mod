@@ -4,7 +4,7 @@ decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 store_ke (fitcert [H|T] D M) Form H (fitcert T D M).
 orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
 andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form ([lind I] H M) ([rind I] G M).
-all_kc (fitcert L (dectree I O [H|T]) M) Eigen ([lind I] H Result) && append(M, [I,Eigen], Result). %%%%%
+all_kc (fitcert L (dectree I O [H|T]) M) Eigen ([lind I] H Result) :- append(M, [I,Eigen], Result).
 release_ke C C.
 some_ke (fitcert L (dectree I O [H|T]) M) **M(O)** ([bind I **M(O)**] H M). % check how to use thelist of pairs
 andPos_k C Form Dir C C.
@@ -12,8 +12,6 @@ initial_ke (fitcert L (dectree I O D) M) O.
 
 
 % QUESTIONS
-% HOW DO I REFER TO AN ELEMENT IN THE MAPPING? (look at the list by using member)
-% HOW DO I USE THE APPEND?
 
 %type all_kc					cert -> (A -> cert) -> o.
 
