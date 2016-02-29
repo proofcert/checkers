@@ -27,7 +27,7 @@ type lind index -> index.
 type rind index -> index.
 type bind index -> index -> index.
 
-type sindex index -> opindex
+type sind index -> opindex
 type none -> opindex
 
 % kind fittab, tabinf, label type.

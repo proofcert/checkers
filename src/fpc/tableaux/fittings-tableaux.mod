@@ -12,7 +12,7 @@ initial_ke (fitcert L (dectree I O D) M) O.
 
 
 % QUESTIONS
-% HOW DO I REFER TO AN ELEMENT IN THE MAPPING?
+% HOW DO I REFER TO AN ELEMENT IN THE MAPPING? (look at the list by using member)
 % HOW DO I USE THE APPEND?
 
 %type all_kc					cert -> (A -> cert) -> o.
