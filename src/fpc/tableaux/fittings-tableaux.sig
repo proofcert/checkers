@@ -7,10 +7,10 @@ accum_sig base.
 kind dectree, opindex type.
 
 % a certificate is a tuple of:
-% list of indices - 
-% tree of pairs of indices - 
-% list of pairs - a mapping from indices to LKF-eigenvariables 
-type fitcert list index -> dectree -> list pr -> cert.
+% list of indices -
+% tree of pairs of indices -
+% list of pairs - a mapping from indices to LKF-eigenvariables
+type fitcert list index -> dectree -> list (pair index atm) -> cert.
 
 % a dectree is a tree of (index, opindex)
 % index - referring to the position in the tableau inference tree
@@ -27,8 +27,8 @@ type lind index -> index.
 type rind index -> index.
 type bind index -> index -> index.
 
-type sind index -> opindex
-type none -> opindex
+type sind index -> opindex.
+type none opindex.
 
 % kind fittab, tabinf, label type.
 

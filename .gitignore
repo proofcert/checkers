@@ -7,3 +7,5 @@ depend-stage
 *.cmo
 *.cmi
 *.*~
+*.swo
+runner.*

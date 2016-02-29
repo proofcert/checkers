@@ -2,6 +2,7 @@ sig fvtabsimp.
 
 accum_sig lists.
 accum_sig certificatesTableaux.
+accum_sig fittings-tableaux.
 
 kind tabp, tabinf, evars type.
 
