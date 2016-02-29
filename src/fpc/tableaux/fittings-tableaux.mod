@@ -1,12 +1,12 @@
 module fittings-tableaux.
 
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
-store_ke (fitcert [H|T] D M) Form H (fitcert T D M).
+store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
-andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form ([lind I] H M) ([rind I] G M).
-all_kc (fitcert L (dectree I O [H|T]) M) Eigen ([lind I] H Result) :- append(M, [I,Eigen], Result).
+andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
+all_kc (fitcert L (dectree I O [H|T]) M) (Eigen (fitcert [lind I] H Result)) :- append M [pr I Eigen] Result.
 release_ke C C.
-some_ke (fitcert L (dectree I O [H|T]) M) X ([bind I X] H M) :- member((O,X),M).
+some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
 andPos_k C Form Dir C C.
 initial_ke (fitcert L (dectree I O D) M) O.
 
