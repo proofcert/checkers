@@ -35,7 +35,7 @@ initial_ke (fitcert L (dectree I O D) M) O.
 
 %type decide_ke					cert -> index -> cert -> o.
 %type release_ke 				cert -> cert -> o.
-     
+
 %type store_kc					cert -> form -> index -> cert -> o.
 %type initial_ke					cert -> index -> o.
 %type all_kc					cert -> (A -> cert) -> o.
