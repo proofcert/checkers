@@ -112,6 +112,9 @@ eigencopy t+ t+.
 eigencopy t- t-.
 eigencopy f- f-.
 eigencopy f+ f+.
+eigencopy A A.
+eigencopy (d- A) (d- A') :- eigencopy A A'.
+eigencopy (d+ A) (d+ A') :- eigencopy A A'.
 eigencopy (A !+! B) (A' !+! B') :- eigencopy A A', eigencopy B B'.
 eigencopy (A &+& B) (A' &+& B') :- eigencopy A A', eigencopy B B'.
 eigencopy (A !-! B) (A' !-! B') :- eigencopy A A', eigencopy B B'.
@@ -136,8 +139,10 @@ isPosAtm (p _).
 isPosForm (some _).
 isPosForm t+.
 isPosForm f+.
+isPosForm (d+ _).
 isNegForm f-.
 isNegForm t-.
+isNegForm (d- _).
 isNeg A :- isNegForm A ; isNegAtm A.
 isPos A :- isPosForm A ; isPosAtm A.
 isPosUM A :- isPos A ; isNegAtm A.
