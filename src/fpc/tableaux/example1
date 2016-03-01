@@ -2,11 +2,11 @@
 
 % This is the dectree (second element of the certificate), also containing the root formula (indexed with eind)
 (
-(eind,none),
+(eind,eind),
   [
-    (rind(eind),none),
+    (rind(eind),eind),
     [
-      (lind(eind),sind rind(eind)),
+      (lind(eind),rind(eind)),
       [
 	(bind(lind(eind),rind(eind)),lind(rind(eind))),[]
       ]
@@ -20,9 +20,9 @@
   [eind], 	% 1st element of the certificate: a list of indexes
   
   ( 		% 2nd element of the certificate: the dectree
-      (rind(eind),none),
+      (rind(eind),eind),
       [
-	(lind(eind),sind rind(eind)),
+	(lind(eind),rind(eind)),
 	[
 	  (bind(lind(eind),rind(eind)),lind(rind(eind))),[]
 	]

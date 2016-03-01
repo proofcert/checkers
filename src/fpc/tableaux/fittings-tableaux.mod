@@ -1,19 +1,19 @@
 module fittings-tableaux.
 
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
-store_ke (fitcert [H|T] D M) Form H (fitcert T D M).
+store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
-andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form ([lind I] H M) ([rind I] G M).
-all_kc (fitcert L (dectree I O [H|T]) M) Eigen ([lind I] H Result) && append(M, [I,Eigen], Result). %%%%%
+andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
+all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
+%all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H M).
 release_ke C C.
-some_ke (fitcert L (dectree I O [H|T]) M) **M(O)** ([bind I **M(O)**] H M). % check how to use thelist of pairs
+some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
 andPos_k C Form Dir C C.
 initial_ke (fitcert L (dectree I O D) M) O.
 
+% [pr I Eigen]
 
 % QUESTIONS
-% HOW DO I REFER TO AN ELEMENT IN THE MAPPING? (look at the list by using member)
-% HOW DO I USE THE APPEND?
 
 %type all_kc					cert -> (A -> cert) -> o.
 
@@ -49,12 +49,3 @@ initial_ke (fitcert L (dectree I O D) M) O.
 %type true_ke 					cert -> o.
 %type false_kc 					cert -> cert -> o.
 
-
-
-
-
-%true_ke (fittab _).
-%release_ke (fittab L) (fittab L).
-
-%eigencopy [] [].
-%eigencopy ([X|Ls] [X'|Ls'] :- eigencopy(X,X'), eigencopy(Ls,Ls').*)
