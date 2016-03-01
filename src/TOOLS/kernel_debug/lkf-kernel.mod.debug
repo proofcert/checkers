@@ -26,7 +26,7 @@ check Cert (foc N) :-
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
   eigencopy C' C,
-  spy "" (store_kc Cert C Indx Cert'),
+  spy "" (store_kc Cert C' Indx Cert'),
   inCtxt Indx C => spy "Storing " (check Cert' (unfK Rest)).
 % initial
 check Cert (foc (p A)) :-
