@@ -13,9 +13,9 @@ kind dectree type.
 type fitcert list index -> dectree -> list (pair index atm) -> cert.
 
 % a dectree is a tree of (index1, index2)
-% index - referring to the position in the tableau inference tree
-% opindex - optional index referring to complementary formula position for boxes and closures.
-% represented as a root (index, opindex) plus a list of dectrees (containing from 0 to 2 dectrees; 0, if the node is a leaf)
+% index1 - referring to the position in the tableau inference tree
+% index2 - optional index referring to complementary formula position for boxes and closures.
+% represented as a root (index1, index2) plus a list of dectrees (containing from 0 to 2 dectrees; 0, if the node is a leaf)
 type dectree index -> index -> list dectree -> dectree.
 
 % an index is (1) empty, the (2) left or (3) right child of an index (this is used for classical connectives and diamond), 

@@ -4,12 +4,14 @@ decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
 andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
-all_kc (fitcert L (dectree I O [H|T]) M) (Eigen (fitcert [lind I] H Result)) :- append M [pr I Eigen] Result.
+all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
+%all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H M).
 release_ke C C.
 some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
 andPos_k C Form Dir C C.
 initial_ke (fitcert L (dectree I O D) M) O.
 
+% [pr I Eigen]
 
 % QUESTIONS
 

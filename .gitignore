@@ -9,3 +9,4 @@ depend-stage
 *.*~
 *.swo
 runner.*
+*.kate-swp
