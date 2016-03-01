@@ -8,10 +8,10 @@ problem "fittings ex1"
 	(
     fitcert [eind] % the list
     (
-      dectree eind none [
-        dectree (rind eind) none [
-          dectree (lind eind) (sind (rind eind)) [
-            dectree (bind (lind eind) (rind eind)) (sind (lind (rind eind))) []
+      dectree eind eind [
+        dectree (rind eind) eind [
+          dectree (lind eind) (rind eind) [
+            dectree (bind (lind eind) (rind eind)) (lind (rind eind)) []
           ]
         ]
       ]

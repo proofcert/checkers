@@ -55,6 +55,10 @@ check Cert (unfK [A &-& B | Rest]) :-
 check Cert (unfK [all B | Theta]) :-
   all_kc Cert Name Cert',
   pi w\ eigencopy Name w => normalize (check (Cert' w) (unfK [B w | Theta] )).
+% for all without eigenterms
+check Cert (unfK [all B | Theta]) :-
+  all2_kc Cert Cert',
+  pi w\ eigencopy w w => normalize (check (Cert' w) (unfK [B w | Theta] )).
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !

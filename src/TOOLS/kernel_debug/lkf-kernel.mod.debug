@@ -55,7 +55,12 @@ check Cert (unfK [A &-& B | Rest]) :-
 % forall
 check Cert (unfK [all B | Theta]) :-
   spy "" (all_kc Cert Name Cert'),
-  spy "All " (pi w\ eigencopy Name w => normalize (check (Cert' w) (unfK [B w | Theta] ))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
+  pi w\ eigencopy Name w => spy "All " (normalize (check (Cert' w) (unfK [B w | Theta] ))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
+% forall without eigenterms
+% forall
+check Cert (unfK [all B | Theta]) :-
+  spy "" (all2_kc Cert Cert'),
+  pi w\ eigencopy w w => spy "All " (normalize (check (Cert' w) (unfK [B w | Theta] ))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
