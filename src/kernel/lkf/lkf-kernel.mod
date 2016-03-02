@@ -92,10 +92,6 @@ check Cert (foc (d+ A)) :-
   check Cert (foc A).
 
 %%%%%%%%%%%
-% eigencopy
-%%%%%%%%%%%
-
-%%%%%%%%%%%
 % Utilities
 %%%%%%%%%%%
 

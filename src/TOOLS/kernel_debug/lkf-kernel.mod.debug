@@ -99,25 +99,6 @@ check Cert (foc (d+ A)) :-
   spy "" (check Cert (foc A)).
 
 %%%%%%%%%%%
-% eigencopy
-%%%%%%%%%%%
-
-<<<<<<< HEAD
-=======
-eigencopy (some B) (some B') :- eigencopy B B'.
-eigencopy (all B) (all B') :- eigencopy B B'.
-eigencopy t+ t+.
-eigencopy t- t-.
-eigencopy f- f-.
-eigencopy f+ f+.
-eigencopy (A !+! B) (A' !+! B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A &+& B) (A' &+& B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A !-! B) (A' !-! B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A &-& B) (A' &-& B') :- eigencopy A A', eigencopy B B'.
-
-
->>>>>>> 38e4b1a191c02719a7cbb3f42176d5e4c0b06a6c
-%%%%%%%%%%%
 % Utilities
 %%%%%%%%%%%
 

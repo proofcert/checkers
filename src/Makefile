@@ -5,11 +5,7 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-<<<<<<< HEAD
-export TJPATH = kernel/tableaux:kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/tableaux:fpc/resolution:tests/eprover:tests/resolution:tests/tableaux:utils
-=======
-export TJPATH = kernel/ljf:kernel/lkf:kernel/imbed:utils:fpc/resolution:fpc/tableaux:tests/eprover:tests/resolution:tests/tableaux:utils
->>>>>>> 38e4b1a191c02719a7cbb3f42176d5e4c0b06a6c
+export TJPATH = kernel/tableaux:kernel/lkf:utils:fpc/tableaux:fpc/resolution:tests/eprover:tests/resolution:tests/tableaux:utils
 
 .PHONY: all
 all: compile
