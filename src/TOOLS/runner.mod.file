@@ -1,5 +1,6 @@
 accumulate lists.
 accumulate debug.
+accumulate resolution_steps.
 
 run :-
   problemCert Name F Cert (map Map) C,

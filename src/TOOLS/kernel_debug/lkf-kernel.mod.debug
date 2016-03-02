@@ -5,7 +5,8 @@ accumulate debug.
 
 % Entry point
 entry_point Cert Form :-
-  check Cert (unfK [Form]).
+spy ""
+  (check Cert (unfK [Form])).
 
 %%%%%%%%%%%%%%%%%%
 % Structural Rules
@@ -25,6 +26,7 @@ check Cert (foc N) :-
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
+  eigencopy C' C,
   spy "" (store_kc Cert C Indx Cert'),
   inCtxt Indx C => spy "Storing " (check Cert' (unfK Rest)).
 % initial
@@ -86,7 +88,8 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   spy "" (some_ke Cert T Cert'),
-  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
+  eigencopy T T',
+  eager_normalize (B T') C, % required as Teyjus doesnt normalize it before pattern matching.
   spy "Some " (check Cert' (foc (C))).
 % Units
 check Cert (foc t+) :-
@@ -99,6 +102,21 @@ check Cert (foc (d+ A)) :-
 % eigencopy
 %%%%%%%%%%%
 
+<<<<<<< HEAD
+=======
+eigencopy (some B) (some B') :- eigencopy B B'.
+eigencopy (all B) (all B') :- eigencopy B B'.
+eigencopy t+ t+.
+eigencopy t- t-.
+eigencopy f- f-.
+eigencopy f+ f+.
+eigencopy (A !+! B) (A' !+! B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A &+& B) (A' &+& B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A !-! B) (A' !-! B') :- eigencopy A A', eigencopy B B'.
+eigencopy (A &-& B) (A' &-& B') :- eigencopy A A', eigencopy B B'.
+
+
+>>>>>>> 38e4b1a191c02719a7cbb3f42176d5e4c0b06a6c
 %%%%%%%%%%%
 % Utilities
 %%%%%%%%%%%

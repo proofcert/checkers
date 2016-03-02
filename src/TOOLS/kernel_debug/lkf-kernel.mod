@@ -24,7 +24,8 @@ check Cert (foc N) :-
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
-  store_kc Cert C Indx Cert',
+  eigencopy C' C,
+  store_kc Cert C' Indx Cert',
   inCtxt Indx C => check Cert' (unfK Rest).
 % initial
 check Cert (foc (p A)) :-
@@ -52,8 +53,8 @@ check Cert (unfK [A &-& B | Rest]) :-
   check CertB (unfK [B | Rest]).
 % forall
 check Cert (unfK [all B | Theta]) :-
-  all_kc Cert Cert',
-  pi w\ normalize (check (Cert' w) (unfK [B w | Theta] )).
+  all_kc Cert Name Cert',
+  pi w\ eigencopy Name w => normalize (check (Cert' w) (unfK [B w | Theta] )).
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
@@ -82,7 +83,8 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   some_ke Cert T Cert',
-  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
+  eigencopy T T',
+  eager_normalize (B T') C, % required as Teyjus doesnt normalize it before pattern matching.
   check Cert' (foc (C)).
 % Units
 check Cert (foc t+) :-
@@ -90,10 +92,6 @@ check Cert (foc t+) :-
 % delay
 check Cert (foc (d+ A)) :-
   check Cert (foc A).
-
-%%%%%%%%%%%
-% eigencopy
-%%%%%%%%%%%
 
 %%%%%%%%%%%
 % Utilities
