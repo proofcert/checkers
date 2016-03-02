@@ -2,17 +2,33 @@ module fittings-tableaux.
 
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
-orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
-andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
-all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
 release_ke C C.
-some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
-andPos_k C Form left-first C C.
 initial_ke (fitcert L (dectree I O D) M) O.
 
+orNeg_kc (fitcert [] (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
+orNeg_kc (fitcert [] (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
+
+andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
+andPos_k C Form left-first C C.
+
+all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
+some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
 
 
-% QUESTIONS
+
+% OLD VERSION: PROBLEMS WITH INDEXES
+%decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
+%store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
+%orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
+%andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
+%all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
+%release_ke C C.
+%some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
+%andPos_k C Form left-first C C.
+%initial_ke (fitcert L (dectree I O D) M) O.
+
+
+
 
 %type all2_kc					cert -> (A -> cert) -> o.
 
