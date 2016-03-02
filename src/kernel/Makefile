@@ -5,16 +5,12 @@ MAKE=make
 .PHONY: all
 all:
 	cd lkf && $(MAKE)
-	cd ljf && $(MAKE)
-	cd imbed && $(MAKE)
 #	cd tableaux && $(MAKE)
 #	cd modal && $(MAKE)
 
 .PHONY: clean
 clean:
 	cd lkf && $(MAKE) clean
-	cd ljf && $(MAKE) clean
-	cd imbed && $(MAKE) clean
 #	cd tableaux && $(MAKE) clean
 #	cd modal && $(MAKE) clean
 

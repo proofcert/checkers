@@ -25,8 +25,7 @@ check Cert (foc N) :-
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
-  eigencopy C' C,
-  spy "" (store_kc Cert C' Indx Cert'),
+  spy "" (store_kc Cert C Indx Cert'),
   inCtxt Indx C => spy "Storing " (check Cert' (unfK Rest)).
 % initial
 check Cert (foc (p A)) :-
@@ -54,13 +53,8 @@ check Cert (unfK [A &-& B | Rest]) :-
   spy "And- right " (check CertB (unfK [B | Rest])).
 % forall
 check Cert (unfK [all B | Theta]) :-
-  spy "" (all_kc Cert Name Cert'),
-  pi w\ eigencopy Name w => spy "All " (normalize (check (Cert' w) (unfK [B w | Theta] ))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
-% forall without eigenterms
-% forall
-check Cert (unfK [all B | Theta]) :-
-  spy "" (all2_kc Cert Cert'),
-  pi w\ eigencopy w w => spy "All " (normalize (check (Cert' w) (unfK [B w | Theta] ))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
+  spy "" (all_kc Cert Cert'),
+  spy "All " (pi w\ (normalize (check (Cert' w) (unfK [B w | Theta] )))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
@@ -92,8 +86,7 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   spy "" (some_ke Cert T Cert'),
-  eigencopy T T',
-  eager_normalize (B T') C, % required as Teyjus doesnt normalize it before pattern matching.
+  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
   spy "Some " (check Cert' (foc (C))).
 % Units
 check Cert (foc t+) :-
@@ -105,21 +98,6 @@ check Cert (foc (d+ A)) :-
 %%%%%%%%%%%
 % eigencopy
 %%%%%%%%%%%
-
-eigencopy (some B) (some B') :- eigencopy B B'.
-eigencopy (all B) (all B') :- eigencopy B B'.
-eigencopy t+ t+.
-eigencopy t- t-.
-eigencopy f- f-.
-eigencopy f+ f+.
-eigencopy A A.
-eigencopy (d- A) (d- A') :- eigencopy A A'.
-eigencopy (d+ A) (d+ A') :- eigencopy A A'.
-eigencopy (A !+! B) (A' !+! B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A &+& B) (A' &+& B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A !-! B) (A' !-! B') :- eigencopy A A', eigencopy B B'.
-eigencopy (A &-& B) (A' &-& B') :- eigencopy A A', eigencopy B B'.
-
 
 %%%%%%%%%%%
 % Utilities
