@@ -172,8 +172,9 @@ prove(Lit,Ind1,LitLabel,_,[],AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- 
 % Try to use the current literal for closure
 
 prove(Lit1,Ind,Label1,_,[(Label2:Lit2:Ind2)|Lits],AllLits,UnExp,Sleep,
-      AllLab,NonGrd,Free,Limit,([(Label1,Label2,Ind,Ind2)|P],L)) :-
-	( \+(Label1:Lit1 = Label2:Lit2) ->
+      AllLab,NonGrd,Free,Limit,([K|P],L)) :-
+        (Label1:Lit1 = Label2:Lit2) -> K = (Label1,Ind,Ind2);
+	(
  	  prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
                 Free,Limit,(P,L))
         ; copy_term((Label1,Free),(NewLabel1,Free)),
