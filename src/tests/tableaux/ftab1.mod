@@ -6,7 +6,7 @@ accumulate lkf-kernel.
 problem "fittings ex1"
   ((d+ (some (y\ ((p (r x y)) &+& (d- (n (q y))))))) !-! (d+ (all (y\ ((n (r x y)) !-! (p (q y))))))) % the formula
 	(
-    fitcert [eind] % the list
+    fitcert [] % the list
     (
       dectree eind none [
         dectree (rind eind) none [

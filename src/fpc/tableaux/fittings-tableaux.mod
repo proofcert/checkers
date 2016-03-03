@@ -2,12 +2,13 @@ module fittings-tableaux.
 
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 
-store_kc C (r _ _)  none C :- !. % in the case of relational atoms, we do not care about the index
+store_kc C (n (r _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
+store_kc C (p (r _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 
 release_ke C C.
 
-initial_ke (fitcert L (dectree I none D) M) O :- !. % used fot init on relational atoms
+%initial_ke (fitcert L (dectree I none D) M) none :- !. % used for init applied to relational atoms
 initial_ke (fitcert L (dectree I O D) M) O.
 
 orNeg_kc (fitcert [] (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M). % this is used if orNeg is the main connective of the formula on which we decide
@@ -16,7 +17,7 @@ orNeg_kc (fitcert [E|L] D M) Form (fitcert [E|L] D M). % this is used otherwise
 andNeg_kc (fitcert [] (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
 andNeg_kc (fitcert [E|L] D M) Form (fitcert [E|L] D M) (fitcert [E|L] D M).
 
-andPos_k (fitcert L (dectree I O [H|T]) M) Form left-first (fitcert L (dectree I none [H|T]) M) (fitcert L (dectree I O [H|T]) M).
+andPos_k (fitcert L (dectree I O T) M) Form left-first (fitcert L (dectree I none T) M) (fitcert L (dectree I O T) M).
 
 all_kc (fitcert [] (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
 % for extensions of K, we will need to define also a case where the first list is not []

@@ -26,6 +26,10 @@ type rind index -> index.
 type bind index -> index -> index.
 type none index. % used when the index is irrelevant, e.g., to label relational atoms
 
+% for the accessibility relation, we use the same r in all problems
+type r A -> A -> atm.
+
+
 % OLD STUFF
 
 %type decnode index -> opindex -> decnode.
