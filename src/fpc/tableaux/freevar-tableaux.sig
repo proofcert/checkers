@@ -4,10 +4,13 @@ accum_sig lists.
 accum_sig certificatesLKF.
 accum_sig fittings-tableaux.
 
-kind label, pos type.
+kind label, pos, closure, boxinfo, lpos type.
 
-type fvtabcert list (label -> index -> index -> index) -> list (index -> index) -> cert.
+type closure label -> index -> index -> closure.
+type boxinfo index -> index -> boxinfo.
+type fvtabcert list closure -> list boxinfo -> cert.
 type fvind list pos -> index.
 type l,r pos.
-type label A -> label.
-type listsToTree list (label -> index -> index -> index) -> list (index -> index) -> dectree -> o.
+type lpos A -> index -> lpos.
+type label list lpos -> label.
+type listsToTree list closure -> list boxinfo -> dectree -> o.
