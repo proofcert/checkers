@@ -1,12 +1,10 @@
 module fvtab1.
 
-accumulate fvtabsimp.
-accumulate tableaux-kernel.
+accumulate freevar-tableaux.
+accumulate lkf-kernel.
 
-problemCert "fvtableaux test"
- 	((box ((n f) && (n g))) && ((dia (p f)) !! (dia (p g))))
-	(fvtabsimp (evars [1,2] [1,2]) Cert)
+modalProblem "fvtableaux problem 1"
+  ((box (p f) && dia (n g)) && (box ((n f) !! (p g))))
+	(fvtabcert [([(-g,[r,l]), (1,empty)],[l,r,l],[l,l,l]), ([ (-g,[r,l]), (1,empty)],[l,l,r],[l,r,l]), ([ (-g,[r,l]), (1,empty)],[l,l,r],[l,l,l]), ([ (-g,[r,l]), (1,empty)],[r,l,r],[l,r,l])] [([l,l],[r,l]), ([r],[r,l])])
 	(map []
-) (tabres Cert).
-
-% we need an example which will have eigenvariables on the same branch to make sure it works properly and we need to make sure eigencopy has different names for different eigenvariables
+).
