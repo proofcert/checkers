@@ -10,3 +10,4 @@ type fvtabcert list (label -> index -> index -> index) -> list (index -> index) 
 type fvind list pos -> index.
 type l,r pos.
 type label A -> label.
+type listsToTree list (label -> index -> index -> index) -> list (index -> index) -> dectree -> o.
