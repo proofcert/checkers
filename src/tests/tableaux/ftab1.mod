@@ -11,7 +11,7 @@ problem "fittings ex1"
       dectree eind none [
         dectree (rind eind) none [
           dectree (lind eind) (rind eind) [
-            dectree (bind (lind eind) (rind eind)) (lind (rind eind)) []
+            dectree (lind (rind eind)) (bind (lind eind) (rind eind)) []
           ]
         ]
       ]
