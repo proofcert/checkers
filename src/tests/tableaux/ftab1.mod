@@ -4,7 +4,7 @@ accumulate fittings-tableaux.
 accumulate lkf-kernel.
 
 problem "fittings ex1"
-  ((d+ (some (y\ ((p (r x y)) &+& (d- (n (q y))))))) !-! (d+ (all (y\ ((n (r x y)) !-! (p (q y))))))) % the formula
+  ((d+ (some (y\ ((p (rel x y)) &+& (d- (n (q y))))))) !-! (d+ (all (y\ ((n (rel x y)) !-! (p (q y))))))) % the formula
 	(
     fitcert [] % the list
     (
@@ -22,4 +22,4 @@ problem "fittings ex1"
 	
 	
 	
-%  ((d+ (all (y\ ((n (r x y)) !-! (p (q y)))))) &-& (d+ (some (y\ ((p (r x y)) &+& (d- (n (q y)))))))) % the refuted formula	
+%  ((d+ (all (y\ ((n (rel x y)) !-! (p (q y)))))) &-& (d+ (some (y\ ((p (rel x y)) &+& (d- (n (q y)))))))) % the refuted formula	

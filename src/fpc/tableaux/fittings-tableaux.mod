@@ -2,8 +2,8 @@ module fittings-tableaux.
 
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 
-store_kc C (n (r _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
-store_kc C (p (r _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
+store_kc C (n (rel _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
+store_kc C (p (rel _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 
 release_ke C C.
