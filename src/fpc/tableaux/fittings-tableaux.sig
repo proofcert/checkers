@@ -20,11 +20,11 @@ type dectree index -> index -> list dectree -> dectree.
 
 % an index is (1) empty, the (2) left or (3) right child of an index (this is used for classical connectives and diamond), 
 % (4) the box child of an index (in this case, we also add info about the corresponding diamond)
-type eind index.
+type eind index. % corresponds to the root
 type lind index -> index.
 type rind index -> index.
 type bind index -> index -> index.
-
+type none index. % used when the index is irrelevant, e.g., to label relational atoms
 
 % OLD STUFF
 
