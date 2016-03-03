@@ -132,7 +132,7 @@ decprovefml(Name) :-
 fml(Name,Limit,Formula,k) :- fml(Name,Limit,Formula).
 
 
-fml(t0,2,((box p), (dia -p)),k).
+fml(t0,2,(box (-p;q),box p, (dia -q; dia -p)),k).
 fml(t1,2,-((box(p => q)) => ((box p) => (box q))),k).
 
 fml(t2,2,-(((box(p & q))) => ((box p) & (box q))),k).
