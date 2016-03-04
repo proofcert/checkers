@@ -1,9 +1,15 @@
 module fittings-tableaux.
 
+% mv: in this version, we do not store relational atoms with a proper label
+%  for extensions of K, it would be necessary to do it:
+%  Idea: add a constructor 
+% type relind index -> index -> index.
+%  where the two indexes refer to the formulas that introduced the two worlds
+
 decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 
-store_kc C (n (rel _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
-store_kc C (p (rel _ _)) none C :- !. % in the case of relational atoms, we do not care about the index
+store_kc C (n (rel X Y)) none C :- !. % in the case of relational atoms, we use none as the index
+store_kc C (p (rel X Y)) none C :- !. % in the case of relational atoms, we use none as the index
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
 
 release_ke C C.

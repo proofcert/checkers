@@ -16,8 +16,8 @@ run :-
 run :-
   modalProblem Name ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
+  modalToLK x ModalForm LKForm,
   resolve [] LKForm Cert.
-
 
 resolve [] F Cert :-
   if (entry_point Cert F)
@@ -32,3 +32,24 @@ resolveCert [] F Cert CertOut :-
 		  (print "Fail\n", halt), fail.
 resolveCert [(pr I C) | R] F Cert  CertOut :-
   mapsto I C => resolve R F Cert.
+
+  
+  % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
+  
+modalToLK Var (-- A) (n (A Var)).
+modalToLK Var (++ A) (p (A Var)).
+
+modalToLK Var (A && B) ((DelA) &-& (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+modalToLK Var (A !! B) ((DelA) !-! (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+
+modalToLK x (dia (A)) (some (y\ ( (p (rel x y)) &+& (d-(DelA))))) :- modalToLK y A A', optdel A' DelA.
+modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+
+modalToLK x (box (A)) (all (y\ ( (n (rel x y)) !-! (DelA)))) :- modalToLK y A A', optdel A' DelA.
+modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
+
+  % Operator that delays only non-literals
+
+optdel (n A) (n A).
+optdel (p A) (p A).
+optdel (A) (d+ A) :- not(isNegAtm (A)), not(isPosAtm (A)). % but better not to use not, Tomer said

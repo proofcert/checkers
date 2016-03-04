@@ -7,5 +7,5 @@ accum_sig certificatesLKF.
 accum_sig freevar-tableaux.
 accum_sig lists.
 
-type f atm.
-type g atm.
+type f A -> atm.   % mv: changed in order to work with the new modal-syntax
+type g A -> atm.   % mv: changed in order to work with the new modal-syntax

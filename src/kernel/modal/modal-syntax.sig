@@ -13,4 +13,4 @@ type box   modform -> modform.
 infixr && 6.
 infixr !! 5.
 
-type --,++       	       	  atm -> modform.
+type --,++	(A -> atm) -> modform.
