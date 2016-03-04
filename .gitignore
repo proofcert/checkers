@@ -10,3 +10,7 @@ depend-stage
 *.swo
 runner.*
 *.kate-swp
+proofs/tstpparser/tstplexer.ml
+proofs/tstpparser/tstpparser
+proofs/tstpparser/tstpparser.ml
+proofs/tstpparser/tstpparser.mli
