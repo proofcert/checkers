@@ -34,7 +34,7 @@
 
 prove_k(Fml,Limit,Proof) :-
 	nonvar(Limit),!,
-	prove(Fml,[],[((1,empty),(1,empty))],[],[],[],[],[],[],[],[],Limit,Proof).
+	prove(Fml,eind,[((1,empty),(1,empty))],[],[],[],[],[],[],[],[],Limit,Proof).
 
 prove_k(Fml,Result) :-
 	iterate(Limit,1,prove(Fml,[],[((1,empty),(1,empty))],[],[],[],[],[],[],[],[],Limit),Result).
@@ -93,15 +93,15 @@ iterate(Limit,Current,Goal,Result) :-
 
 % The conjunctive rule
 
-prove((A,B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
+prove((A,B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,none,[P])) :- !,
         copy_term((Label,Univ,Free),(LabelB,UnivB,Free)),
-        prove(A,[l|Ind],Label,Univ,AllLits,AllLits,[(UnivB:LabelB:B:[r|Ind])|UnExp],
+        prove(A,lind(Ind),Label,Univ,AllLits,AllLits,[(UnivB:LabelB:B:rind(Ind))|UnExp],
               Sleep,AllLab,NonGrd,Free,Limit,P).
 
 
 % The disjunctive rule
 
-prove((A;B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,L)) :- !,
+prove((A;B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,none,[P1,P2])) :- !,
         Limit >= 0,
 				copy_term((Label,Univ,Free,Ind),(LabelA,UnivA,Free,IndA)),
         copy_term((Label,Univ,Free,Ind),(LabelB,UnivB,Free,IndB)),
@@ -109,27 +109,25 @@ prove((A;B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,L))
         append(Sleep,[(UnivB:LabelB:(A;B):IndB)-Univ],SleepB),
         length(Univ,Length),
 	NewLimit is Limit - Length,
-        prove(A,[l|Ind],Label,[],AllLits,AllLits,UnExp,SleepA,AllLab,NonGrd,
-              (Univ+Free),NewLimit,(P1,L1)),
-        prove(B,[r|Ind],Label,[],AllLits,AllLits,UnExp,SleepB,AllLab,NonGrd,
-              (Univ+Free),NewLimit,(P2,L2)),
-        append(P1,P2,P),
-        append(L1,L2,L).
+        prove(A,lind(Ind),Label,[],AllLits,AllLits,UnExp,SleepA,AllLab,NonGrd,
+              (Univ+Free),NewLimit,P1),
+        prove(B,rind(Ind),Label,[],AllLits,AllLits,UnExp,SleepB,AllLab,NonGrd,
+              (Univ+Free),NewLimit,P2).
 
 
 % The box rule
 
-prove(box Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,[(Ind,Y)|L])) :- !,
-	prove(Fml,[l|Ind],[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
-              AllLab,NonGrd,Free,Limit,(P,L)).
+prove(box Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(bind(Ind,Y),Y,[P])) :- !,
+	prove(Fml,lind(Ind),[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
+              AllLab,NonGrd,Free,Limit,P).
 
 
 % The diamond rule
 
-prove(dia Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
+prove(dia Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,[P])) :- !,
 	reverse([((Fml,Ind),(Fml,_))|Label],TmpNewLabel),
         append(TmpNewLabel,_,NewLabel),
-        prove(NonGrd,_,_,_,AllLits,AllLits,[(Univ:[((Fml,Ind),(Fml,_))|Label]:Fml:[l|Ind])|UnExp],
+        prove(NonGrd,_,_,_,AllLits,AllLits,[(Univ:[((Fml,Ind),(Fml,_))|Label]:Fml:lind(Ind))|UnExp],
               Sleep,[NewLabel|AllLab],[],Free,Limit,P).
 
 
@@ -172,20 +170,22 @@ prove(Lit,Ind1,LitLabel,_,[],AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- 
 % Try to use the current literal for closure
 
 prove(Lit1,Ind,Label1,_,[(Label2:Lit2:Ind2)|Lits],AllLits,UnExp,Sleep,
-      AllLab,NonGrd,Free,Limit,([K|P],L)) :-
-        (Label1:Lit1 = Label2:Lit2) -> K = (Label1,Ind,Ind2);
+      AllLab,NonGrd,Free,Limit,dectree(Ind,Ind2,Q)) :-
+        (Label1:Lit1 = Label2:Lit2) -> _ = (Label1,Ind,Ind2), Q = [];
 	(
- 	  prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
-                Free,Limit,(P,L))
+	  prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
+                Free,Limit,P), Q = [P]
         ; copy_term((Label1,Free),(NewLabel1,Free)),
           copy_term((Label2,Free),(NewLabel2,Free)),
           reverse(NewLabel1,RevLabel),
           ( NewLabel1 = NewLabel2,
-            justified(RevLabel,AllLab)
+            justified(RevLabel,AllLab), Q = []
+            % we have to update K for the justified here as well but first check if the proof info as of now is incomplete
+            % try to use the certificate in order to build a proof on whiteboard.
           ; prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,
-                  [(NewLabel1,NewLabel2,RevLabel)|NonGrd],Free,Limit,(P,L))
+                  [(NewLabel1,NewLabel2,RevLabel)|NonGrd],Free,Limit,P), Q = [P]
           )
-        ).
+      ).
 
 
 % wake_up(+Sleep,-Fml,-RestSleep)
