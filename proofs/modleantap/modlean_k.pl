@@ -117,14 +117,14 @@ prove((A;B),Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectre
 
 % The box rule
 
-prove(box Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(bind(Ind,Y),Y,[P])) :- !,
-	prove(Fml,lind(Ind),[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
+prove(box Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,Y,[P])) :- !,
+	prove(Fml,bind(Ind,Y),[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
               AllLab,NonGrd,Free,Limit,P).
 
 
 % The diamond rule
 
-prove(dia Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,[P])) :- !,
+prove(dia Fml,Ind,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,dectree(Ind,none,[P])) :- !,
 	reverse([((Fml,Ind),(Fml,_))|Label],TmpNewLabel),
         append(TmpNewLabel,_,NewLabel),
         prove(NonGrd,_,_,_,AllLits,AllLits,[(Univ:[((Fml,Ind),(Fml,_))|Label]:Fml:lind(Ind))|UnExp],
@@ -171,12 +171,17 @@ prove(Lit,Ind1,LitLabel,_,[],AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- 
 
 prove(Lit1,Ind,Label1,_,[(Label2:Lit2:Ind2)|Lits],AllLits,UnExp,Sleep,
       AllLab,NonGrd,Free,Limit,dectree(Ind,Ind2,Q)) :-
-        (Label1:Lit1 = Label2:Lit2) -> _ = (Label1,Ind,Ind2), Q = [];
+        %term_string(Label1,LL1), term_string(Label2,LL2), term_string(Lit1,LL3), term_string(Lit2,LL4), print("LL1 --> "),print(LL1),nl, print("LL3 --> "),print(LL3),nl, print("LL2 --> "),print(LL2),nl, print("LL4 --> "),print(LL4),nl, nl,
+        (Label1:Lit1 = Label2:Lit2) ->   Q = [];
 	(
-	  prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
-                Free,Limit,P), Q = [P]
+    ((Label1 = Label2), prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
+                Free,Limit,P), Q = [P]) % here we try the next paper but since we copy labels, we must try to unify them here so we get a concrete value for Y instead of _xxx
+        ; prove(Lit1,Ind,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
+                Free,Limit,P), Q = [P] % if the two do not unify (can it only be because Y is instantiated into two different values?) then try the next label without unifying them.
         ; copy_term((Label1,Free),(NewLabel1,Free)),
           copy_term((Label2,Free),(NewLabel2,Free)),
+          %term_string(Label1,LLL1), term_string(Label2,LLL2), term_string(RevLabel,LLL3), term_string(AllLab,LLL4), print("LLL1 --> "),print(LLL1),nl,  print("LLL3 --> "),print(LLL3),nl, print("LLL2 --> "),print(LLL2),nl, print("LLL4 --> "),print(LLL4),nl, nl,
+
           reverse(NewLabel1,RevLabel),
           ( NewLabel1 = NewLabel2,
             justified(RevLabel,AllLab), Q = []

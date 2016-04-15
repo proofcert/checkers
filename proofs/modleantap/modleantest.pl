@@ -17,19 +17,19 @@
    op(400,fy,box),
    op(400,fy,dia).
 
-:- 	use_module(modlean_kt,[prove_kt/2]).
-:- 	use_module(modlean_k,[prove_k/3]).
-:- 	use_module(modlean_s4,[prove_s4/2]).
-:- 	use_module(modlean_kd,[prove_kd/2]).
+:-	use_module(modlean_kt,[prove_kt/2]).
+:-	use_module(modlean_k,[prove_k/3]).
+:-	use_module(modlean_s4,[prove_s4/2]).
+:-	use_module(modlean_kd,[prove_kd/2]).
 
-:- 	use_module(modlean_dec_kt,[decprove_kt/1]).
-:- 	use_module(modlean_dec_k,[decprove_k/1]).
-:- 	use_module(modlean_dec_s4,[decprove_s4/1]).
-:- 	use_module(modlean_dec_kd,[decprove_kd/1]).
+:-	use_module(modlean_dec_kt,[decprove_kt/1]).
+:-	use_module(modlean_dec_k,[decprove_k/1]).
+:-	use_module(modlean_dec_s4,[decprove_s4/1]).
+:-	use_module(modlean_dec_kd,[decprove_kd/1]).
 
-:- 	use_module(nnf,[nnf/3]).
+:-	use_module(nnf,[nnf/3]).
 
-:- 	use_module(library(lists),[member/2]).
+:-	use_module(library(lists),[member/2]).
 
 % ------------------------------------------------------------
 %
@@ -122,7 +122,7 @@ decprovefml(Name) :-
 % is to be proven to be *unsatisfiable* using the version of ModLeanTAP for
 % the logic Logic.
 %
-% The logical operators  - (negation), & (conjunction), v (disjunction),
+:% The logical operators  - (negation), & (conjunction), v (disjunction),
 % => (implication), <=> (equivalence), box (box operator),
 % dia (diamond operator), true, and false may be used.
 %
@@ -132,6 +132,7 @@ decprovefml(Name) :-
 fml(Name,Limit,Formula,k) :- fml(Name,Limit,Formula).
 
 
+fml(m0,2,((dia -p;dia-q), box (p,q)),k).
 fml(t0,2,(box (-p;q),box p, (dia -q; dia -p)),k).
 fml(t1,2,-((box(p => q)) => ((box p) => (box q))),k).
 

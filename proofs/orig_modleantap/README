@@ -1,0 +1,12 @@
+			The ModLeanTAP README
+			---------------------
+
+	      (c) 1997, 1998 Bernhard Beckert and Rajeev Gore
+
+
+For more information see:   http://www.uni-koblenz.de/~beckert/modlean
+
+
+ModLeanTAP is a lean Prolog implementation of a modular labelled
+tableau calculus for propositional modal logics (where the labels
+contain free and universal variables).
