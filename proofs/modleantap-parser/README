@@ -1,0 +1,7 @@
+apt-get install opam graphviz
+opam init
+opam update
+opam install ocamlfind batteries menhir
+ocamlbuild -use-ocamlfind dot_exporter.native
+./dot_exporter.native testfile output
+dotty output
