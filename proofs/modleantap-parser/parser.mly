@@ -14,7 +14,7 @@
 %%
 
 main:
-| v = EOF { None }
+| EOF { None }
 | v = dectree { Some v }
 
 dectree:
@@ -23,6 +23,7 @@ dectree:
 dectree_list:
 | v = dectree CM rst = dectree_list { v :: rst}
 | v = dectree { [v] }
+| { [] }
 
 index1:
 | EI { Eind }

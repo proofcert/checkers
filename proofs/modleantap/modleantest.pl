@@ -18,7 +18,7 @@
    op(400,fy,dia).
 
 :-	use_module(modlean_kt,[prove_kt/2]).
-:-	use_module(modlean_k,[prove_k/3]).
+:-	use_module(modlean_k,[prove_k/2]).
 :-	use_module(modlean_s4,[prove_s4/2]).
 :-	use_module(modlean_kd,[prove_kd/2]).
 
@@ -52,10 +52,6 @@
 % It succeeds if there is a fact fml(Name,Limit,Formula,Logic) in
 % the data base.
 % Limit is ignored as the decision procedure does not use any limit.
-
-nnfo(Name,NNF) :-
-	fml(Name,_,Formula,_),
-	nnf(Formula,NNF,_).
 
 provefml(Name,P) :-
 	fml(Name,Limit,Formula,Logic),
@@ -122,7 +118,7 @@ decprovefml(Name) :-
 % is to be proven to be *unsatisfiable* using the version of ModLeanTAP for
 % the logic Logic.
 %
-:% The logical operators  - (negation), & (conjunction), v (disjunction),
+% The logical operators  - (negation), & (conjunction), v (disjunction),
 % => (implication), <=> (equivalence), box (box operator),
 % dia (diamond operator), true, and false may be used.
 %
@@ -131,9 +127,8 @@ decprovefml(Name) :-
 
 fml(Name,Limit,Formula,k) :- fml(Name,Limit,Formula).
 
+fml(m0,2,(box(p;q),dia(-p;-q)),k).
 
-fml(m0,2,((dia -p;dia-q), box (p,q)),k).
-fml(t0,2,(box (-p;q),box p, (dia -q; dia -p)),k).
 fml(t1,2,-((box(p => q)) => ((box p) => (box q))),k).
 
 fml(t2,2,-(((box(p & q))) => ((box p) & (box q))),k).
