@@ -7,13 +7,13 @@ accum_sig base.
 kind dectree type.
 
 % a certificate is a tuple of:
-% list of indices -
-% tree of pairs of indices -
+% list of indices - used when formulas get stored
+% tree of pairs of indices - represents the original tableau proof
 % list of pairs - a mapping from indices to LKF-eigenvariables
 type fitcert list index -> dectree -> list (pair index atm) -> cert.
 
 % a dectree is a tree of (index1, index2)
-% index1 - referring to the position in the tableau inference tree
+% index1 - referring to the position of the subformula in the formula tree
 % index2 - optional index referring to complementary formula position for boxes and closures.
 % represented as a root (index1, index2) plus a list of dectrees (containing from 0 to 2 dectrees; 0, if the node is a leaf)
 type dectree index -> index -> list dectree -> dectree.

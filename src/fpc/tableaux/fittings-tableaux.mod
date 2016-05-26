@@ -16,7 +16,7 @@ release_ke C C.
 
 initial_ke (fitcert L (dectree I O D) M) O.
 
-orNeg_kc (fitcert [] (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M). % this is used if orNeg is the main connective of the formula on which we decide
+orNeg_kc (fitcert [] (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M). % this is used if orNeg is the main connective of the formula on which we decide (used to distinguish between orNeg coming from translation of box and real orNeg)
 orNeg_kc (fitcert [E|L] D M) Form (fitcert [E|L] D M). % this is used otherwise
 
 andNeg_kc (fitcert [] (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
