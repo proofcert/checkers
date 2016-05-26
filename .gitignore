@@ -10,3 +10,6 @@ depend-stage
 *.swo
 runner.*
 *.kate-swp
+output
+output2
+
