@@ -1,0 +1,2 @@
+runner.lpo: runner.mod runner.sig tests/tableaux/sftab2.sig utils/lists.sig utils/debug.sig fpc/resolution/resolution_steps.sig kernel/lkf/lkf-syntax.sig kernel/lkf/lkf-kernel.sig base.sig kernel/lkf/certificatesLKF.sig fpc/tableaux/simpfit-tableaux.sig kernel/modal/modal-syntax.sig fpc/tableaux/fittings-tableaux.sig fpc/resolution/res_base.sig
+runner.lp: runner.lpo tests/tableaux/sftab2.lpo utils/lists.lpo utils/debug.lpo fpc/resolution/resolution_steps.lpo fpc/tableaux/simpfit-tableaux.lpo kernel/lkf/lkf-kernel.lpo

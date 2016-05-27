@@ -16,7 +16,7 @@ run :-
 run :-
   modalProblem Name ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
-  modalToLK x ModalForm LKForm,
+  modalToLK ModalForm (LKForm x),
   resolve [] LKForm Cert.
 
 resolve [] F Cert :-
@@ -36,17 +36,27 @@ resolveCert [(pr I C) | R] F Cert  CertOut :-
   
   % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
   
-modalToLK Var (-- A) (n (A Var)).
-modalToLK Var (++ A) (p (A Var)).
+modalToLK (-- A) (x\ n (A x)).
+modalToLK (++ A) (x\ p (A x)).
 
-modalToLK Var (A && B) ((DelA) &-& (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
-modalToLK Var (A !! B) ((DelA) !-! (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+modalToLK Var (A && B) (x\ (DelA x) &-& (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+modalToLK Var (A !! B) (x\ (DelA x) !-! (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
 
-modalToLK x (dia (A)) (some (y\ ( (p (rel x y)) &+& (d-(DelA))))) :- modalToLK y A A', optdel A' DelA.
-modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+% modalToLK Var (-- A) (n (A Var)).
+% modalToLK Var (++ A) (p (A Var)).
+% modalToLK Var (A && B) ((DelA) &-& (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+% modalToLK Var (A !! B) ((DelA) !-! (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
 
-modalToLK x (box (A)) (all (y\ ( (n (rel x y)) !-! (DelA)))) :- modalToLK y A A', optdel A' DelA.
-modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
+modalToLK (dia (A)) (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y)))))) :- modalToLK A A', optdel A' DelA.
+modalToLK (box (A)) (x\ (all (y\ ( (n (rel x y)) !-! (DelA y))))) :- modalToLK y A A', optdel A' DelA.
+
+% modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+
+% modalToLK x (dia (A)) (some (y\ ( (p (rel x y)) &+& (d-(DelA))))) :- modalToLK y A A', optdel A' DelA.
+% modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+
+% modalToLK x (box (A)) (all (y\ ( (n (rel x y)) !-! (DelA)))) :- modalToLK y A A', optdel A' DelA.
+% modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
 
   % Operator that delays only non-literals
 
