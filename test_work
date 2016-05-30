@@ -1,0 +1,27 @@
+orNeg_kc (simpfitcert 1 [I] C B E U) Form (simpfitcert 0 [lind I, rind I] C B E U). % this is used if orNeg is the main connective of the formula on which we decide (used to distinguish between orNeg coming from translation of box and real orNeg)
+orNeg_kc (simpfitcert 0 I C B E U) Form (simpfitcert 0 I C B E U).
+
+orNeg_kc (simpfitcert 0 (lind (rind eind) :: nil) (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (rind eind) :: nil)) (n (rel x <constant>) !-! p (q y)) (simpfitcert 0 (lind (rind eind) :: nil) (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (rind eind) :: nil))
+
+(simpfitcert 0 (lind (rind eind) :: nil) (closure (bind (lind eind) (rind eind)) (lind (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (rind eind) :: nil)) (n (rel x <constant>) !-! p (q y)) (simpfitcert 0 (lind (rind eind) :: nil) (closure (bind (lind eind) (rind eind)) (lind (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (rind eind) :: nil))
+
+
+store_kc (simpfitcert F I C B E U) (n (rel X Y)) none (simpfitcert 0 I C B E [used D|U]) :- !. % in the case of relational atoms, we use none as the index
+store_kc (simpfitcert F I C B E U) (p (rel X Y)) none (simpfitcert 0 I C B E [used D|U]) :- !. % in the case of relational atoms, we use none as the index
+store_kc (simpfitcert F [H|T] C B E U) Form H (simpfitcert 0 T C B E U).
+
++++ store_kc (simpfitcert 0 (lind eind :: rind eind :: nil) (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) nil nil) (d+ (some (W1\ p (rel x W1) &+& d- (n (q y))))) (lind eind) (simpfitcert 0 (rind eind :: nil) (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) nil nil)
+
+
+decide_ke (simpfitcert F I C B E U) D (simpfitcert 1 [D] C B E [used D|U]) :- not (member (used D) U). % general case
+>>> decide_ke (simpfitcert 0 nil (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (rind eind) :: nil)) _20168 _20184
+
+initial_ke (simpfitcert F [I|T] C B E U) Compl :- member (closure I Compl) C. % reminder: remove I from Used
+initial_ke (simpfitcert F [I|T] C B E U) none. % case for relational atoms
++++ initial_ke (simpfitcert 1 (lind (rind eind) :: nil) (closure (lind (rind eind)) (bind (lind eind) (rind eind)) :: nil) (boxinfo (lind eind) (rind eind) :: nil) (pr (rind eind) <constant> :: nil) (used (lind (rind eind)) :: used (rind eind) :: nil)) (bind (lind eind) (rind eind))
+
+(lind eind) is the box (exists in LKF)
+(rind eind) is the diamond (forall in LKF)
+
+(bind (lind eind) (rind eind)) is ~Q(y) 
+lind (rind eind) is Q(y)
