@@ -118,14 +118,15 @@ prove(Ind,(A;B),Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,Q))
 % The box rule
 
 prove(Ind, box Fml,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
+  term_string(X:Y,Ss),term_string(Label,Ss2),print("b: "),print(Ss),print(" -- "), print(Ss2),nl,
 	prove([sb(Ind,Y)],Fml,[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
-  AllLab,NonGrd,Free,Limit,P),
-  term_string(X:Y,Ss),term_string(Label,Ss2),print("b: "),print(Ss),print(" -- "), print(Ss2),nl.
+  AllLab,NonGrd,Free,Limit,P).
 
 
 % The diamond rule
 
 prove(Ind,dia Fml,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
+  term_string(Fml:Ind,Ss),term_string(Label,Ss2),print("d: "),print(Ss),print(" -- "), print(Ss2),nl,
 	reverse([((Fml,Ind),(Fml,_))|Label],TmpNewLabel),
         append(TmpNewLabel,_,NewLabel),
         prove([l:Ind],NonGrd,_,_,AllLits,AllLits,[(Univ:[((Fml,Ind),(Fml,_))|Label]:Fml:[l:Ind])|UnExp],
@@ -172,15 +173,17 @@ prove(Ind1,Lit,LitLabel,_,[],AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- 
 
 prove(Ind,Lit1,Label1,_,[(Label2:Lit2:Ind2)|Lits],AllLits,UnExp,Sleep,
       AllLab,NonGrd,Free,Limit,(P,Q)) :-
-        %term_string(Label1:Lit1,S1),term_string(Label2:Lit2,S2),print(S1),nl,print(S2),nl,
+        %term_string(Label1:Lit1,SS1),term_string(Label2:Lit2,SS2),print("c: "),print(SS1),nl,print(SS2),nl,
 	( \+(Label1:Lit1 = Label2:Lit2) ->
  	  prove(Ind,Lit1,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
                 Free,Limit,(P,Q))
-        ; Label1 = Label2,
+        ;
+   term_string(Label1:Lit1,SS1),term_string(Label2:Lit2,SS2),print("c1: "),print(SS1),nl,print(SS2),nl,
+          Label1 = Label2,
+term_string(Label1:Lit1,SssS1),term_string(Label2:Lit2,SssS2),print("c2: "),print(SssS1),nl,print(SssS2),nl,
           copy_term((Label1,Free),(NewLabel1,Free)),
           copy_term((Label2,Free),(NewLabel2,Free)),
           reverse(NewLabel1,RevLabel),
-          %term_string(NewLabel1,SS1),term_string(NewLabel2,SS2),print(SS1),nl,print(SS2),nl,
           ( NewLabel1 = NewLabel2,
             justified(RevLabel,AllLab),
             Q = [],
