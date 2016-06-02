@@ -1,33 +1,23 @@
 accumulate lists.
 accumulate debug.
-
-parseInput [(pr I Cl)] f- [] NCl [I] :-
-  negateForm Cl NCl.
-
-parseInput [(pr I Cl) | Ls] F Il (NCl !-! F2) [I | Il2] :-
-  parseInput Ls F Il F2 Il2,
-  negateForm Cl NCl.
-
-negateMap [] [].
-negateMap [(pr I Cl) | Map] [(pr I NCl) | Map2] :-
-  negateForm Cl NCl,
-  negateMap Map Map2.
+accumulate resolution_steps.
 
 run :-
-  resProblem Name Ls (resteps C) (map Map),
-  parseInput Ls f- [] F Istate,
+  problemCert Name F Cert (map Map) C,
   print "Running on problem ", print Name, print ":\n",
-  negateMap Map Map2,
-  resolve Map2 F (rsteps C (istate Istate)).
+  resolveCert Map F Cert C.
+
 
 run :-
   problem Name F Cert (map Map),
   print "Running on problem ", print Name, print ":\n",
   resolve Map F Cert.
 
-run.
-
-main :- run.
+run :-
+  modalProblem Name ModalForm Cert,
+  print "Running on problem ", print Name, print ":\n",
+  modalToLK ModalForm LKForm,  
+  resolve [] (LKForm zero) Cert.
 
 resolve [] F Cert :-
   if (entry_point Cert F)
@@ -35,3 +25,62 @@ resolve [] F Cert :-
 		  (print "Fail\n", halt), fail.
 resolve [(pr I C) | R] F Cert :-
   mapsto I C => resolve R F Cert.
+
+resolveCert [] F Cert CertOut :-
+  if (entry_point Cert F)
+      (print "Success\n==============================================\n", term_to_string CertOut S, print S)
+		  (print "Fail\n", halt), fail.
+resolveCert [(pr I C) | R] F Cert  CertOut :-
+  mapsto I C => resolve R F Cert.
+
+  
+% x\ p (q x) 
+% (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y))))))  
+
+% (x\ (some (y\ ( (p (rel x y)) &+& (d-(p (q y)))))))  
+  
+% (some (y\ ( (p (rel zero y)) &+& (d-(p (q y))))))
+%  some (W1\ p (rel zero W1) &+& d- (p (q W1)))
+  
+% ((d+ (some (W1\ p (rel zero W1) &+& d- (d+ (n (q W1))))) !-! d+ (all (W1\ n (rel zero W1) !-! d+ (p (q W1)))))  
+% ( (dia (-- q)) !! (box (++ q)) )  
+  
+  % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
+  
+modalToLK (-- A) (x\ n (A x)).
+modalToLK (++ A) (x\ p (A x)).
+
+%modalToLK (A && B) (x\ (DelA x) &-& (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+%modalToLK (A !! B) (x\ (A' x) !-! (B' x)) :- modalToLK A A', modalToLK B B'.
+%modalToLK (A !! B) (x\ d+ (A' x) !-! d+ (B' x)) :- modalToLK A A', modalToLK B B'.
+modalToLK (A !! B) (x\ ((DelA x) !-! (DelB x))) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+
+modalToLK (A && B) (x\ ((DelA x) &-& (DelB x))) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+% modalToLK (A !! B) (x\ (DelA x) !-! (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+
+% modalToLK Var (-- A) (n (A Var)).
+% modalToLK Var (++ A) (p (A Var)).
+% modalToLK Var (A && B) ((DelA) &-& (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+% modalToLK Var (A !! B) ((DelA) !-! (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+
+modalToLK (dia (A)) (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y)))))) :- modalToLK A A', optdel A' DelA.
+% modalToLK (dia (A)) (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y)))))) :- modalToLK A A', optdel A' DelA.
+modalToLK (box (A)) (x\ (all (y\ ( (n (rel x y)) !-! (DelA y))))) :- modalToLK A A', optdel A' DelA.
+
+% modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+
+% modalToLK x (dia (A)) (some (y\ ( (p (rel x y)) &+& (d-(DelA))))) :- modalToLK y A A', optdel A' DelA.
+% modalToLK y (dia (A)) (some (x\ ( (p (rel y x)) &+& (d-(DelA))))) :- modalToLK x A A', optdel A' DelA.
+
+% modalToLK x (box (A)) (all (y\ ( (n (rel x y)) !-! (DelA)))) :- modalToLK y A A', optdel A' DelA.
+% modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
+
+  % Operator that delays only non-literals
+%optdel (A) (x\ d+ (A x)).
+
+%optdel (A) (A) :- (isNegAtm (A x)), !.
+%optdel (A) (A) :- (isPosAtm (A x)), !.
+%optdel (A) (A).
+optdel A (x\ d+ (A x)).
+%optdel A (x\ d+ (A x)). 
+%:- not(isNegAtm (A z)), not(isPosAtm (A z)). % but better not to use not, Tomer said

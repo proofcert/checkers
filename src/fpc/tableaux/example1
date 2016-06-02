@@ -1,0 +1,33 @@
+% Formula: (\box P) /\ (\diamond \not P)
+
+% This is the dectree (second element of the certificate), also containing the root formula (indexed with eind)
+(
+(eind,eind),
+  [
+    (rind(eind),eind),
+    [
+      (lind(eind),rind(eind)),
+      [
+	(bind(lind(eind),rind(eind)),lind(rind(eind))),[]
+      ]
+    ]
+  ]
+)
+
+% This should be the full certificate assuming that you are already focusing on the main formula
+
+(
+  [eind], 	% 1st element of the certificate: a list of indexes
+  
+  ( 		% 2nd element of the certificate: the dectree
+      (rind(eind),eind),
+      [
+	(lind(eind),rind(eind)),
+	[
+	  (bind(lind(eind),rind(eind)),lind(rind(eind))),[]
+	]
+      ]
+  ),
+
+  []		% 3rd element of the certificate: the mapping  
+)
