@@ -15,7 +15,7 @@ spy ""
 % decide
 check Cert (unfK nil) :-
   spy "" (decide_ke Cert Indx Cert'),
-  inCtxt Indx P,
+  spy "inContext " (inCtxt Indx P),
   isPos P,
   spy "Deciding " (check Cert' (foc P)).
 % release
@@ -64,7 +64,7 @@ check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
   spy "False " (check Cert' (unfK Gamma)).
 % delay
 check Cert (unfK [d- A| Teta]) :-
-  spy "Delay" (check Cert (unfK [A| Teta])).
+  spy "NegDelay" (check Cert (unfK [A| Teta])).
 
 %%%%%%%%%%%%%%%%%%%
 % Synchronous Rules
@@ -96,7 +96,7 @@ check Cert (foc t+) :-
   spy "" (true_ke Cert).
 % delay
 check Cert (foc (d+ A)) :-
-  spy "" (check Cert (foc A)).
+  spy "PosDelay " (check Cert (foc A)).
 
 %%%%%%%%%%%
 % Utilities
