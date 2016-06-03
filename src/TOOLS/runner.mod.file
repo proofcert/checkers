@@ -76,11 +76,14 @@ modalToLK (box (A)) (x\ (all (y\ ( (n (rel x y)) !-! (DelA y))))) :- modalToLK A
 % modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
 
   % Operator that delays only non-literals
-%optdel (A) (x\ d+ (A x)).
+optdel (A) (x\ d+ ((A x))).
 
-%optdel (A) (A) :- (isNegAtm (A x)), !.
+%optdel A (x\ d+ (A x)) :- isCompNeg (A x).
+%optdel A A :- isAtm (A x).
+%optdel A A :- isCompPos (A x).
+
 %optdel (A) (A) :- (isPosAtm (A x)), !.
-%optdel (A) (A).
-optdel A (x\ d+ (A x)).
-%optdel A (x\ d+ (A x)). 
+%optdel A (x\ d+ (A x)) :- not (isAtm (A y)), !.
+%optdel A A.
+%optdel A (x\ d+ (A x)).
 %:- not(isNegAtm (A z)), not(isPosAtm (A z)). % but better not to use not, Tomer said

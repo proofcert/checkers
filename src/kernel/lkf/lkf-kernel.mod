@@ -97,6 +97,25 @@ check Cert (foc (d+ A)) :-
 
 eager_normalize A B :- A = B.
 
+isCompForm (_ &-& _).
+isCompForm (_ !-! _).
+isCompForm (d- _).
+isCompForm (all _).
+isCompForm (_ &+& _).
+isCompForm (d+ _).
+isCompForm (_ !+!  _).
+isCompForm (some _).
+
+isCompNeg (_ &-& _).
+isCompNeg (_ !-! _).
+isCompNeg (d- _).
+isCompNeg (all _).
+
+isCompPos (_ &+& _).
+isCompPos (d+ _).
+isCompPos (_ !+!  _).
+isCompPos (some _).
+
 isNegForm (_ &-& _).
 isNegForm (_ !-! _).
 isNegForm (d- _).
@@ -106,6 +125,8 @@ isPosForm (d+ _).
 isPosForm (_ !+!  _).
 isNegAtm (n _).
 isPosAtm (p _).
+isAtm (A) :- isNegAtm A.
+isAtm (A) :- isPosAtm A.
 isPosForm (some _).
 isPosForm t+.
 isPosForm f+.

@@ -23,6 +23,7 @@ store_kc (simpfitcert F [H|T] C B E U) Form H (simpfitcert 0 T C B E [(use H)|U]
 release_ke C C.
 
 initial_ke (simpfitcert F [I|T] C B E U) Compl :- member (closure I Compl) C. % close wrt to the corresponding index in the closure set
+initial_ke (simpfitcert F [I|T] C B E U) Compl :- member (closure Compl I) C. % close wrt to the corresponding index in the closure set
 initial_ke (simpfitcert F [I|T] C B E U) none. % case for relational atoms
 
 orNeg_kc (simpfitcert 1 [I] C B E U) Form (simpfitcert 0 [lind I, rind I] C B E U). % case when orNeg is the main connective of the formula on which we decide (used to distinguish between orNeg coming from translation of box and real orNeg)
