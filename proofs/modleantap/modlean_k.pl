@@ -83,12 +83,8 @@ iterate(Limit,Current,Goal,Result) :-
 % Vars is a list that has to contain at least one ground atom, for the
 % formula to be waken up.
 
-
 % The conjunctive rule
-
-prove([sb(Ind,Y)],Fml,[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P):-!,
-	prove([b(Ind,Z)],Fml,[((X,Z),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P).
-
+%
 prove(Ind,(A,B),Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
         copy_term((Label,Univ,Free),(LabelB,UnivB,Free)),
         prove([l:Ind],A,Label,Univ,AllLits,AllLits,[(UnivB:LabelB:B:[r:Ind])|UnExp],
@@ -105,12 +101,12 @@ prove(Ind,(A;B),Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,Q))
         append(Sleep,[(UnivB:LabelB:(A;B):Ind)-Univ],SleepB),
         length(Univ,Length),
 	NewLimit is Limit - Length,
-        term_string(Label,Ss),print("l: "),print(Ss),nl,
+  %term_string(Label,Ss),print("l: "),print(Ss),nl,
         prove([l:Ind], A,Label,[],AllLits,AllLits,UnExp,SleepA,AllLab,NonGrd,
               (Univ+Free),NewLimit,(P1,Q1)),
         prove([r:Ind], B,Label,[],AllLits,AllLits,UnExp,SleepB,AllLab,NonGrd,
               (Univ+Free),NewLimit,(P2,Q2)),
-        term_string(P1,S1),term_string(P2,S2),print(S1),nl,print(S2),nl,
+                %term_string(P1,S1),term_string(P2,S2),print(S1),nl,print(S2),nl,
   append(P1,P2,P),
   append(Q1,Q2,Q).
 
@@ -118,15 +114,15 @@ prove(Ind,(A;B),Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,(P,Q))
 % The box rule
 
 prove(Ind, box Fml,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
-  term_string(X:Y,Ss),term_string(Label,Ss2),print("b: "),print(Ss),print(" -- "), print(Ss2),nl,
-	prove([sb(Ind,Y)],Fml,[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
+%term_string(X:Y,Ss),term_string(Label,Ss2),print("b: "),print(Ss),print(" -- "), print(Ss2),nl,
+	prove([b(Ind,Y)],Fml,[((X,Y),_)|Label],[X|Univ],AllLits,AllLits,UnExp,Sleep,
   AllLab,NonGrd,Free,Limit,P).
 
 
 % The diamond rule
 
 prove(Ind,dia Fml,Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
-  term_string(Fml:Ind,Ss),term_string(Label,Ss2),print("d: "),print(Ss),print(" -- "), print(Ss2),nl,
+%term_string(Fml:Ind,Ss),term_string(Label,Ss2),print("d: "),print(Ss),print(" -- "), print(Ss2),nl,
 	reverse([((Fml,Ind),(Fml,_))|Label],TmpNewLabel),
         append(TmpNewLabel,_,NewLabel),
         prove([l:Ind],NonGrd,_,_,AllLits,AllLits,[(Univ:[((Fml,Ind),(Fml,_))|Label]:Fml:[l:Ind])|UnExp],
@@ -178,9 +174,9 @@ prove(Ind,Lit1,Label1,_,[(Label2:Lit2:Ind2)|Lits],AllLits,UnExp,Sleep,
  	  prove(Ind,Lit1,Label1,_,Lits,AllLits,UnExp,Sleep,AllLab,NonGrd,
                 Free,Limit,(P,Q))
         ;
-   term_string(Label1:Lit1,SS1),term_string(Label2:Lit2,SS2),print("c1: "),print(SS1),nl,print(SS2),nl,
+          %term_string(Label1:Lit1,SS1),term_string(Label2:Lit2,SS2),print("c1: "),print(SS1),nl,print(SS2),nl,
           Label1 = Label2,
-term_string(Label1:Lit1,SssS1),term_string(Label2:Lit2,SssS2),print("c2: "),print(SssS1),nl,print(SssS2),nl,
+          %term_string(Label1:Lit1,SssS1),term_string(Label2:Lit2,SssS2),print("c2: "),print(SssS1),nl,print(SssS2),nl,
           copy_term((Label1,Free),(NewLabel1,Free)),
           copy_term((Label2,Free),(NewLabel2,Free)),
           reverse(NewLabel1,RevLabel),
