@@ -11,7 +11,9 @@ modalProblem "fittings ex2" %name
       dectree eind none [
         dectree (rind eind) none [
           dectree (lind eind) (rind eind) [
-            dectree (lind (rind eind)) (bind (lind eind) (rind eind)) []
+%	    dectree (bind (lind eind) (rind eind)) none [ 	% line added for case when we delay everything
+	      dectree (lind (rind eind)) (bind (lind eind) (rind eind)) []
+%	    ]
           ]
         ]
       ]

@@ -43,6 +43,6 @@ type n, p      	       	  atm -> form.
 type unfK list form -> seq.
 type foc form -> seq.
 type isNegForm, isNegAtm,
-     isPosForm, isPosAtm,
+     isPosForm, isPosAtm, isCompForm, isCompNeg, isCompPos, isAtm,
      isNeg, isPos, isPosUM	  form -> o.
 type negateForm form -> form -> o.

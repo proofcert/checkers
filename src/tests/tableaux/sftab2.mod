@@ -5,8 +5,8 @@ accumulate lkf-kernel.
 
 % identical to the ftab2 example but using the simple tableaux certificate format
 modalProblem "simpfit ex2" %name
-%  ( (dia (-- q)) !! (box (++ q)) ) % modal formula (already dualized, i.e. the valid one)
-   ( dia (++ q) ) % modal formula (already dualized, i.e. the valid one)
+  ( (dia (-- q)) !! (box (++ q)) ) % modal formula (already dualized, i.e. the valid one)
+%   ( dia (++ q) ) % modal formula (already dualized, i.e. the valid one)
 %   ((++ q) !! ((-- q) && (-- q)))
 %   ((-- q) !! (++ q))
 	(
