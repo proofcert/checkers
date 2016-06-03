@@ -32,15 +32,3 @@ all_kc (fitcert [] (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen
 some_ke (fitcert [] (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M. %
 % for extensions of K, we will need to define also a case where the first list is not []
 
-
-
-% OLD VERSION: PROBLEMS WITH INDEXES
-%decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
-%store_kc (fitcert [H|T] D M) Form H (fitcert T D M).
-%orNeg_kc (fitcert L (dectree I O [H|T]) M) Form (fitcert [lind I, rind I] H M).
-%andNeg_kc (fitcert L (dectree I O [H,G|T]) M) Form (fitcert [lind I] H M) (fitcert [rind I] G M).
-%all_kc (fitcert L (dectree I O [H|T]) M) (Eigen\ fitcert [lind I] H [pr I Eigen|M]).
-%release_ke C C.
-%some_ke (fitcert L (dectree I O [H|T]) M) X (fitcert [bind I O] H M) :- member (pr O X) M.
-%andPos_k C Form left-first C C.
-%initial_ke (fitcert L (dectree I O D) M) O.

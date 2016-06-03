@@ -28,25 +28,3 @@ type none index. % used when the index is irrelevant, e.g., to label relational 
 
 % for the accessibility relation, we use the same 'rel' in all problems
 type rel A -> A -> atm.
-
-
-% OLD STUFF
-
-%type decnode index -> opindex -> decnode.
-%type udectree decnode -> dectree -> dectree.
-%type bdectree decnode -> dectree -> dectree -> dectree.
-
-%type sind index -> opindex
-%type none -> opindex
-
-% kind fittab, tabinf, label type.
-
-% type idx int -> index.
-% type lbl int -> label.
-% type fittab list tabinf -> cert.
-%type conjinf  index -> int -> int -> tabinf.
-%type disjinf  index -> int -> int -> tabinf.
-%type diainf index -> int -> label -> tabinf.
-%type boxinf index -> int -> label -> tabinf.
-%type close index -> tabinf.
-
