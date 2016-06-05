@@ -1,4 +1,4 @@
-sig sftabt4.
+sig sftab1.
 
 accum_sig lkf-syntax.
 accum_sig lkf-kernel.

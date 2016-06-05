@@ -8,4 +8,5 @@ accum_sig simpfit-tableaux.
 accum_sig lists.
 accum_sig modal-syntax.
 
-type q A -> atm.
+type q1 A -> atm.
+type q2 A -> atm.

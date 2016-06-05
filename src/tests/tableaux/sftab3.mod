@@ -1,9 +1,9 @@
-module sftabt4.
+module sftab3.
 
 accumulate simpfit-tableaux.
 accumulate lkf-kernel.
 
-modalProblem "benchmark t4"
+modalProblem "ModLeanTap t4"
 % (box p,dia-q),box (-p;q) the negated formula
 (((dia (-- q1)) !! (box (++ q2))) !! (dia ((++ q1) && (-- q2))))
 	(

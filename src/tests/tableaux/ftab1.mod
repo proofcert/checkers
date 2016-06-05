@@ -1,25 +1,11 @@
 module ftab1.
-
 accumulate fittings-tableaux.
 accumulate lkf-kernel.
-
-problem "fittings ex1"
-  ((d+ (some (y\ ((p (rel x y)) &+& (d- (n (q y))))))) !-! (d+ (all (y\ ((n (rel x y)) !-! (p (q y))))))) % the formula
-	(
-    fitcert [] % the list
-    (
-      dectree eind none [
-        dectree (rind eind) none [
-          dectree (lind eind) (rind eind) [
-            dectree (lind (rind eind)) (bind (lind eind) (rind eind)) []
-          ]
-        ]
-      ]
-    ) % the tree
-    [] % the map
-  )
-	(map []).
-	
-	
-	
-%  ((d+ (all (y\ ((n (rel x y)) !-! (p (q y)))))) &-& (d+ (some (y\ ((p (rel x y)) &+& (d- (n (q y)))))))) % the refuted formula	
+modalProblem "ModLeanTAP problem t1"
+(((dia (-- p1)) !! (box (++ q1))) !! (dia ((++ p1) && (-- q1))))
+(fitcert []
+((dectree eind none [
+(dectree (lind eind) none [
+(dectree (rind (lind eind)) none [
+(dectree (lind (lind eind)) (rind (lind eind)) [
+(dectree (rind eind) (rind (lind eind)) [(dectree (bind ((rind eind)) ((rind (lind eind)))) none [(dectree (lind (bind ((rind eind)) ((rind (lind eind))))) (bind ((lind (lind eind))) ((rind (lind eind)))) []), (dectree (lind (rind (lind eind))) (rind (bind ((rind eind)) ((rind (lind eind))))) [])])])])])])])) [] ).
