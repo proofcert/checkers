@@ -1,6 +1,0 @@
-sftab2.lpo: sftab2.mod sftab2.sig ../../fpc/tableaux/simpfit-tableaux.sig ../../kernel/lkf/lkf-kernel.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig ../../fpc/tableaux/fittings-tableaux.sig ../../kernel/lkf/lkf-syntax.sig ../../base.sig ../../kernel/modal/modal-syntax.sig
-ftab2.lpo: ftab2.mod ftab2.sig ../../fpc/tableaux/fittings-tableaux.sig ../../kernel/lkf/lkf-kernel.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig ../../kernel/modal/modal-syntax.sig
-ftab1.lpo: ftab1.mod ftab1.sig ../../fpc/tableaux/fittings-tableaux.sig ../../kernel/lkf/lkf-kernel.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
-sftab2.lp: sftab2.lpo ../../fpc/tableaux/simpfit-tableaux.lpo ../../kernel/lkf/lkf-kernel.lpo ../../utils/lists.lpo
-ftab2.lp: ftab2.lpo ../../fpc/tableaux/fittings-tableaux.lpo ../../kernel/lkf/lkf-kernel.lpo ../../utils/lists.lpo
-ftab1.lp: ftab1.lpo ../../fpc/tableaux/fittings-tableaux.lpo ../../kernel/lkf/lkf-kernel.lpo ../../utils/lists.lpo
