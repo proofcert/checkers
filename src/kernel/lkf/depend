@@ -1,0 +1,2 @@
+lkf-kernel.lpo: lkf-kernel.mod lkf-kernel.sig ../../utils/lists.sig certificatesLKF.sig ../../base.sig lkf-syntax.sig
+lkf-kernel.lp: lkf-kernel.lpo ../../utils/lists.lpo

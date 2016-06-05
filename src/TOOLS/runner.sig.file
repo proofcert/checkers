@@ -1,6 +1,12 @@
 accum_sig lists.
 accum_sig base.
-
+accum_sig modal-syntax.
 type run o.
 type resolve (list (pair int form)) -> form -> cert -> o.
 type resolveCert (list (pair int form)) -> form -> cert -> cert -> o.
+type modalToLK modform -> (A -> form) -> o.
+% type modalToLK A -> modform -> form -> o.
+type optdel (A -> form) -> (A -> form) -> o.
+% type optdel form -> form -> o.
+type zero, x, y, z A.
+type rel A -> A -> atm.

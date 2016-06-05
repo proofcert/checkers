@@ -1,0 +1,4 @@
+lists.lpo: lists.mod lists.sig 
+debug.lpo: debug.mod debug.sig lists.sig
+lists.lp: lists.lpo 
+debug.lp: debug.lpo lists.lpo

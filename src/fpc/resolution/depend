@@ -1,0 +1,12 @@
+resolution_steps.lpo: resolution_steps.mod resolution_steps.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig res_base.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
+paramodulation.lpo: paramodulation.mod paramodulation.sig resolution_steps.sig ../../base.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig res_base.sig ../../kernel/lkf/lkf-syntax.sig
+eprover.lpo: eprover.mod eprover.sig paramodulation.sig resolution_steps.sig ../../base.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig res_base.sig ../../kernel/lkf/lkf-syntax.sig binary_res_fol_nosub.sig
+binary_res_prop.lpo: binary_res_prop.mod binary_res_prop.sig resolution_steps.sig ../../base.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig res_base.sig ../../kernel/lkf/lkf-syntax.sig
+binary_res_fol_nosub.lpo: binary_res_fol_nosub.mod binary_res_fol_nosub.sig resolution_steps.sig res_base.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
+binary_res_fol.lpo: binary_res_fol.mod binary_res_fol.sig resolution_steps.sig res_base.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
+resolution_steps.lp: resolution_steps.lpo 
+paramodulation.lp: paramodulation.lpo 
+eprover.lp: eprover.lpo paramodulation.lpo
+binary_res_prop.lp: binary_res_prop.lpo 
+binary_res_fol_nosub.lp: binary_res_fol_nosub.lpo 
+binary_res_fol.lp: binary_res_fol.lpo 

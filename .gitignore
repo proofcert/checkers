@@ -14,3 +14,5 @@ proofs/tstpparser/tstplexer.ml
 proofs/tstpparser/tstpparser
 proofs/tstpparser/tstpparser.ml
 proofs/tstpparser/tstpparser.mli
+output
+output2

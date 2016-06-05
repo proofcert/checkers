@@ -8,5 +8,4 @@ accum_sig fittings-tableaux.
 accum_sig lists.
 
 type q A -> atm.
-type r A -> A -> atm.
 type x A.
