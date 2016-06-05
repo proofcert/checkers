@@ -3,19 +3,20 @@ module sftab2.
 accumulate simpfit-tableaux.
 accumulate lkf-kernel.
 
-% identical to the ftab2 example but using the simple tableaux certificate format
-modalProblem "simpfit ex2" %name
-  ( (dia (-- q)) !! (box (++ q)) ) % modal formula (already dualized, i.e. the valid one)
-%   ( dia (++ q) ) % modal formula (already dualized, i.e. the valid one)
-%   ((++ q) !! ((-- q) && (-- q)))
-%   ((-- q) !! (++ q))
+modalProblem "ModLeanTap t3"
+% dia-q,box p,box (-p;q)  the negated formula
+((box (++ q2)) !! (dia (-- q1)) !! (dia ((++ q1) && (-- q2))))
 	(
     simpfitcert
+%([ ([l:[b([r:[r:e]], [l:e])]], [b([l:[r:e]], [l:e])]), ([r:[b([r:[r:e]], [l:e])]], [l:[l:e]])], [])
       1
       [eind]
-%       [closure (lind eind) (lind (rind eind)), closure (lind eind) (rind (rind eind))] % the closure list
-      [closure (lind (rind eind)) (bind (lind eind) (rind eind))] % the closure list
-      [boxinfo (lind eind) (rind eind)] % the boxinfo list
+      [ closure (lind (bind (rind (rind eind)) (lind eind))) (bind (lind (rind eind)) (lind eind)),
+        closure (rind (bind (rind (rind eind)) (lind eind))) (lind (lind eind))
+      ]
+      [ boxinfo (rind (rind eind)) (lind eind),
+        boxinfo (lind (rind eind)) (lind eind)
+      ]
       []
       [] % used indices, original empty
   ).
