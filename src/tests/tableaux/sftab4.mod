@@ -9,8 +9,8 @@ modalProblem "ModLeanTap t4"
     simpfitcert
       1
       [eind]
-      [ closure (lind (lind eind)) (lind (bind (rind eind) (lind (lind eind)))),
-        closure (rind (lind eind)) (rind (bind (rind eind) (rind (lind eind))))
+      [ closure (lind (lind (lind eind))) (lind (bind (rind eind) (lind (lind eind)))),
+        closure (lind (rind (lind eind))) (rind (bind (rind eind) (rind (lind eind))))
       ]
       [ boxinfo (rind eind) (lind (lind eind)),
         boxinfo (rind eind) (rind (lind eind))
