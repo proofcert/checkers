@@ -87,8 +87,7 @@ iterate(Limit,Current,Goal,Result) :-
 %
 prove(Ind,(A,B),Label,Univ,_,AllLits,UnExp,Sleep,AllLab,NonGrd,Free,Limit,P) :- !,
         copy_term((Label,Univ,Free),(LabelB,UnivB,Free)),
-        %!!!!! note I changed UnivB and LabelB in order to make sure the problems do not need to duplicate the variables in the label
-        prove([l:Ind],A,Label,Univ,AllLits,AllLits,[(Univ:Label:B:[r:Ind])|UnExp],
+        prove([l:Ind],A,Label,Univ,AllLits,AllLits,[(UnivB:LabelB:B:[r:Ind])|UnExp],
               Sleep,AllLab,NonGrd,Free,Limit,P).
 
 

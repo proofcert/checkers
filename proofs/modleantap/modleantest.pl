@@ -57,6 +57,7 @@ provefml(Name,P) :-
 	fml(Name,Limit,Formula,Logic),
 	write(Name),
 	nnf(Formula,NNF,_),
+  print(NNF),
 	statistics(runtime,[_,_]),
         ( Logic == kt -> ( prove_kt(NNF,Limit) -> Proof = yes ; Proof = no)
         ; Logic == k  -> ( prove_k(NNF,Limit,P)  -> Proof = yes ; Proof = no)
@@ -131,6 +132,8 @@ fml(branch,2,-(-(p100 & -p101 & ((p101 => p100) & (p102 => p101) & ((p100 => (p0
 
 fml(m0,2,((box (p;q)) & (dia ((-p) & (-q)))),k).
 fml(m1,2,((box (p & q)) & ((dia (-p)) ; (dia (-q)))),k).
+
+fml(x1,2,((dia -p v dia -q) & box (p & q)),k).
 
 fml(t1,2,-((box(p => q)) => ((box p) => (box q))),k).
 
