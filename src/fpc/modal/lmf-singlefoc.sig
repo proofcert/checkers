@@ -4,24 +4,10 @@ accum_sig certificatesLKF.
 accum_sig lists.
 accum_sig base.
 
-kind eigenlist type.
-kind singlefoc-evidence type.
 
-type eigenlist list (pair index atm) -> eigenlist.
+% begin definitions are shared by all lmf proofs
 
-% a singlefoc-evidence is a tree of (index1, index2)
-% index1 - referring to the position of the subformula in the formula tree
-% index2 - optional index referring to complementary formula position for diamonds and closures.
-% represented as a root (index1, index2) plus a list of singlefoc-evidences  
-type singlefoc-evidence index -> index -> list singlefoc-evidence -> singlefoc-evidence.
-
-% a single-foc certificate is a tuple of:
-% list of indices - used when formulas get stored
-% tree of pairs of indices - represents the original proof (the proof evidence)
-% list of pairs - a mapping from indices to LKF-eigenvariables
-type singlefoc-cert list index -> singlefoc-evidence -> eigenlist -> cert.
-
-% an index is (1) empty, the (2) left or (3) right child of an index (this is used for classical connectives and diamond), 
+% an index is (1) empty, the (2) left or (3) right child of an index (this is used for classical connectives and diamond),
 % (4) the diamond-child of an index (in this case, we also add info about the corresponding box, i.e., eigenvariable)
 type root index. % corresponds to the root
 type lind index -> index.
@@ -29,5 +15,32 @@ type rind index -> index.
 type diaind index -> index -> index.
 type none index. % used when the index is irrelevant, e.g., to label relational atoms
 
+% abstration over the content of the tree node
+kind lmf-node type.
+% recursive def of the tree
+kind lmf-tree type.
+type lmf-tree lmf-node -> list lmf-tree -> lmf-tree.
+
 % for the accessibility relation, we use the same 'rel' in all problems
 type rel A -> A -> atm.
+
+% end of general lmf definitions
+
+% begin specific definitions for singlefoc
+
+% we abstract over the nodes but not over the state
+% the expected execution is that an lmf* expert will get an lmf* cert of
+% lmf*-state -> lmfsf-state -> lmf-tree
+% it will pass forward lmfsf-state -> lmf-tree'
+% where in the lmf-tree' we change the root from an lmf* node into an lmsf node
+% the rest of the tree will contain lmf* nodes so when there is a recursive call
+% it will still use the lmf* nodes
+
+kind lmf-singlefoc-state type.
+
+type lmf-singlefoc-cert lmf-singlefoc-state -> lmf-tree -> cert.
+
+type lmf-singlefoc-state list index -> list (pair index atm) -> lmf-singlefoc-state.
+
+type lmf-singlefoc-node index -> index -> lmf-node.
+
