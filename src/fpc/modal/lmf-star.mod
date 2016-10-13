@@ -1,12 +1,13 @@
 module lmf-star.
 
+
 % mv: in this version, we do not store relational atoms with a proper label
 %  for extensions of K, it would be necessary to do it:
-%  Idea: add a constructor 
+%  Idea: add a constructor
 % type relind index -> index -> index.
 %  where the two indexes refer to the formulas that introduced the two worlds
 
-decide_ke (star-cert L (star-evidence ([Ind Opt Present|Rest]) Evidence) EigenList) Ind3 (star-cert L2 (star-evidence ([Ind2 Opt2 Present|Rest]) Evidence) EigenList2) :- 
+decide_ke (star-cert L (star-evidence ([Ind Opt Present|Rest]) Evidence) EigenList) Ind3 (star-cert L2 (star-evidence ([Ind2 Opt2 Present|Rest]) Evidence) EigenList2) :-
   decide_ke (lmf-cert L (lmf-evidence Ind Opt LMFEvidence) EigenList) Ind3 (lmf-cert L2 (lmf-evidence Ind2 Opt2 LMFEvidence) EigenList2).
 %decide_ke (lmf-cert L (lmf-evidence I O D) M) I (lmf-cert [] (lmf-evidence I O D) M).
 
