@@ -1,5 +1,7 @@
 module lmf-multifoc.
 
+accumulate lmf-singlefoc.
+
 % mv: in this version, we do not store relational atoms with a proper label
 %  for extensions of K, it would be necessary to do it:
 %  Idea: add a constructor
