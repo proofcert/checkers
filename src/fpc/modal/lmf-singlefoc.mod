@@ -18,14 +18,14 @@ store_kc C (p (rel X Y)) none C
   :- !.
 
 % special case: used for storing delayed negative atoms (necessary in the case when we delay also atoms)
-store_kc
-  (lmf-singlefoc-cert (lmf-singlefoc-state [H|T] M) D)
-  (d+ A)
-  H
-  (lmf-singlefoc-cert
-    (lmf-singlefoc-state T M)
-    (lmf-tree (lmf-singlefoc-node H none) [(lmf-tree (lmf-singlefoc-node I O) [D])]))
-      :- isNegAtm (A), !.
+%store_kc
+%  (lmf-singlefoc-cert (lmf-singlefoc-state [H|T] M) D)
+%  (d+ A)
+%  H
+%  (lmf-singlefoc-cert
+%    (lmf-singlefoc-state T M)
+%    (lmf-tree (lmf-singlefoc-node H none) [(lmf-tree (lmf-singlefoc-node I O) [D])]))
+%      :- isNegAtm (A), !.
 
 % special case: used for storing negative atoms (necessary in the case when we delay also atoms)
 store_kc
