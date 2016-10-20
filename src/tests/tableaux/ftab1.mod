@@ -1,6 +1,8 @@
 module ftab1.
 accumulate lmf-singlefoc.
 accumulate lkf-kernel.
+accumulate modal-encoding.
+
 modalProblem "ModLeanTAP problem t1"
 (((dia (-- p1)) !! (box (++ q1))) !! (dia ((++ p1) && (-- q1))))
 (lmf-singlefoc-cert (lmf-singlefoc-state [] [])
