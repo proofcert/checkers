@@ -5,6 +5,8 @@ accum_sig modal-syntax.
 
 % this kind denotes a world
 % a world is just an index or the intial world
+% we use A for world and not the type world because world denotes both indices and eignvariables
+% we need to find a better way to map between the two. Right now the map is part of the state of lmf-singlefoc
 kind world type.
 type iworld world.
 type nworld index -> world.
