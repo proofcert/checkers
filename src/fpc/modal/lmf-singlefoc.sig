@@ -1,6 +1,8 @@
 sig lmf-singlefoc.
 
 accum_sig certificatesLKF.
+accum_sig lkf-syntax.
+accum_sig modal-encoding.
 accum_sig lists.
 accum_sig base.
 
@@ -20,9 +22,6 @@ kind lmf-node type.
 % recursive def of the tree
 kind lmf-tree type.
 type lmf-tree lmf-node -> list lmf-tree -> lmf-tree.
-
-% for the accessibility relation, we use the same 'rel' in all problems
-type rel A -> A -> atm.
 
 % end of general lmf definitions
 
