@@ -53,7 +53,13 @@ orNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [lind I, rind I] M) H).
 
 % this is used otherwise
-orNeg_kc C _ C.
+%mv: 21/10/2016 I replaced the following 
+%orNeg_kc C _ C. 
+orNeg_kc
+  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
+  _
+  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
+
 
 andNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [] M) (lmf-tree (lmf-singlefoc-node I O) [H,G|T]))
