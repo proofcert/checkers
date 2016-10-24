@@ -12,7 +12,6 @@ orNeg_kc (dlist C1 C2) _  (dlist C1 C2).
 orNeg_kc (dlist2 C1) _  (dlist2 C1).
 orNeg_kc dlist3 _  dlist3.
 initial_ke (dlist _ _) _.
-initial_ke (dlist _ _) _.
 initial_ke (dlist2 _) _.
 initial_ke dlist3 _.
 initial_ke done _.
@@ -34,6 +33,4 @@ decide_ke dlist3 lit done.
 false_kc (dlist C1 C2) (dlist C1 C2).
 % clauses are in prefix normal form and we just apply the sub in the right order
 some_ke (dlist2 C) _ (dlist2 C).
-some_ke (dlist2 C) _ (dlist2 C).
-some_ke dlist3 _ dlist3.
 some_ke dlist3 _ dlist3.
