@@ -35,6 +35,11 @@ type lmf-tree lmf-node -> list lmf-tree -> lmf-tree.
 % the rest of the tree will contain lmf* nodes so when there is a recursive call
 % it will still use the lmf* nodes
 
+% Each cert of more complex logic takes as arguments its own state and a certificate of lower level.
+% i.e. multifoc takes a singlefoc certificate (which contains the tree)
+% lmf-star takes an lmf-state argument and a multifoc cert
+% the tree on each level contains nodes of the specific logic
+
 kind lmf-singlefoc-state type.
 
 type lmf-singlefoc-cert lmf-singlefoc-state -> lmf-tree -> cert.
