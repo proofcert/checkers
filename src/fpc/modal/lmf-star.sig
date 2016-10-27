@@ -6,7 +6,7 @@ accum_sig base.
 accum_sig lmf-multifoc.
 
 % arg1 is the new H, arg2 is the future world
-% mv: don't we miss an lmf-multifoc-node?
+% the lmf-node argument is an lmf-multifoc-node
 type lmf-star-node list A -> A -> lmf-node -> lmf-node.
 
 % arg1 is H, arg2 is the current future to use (taken from the certificate on decide)
