@@ -60,15 +60,18 @@ orNeg_kc
   _
   (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
 
-
 andNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [] M) (lmf-tree (lmf-singlefoc-node I O) [H,G|T]))
   _
   (lmf-singlefoc-cert (lmf-singlefoc-state [lind I] M) H)
   (lmf-singlefoc-cert (lmf-singlefoc-state [rind I] M) G).
 
-andNeg_kc A _ A A.
-
+andNeg_kc % A _ A A.
+  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
+  _
+  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
+  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
+  
 andPos_k
   (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T))
   _
