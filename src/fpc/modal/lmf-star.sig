@@ -15,4 +15,9 @@ type lmf-star-node list A -> A -> lmf-node -> lmf-node.
 kind lmf-star-state type.
 type lmf-star-state list A -> A -> list (pair index A) -> lmf-star-state.
 % the cert argument is a multifoc cert
-type lmf-star-cert list lmf-star-state -> cert -> cert.
+type lmf-star-cert lmf-star-state -> cert -> cert.
+
+% helpers for translating from lmf-star to lmf-multi
+type lmf-star_to_lmf-multifoc cert -> lmf-star-state -> list A -> A -> cert -> o.
+type lmf-multifoc_to_lmf-star cert -> lmf-star-state -> list A -> A -> cert -> o.
+type lmf-multifoc_to_lmf-star_all (A -> cert) -> lmf-star-state -> (A -> cert) -> o.
