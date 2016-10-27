@@ -6,7 +6,8 @@ accum_sig lists.
 accum_sig base.
 accum_sig lmf-singlefoc.
 
-% int corresponds to a multifocus grouping
+% int corresponds to a multifocus grouping - mv: why isn't the second lmf-node 
+% an lmf-singlefoc-node?
 type lmf-multifoc-node int -> lmf-node -> lmf-node.
 
 type lmf-multifoc-cert cert -> cert.
