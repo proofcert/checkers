@@ -21,3 +21,8 @@ type lmf-star-cert lmf-star-state -> cert -> cert.
 type lmf-star_to_lmf-multifoc cert -> lmf-star-state -> list A -> A -> cert -> o.
 type lmf-multifoc_to_lmf-star cert -> lmf-star-state -> list A -> A -> cert -> o.
 type lmf-multifoc_to_lmf-star_all (A -> cert) -> lmf-star-state -> (A -> cert) -> o.
+
+% adds a new value ONLY if the index does not already exist
+% this is so because we have logical nodes which do not change the index
+% see for example the singlefoc second or-neg which does not change the indices
+type add-to-map list (pair index A) -> index -> A -> o.
