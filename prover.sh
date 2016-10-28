@@ -1,4 +1,3 @@
-#!/bin/bash
 # Copyright (C) 2015 INRIA
 
 BASEDIR="`pwd`"
