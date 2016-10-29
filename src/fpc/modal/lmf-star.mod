@@ -2,6 +2,7 @@ module lmf-star.
 
 accumulate lmf-multifoc.
 accumulate debug.
+accumulate lists.
 
 % mv: in this version, we do not store relational atoms with a proper label
 %  for extensions of K, it would be necessary to do it:
@@ -22,14 +23,42 @@ lmf-multifoc_to_lmf-star
   (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (lmf-star-node H F (lmf-multifoc-node M N)) C)))).
 
 lmf-multifoc_to_lmf-star
-  (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (lmf-star-node H F N) C)))
+  (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree N C)))
   S _ _
-  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (lmf-star-node H F N) C)))).
+  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree N C)))).
 
 lmf-multifoc_to_lmf-star_all
   Cert
   S
   (w\ lmf-star-cert S (Cert w)).
+
+% extract all values in the different node types
+% NH new history
+% NF new future
+% M multifocus index
+% I index
+% IO optional index
+obtain_all_star_node_vals
+(lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
+  (lmf-star-node NH NF
+    (lmf-multifoc-node M
+      (lmf-singlefoc-node I IO))) C))))
+H F Map NH NF M I IO.
+obtain_all_star_node_vals_all
+(w\ lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
+  (lmf-star-node NH NF
+    (lmf-multifoc-node M
+      (lmf-singlefoc-node I IO))) C))))
+H F Map NH NF M I IO.
+
+obtain_value_in_map [(pr I V)|_] I V.
+obtain_value_in_map [_|L] I V :- obtain_value_in_map L I V.
+
+% the first node does not have parent and is already mapped (it is the root)
+add_value_to_map_in_state (lmf-star-state H F Map) V I (lmf-star-state H F [(pr I V)|Map]).
+
+% replace the state in the cert
+change_state (lmf-star-cert _ C) S (lmf-star-cert S C).
 
 % The map in the state is between labels and the present of formulas
 % This map is managed by all rules and is required for decide
@@ -43,10 +72,17 @@ lmf-multifoc_to_lmf-star_all
 % A formula can be decided on only if its index is mapped to a world which is allowed by H
 % It also uses the future in the node to set the future in the state which will be used by a later dia
 decide_ke Cert L Cert' :-
+  % we first obtain the index of the node
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  % we now check the index against H
+  % @Marco do we check the index or the index of the parent? Doesnt seem to work right now
+  member I H,
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   decide_ke Cert-s L Cert-s',
-  lmf-multifoc_to_lmf-star Cert-s' S H F Cert'.
+  % we reset the future to the value in the node
+  lmf-multifoc_to_lmf-star Cert-s' S H NF Cert'.
 
+% does nothing?
 store_kc Cert L B Cert' :-
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   store_kc Cert-s L B Cert-s',
@@ -59,36 +95,77 @@ initial_ke Cert O :-
   initial_ke Cert-s O.
 
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
-orNeg_kc Cert Form Cert' :-
+orNeg_kc Cert Form Cert-r :-
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   orNeg_kc Cert-s Form Cert-s',
-  lmf-multifoc_to_lmf-star Cert-s' S H F Cert'.
+  lmf-multifoc_to_lmf-star Cert-s' S H F Cert',
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  obtain_all_star_node_vals Cert' H' F' Map' NH' NF' M' I' OI',
+  obtain_value_in_map Map I V,
+  % adding child to map to the same value as parent
+  add_value_to_map_in_state S V I' S',
+  % state is changed
+  change_state Cert' S' Cert-r.
+
 
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
-andNeg_kc Cert Form Cert1 Cert2 :-
+andNeg_kc Cert Form Cert1-r Cert2-r :-
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   andNeg_kc Cert-s Form Cert-s1 Cert-s2,
   lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1,
-  lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2.
+  lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2,
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  obtain_value_in_map Map I V,
+  obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1,
+  obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2,
+  % adding child to map to the same value as parent
+  add_value_to_map_in_state S1 V I1 S1,
+  add_value_to_map_in_state S2 V I2 S2,
+  % state is changed
+  change_state Cert1 S1 Cert1-r,
+  change_state Cert2 S2 Cert2-r.
 
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
-andPos_k Cert Form Str Cert1 Cert2 :-
+andPos_k Cert Form Str Cert1-r Cert2-r :-
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   andPos_k Cert-s Form Str Cert-s1 Cert-s2,
-  lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1,
-  lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2.
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  lmf-multifoc_to_lmf-star Cert-s1 S1 H F Cert1,
+  lmf-multifoc_to_lmf-star Cert-s2 S2 H F Cert2,
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  obtain_value_in_map Map I V,
+  obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1,
+  obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2,
+  % adding child to map to the same value as parent
+  add_value_to_map_in_state S1 V I1 S1,
+  add_value_to_map_in_state S2 V I2 S2,
+  % state is changed
+  change_state Cert1 S1 Cert1-r,
+  change_state Cert2 S2 Cert2-r.
 
 % needs to update the map in the state to map the index of the child to the index of the father (box)
-all_kc Cert Cert' :-
+all_kc Cert Cert'-r :-
   lmf-star_to_lmf-multifoc Cert S _ _ Cert-s,
   all_kc Cert-s Cert-s',
-  lmf-multifoc_to_lmf-star_all Cert-s' S Cert'.
+  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  obtain_all_multi_node_vals_all Cert-s' M' I' OI',
+  % adding child to map to the index of the parent
+  add_value_to_map_in_state S I I' S',
+  % state is changed
+  lmf-multifoc_to_lmf-star_all Cert-s' S' Cert'.
 
 % needs to update the map in the state to map the index of the child to the box component of the
 % index of the parent (parent diamonds have dia(ind,box-ind))
 % checks that the future in the state is equal to the future in the node
-some_ke Cert X Cert' :-
+some_ke Cert X Cert'-r :-
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   some_ke Cert-s X Cert-s',
-  lmf-multifoc_to_lmf-star Cert-s' S H F Cert'.
+  lmf-multifoc_to_lmf-star Cert-s' S' H F Cert',
+  % checking that the future in the state is equal to the future in the node
+  obtain_all_star_node_vals Cert H F Map NH F M (diaind I BI) OI,
+  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI',
+  % adding child to map to the box component of the parent
+  add_value_to_map_in_state S BI I' S',
+  % state is changed
+  change_state Cert' S' Cert'-r.
 

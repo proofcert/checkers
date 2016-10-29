@@ -71,7 +71,7 @@ andNeg_kc % A _ A A.
   _
   (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
   (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
-  
+
 andPos_k
   (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T))
   _

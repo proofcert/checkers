@@ -26,3 +26,18 @@ type lmf-multifoc_to_lmf-star_all (A -> cert) -> lmf-star-state -> (A -> cert) -
 % this is so because we have logical nodes which do not change the index
 % see for example the singlefoc second or-neg which does not change the indices
 type add-to-map list (pair index A) -> index -> A -> o.
+
+% helpers within the fpc
+
+% returns all values in the certificate
+type obtain_all_star_node_vals cert -> list A -> A -> list (pair index A) -> list A -> A -> int -> index -> index -> o.
+type obtain_all_star_node_vals_all (A -> cert) -> list A -> A -> list (pair index A) -> list A -> A -> int -> index -> index -> o.
+
+% extract the value mapped to an index in the state
+type obtain_value_in_map list (pair index A) -> index -> A -> o.
+
+% add a pair into the map within the state, checking first the value of the parent and adding it for the child
+type add_value_to_map_in_state lmf-star-state -> A -> index -> lmf-star-state -> o.
+
+% change state
+type change_state cert -> lmf-star-state -> cert -> o.
