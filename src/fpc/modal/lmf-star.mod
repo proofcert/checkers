@@ -74,9 +74,9 @@ change_state (lmf-star-cert _ C) S (lmf-star-cert S C).
 decide_ke Cert L Cert' :-
   % we first obtain the index of the node
   obtain_all_star_node_vals Cert H F Map NH NF M I OI,
-  % we now check the index against H
-  % @Marco do we check the index or the index of the parent? Doesnt seem to work right now
-  member I H,
+  % we now check the world against H
+  obtain_value_in_map Map I V.
+  member V H,
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   decide_ke Cert-s L Cert-s',
   % we reset the future to the value in the node
