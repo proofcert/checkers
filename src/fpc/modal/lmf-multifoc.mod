@@ -32,11 +32,6 @@ lmf-singlefoc_to_lmf-multifoc_all
   Cert
   (w\ lmf-multifoc-cert (Cert w)).
 
-obtain_all_multi_node_vals_all (w\ lmf-multifoc-cert (lmf-singlefoc-cert _ (lmf-tree
-(lmf-multifoc-node M
-  (lmf-singlefoc-node I O)) _))) M I O.
-
-
 % decide does not recurse on tree so we need to change back and forth the root node
 decide_ke Cert L Cert' :-
   lmf-multifoc_to_lmf-singlefoc Cert M Cert-s,

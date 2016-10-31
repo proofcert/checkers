@@ -18,7 +18,3 @@ type lmf-multifoc-cert cert -> cert.
 type lmf-multifoc_to_lmf-singlefoc cert -> int -> cert -> o.
 type lmf-singlefoc_to_lmf-multifoc cert -> int -> cert -> o.
 type lmf-singlefoc_to_lmf-multifoc_all (A -> cert) -> (A -> cert) -> o.
-
-% returns all values in the node
-type obtain_all_multi_node_vals_all (A -> cert) -> int -> index -> index -> o.
-

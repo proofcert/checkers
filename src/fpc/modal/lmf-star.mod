@@ -148,7 +148,10 @@ all_kc Cert Cert'-r :-
   lmf-star_to_lmf-multifoc Cert S _ _ Cert-s,
   all_kc Cert-s Cert-s',
   obtain_all_star_node_vals Cert H F Map NH NF M I OI,
-  obtain_all_multi_node_vals_all Cert-s' M' I' OI',
+  % we cannot apply a relation unifying functions (Cert-s is a function)
+  % spy "obtain " (obtain_all_multi_node_vals_all Cert-s' M' I' OI'),
+  % ugly fix - we know the child index I' is lind(I)
+  I' = lind(I),
   % adding child to map to the index of the parent
   add_value_to_map_in_state S I I' S',
   % state is changed
