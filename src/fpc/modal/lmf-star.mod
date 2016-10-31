@@ -75,7 +75,7 @@ decide_ke Cert L Cert' :-
   % we first obtain the index of the node
   obtain_all_star_node_vals Cert H F Map NH NF M I OI,
   % we now check the world against H
-  obtain_value_in_map Map I V.
+  obtain_value_in_map Map I V,
   member V H,
   lmf-star_to_lmf-multifoc Cert S H F Cert-s,
   decide_ke Cert-s L Cert-s',

@@ -1,6 +1,6 @@
-lmf-star.lpo: lmf-star.mod lmf-star.sig lmf-multifoc.sig ../../utils/debug.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig lmf-singlefoc.sig ../../kernel/lkf/lkf-syntax.sig ../../kernel/modal/modal-encoding.sig ../../kernel/modal/modal-syntax.sig
+lmf-star.lpo: lmf-star.mod lmf-star.sig lmf-multifoc.sig ../../utils/debug.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig ../../base.sig lmf-singlefoc.sig ../../kernel/lkf/lkf-syntax.sig ../../kernel/modal/modal-encoding.sig ../../kernel/modal/modal-syntax.sig
 lmf-singlefoc.lpo: lmf-singlefoc.mod lmf-singlefoc.sig ../../kernel/lkf/certificatesLKF.sig ../../kernel/lkf/lkf-syntax.sig ../../kernel/modal/modal-encoding.sig ../../utils/lists.sig ../../base.sig ../../kernel/modal/modal-syntax.sig
 lmf-multifoc.lpo: lmf-multifoc.mod lmf-multifoc.sig lmf-singlefoc.sig ../../utils/debug.sig ../../kernel/lkf/certificatesLKF.sig ../../kernel/lkf/lkf-syntax.sig ../../kernel/modal/modal-encoding.sig ../../utils/lists.sig ../../base.sig ../../kernel/modal/modal-syntax.sig
-lmf-star.lp: lmf-star.lpo lmf-multifoc.lpo ../../utils/debug.lpo lmf-singlefoc.lpo ../../utils/lists.lpo
+lmf-star.lp: lmf-star.lpo lmf-multifoc.lpo ../../utils/debug.lpo ../../utils/lists.lpo lmf-singlefoc.lpo
 lmf-singlefoc.lp: lmf-singlefoc.lpo 
 lmf-multifoc.lp: lmf-multifoc.lpo lmf-singlefoc.lpo ../../utils/debug.lpo ../../utils/lists.lpo
