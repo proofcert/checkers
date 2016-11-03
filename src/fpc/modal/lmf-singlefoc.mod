@@ -46,15 +46,14 @@ release_ke C C.
 initial_ke
   (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node _ O) _)) O.
 
-% this is used if orNeg is the main connective of the formula on which we decide (used to distinguish between orNeg coming from translation of box and real orNeg)
+% this is used if orNeg is the main connective of the formula on which we decide (used to distinguish between orNeg coming from translation of box and "real" 
+% orNeg)
 orNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [] M) (lmf-tree (lmf-singlefoc-node I O) [H|T]))
   _
   (lmf-singlefoc-cert (lmf-singlefoc-state [lind I, rind I] M) H).
 
 % this is used otherwise
-%mv: 21/10/2016 I replaced the following
-%orNeg_kc C _ C.
 orNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
   _
@@ -66,11 +65,11 @@ andNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [lind I] M) H)
   (lmf-singlefoc-cert (lmf-singlefoc-state [rind I] M) G).
 
-andNeg_kc % A _ A A.
-  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
-  _
-  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
-  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
+%andNeg_kc % A _ A A.
+%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
+%  _
+%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
+%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
 
 andPos_k
   (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T))
