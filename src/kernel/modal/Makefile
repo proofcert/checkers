@@ -1,14 +1,10 @@
-# Makefile for the eprover certs
+MODULE=modal
 
-MAKE=make
-
-SRCS=$(wildcard *.mod)
-OBJS=$(SRCS:.mod=.lp)
-
-export TJPATH = ../../fpc/modal:.../../fpc/tableaux:../../kernel/lkf:../../kernel/modal:../../utils:../..
+# Path of the dependencies.
+export TJPATH=../../utils:../..:../lkf-kernel
 
 .PHONY: all
-all: $(OBJS)
+all: $(MODULE).lp
 
 cc: all clean
 
@@ -22,6 +18,9 @@ cc: all clean
 depend: *.mod *.sig
 	tjdepend *.mod > depend-stage
 	mv depend-stage depend
+
+run:
+	tjsim  $(MODULE)
 
 .PHONY: clean
 clean:

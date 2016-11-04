@@ -1,11 +1,11 @@
-# Makefile for the eprover certs
+# Makefile for the resolution fpcs
 
 MAKE=make
 
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH = ../../fpc/modal:.../../fpc/tableaux:../../kernel/lkf:../../kernel/modal:../../utils:../..
+export TJPATH = ../../kernel/modal:../../kernel/lkf:../../utils:../..
 
 .PHONY: all
 all: $(OBJS)
