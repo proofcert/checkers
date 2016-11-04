@@ -81,7 +81,7 @@ decide_ke Cert L Cert' :-
 (decide_ke Cert-s L Cert-s'),
   % we reset the future to the value in the node
   % mv 03/11/16: I changed this because I want that history and future get updated in the new state
-  % I don't understand exactly the way you use lmf-multifoc_to_lmf-star
+  % I don't understand exactly the way you were using lmf-multifoc_to_lmf-star
 (lmf-multifoc_to_lmf-star Cert-s' (lmf-star-state NH NF Map) NH NF Cert'). 
 
 % does nothing?
@@ -96,7 +96,7 @@ initial_ke Cert O :-
   lmf-star_to_lmf-multifoc Cert _ _ _ Cert-s,
   initial_ke Cert-s O.
 
-% does not update the state if it is an or coming from the translation of a Box
+% does not update the state if it is an OR coming from the translation of a Box
 % the check is on the fact that the next index I is not changed by the lower layers
 % seems to work but there might be better solutions
 orNeg_kc Cert Form Cert' :-
@@ -123,21 +123,25 @@ orNeg_kc Cert Form Cert-r :-
 
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
 andNeg_kc Cert Form Cert1-r Cert2-r :-
-  lmf-star_to_lmf-multifoc Cert S H F Cert-s,
-  andNeg_kc Cert-s Form Cert-s1 Cert-s2,
-  lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1,
-  lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2,
-  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
-  obtain_value_in_map Map I V,
-  obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1,
-  obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2,
+ (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
+ (andNeg_kc Cert-s Form Cert-s1 Cert-s2),
+ (lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1),
+  (lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2),
+  (obtain_all_star_node_vals Cert H F Map NH NF M I OI),
+  (obtain_value_in_map Map I V),
+  (obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1),
+  (obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2),
   % adding child to map to the same value as parent
-  add_value_to_map_in_state S1 V I1 S1, % strange that we have S1 twice
-  add_value_to_map_in_state S2 V I2 S2, % strange that we have S2 twice
+  (add_value_to_map_in_state S1 V I1 S1b), % strange that we have S1 twice
+  (add_value_to_map_in_state S2 V I2 S2b), % strange that we have S2 twice
   % state is changed
-  change_state Cert1 S1 Cert1-r,
-  change_state Cert2 S2 Cert2-r.
+  (change_state Cert1 S1b Cert1-r),
+  (change_state Cert2 S2b Cert2-r).
 
+% previous version: (add_value_to_map_in_state S1 V I1 S1), % strange that we have S1 twice
+% previous version: (add_value_to_map_in_state S2 V I2 S2), % strange that we have S2 twice
+  
+  
 
 % Does not need to update the map in the state since this only comes from the translation of a Diamond
 andPos_k Cert Form Str Cert1 Cert2 :-
@@ -184,16 +188,16 @@ all_kc Cert Cert' :-
 % index of the parent (parent diamonds have dia(ind,box-ind))---mv: not sure
 % checks that the future in the state is equal to the future in the node
 some_ke Cert X Cert'-r :-
-spy "1 " (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
-spy "2 " (  some_ke Cert-s X Cert-s'),
-spy "3 " (  lmf-multifoc_to_lmf-star Cert-s' S' H F Cert'),
+(lmf-star_to_lmf-multifoc Cert S H F Cert-s),
+(  some_ke Cert-s X Cert-s'),
+(  lmf-multifoc_to_lmf-star Cert-s' S' H F Cert'),
   % checking that the future in the state is equal to the future in the node
-spy "4 " (  obtain_all_star_node_vals Cert H F Map NH F M I OI),
-spy "5 " (  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI'),
-  % adding child to map to the box component of the parent
-spy "6 " (  add_value_to_map_in_state S (lind OI) (diaind I OI) S'),
-  % state is changed
-spy "7 " (  change_state Cert' S' Cert'-r).
+(  obtain_all_star_node_vals Cert H F Map NH F M I OI),
+(  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI'),
+  % adding child to map to the box component of the parent (mv: changed S' into S1)
+(  add_value_to_map_in_state S (lind OI) (diaind I OI) S1),
+  % state is changed (mv: changed S' into S1)
+(  change_state Cert' S1 Cert'-r).
 
 % previous version: (  obtain_all_star_node_vals Cert H F Map NH F M (diaind I BI) OI),
 % previous version: (  add_value_to_map_in_state S BI I' S'),
