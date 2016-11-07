@@ -37,22 +37,22 @@ modalProblem "Problem: Axiom K for lmf-star"
 
   lmf-tree (lmf-star-node [root] (rind (rind root)) (lmf-multifoc-node 4 (lmf-singlefoc-node (lind (rind root)) (rind (rind root))))) [
 
-  lmf-tree (lmf-star-node [lind (rind (rind root))] (rind (rind root)) (lmf-multifoc-node 4 (lmf-singlefoc-node (lind root) (rind (rind root))))) [
+  lmf-tree (lmf-star-node [rind (rind root)] (rind (rind root)) (lmf-multifoc-node 4 (lmf-singlefoc-node (lind root) (rind (rind root))))) [
 
-  lmf-tree (lmf-star-node [lind (rind (rind root))] none (lmf-multifoc-node 5 (lmf-singlefoc-node (diaind (lind root) (rind (rind root))) none))) [
+  lmf-tree (lmf-star-node [rind (rind root)] none (lmf-multifoc-node 5 (lmf-singlefoc-node (diaind (lind root) (rind (rind root))) none))) [
 
   % focuses on the delayed negative literal --p1 (only needed for a problem in the translation)
-  lmf-tree (lmf-star-node [lind (rind (rind root))] none (lmf-multifoc-node 6 (lmf-singlefoc-node (diaind (lind (rind root)) (rind (rind root))) none))) [
+  lmf-tree (lmf-star-node [rind (rind root)] none (lmf-multifoc-node 6 (lmf-singlefoc-node (diaind (lind (rind root)) (rind (rind root))) none))) [
 
-  lmf-tree (lmf-star-node [lind (rind (rind root))] none (lmf-multifoc-node 7 (lmf-singlefoc-node (lind (diaind (lind root) (rind (rind root)))) (diaind (lind 
+  lmf-tree (lmf-star-node [rind (rind root)] none (lmf-multifoc-node 7 (lmf-singlefoc-node (lind (diaind (lind root) (rind (rind root)))) (diaind (lind 
 (rind
 root)) (rind (rind root)))))) []],
 
   % focuses on the delayed negative literal --q1 (only needed for a problem in the translation)
-  lmf-tree (lmf-star-node [lind (rind (rind root))] none (lmf-multifoc-node 8 (lmf-singlefoc-node (rind (diaind (lind root) (rind (rind
+  lmf-tree (lmf-star-node [rind (rind root)] none (lmf-multifoc-node 8 (lmf-singlefoc-node (rind (diaind (lind root) (rind (rind
 root)))) none))) [
 
-  lmf-tree (lmf-star-node [lind (rind (rind root))] none (lmf-multifoc-node 9 (lmf-singlefoc-node (lind (rind (rind root))) (rind (diaind (lind root) (rind 
+  lmf-tree (lmf-star-node [rind (rind root)] none (lmf-multifoc-node 9 (lmf-singlefoc-node (lind (rind (rind root))) (rind (diaind (lind root) (rind 
 (rind
 root))))))) []]
 

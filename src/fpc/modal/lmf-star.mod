@@ -176,8 +176,8 @@ all_kc Cert Cert' :-
   obtain_all_star_node_vals Cert H F Map NH NF M I OI,
   % we cannot apply a relation unifying functions (Cert-s is a function)
   % spy "obtain " (obtain_all_multi_node_vals_all Cert-s' M' I' OI'),
-  % ugly fix - we know the child index I' is lind(I)
-  I' = lind(I),
+  % ugly fix - we know the child index I' is lind(I)    
+ I' = I,
   % adding child to map to its own index (we prefer to use the child instead of the father as an index in order to avoid clashes with the index root in case of 
   % a box-formula placed at the root position)
   add_value_to_map_in_state S I' I' S',
@@ -185,7 +185,7 @@ all_kc Cert Cert' :-
   lmf-multifoc_to_lmf-star_all Cert-s' S' Cert'.
 
 % needs to update the map in the state to map the index of the child to the box component of the
-% index of the parent (parent diamonds have dia(ind,box-ind))---mv: not sure
+% index of the parent (parent diamonds have dia(ind,box-ind))---mv: not sure this is the case
 % checks that the future in the state is equal to the future in the node
 some_ke Cert X Cert'-r :-
 (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
@@ -195,7 +195,7 @@ some_ke Cert X Cert'-r :-
 (  obtain_all_star_node_vals Cert H F Map NH F M I OI),
 (  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI'),
   % adding child to map to the box component of the parent (mv: changed S' into S1)
-(  add_value_to_map_in_state S (lind OI) (diaind I OI) S1),
+(  add_value_to_map_in_state S (OI) (diaind I OI) S1),
   % state is changed (mv: changed S' into S1)
 (  change_state Cert' S1 Cert'-r).
 
