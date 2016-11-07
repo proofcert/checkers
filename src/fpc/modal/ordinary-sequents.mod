@@ -28,23 +28,21 @@ generate_diamonds I [D] C T H F MFI :-
 
 ordinary-sequent-to-lmf-star
   (ordinary-sequent-cert
-    (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (ordinary-sequent-node I OI) C)))))
-  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
-    (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) C)))) :-
-  S = (lmf-star-state H F _).
+    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I OI) C))
+  (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
+    (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) C)))).
 
 ordinary-sequent-to-lmf-star-with-op-index
   (ordinary-sequent-cert
-    (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (ordinary-sequent-node I [OI]) C)))))
-  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
-    (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I OI))) C)))) :-
-  S = (lmf-star-state H F _).
+    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I [OI]) C))
+  (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
+    (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I OI))) C)))).
 
 lmf-star-to-ordinary-sequent
-  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
-    (lmf-star-node _ _ (lmf-multifoc-node _ (lmf-singlefoc-node I _))) C))))
+  (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
+    (lmf-star-node _ _ (lmf-multifoc-node MFI (lmf-singlefoc-node I _))) C))))
   (ordinary-sequent-cert
-    (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (ordinary-sequent-node I []) C))))).
+    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I []) C)).
 
 % all rules except decide and init just use values from the state and the index in the node
 % in order to create an lmf-star certificate
@@ -72,12 +70,12 @@ lmf-star-to-ordinary-sequent
 
 % here we are just after the last generated diamond and need to change back the cert
 decide_ke
-  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (ordinary-sequent-node I OI) C))))
+  (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree (ordinary-sequent-node I OI) C))))
   L
   Cert' :-
   decide_ke
     (ordinary-sequent-cert
-      (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (ordinary-sequent-node I OI) C)))))
+      (ordinary-sequent-state H F Map 0 IL Eig) (lmf-tree (ordinary-sequent-node I OI) C))
       L
       Cert'.
 
@@ -122,10 +120,8 @@ andPos_k Cert Form Str Cert1 Cert2 :-
 % dia nodes, at this point, the decide above will change it back to osequents
 all_kc
   (ordinary-sequent-cert
-    (lmf-star-cert (lmf-star-state H F Map)
-      (lmf-multifoc-cert
-        (lmf-singlefoc-cert S1
-          (lmf-tree (ordinary-sequent-node I OI) C)))))
+    (ordinary-sequent-state H F Map _ IL Eig)
+      (lmf-tree (ordinary-sequent-node I OI) C))
    Cert-r :-
   % we first generate the tree, putting the box node at the top
   % below it all the diamonds and finish with C
@@ -136,7 +132,7 @@ all_kc
   all_kc
     (lmf-star-cert (lmf-star-state H F Map)
       (lmf-multifoc-cert
-        (lmf-singlefoc-cert S1 (lmf-tree (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) T))))
+        (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) T))))
     Cert-r.
   % we do not change back as we want now the diamonds to be processed in lmf-star
   % we should set MFI and the other parameters to ensure proper activation
