@@ -1,7 +1,7 @@
-MODULE=modal
+MODULE=modal-encoding
 
 # Path of the dependencies.
-export TJPATH=../../utils:../..:../lkf-kernel
+export TJPATH=../../utils:../..:../../kernel/lkf
 
 .PHONY: all
 all: $(MODULE).lp
