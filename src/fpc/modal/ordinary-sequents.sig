@@ -9,10 +9,14 @@ accum_sig lmf-star.
 % value which maps to the complementary literal or to the box if it is a diamond.
 % but, since we dont have diamond rules, the option will be associated to boxes
 % and will contain a list of diamond indices which are being applied at the same time.
+
+kind ordinary-sequent-state type.
+type ordinary-sequent-state list A -> A -> list (pair index A) -> int -> list index -> list (pair index atm) -> ordinary-sequent-state.
+
 type ordinary-sequent-node index -> list index -> lmf-node.
 
 % just with an lmf-star cert
-type ordinary-sequent-cert cert -> cert.
+type ordinary-sequent-cert ordinary-sequent-state -> lmf-tree -> cert.
 
 type generate_diamonds index -> list index -> list lmf-tree -> list lmf-tree -> list A -> A -> int -> o.
 
