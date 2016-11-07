@@ -27,10 +27,12 @@ cp `find $SRCDIR/kernel -name "*.sig"` $DEBUG
 cp `find $SRCDIR/utils -name "*.sig"` $DEBUG
 cp `find $SRCDIR/fpc -name "*.sig"` $DEBUG
 cp `find $SRCDIR/tests -name "*.sig"` $DEBUG
+cp `find $SRCDIR/calculi -name "*.sig"` $DEBUG
 cp `find $SRCDIR/kernel -name "*.mod"` $DEBUG
 cp `find $SRCDIR/utils -name "*.mod"` $DEBUG
 cp `find $SRCDIR/fpc -name "*.mod"` $DEBUG
 cp `find $SRCDIR/tests -name "*.mod"` $DEBUG
+cp `find $SRCDIR/calculi -name "*.mod"` $DEBUG
 cp `find $SRCDIR -name "*.sig"` $DEBUG
 cp $TOOLS/kernel_debug/lkf-kernel.mod.debug $DEBUG/lkf-kernel.mod
 cp $TOOLS/Makefile.debug $DEBUG/Makefile
