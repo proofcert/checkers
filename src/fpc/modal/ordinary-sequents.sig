@@ -11,7 +11,7 @@ accum_sig lmf-star.
 % and will contain a list of diamond indices which are being applied at the same time.
 
 kind ordinary-sequent-state type.
-type ordinary-sequent-state (list A -> A -> list (pair index A)) -> int -> (list index -> list (pair index atm)) -> ordinary-sequent-state.
+type ordinary-sequent-state list A -> A -> list (pair index A) -> int -> list index -> list (pair index atm) -> ordinary-sequent-state.
 
 type ordinary-sequent-node index -> list index -> lmf-node.
 
