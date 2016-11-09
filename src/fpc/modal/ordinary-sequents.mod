@@ -18,6 +18,7 @@ accumulate lists.
 % we generate the tree backward so the list of OI must be reversed first
 % H is changed only on the last diamond, where it gets the index of the box
 % F is none for the box and the index of the box for the diamonds
+% mv: The MFI does not work (it is not set to 1 in the case of diamonds) but for the moment we do not use them
 generate_diamonds I [D|[X|Xs]] C
   [(lmf-tree
     (lmf-star-node H I
@@ -130,10 +131,10 @@ orNeg_kc Cert Form Cert-r :-
  (lmf-star-to-ordinary-sequent Cert-s' IO Cert-r).
 
 andNeg_kc Cert Form Cert1 Cert2 :-
-  ordinary-sequent-to-lmf-star Cert IO Cert-s,
-  andNeg_kc Cert-s Form Cert1' Cert2',
-  lmf-star-to-ordinary-sequent Cert1' IO Cert1,
-  lmf-star-to-ordinary-sequent Cert2' IO Cert2.
+  (ordinary-sequent-to-lmf-star Cert IO Cert-s),
+  (andNeg_kc Cert-s Form Cert1' Cert2'),
+  (lmf-star-to-ordinary-sequent Cert1' IO Cert1),
+  (lmf-star-to-ordinary-sequent Cert2' IO Cert2).
 
 andPos_k Cert Form Str Cert1 Cert2 :-
     ordinary-sequent-to-lmf-star Cert IO Cert-s,
@@ -153,45 +154,17 @@ all_kc
   % we first generate the tree, putting the box node at the top
   % below it all the diamonds and finish with C
   % we dont have tail recursion and must reverse the diamonds indices
-spy "all-os-1 : "  (reverse OI IO),
   % TOFIX: MFI is right now 0 for everything and 1 for all diamonds
-spy "all-os-2 : "  (  generate_diamonds I IO C T H F 0),
-spy "all-os-3 : "  (  all_kc
   % if the list OI =  [1,2,3], then immediately after the box we do 1, then 2 and then 3
-  % TOFIX: MFI is right now 0 for everything and 1 for all diamonds
-  generate_diamonds I OI C T H F 0,
-  all_kc
+  (generate_diamonds I OI C T H F 0),
+  (all_kc
     (lmf-star-cert (lmf-star-state H F Map)
       (lmf-multifoc-cert
         (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) T))))
     Cert-r).
     
-% generate a tree containing lmf-star nodes such that the top one is I with OI none (the box)
-% then a sequence of diamonds according to the indices in OI finishing with C as the rest of the tree
-% we generate the tree backward so the list of OI must be reversed first
-% H is changed only on the last diamond, where it gets the index of the box
-% F is none for the box and the index of the box for the diamonds
-%generate_diamonds I [D|[X|Xs]] C T H F MFI :-
-  %generate_diamonds I [X|Xs]
-    %[(lmf-tree
-      %(lmf-star-node H I
-        %(lmf-multifoc-node (MFI+1)
-          %(lmf-singlefoc-node D I))) C)] T H F MFI.
 
-%%% the last one needs to change the H
-%generate_diamonds I [D] C T H F MFI :-
-  %generate_diamonds I []
-    %[(lmf-tree
-      %(lmf-star-node [I] I
-        %(lmf-multifoc-node (MFI+1)
-          %(lmf-singlefoc-node D I))) C)] T H F MFI.   
-    
-    
-  % we do not change back as we want now the diamonds to be processed in lmf-star
-  % we should set MFI and the other parameters to ensure proper activation
-  %lmf-star-to-ordinary-sequent Cert-s Cert-r.
-
-% there are no diamonds in the calculus so cannot happen
+    % there are no diamonds in the calculus so cannot happen
 %some_ke Cert X Cert'-r :-
 
 

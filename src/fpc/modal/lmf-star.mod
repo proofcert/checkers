@@ -17,6 +17,14 @@ lmf-star_to_lmf-multifoc
   S H F
   (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree N C))).
 
+  % mv: this case has been added because when translating ordinary-sequents, after the last diamond of a sequence, we have that the first node in the
+  % tree is 
+  % an ordinary-sequent-node and not an lmf-star-node
+lmf-star_to_lmf-multifoc
+  (lmf-star-cert S (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree N C))))
+  S H F
+  (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree N C))).  
+  
 lmf-multifoc_to_lmf-star
   (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree (lmf-multifoc-node M N) C)))
   S H F
@@ -96,7 +104,7 @@ initial_ke Cert O :-
   lmf-star_to_lmf-multifoc Cert _ _ _ Cert-s,
   initial_ke Cert-s O.
 
-% does not update the state if it is an OR coming from the translation of a Box
+% mv: does not update the state if it is an OR coming from the translation of a Box
 % the check is on the fact that the next index I is not changed by the lower layers
 % seems to work but there might be better solutions
 orNeg_kc Cert Form Cert' :-
@@ -108,6 +116,7 @@ orNeg_kc Cert Form Cert' :-
 (obtain_value_in_map Map I V), 
 !.  
   
+% this case is for when the OR comes indeed from the translation of an OR  
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
 orNeg_kc Cert Form Cert-r :-
 (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
@@ -121,19 +130,22 @@ orNeg_kc Cert Form Cert-r :-
   % state is changed
 (change_state Cert' S'' Cert-r).
 
+
 % needs to update the map in the state to map the index to the value mapped to the index of the parent (first is zero)
 andNeg_kc Cert Form Cert1-r Cert2-r :-
  (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
  (andNeg_kc Cert-s Form Cert-s1 Cert-s2),
  (lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1),
-  (lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2),
+ (lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2),
   (obtain_all_star_node_vals Cert H F Map NH NF M I OI),
   (obtain_value_in_map Map I V),
-  (obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1),
-  (obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2),
+  % mv: I removed the following two lines, as in some cases Cert1 and Cert2 contain trees whose first node is not an lmf-star-node
+  % I use instead the I of the original certificate (and define the children as lind I and rind I) to update the map
+  %spy "and-neg-star-7 "(obtain_all_star_node_vals Cert1 H1 F1 Map1 NH1 NF1 M1 I1 OI1),
+  %spy "and-neg-star-8 "(obtain_all_star_node_vals Cert2 H2 F2 Map2 NH2 NF2 M2 I2 OI2),
   % adding child to map to the same value as parent
-  (add_value_to_map_in_state S1 V I1 S1b), % strange that we have S1 twice
-  (add_value_to_map_in_state S2 V I2 S2b), % strange that we have S2 twice
+  (add_value_to_map_in_state S1 V (lind I) S1b),
+  (add_value_to_map_in_state S2 V (rind I) S2b),
   % state is changed
   (change_state Cert1 S1b Cert1-r),
   (change_state Cert2 S2b Cert2-r).
@@ -141,12 +153,11 @@ andNeg_kc Cert Form Cert1-r Cert2-r :-
 % previous version: (add_value_to_map_in_state S1 V I1 S1), % strange that we have S1 twice
 % previous version: (add_value_to_map_in_state S2 V I2 S2), % strange that we have S2 twice
   
-  
 
 % Does not need to update the map in the state since this only comes from the translation of a Diamond
 andPos_k Cert Form Str Cert1 Cert2 :-
-  (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
-  (andPos_k Cert-s Form Str Cert-s1 Cert-s2),
+ (lmf-star_to_lmf-multifoc Cert S H F Cert-s),
+ (andPos_k Cert-s Form Str Cert-s1 Cert-s2),
   (lmf-multifoc_to_lmf-star Cert-s1 S H F Cert1),
   (lmf-multifoc_to_lmf-star Cert-s2 S H F Cert2).
   
@@ -171,18 +182,18 @@ andPos_k Cert Form Str Cert1 Cert2 :-
 
 % needs to update the map in the state to map the index of the child to the index of the father (box)
 all_kc (lmf-star-cert State Cert) Cert' :-
-spy"fffff"(  lmf-star_to_lmf-multifoc Cert S _ _ Cert-s),
-  all_kc Cert-s Cert-s',
-  obtain_all_star_node_vals (lmf-star-cert State Cert) H F Map NH NF M I OI,
+(  lmf-star_to_lmf-multifoc (lmf-star-cert State Cert) S _ _ Cert-s),
+(all_kc Cert-s Cert-s'),
+(obtain_all_star_node_vals (lmf-star-cert State Cert) H F Map NH NF M I OI),
   % we cannot apply a relation unifying functions (Cert-s is a function)
   % spy "obtain " (obtain_all_multi_node_vals_all Cert-s' M' I' OI'),
   % ugly fix - we know the child index I' is lind(I)    
- I' = I,
+(I' = I),
   % adding child to map to its own index (we prefer to use the child instead of the father as an index in order to avoid clashes with the index root in case of 
   % a box-formula placed at the root position)
-  add_value_to_map_in_state S I' I' S',
+(add_value_to_map_in_state S I' I' S'),
   % state is changed
-  lmf-multifoc_to_lmf-star_all Cert-s' S' Cert'.
+(lmf-multifoc_to_lmf-star_all Cert-s' S' Cert').
 
 % needs to update the map in the state to map the index of the child to the box component of the
 % index of the parent (parent diamonds have dia(ind,box-ind))---mv: not sure this is the case
@@ -193,7 +204,8 @@ some_ke Cert X Cert'-r :-
 (  lmf-multifoc_to_lmf-star Cert-s' S' H F Cert'),
   % checking that the future in the state is equal to the future in the node
 (  obtain_all_star_node_vals Cert H F Map NH F M I OI),
-(  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI'),
+% I removed the following line which did not match in all cases and used another way to denote the index to update the map
+%(  obtain_all_star_node_vals Cert' H' F' Map' NH' F' M' I' OI'),
   % adding child to map to the box component of the parent (mv: changed S' into S1)
 (  add_value_to_map_in_state S (OI) (diaind I OI) S1),
   % state is changed (mv: changed S' into S1)

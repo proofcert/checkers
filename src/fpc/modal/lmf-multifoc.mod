@@ -17,6 +17,13 @@ lmf-multifoc_to_lmf-singlefoc
   M
   (lmf-singlefoc-cert S (lmf-tree N C)).
 
+  % mv: like in lmf-star.mod, this case is added because when translating ordinary-sequents, after the last diamond of a sequence, we have that the first % node in the tree is 
+  % an ordinary-sequent-node and not an lmf-multifoc-node
+lmf-multifoc_to_lmf-singlefoc
+  (lmf-multifoc-cert (lmf-singlefoc-cert S T))
+  _
+  (lmf-singlefoc-cert S T).  
+  
 lmf-singlefoc_to_lmf-multifoc
   (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) C))
   M
@@ -61,10 +68,10 @@ andNeg_kc Cert Form Cert1 Cert2 :-
   lmf-singlefoc_to_lmf-multifoc Cert-s2 M Cert2.
 
 andPos_k Cert Form Str Cert1 Cert2 :-
-  lmf-multifoc_to_lmf-singlefoc Cert M Cert-s,
-  andPos_k Cert-s Form Str Cert-s1 Cert-s2,
-  lmf-singlefoc_to_lmf-multifoc Cert-s1 M Cert1,
-  lmf-singlefoc_to_lmf-multifoc Cert-s2 M Cert2.
+ (lmf-multifoc_to_lmf-singlefoc Cert M Cert-s),
+ (andPos_k Cert-s Form Str Cert-s1 Cert-s2),
+  (lmf-singlefoc_to_lmf-multifoc Cert-s1 M Cert1),
+  (lmf-singlefoc_to_lmf-multifoc Cert-s2 M Cert2).
 
 all_kc Cert Cert' :-
   lmf-multifoc_to_lmf-singlefoc Cert _ Cert-s,

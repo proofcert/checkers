@@ -65,18 +65,20 @@ andNeg_kc
   (lmf-singlefoc-cert (lmf-singlefoc-state [lind I] M) H)
   (lmf-singlefoc-cert (lmf-singlefoc-state [rind I] M) G).
 
-%andNeg_kc % A _ A A.
-%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
-%  _
-%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T)
-%  (lmf-singlefoc-cert (lmf-singlefoc-state [E|L] M) T).
-
+  % mv: I modified this to deal with the case of ordinary-sequents, but the behavior is the same of the old one (commented below)
 andPos_k
-  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T))
+  (lmf-singlefoc-cert S T)
   _
   left-first
-  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I none) T))
-  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T)).
+  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node _ none) []))
+  (lmf-singlefoc-cert S T).
+
+%andPos_k
+%  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T))
+%  _
+%  left-first
+%  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I none) T))
+%  (lmf-singlefoc-cert S (lmf-tree (lmf-singlefoc-node I O) T)).
 
 % for extensions of K, we will need to define also a case where the first list is not []
 all_kc
