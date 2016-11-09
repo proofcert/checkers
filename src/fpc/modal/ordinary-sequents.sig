@@ -19,8 +19,8 @@ type ordinary-sequent-node index -> list index -> lmf-node.
 type ordinary-sequent-cert ordinary-sequent-state -> lmf-tree -> cert.
 
 type generate_diamonds index -> list index -> list lmf-tree -> list lmf-tree -> list A -> A -> int -> o.
+%type generate_diamonds index -> list index -> list lmf-tree -> list lmf-tree -> A -> int -> o.
 
-
-type ordinary-sequent-to-lmf-star cert -> cert -> o.
-type lmf-star-to-ordinary-sequent cert -> cert -> o.
+type ordinary-sequent-to-lmf-star cert -> list index -> cert -> o.
+type lmf-star-to-ordinary-sequent cert -> list index -> cert -> o.
 type ordinary-sequent-to-lmf-star-with-op-index cert -> cert -> o.

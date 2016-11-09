@@ -6,6 +6,13 @@ accumulate lists.
 
 % helpers
 
+%obtain_os_node_vals
+%(ordinary-sequent-cert (ordinary-sequent-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert S1 (lmf-tree
+  %(lmf-star-node NH NF
+    %(lmf-multifoc-node M
+      %(lmf-singlefoc-node I IO))) C))))
+%H F Map NH NF M I IO.
+
 % generate a tree containing lmf-star nodes such that the top one is I with OI none (the box)
 % then a sequence of diamonds according to the indices in OI finishing with C as the rest of the tree
 % we generate the tree backward so the list of OI must be reversed first
@@ -29,6 +36,7 @@ generate_diamonds I [D] C T H F MFI :-
 ordinary-sequent-to-lmf-star
   (ordinary-sequent-cert
     (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I OI) C))
+    OI
   (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
     (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) C)))).
 
@@ -40,9 +48,26 @@ ordinary-sequent-to-lmf-star-with-op-index
 
 lmf-star-to-ordinary-sequent
   (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
-    (lmf-star-node _ _ (lmf-multifoc-node MFI (lmf-singlefoc-node I _))) C))))
+    (ordinary-sequent-node I OI) C))))
+    _
   (ordinary-sequent-cert
-    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I []) C)).
+    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree
+    (ordinary-sequent-node I OI) C)).
+ 
+lmf-star-to-ordinary-sequent
+  (lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
+    (lmf-star-node _ _ (lmf-multifoc-node MFI (lmf-singlefoc-node I _))) C))))
+    OI
+  (ordinary-sequent-cert
+    (ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I OI) C)).
+ 
+ 
+% mv: PREVIOUS VERSION    
+%lmf-star-to-ordinary-sequent
+  %(lmf-star-cert (lmf-star-state H F Map) (lmf-multifoc-cert (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree
+    %(lmf-star-node _ _ (lmf-multifoc-node MFI (lmf-singlefoc-node I _))) C))))
+  %(ordinary-sequent-cert
+    %(ordinary-sequent-state H F Map MFI IL Eig) (lmf-tree (ordinary-sequent-node I []) C)).
 
 % all rules except decide and init just use values from the state and the index in the node
 % in order to create an lmf-star certificate
@@ -81,14 +106,15 @@ decide_ke
 
 % decide is the same as the others and just operate on lmf-star level
 decide_ke Cert L Cert' :-
-  ordinary-sequent-to-lmf-star Cert Cert-s,
+  ordinary-sequent-to-lmf-star Cert IO Cert-s,
   decide_ke Cert-s L Cert-s',
-  lmf-star-to-ordinary-sequent Cert-s' Cert-s.
+  lmf-star-to-ordinary-sequent Cert-s' IO Cert'.
 
 store_kc Cert L B Cert' :-
-  ordinary-sequent-to-lmf-star Cert Cert-s,
-  store_kc Cert-s L B Cert-s',
-  lmf-star-to-ordinary-sequent Cert-s' Cert-s.
+(ordinary-sequent-to-lmf-star Cert OI Cert-s),
+(store_kc Cert-s L B Cert-s'),
+(lmf-star-to-ordinary-sequent Cert-s' OI Cert').
+
 
 release_ke Cert Cert.
 
@@ -98,21 +124,21 @@ initial_ke Cert O :-
   initial_ke Cert-s O.
 
 orNeg_kc Cert Form Cert-r :-
-  ordinary-sequent-to-lmf-star Cert Cert-s,
-  orNeg_kc Cert-s Form Cert-s',
-  lmf-star-to-ordinary-sequent Cert-s' Cert-r.
+ (ordinary-sequent-to-lmf-star Cert IO Cert-s),
+ (orNeg_kc Cert-s Form Cert-s'),
+ (lmf-star-to-ordinary-sequent Cert-s' IO Cert-r).
 
 andNeg_kc Cert Form Cert1 Cert2 :-
-  ordinary-sequent-to-lmf-star Cert Cert-s,
+  ordinary-sequent-to-lmf-star Cert IO Cert-s,
   andNeg_kc Cert-s Form Cert1' Cert2',
-  lmf-star-to-ordinary-sequent Cert1' Cert1,
-  lmf-star-to-ordinary-sequent Cert2' Cert2,
+  lmf-star-to-ordinary-sequent Cert1' IO Cert1,
+  lmf-star-to-ordinary-sequent Cert2' IO Cert2.
 
 andPos_k Cert Form Str Cert1 Cert2 :-
-  ordinary-sequent-to-lmf-star Cert Cert-s,
+    ordinary-sequent-to-lmf-star Cert IO Cert-s,
   andPos_k Cert-s Form Str Cert1' Cert2',
-  lmf-star-to-ordinary-sequent Cert1' Cert1,
-  lmf-star-to-ordinary-sequent Cert2' Cert2,
+  lmf-star-to-ordinary-sequent Cert1' IO Cert1,
+  lmf-star-to-ordinary-sequent Cert2' IO Cert2.
 
 % we ignore here (in the node) the optional index, which contains the list of diamond indices
 % here we must use this optional index in order to create the diamond nodes
@@ -126,14 +152,36 @@ all_kc
   % we first generate the tree, putting the box node at the top
   % below it all the diamonds and finish with C
   % we dont have tail recursion and must reverse the diamonds indices
-  reverse OI IO,
+spy "all-os-1 : "  (reverse OI IO),
   % TOFIX: MFI is right now 0 for everything and 1 for all diamonds
-  generate_diamonds I IO C T H F 0,
-  all_kc
+spy "all-os-2 : "  (  generate_diamonds I IO C T H F 0),
+spy "all-os-3 : "  (  all_kc
     (lmf-star-cert (lmf-star-state H F Map)
       (lmf-multifoc-cert
         (lmf-singlefoc-cert (lmf-singlefoc-state IL Eig) (lmf-tree (lmf-star-node H F (lmf-multifoc-node 0 (lmf-singlefoc-node I none))) T))))
-    Cert-r.
+    Cert-r).
+    
+% generate a tree containing lmf-star nodes such that the top one is I with OI none (the box)
+% then a sequence of diamonds according to the indices in OI finishing with C as the rest of the tree
+% we generate the tree backward so the list of OI must be reversed first
+% H is changed only on the last diamond, where it gets the index of the box
+% F is none for the box and the index of the box for the diamonds
+%generate_diamonds I [D|[X|Xs]] C T H F MFI :-
+  %generate_diamonds I [X|Xs]
+    %[(lmf-tree
+      %(lmf-star-node H I
+        %(lmf-multifoc-node (MFI+1)
+          %(lmf-singlefoc-node D I))) C)] T H F MFI.
+
+%%% the last one needs to change the H
+%generate_diamonds I [D] C T H F MFI :-
+  %generate_diamonds I []
+    %[(lmf-tree
+      %(lmf-star-node [I] I
+        %(lmf-multifoc-node (MFI+1)
+          %(lmf-singlefoc-node D I))) C)] T H F MFI.   
+    
+    
   % we do not change back as we want now the diamonds to be processed in lmf-star
   % we should set MFI and the other parameters to ensure proper activation
   %lmf-star-to-ordinary-sequent Cert-s Cert-r.

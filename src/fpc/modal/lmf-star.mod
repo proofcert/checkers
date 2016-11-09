@@ -170,10 +170,10 @@ andPos_k Cert Form Str Cert1 Cert2 :-
 %  (change_state Cert2 S2 Cert2-r).
 
 % needs to update the map in the state to map the index of the child to the index of the father (box)
-all_kc Cert Cert' :-
-  lmf-star_to_lmf-multifoc Cert S _ _ Cert-s,
+all_kc (lmf-star-cert State Cert) Cert' :-
+spy"fffff"(  lmf-star_to_lmf-multifoc Cert S _ _ Cert-s),
   all_kc Cert-s Cert-s',
-  obtain_all_star_node_vals Cert H F Map NH NF M I OI,
+  obtain_all_star_node_vals (lmf-star-cert State Cert) H F Map NH NF M I OI,
   % we cannot apply a relation unifying functions (Cert-s is a function)
   % spy "obtain " (obtain_all_multi_node_vals_all Cert-s' M' I' OI'),
   % ugly fix - we know the child index I' is lind(I)    
