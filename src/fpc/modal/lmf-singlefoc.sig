@@ -44,6 +44,7 @@ kind lmf-singlefoc-state type.
 
 type lmf-singlefoc-cert lmf-singlefoc-state -> lmf-tree -> cert.
 
+% first list is last index (or indices for binary rules) and second is a mapping between indices and eigen variables
 type lmf-singlefoc-state list index -> list (pair index atm) -> lmf-singlefoc-state.
 
 type lmf-singlefoc-node index -> index -> lmf-node.
