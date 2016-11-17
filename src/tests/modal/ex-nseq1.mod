@@ -28,20 +28,20 @@ modalProblem "Problem: Axiom K for nested-sequents"
 % []
 
 (nested-sequent-cert
-	(nested-sequent-state [pr zb 0] [pr (ns root zb) root] [] [])
+	(nested-sequent-state [pr zb znat] [] [pr (ns root zb) root] [] [])
   (lmf-tree (nested-sequent-node (ns root zb)  none) [
 		(lmf-tree (nested-sequent-node (ns (rind root) zb) none) [
 			(lmf-tree (nested-sequent-node (ns (rind (rind root)) zb) none) [
-				(lmf-tree (nested-sequent-node (ns (lind (rind root)) zb) (chld 1 zb)) [
+				(lmf-tree (nested-sequent-node (ns (lind (rind root)) zb) (chld (snat znat) zb)) [
 % diamond
-					(lmf-tree (nested-sequent-node (ns (lind root) zb) (chld 1 zb)) [
+					(lmf-tree (nested-sequent-node (ns (lind root) zb) (chld (snat znat) zb)) [
 % conj
-						(lmf-tree (nested-sequent-node (ns (lind root) (chld 1 zb)) none) [
+						(lmf-tree (nested-sequent-node (ns (lind root) (chld (snat znat) zb)) none) [
 % decide on negative first
-							(lmf-tree (nested-sequent-node (ns (rind (lind root)) (chld 1 zb)) none) [
+							(lmf-tree (nested-sequent-node (ns (lind (rind root)) (chld (snat znat) zb)) none) [
 % initial (decide on positive)
-								(lmf-tree (nested-sequent-node (ns (rind (rind root)) (chld 1 zb)) (ns (rind (lind root)) (chld 1 zb))) [])]) ,
+								(lmf-tree (nested-sequent-node (ns (lind (lind root)) (chld (snat znat) zb)) (ns (lind (rind root)) (chld (snat znat) zb))) [])]) ,
 % decide on negative first
-							(lmf-tree (nested-sequent-node (ns (lind (rind root)) (chld 1 zb)) none ) [
+							(lmf-tree (nested-sequent-node (ns (rind (lind root)) (chld (snat znat) zb)) none ) [
 % initial (decide on positive)
-								(lmf-tree (nested-sequent-node (ns (lind (lind root)) (chld 1 zb)) (ns (lind (rind root)) (chld 1 zb))) [])])])])])])])])).
+								(lmf-tree (nested-sequent-node (ns (rind (rind root)) (chld (snat znat) zb)) (ns (rind (lind root)) (chld (snat znat) zb))) [])])])])])])])])).
