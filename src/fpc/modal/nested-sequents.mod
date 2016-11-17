@@ -36,7 +36,14 @@ decide_ke Cert I' Cert' :-
 
 store_kc Cert Form H Cert' :-
   Cert = (nested-sequent-cert (nested-sequent-state Counter Boxes Map V M) T),
-  spy "rec " (store_kc (lmf-singlefoc-cert (lmf-singlefoc-state V M) T) Form H Cert-s'),
+  store_kc (lmf-singlefoc-cert (lmf-singlefoc-state V M) T) Form H Cert-s',
+  lmf-singlefoc-to-nested-sequent Cert-s' Counter Boxes Map I Cert'.
+
+store_kc Cert Form H Cert' :-
+  Cert = (nested-sequent-cert (nested-sequent-state Counter Boxes Map V M) (lmf-tree (nested-sequent-node I O) D)),
+  convert-index Map I I-s,
+  nested-sequent-to-lmf-singlefoc Cert I-s O Cert-s,
+  store_kc Cert-s Form H Cert-s',
   lmf-singlefoc-to-nested-sequent Cert-s' Counter Boxes Map I Cert'.
 
 release_ke C C.
@@ -87,7 +94,7 @@ all_kc Cert
   get_incremented_child Counter Ch NewCh NewCounter,
   nested-sequent-to-lmf-singlefoc Cert I-s O Cert-s,
   add_to_map Boxes NewCh I-s Boxes',
-  add_to_map Map (ns I NewCh) (lind I-s) Map'.
+  add_to_map Map (ns Ind NewCh) (lind I-s) Map'.
 
 some_ke Cert X Cert' :-
   Cert = (nested-sequent-cert (nested-sequent-state Counter Boxes Map V M) (lmf-tree (nested-sequent-node I O) D)),
