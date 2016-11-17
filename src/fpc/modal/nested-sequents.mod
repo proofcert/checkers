@@ -34,11 +34,12 @@ decide_ke Cert I' Cert' :-
   decide_ke Cert-s I' Cert-s',
   lmf-singlefoc-to-nested-sequent Cert-s' Counter Boxes Map I Cert'.
 
+% we need two stores because a store on a negative literal should be able to access the index in the node
+% therefore, we need to translate the node (see more in singlefoc)
 store_kc Cert Form H Cert' :-
   Cert = (nested-sequent-cert (nested-sequent-state Counter Boxes Map V M) T),
   store_kc (lmf-singlefoc-cert (lmf-singlefoc-state V M) T) Form H Cert-s',
   lmf-singlefoc-to-nested-sequent Cert-s' Counter Boxes Map I Cert'.
-
 store_kc Cert Form H Cert' :-
   Cert = (nested-sequent-cert (nested-sequent-state Counter Boxes Map V M) (lmf-tree (nested-sequent-node I O) D)),
   convert-index Map I I-s,
