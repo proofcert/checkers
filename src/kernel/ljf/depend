@@ -1,2 +1,0 @@
-ljf-kernel.lpo: ljf-kernel.mod ljf-kernel.sig certificatesLJF.sig ../../base.sig ljf-syntax.sig ../../utils/lists.sig
-ljf-kernel.lp: ljf-kernel.lpo 

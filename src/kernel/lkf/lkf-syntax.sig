@@ -33,12 +33,10 @@ type all    (A -> form) -> form.
 /* Units */
 type f+,f-, t+,t- 	form.
 
-infixr &-&, &+& 6.
-infixr !-!,!+! 5.
-
+infixr &-&, &+& 136.
+infixr !-!,!+! 135.
 
 type n, p      	       	  atm -> form.
-
 
 type unfK list form -> seq.
 type foc form -> seq.
