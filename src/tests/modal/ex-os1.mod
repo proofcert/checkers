@@ -47,7 +47,7 @@ modalProblem "Problem: Axiom K for ordinary-sequents"
   % focuses on the delayed negative literal --p1 (only needed for a problem in the translation)
   lmf-tree (ordinary-sequent-node (diaind (lind (rind root)) (rind (rind root))) [none]) [
 
-  lmf-tree (ordinary-sequent-node (lind (diaind (lind root) (rind (rind root)))) [diaind (lind 
+  lmf-tree (ordinary-sequent-node (lind (diaind (lind root) (rind (rind root)))) [diaind (lind
 (rind
 root)) (rind (rind root))]) []],
 
@@ -55,7 +55,7 @@ root)) (rind (rind root))]) []],
   lmf-tree (ordinary-sequent-node (rind (diaind (lind root) (rind (rind
 root)))) [none]) [
 
-  lmf-tree (ordinary-sequent-node (lind (rind (rind root))) [(rind (diaind (lind root) (rind 
+  lmf-tree (ordinary-sequent-node (lind (rind (rind root))) [(rind (diaind (lind root) (rind
 (rind
 root))))]) []]
 
