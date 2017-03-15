@@ -1,0 +1,80 @@
+% Problem    : NUM842+1 : TPTP v6.1.0. Released v4.1.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n119.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:38:11 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_B07_F1_SE_CS_SP_PS_S4d
+# and selection function SelectCQIPrecWNTNp.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X24]:![X25]:(geq(X24,X25)=>leq(X25,X24))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(158, 0), 0)')).
+fof(c_0_1, axiom, (((greater(vd355,vd356)&geq(vd353,vd354))|(geq(vd355,vd356)&greater(vd353,vd354)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'dis(antec(218))')).
+fof(c_0_2, axiom, (![X22]:![X23]:(leq(X22,X23)=>geq(X23,X22))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(163, 0), 0)')).
+fof(c_0_3, axiom, (![X28]:![X29]:(geq(X29,X28)<=>(greater(X29,X28)|X29=X28))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'def(cond(conseq(axiom(3)), 16), 1)')).
+fof(c_0_4, axiom, (![X1]:![X2]:![X3]:![X4]:((greater(X3,X4)&greater(X1,X2))=>greater(vplus(X1,X3),vplus(X2,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(209, 0), 0)')).
+fof(c_0_5, axiom, (![X8]:![X9]:![X10]:(greater(X8,X9)=>greater(vplus(X8,X10),vplus(X9,X10)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(goal(193), 0), 2)')).
+fof(c_0_6, axiom, (![X42]:![X43]:(X42!=X43|~(?[X45]:X43=vplus(X42,X45)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(goal(88), 0), 1)')).
+fof(c_0_7, axiom, (![X39]:![X40]:(greater(X40,X39)<=>?[X41]:X40=vplus(X39,X41))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'def(cond(conseq(axiom(3)), 11), 1)')).
+fof(c_0_8, conjecture, (greater(vplus(vd353,vd355),vplus(vd354,vd356))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'holds(conseq(218), 361, 0)')).
+fof(c_0_9, axiom, (![X34]:![X35]:(X34!=X35|~(greater(X34,X35)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(goal(130), 0), 3)')).
+fof(c_0_10, axiom, (![X51]:![X52]:vplus(X52,X51)=vplus(X51,X52)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', 'ass(cond(61, 0), 0)')).
+fof(c_0_11, plain, (![X26]:![X27]:(~geq(X26,X27)|leq(X27,X26))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])).
+fof(c_0_12, plain, ((((geq(vd355,vd356)|greater(vd355,vd356))&(greater(vd353,vd354)|greater(vd355,vd356)))&((geq(vd355,vd356)|geq(vd353,vd354))&(greater(vd353,vd354)|geq(vd353,vd354))))), inference(distribute,[status(thm)],[c_0_1])).
+fof(c_0_13, plain, (![X24]:![X25]:(~leq(X24,X25)|geq(X25,X24))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_14,plain,(leq(X1,X2)|~geq(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_15,plain,(greater(vd355,vd356)|geq(vd355,vd356)), inference(split_conjunct,[status(thm)],[c_0_12])).
+fof(c_0_16, plain, (![X30]:![X31]:![X32]:![X33]:((~geq(X31,X30)|(greater(X31,X30)|X31=X30))&((~greater(X33,X32)|geq(X33,X32))&(X33!=X32|geq(X33,X32))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])).
+cnf(c_0_17,plain,(geq(X1,X2)|~leq(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_18,plain,(leq(vd356,vd355)|greater(vd355,vd356)), inference(spm,[status(thm)],[c_0_14, c_0_15])).
+cnf(c_0_19,plain,(geq(X1,X2)|~greater(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_20,plain,(geq(vd353,vd354)|greater(vd353,vd354)), inference(split_conjunct,[status(thm)],[c_0_12])).
+fof(c_0_21, plain, (![X5]:![X6]:![X7]:![X8]:((~greater(X7,X8)|~greater(X5,X6))|greater(vplus(X5,X7),vplus(X6,X8)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+cnf(c_0_22,plain,(X1=X2|greater(X1,X2)|~geq(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_23,plain,(geq(vd355,vd356)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_18]), c_0_19])).
+cnf(c_0_24,plain,(leq(vd354,vd353)|greater(vd353,vd354)), inference(spm,[status(thm)],[c_0_14, c_0_20])).
+fof(c_0_25, plain, (![X11]:![X12]:![X13]:(~greater(X11,X12)|greater(vplus(X11,X13),vplus(X12,X13)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+fof(c_0_26, plain, (![X46]:![X47]:![X48]:(X46!=X47|X47!=vplus(X46,X48))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])).
+fof(c_0_27, plain, (![X42]:![X43]:![X45]:![X46]:![X47]:((~greater(X43,X42)|X43=vplus(X42,esk2_2(X42,X43)))&(X46!=vplus(X45,X47)|greater(X46,X45)))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])])])).
+cnf(c_0_28,plain,(greater(vplus(X1,X2),vplus(X3,X4))|~greater(X1,X3)|~greater(X2,X4)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_29,plain,(vd356=vd355|greater(vd355,vd356)), inference(spm,[status(thm)],[c_0_22, c_0_23])).
+cnf(c_0_30,plain,(geq(vd353,vd354)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_24]), c_0_19])).
+fof(c_0_31, negated_conjecture, (~greater(vplus(vd353,vd355),vplus(vd354,vd356))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_8])])).
+fof(c_0_32, plain, (![X34]:![X35]:(X34!=X35|~greater(X34,X35))), inference(fof_simplification,[status(thm)],[c_0_9])).
+cnf(c_0_33,plain,(greater(vplus(X1,X2),vplus(X3,X2))|~greater(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_25])).
+fof(c_0_34, plain, (![X53]:![X54]:vplus(X54,X53)=vplus(X53,X54)), inference(variable_rename,[status(thm)],[c_0_10])).
+cnf(c_0_35,plain,(X1!=vplus(X2,X3)|X2!=X1), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_36,plain,(X1=vplus(X2,esk2_2(X2,X1))|~greater(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_27])).
+cnf(c_0_37,plain,(greater(vd355,vd356)|greater(vd353,vd354)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_38,plain,(vd356=vd355|greater(vplus(X1,vd355),vplus(X2,vd356))|~greater(X1,X2)), inference(spm,[status(thm)],[c_0_28, c_0_29])).
+cnf(c_0_39,plain,(vd354=vd353|greater(vd353,vd354)), inference(spm,[status(thm)],[c_0_22, c_0_30])).
+cnf(c_0_40,negated_conjecture,(~greater(vplus(vd353,vd355),vplus(vd354,vd356))), inference(split_conjunct,[status(thm)],[c_0_31])).
+fof(c_0_41, plain, (![X36]:![X37]:(X36!=X37|~greater(X36,X37))), inference(variable_rename,[status(thm)],[c_0_32])).
+cnf(c_0_42,plain,(vd356=vd355|greater(vplus(vd355,X1),vplus(vd356,X1))), inference(spm,[status(thm)],[c_0_33, c_0_29])).
+cnf(c_0_43,plain,(vplus(X1,X2)=vplus(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_34])).
+cnf(c_0_44,plain,(vplus(X1,X2)!=X1), inference(er,[status(thm)],[c_0_35])).
+cnf(c_0_45,plain,(vplus(vd356,esk2_2(vd356,vd355))=vd355|greater(vd353,vd354)), inference(spm,[status(thm)],[c_0_36, c_0_37])).
+cnf(c_0_46,plain,(vd354=vd353|vd356=vd355), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_38, c_0_39]), c_0_40])).
+cnf(c_0_47,plain,(vd354=vd353|greater(vplus(vd353,X1),vplus(vd354,X1))), inference(spm,[status(thm)],[c_0_33, c_0_39])).
+cnf(c_0_48,plain,(~greater(X1,X2)|X1!=X2), inference(split_conjunct,[status(thm)],[c_0_41])).
+cnf(c_0_49,plain,(vd356=vd355|greater(vplus(vd355,X1),vplus(X1,vd356))), inference(spm,[status(thm)],[c_0_42, c_0_43])).
+cnf(c_0_50,plain,(greater(vd353,vd354)|vd356!=vd355), inference(spm,[status(thm)],[c_0_44, c_0_45])).
+cnf(c_0_51,negated_conjecture,(vd354=vd353), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_40, c_0_46]), c_0_47])).
+cnf(c_0_52,plain,(~greater(X1,X1)), inference(er,[status(thm)],[c_0_48])).
+cnf(c_0_53,plain,(vd356=vd355|greater(vplus(X1,vd355),vplus(X1,vd356))), inference(spm,[status(thm)],[c_0_49, c_0_43])).
+cnf(c_0_54,plain,(vd356!=vd355), inference(sr,[status(thm)],[inference(rw,[status(thm)],[c_0_50, c_0_51]), c_0_52])).
+cnf(c_0_55,negated_conjecture,(~greater(vplus(vd353,vd355),vplus(vd353,vd356))), inference(rw,[status(thm)],[c_0_40, c_0_51])).
+cnf(c_0_56,plain,(greater(vplus(X1,vd355),vplus(X1,vd356))), inference(sr,[status(thm)],[c_0_53, c_0_54])).
+cnf(c_0_57,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_55, c_0_56])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

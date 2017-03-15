@@ -1,0 +1,46 @@
+% Problem    : CSR066+3 : TPTP v6.1.0. Released v3.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n152.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:22:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C41_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X15]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_webnjiteducjohnsontreebiochhtm)),c_translation_21))=>(tptp_8_271(X15,c_theprototypicalshavingrazor_manual)&tptpcol_16_25972(X15)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', query166)).
+fof(c_0_1, axiom, (![X15]:(isa(X15,c_tptpcol_16_25972)=>tptpcol_16_25972(X15))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_5089)).
+fof(c_0_2, axiom, (![X7]:(shavingrazor_manual(X7)=>tptp_8_271(f_relationexistsallfn(X7,c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual),X7))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3627)).
+fof(c_0_3, axiom, (shavingrazor_manual(c_theprototypicalshavingrazor_manual)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_195)).
+fof(c_0_4, axiom, (![X7]:![X8]:![X9]:![X10]:((isa(X7,X8)&relationexistsall(X9,X10,X8))=>isa(f_relationexistsallfn(X7,X9,X10,X8),X10))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_453)).
+fof(c_0_5, axiom, (relationexistsall(c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual)), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_3628)).
+fof(c_0_6, axiom, (![X15]:(shavingrazor_manual(X15)=>isa(X15,c_shavingrazor_manual))), file('/export/starexec/sandbox/benchmark/Axioms/CSR002+2.ax', ax2_7743)).
+fof(c_0_7, negated_conjecture, (~(?[X15]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_webnjiteducjohnsontreebiochhtm)),c_translation_21))=>(tptp_8_271(X15,c_theprototypicalshavingrazor_manual)&tptpcol_16_25972(X15))))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_8, negated_conjecture, (![X16]:(mtvisible(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_webnjiteducjohnsontreebiochhtm)),c_translation_21))&(~tptp_8_271(X16,c_theprototypicalshavingrazor_manual)|~tptpcol_16_25972(X16)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])])).
+fof(c_0_9, plain, (![X16]:(~isa(X16,c_tptpcol_16_25972)|tptpcol_16_25972(X16))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])).
+cnf(c_0_10,negated_conjecture,(~tptpcol_16_25972(X1)|~tptp_8_271(X1,c_theprototypicalshavingrazor_manual)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_11,plain,(tptpcol_16_25972(X1)|~isa(X1,c_tptpcol_16_25972)), inference(split_conjunct,[status(thm)],[c_0_9])).
+fof(c_0_12, plain, (![X8]:(~shavingrazor_manual(X8)|tptp_8_271(f_relationexistsallfn(X8,c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual),X8))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_13,negated_conjecture,(~tptp_8_271(X1,c_theprototypicalshavingrazor_manual)|~isa(X1,c_tptpcol_16_25972)), inference(spm,[status(thm)],[c_0_10, c_0_11])).
+cnf(c_0_14,plain,(tptp_8_271(f_relationexistsallfn(X1,c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual),X1)|~shavingrazor_manual(X1)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_15,plain,(shavingrazor_manual(c_theprototypicalshavingrazor_manual)), inference(split_conjunct,[status(thm)],[c_0_3])).
+fof(c_0_16, plain, (![X11]:![X12]:![X13]:![X14]:((~isa(X11,X12)|~relationexistsall(X13,X14,X12))|isa(f_relationexistsallfn(X11,X13,X14,X12),X14))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+cnf(c_0_17,negated_conjecture,(~isa(f_relationexistsallfn(c_theprototypicalshavingrazor_manual,c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual),c_tptpcol_16_25972)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_13, c_0_14]), c_0_15])])).
+cnf(c_0_18,plain,(isa(f_relationexistsallfn(X1,X2,X3,X4),X3)|~relationexistsall(X2,X3,X4)|~isa(X1,X4)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_19,plain,(relationexistsall(c_tptp_8_271,c_tptpcol_16_25972,c_shavingrazor_manual)), inference(split_conjunct,[status(thm)],[c_0_5])).
+fof(c_0_20, plain, (![X16]:(~shavingrazor_manual(X16)|isa(X16,c_shavingrazor_manual))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+cnf(c_0_21,negated_conjecture,(~isa(c_theprototypicalshavingrazor_manual,c_shavingrazor_manual)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17, c_0_18]), c_0_19])])).
+cnf(c_0_22,plain,(isa(X1,c_shavingrazor_manual)|~shavingrazor_manual(X1)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_23,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_22]), c_0_15])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

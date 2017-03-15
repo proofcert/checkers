@@ -1,0 +1,77 @@
+% Problem    : SWV014+1 : TPTP v6.1.0. Released v2.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n183.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:20:16 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____047_C18_F1_PI_AE_R8_CS_SP_S2S
+# and selection function SelectNewComplexAHP.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:((message(sent(X1,b,pair(X1,X2)))&fresh_to_b(X2))=>(message(sent(b,t,triple(b,generate_b_nonce(X2),encrypt(triple(X1,X2,generate_expiration_time(X2)),bt))))&b_stored(pair(X1,X2))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', b_creates_freash_nonces_in_time)).
+fof(c_0_1, axiom, (![X2]:![X4]:![X5]:((message(sent(X4,b,pair(encrypt(triple(X4,X2,generate_expiration_time(X5)),bt),encrypt(generate_b_nonce(X5),X2))))&b_stored(pair(X4,X5)))=>b_holds(key(X2,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', b_accepts_secure_session_key)).
+fof(c_0_2, axiom, (message(sent(a,b,pair(a,an_a_nonce)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', a_sent_message_i_to_b)).
+fof(c_0_3, axiom, (fresh_to_b(an_a_nonce)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', nonce_a_is_fresh_to_b)).
+fof(c_0_4, axiom, (![X1]:![X2]:![X3]:(((intruder_message(X1)&party_of_protocol(X2))&party_of_protocol(X3))=>message(sent(X2,X3,X1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_message_sent)).
+fof(c_0_5, axiom, (![X1]:![X2]:![X3]:(((intruder_message(X1)&intruder_holds(key(X2,X3)))&party_of_protocol(X3))=>intruder_message(encrypt(X1,X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_key_encrypts)).
+fof(c_0_6, axiom, (![X2]:![X3]:((intruder_message(X2)&party_of_protocol(X3))=>intruder_holds(key(X2,X3)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_holds_key)).
+fof(c_0_7, axiom, (![X1]:![X2]:![X3]:(message(sent(X1,X2,X3))=>intruder_message(X3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_can_record)).
+fof(c_0_8, conjecture, (?[X1]:(intruder_holds(key(X1,b))&b_holds(key(X1,a)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', co1)).
+fof(c_0_9, axiom, (party_of_protocol(b)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', b_is_party_of_protocol)).
+fof(c_0_10, axiom, (party_of_protocol(a)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', a_is_party_of_protocol)).
+fof(c_0_11, axiom, (![X1]:![X2]:((intruder_message(X1)&intruder_message(X2))=>intruder_message(pair(X1,X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_composes_pairs)).
+fof(c_0_12, axiom, (![X1]:![X2]:![X3]:(intruder_message(triple(X1,X2,X3))=>((intruder_message(X1)&intruder_message(X2))&intruder_message(X3)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_decomposes_triples)).
+fof(c_0_13, axiom, (![X1]:![X2]:(intruder_message(pair(X1,X2))=>(intruder_message(X1)&intruder_message(X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', intruder_decomposes_pairs)).
+fof(c_0_14, plain, (![X3]:![X4]:((message(sent(b,t,triple(b,generate_b_nonce(X4),encrypt(triple(X3,X4,generate_expiration_time(X4)),bt))))|(~message(sent(X3,b,pair(X3,X4)))|~fresh_to_b(X4)))&(b_stored(pair(X3,X4))|(~message(sent(X3,b,pair(X3,X4)))|~fresh_to_b(X4))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])).
+fof(c_0_15, plain, (![X6]:![X7]:![X8]:((~message(sent(X7,b,pair(encrypt(triple(X7,X6,generate_expiration_time(X8)),bt),encrypt(generate_b_nonce(X8),X6))))|~b_stored(pair(X7,X8)))|b_holds(key(X6,X7)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])).
+cnf(c_0_16,plain,(b_stored(pair(X2,X1))|~fresh_to_b(X1)|~message(sent(X2,b,pair(X2,X1)))), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_17,plain,(message(sent(a,b,pair(a,an_a_nonce)))), inference(split_conjunct,[status(thm)],[c_0_2])).
+cnf(c_0_18,plain,(fresh_to_b(an_a_nonce)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_19,plain,(b_holds(key(X1,X2))|~b_stored(pair(X2,X3))|~message(sent(X2,b,pair(encrypt(triple(X2,X1,generate_expiration_time(X3)),bt),encrypt(generate_b_nonce(X3),X1))))), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_20,plain,(b_stored(pair(a,an_a_nonce))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_18])])).
+fof(c_0_21, plain, (![X4]:![X5]:![X6]:(((~intruder_message(X4)|~party_of_protocol(X5))|~party_of_protocol(X6))|message(sent(X5,X6,X4)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+fof(c_0_22, plain, (![X4]:![X5]:![X6]:(((~intruder_message(X4)|~intruder_holds(key(X5,X6)))|~party_of_protocol(X6))|intruder_message(encrypt(X4,X5)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+fof(c_0_23, plain, (![X4]:![X5]:((~intruder_message(X4)|~party_of_protocol(X5))|intruder_holds(key(X4,X5)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+fof(c_0_24, plain, (![X4]:![X5]:![X6]:(~message(sent(X4,X5,X6))|intruder_message(X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])).
+cnf(c_0_25,plain,(message(sent(b,t,triple(b,generate_b_nonce(X1),encrypt(triple(X2,X1,generate_expiration_time(X1)),bt))))|~fresh_to_b(X1)|~message(sent(X2,b,pair(X2,X1)))), inference(split_conjunct,[status(thm)],[c_0_14])).
+fof(c_0_26, negated_conjecture, (~(?[X1]:(intruder_holds(key(X1,b))&b_holds(key(X1,a))))), inference(assume_negation,[status(cth)],[c_0_8])).
+cnf(c_0_27,plain,(b_holds(key(X1,a))|~message(sent(a,b,pair(encrypt(triple(a,X1,generate_expiration_time(an_a_nonce)),bt),encrypt(generate_b_nonce(an_a_nonce),X1))))), inference(spm,[status(thm)],[c_0_19, c_0_20])).
+cnf(c_0_28,plain,(message(sent(X1,X2,X3))|~party_of_protocol(X2)|~party_of_protocol(X1)|~intruder_message(X3)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_29,plain,(party_of_protocol(b)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_30,plain,(party_of_protocol(a)), inference(split_conjunct,[status(thm)],[c_0_10])).
+fof(c_0_31, plain, (![X3]:![X4]:((~intruder_message(X3)|~intruder_message(X4))|intruder_message(pair(X3,X4)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_11])])).
+cnf(c_0_32,plain,(intruder_message(encrypt(X1,X2))|~party_of_protocol(X3)|~intruder_holds(key(X2,X3))|~intruder_message(X1)), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_33,plain,(intruder_holds(key(X1,X2))|~party_of_protocol(X2)|~intruder_message(X1)), inference(split_conjunct,[status(thm)],[c_0_23])).
+fof(c_0_34, plain, (![X4]:![X5]:![X6]:(((intruder_message(X4)|~intruder_message(triple(X4,X5,X6)))&(intruder_message(X5)|~intruder_message(triple(X4,X5,X6))))&(intruder_message(X6)|~intruder_message(triple(X4,X5,X6))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])])).
+cnf(c_0_35,plain,(intruder_message(X1)|~message(sent(X2,X3,X1))), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_36,plain,(message(sent(b,t,triple(b,generate_b_nonce(an_a_nonce),encrypt(triple(a,an_a_nonce,generate_expiration_time(an_a_nonce)),bt))))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_25, c_0_17]), c_0_18])])).
+fof(c_0_37, negated_conjecture, (![X2]:(~intruder_holds(key(X2,b))|~b_holds(key(X2,a)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_26])])).
+cnf(c_0_38,plain,(b_holds(key(X1,a))|~intruder_message(pair(encrypt(triple(a,X1,generate_expiration_time(an_a_nonce)),bt),encrypt(generate_b_nonce(an_a_nonce),X1)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_27, c_0_28]), c_0_29]), c_0_30])])).
+cnf(c_0_39,plain,(intruder_message(pair(X1,X2))|~intruder_message(X2)|~intruder_message(X1)), inference(split_conjunct,[status(thm)],[c_0_31])).
+cnf(c_0_40,plain,(intruder_message(encrypt(X1,X2))|~intruder_message(X1)|~intruder_message(X2)|~party_of_protocol(X3)), inference(spm,[status(thm)],[c_0_32, c_0_33])).
+cnf(c_0_41,plain,(intruder_message(X2)|~intruder_message(triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_34])).
+cnf(c_0_42,plain,(intruder_message(triple(b,generate_b_nonce(an_a_nonce),encrypt(triple(a,an_a_nonce,generate_expiration_time(an_a_nonce)),bt)))), inference(spm,[status(thm)],[c_0_35, c_0_36])).
+cnf(c_0_43,negated_conjecture,(~b_holds(key(X1,a))|~intruder_holds(key(X1,b))), inference(split_conjunct,[status(thm)],[c_0_37])).
+fof(c_0_44, plain, (![X3]:![X4]:((intruder_message(X3)|~intruder_message(pair(X3,X4)))&(intruder_message(X4)|~intruder_message(pair(X3,X4))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])])).
+cnf(c_0_45,plain,(b_holds(key(X1,a))|~intruder_message(encrypt(triple(a,X1,generate_expiration_time(an_a_nonce)),bt))|~intruder_message(encrypt(generate_b_nonce(an_a_nonce),X1))), inference(spm,[status(thm)],[c_0_38, c_0_39])).
+cnf(c_0_46,plain,(intruder_message(encrypt(X1,X2))|~intruder_message(X1)|~intruder_message(X2)), inference(spm,[status(thm)],[c_0_40, c_0_29])).
+cnf(c_0_47,plain,(intruder_message(generate_b_nonce(an_a_nonce))), inference(spm,[status(thm)],[c_0_41, c_0_42])).
+cnf(c_0_48,negated_conjecture,(~intruder_message(X1)|~b_holds(key(X1,a))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_43, c_0_33]), c_0_29])])).
+cnf(c_0_49,plain,(intruder_message(X3)|~intruder_message(triple(X1,X2,X3))), inference(split_conjunct,[status(thm)],[c_0_34])).
+cnf(c_0_50,plain,(intruder_message(X2)|~intruder_message(pair(X1,X2))), inference(split_conjunct,[status(thm)],[c_0_44])).
+cnf(c_0_51,plain,(intruder_message(pair(a,an_a_nonce))), inference(spm,[status(thm)],[c_0_35, c_0_17])).
+cnf(c_0_52,plain,(~intruder_message(encrypt(triple(a,X1,generate_expiration_time(an_a_nonce)),bt))|~intruder_message(X1)), inference(csr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_45, c_0_46]), c_0_47])]), c_0_48])).
+cnf(c_0_53,plain,(intruder_message(encrypt(triple(a,an_a_nonce,generate_expiration_time(an_a_nonce)),bt))), inference(spm,[status(thm)],[c_0_49, c_0_42])).
+cnf(c_0_54,plain,(intruder_message(an_a_nonce)), inference(spm,[status(thm)],[c_0_50, c_0_51])).
+cnf(c_0_55,plain,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_52, c_0_53]), c_0_54])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

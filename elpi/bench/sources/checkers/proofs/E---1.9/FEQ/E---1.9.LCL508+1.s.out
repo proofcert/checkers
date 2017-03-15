@@ -1,0 +1,176 @@
+% Problem    : LCL508+1 : TPTP v6.1.0. Released v3.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n100.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 07:22:46 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____011_C18_F1_PI_AE_SP_S2S
+# and selection function SelectNewComplexAHP.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, ((op_implies_and=>![X1]:![X2]:implies(X1,X2)=not(and(X1,not(X2))))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+1.ax', op_implies_and)).
+fof(c_0_1, axiom, ((op_or=>![X1]:![X2]:or(X1,X2)=not(and(not(X1),not(X2))))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+1.ax', op_or)).
+fof(c_0_2, axiom, (op_implies_and), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_op_implies_and)).
+fof(c_0_3, axiom, ((modus_ponens<=>![X1]:![X2]:((is_a_theorem(X1)&is_a_theorem(implies(X1,X2)))=>is_a_theorem(X2)))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', modus_ponens)).
+fof(c_0_4, axiom, ((kn3<=>![X4]:![X5]:![X6]:is_a_theorem(implies(implies(X4,X5),implies(not(and(X5,X6)),not(and(X6,X4))))))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', kn3)).
+fof(c_0_5, axiom, (op_or), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_op_or)).
+fof(c_0_6, axiom, (modus_ponens), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_modus_ponens)).
+fof(c_0_7, axiom, (kn3), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_kn3)).
+fof(c_0_8, axiom, ((kn1<=>![X4]:is_a_theorem(implies(X4,and(X4,X4))))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', kn1)).
+fof(c_0_9, axiom, (kn1), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_kn1)).
+fof(c_0_10, axiom, ((kn2<=>![X4]:![X5]:is_a_theorem(implies(and(X4,X5),X4)))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', kn2)).
+fof(c_0_11, axiom, (kn2), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_kn2)).
+fof(c_0_12, axiom, ((op_equiv=>![X1]:![X2]:equiv(X1,X2)=and(implies(X1,X2),implies(X2,X1)))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+1.ax', op_equiv)).
+fof(c_0_13, axiom, (op_equiv), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', rosser_op_equiv)).
+fof(c_0_14, axiom, ((substitution_of_equivalents<=>![X1]:![X2]:(is_a_theorem(equiv(X1,X2))=>X1=X2))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', substitution_of_equivalents)).
+fof(c_0_15, axiom, (substitution_of_equivalents), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+5.ax', substitution_of_equivalents)).
+fof(c_0_16, axiom, ((and_3<=>![X1]:![X2]:is_a_theorem(implies(X1,implies(X2,and(X1,X2)))))), file('/export/starexec/sandbox/benchmark/Axioms/LCL006+0.ax', and_3)).
+fof(c_0_17, conjecture, (and_3), file('/export/starexec/sandbox/benchmark/theBenchmark.p', hilbert_and_3)).
+fof(c_0_18, plain, (![X3]:![X4]:(~op_implies_and|implies(X3,X4)=not(and(X3,not(X4))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])).
+fof(c_0_19, plain, (![X3]:![X4]:(~op_or|or(X3,X4)=not(and(not(X3),not(X4))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])).
+cnf(c_0_20,plain,(implies(X1,X2)=not(and(X1,not(X2)))|~op_implies_and), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_21,plain,(op_implies_and), inference(split_conjunct,[status(thm)],[c_0_2])).
+fof(c_0_22, plain, (![X3]:![X4]:((~modus_ponens|((~is_a_theorem(X3)|~is_a_theorem(implies(X3,X4)))|is_a_theorem(X4)))&(((is_a_theorem(esk1_0)|modus_ponens)&(is_a_theorem(implies(esk1_0,esk2_0))|modus_ponens))&(~is_a_theorem(esk2_0)|modus_ponens)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])).
+fof(c_0_23, plain, (![X7]:![X8]:![X9]:((~kn3|is_a_theorem(implies(implies(X7,X8),implies(not(and(X8,X9)),not(and(X9,X7))))))&(~is_a_theorem(implies(implies(esk36_0,esk37_0),implies(not(and(esk37_0,esk38_0)),not(and(esk38_0,esk36_0)))))|kn3))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])])).
+cnf(c_0_24,plain,(or(X1,X2)=not(and(not(X1),not(X2)))|~op_or), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_25,plain,(not(and(X1,not(X2)))=implies(X1,X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_20, c_0_21])])).
+cnf(c_0_26,plain,(op_or), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_27,plain,(is_a_theorem(X1)|~is_a_theorem(implies(X2,X1))|~is_a_theorem(X2)|~modus_ponens), inference(split_conjunct,[status(thm)],[c_0_22])).
+cnf(c_0_28,plain,(modus_ponens), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_29,plain,(is_a_theorem(implies(implies(X1,X2),implies(not(and(X2,X3)),not(and(X3,X1)))))|~kn3), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_30,plain,(implies(not(X1),X2)=or(X1,X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_24, c_0_25]), c_0_26])])).
+cnf(c_0_31,plain,(kn3), inference(split_conjunct,[status(thm)],[c_0_7])).
+fof(c_0_32, plain, (![X5]:((~kn1|is_a_theorem(implies(X5,and(X5,X5))))&(~is_a_theorem(implies(esk33_0,and(esk33_0,esk33_0)))|kn1))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])])])).
+cnf(c_0_33,plain,(is_a_theorem(X1)|~is_a_theorem(implies(X2,X1))|~is_a_theorem(X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_27, c_0_28])])).
+cnf(c_0_34,plain,(is_a_theorem(implies(implies(X1,X2),or(and(X2,X3),not(and(X3,X1)))))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_29, c_0_30]), c_0_31])])).
+cnf(c_0_35,plain,(is_a_theorem(implies(X1,and(X1,X1)))|~kn1), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_36,plain,(kn1), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_37,plain,(is_a_theorem(or(and(X1,X2),not(and(X2,X3))))|~is_a_theorem(implies(X3,X1))), inference(spm,[status(thm)],[c_0_33, c_0_34])).
+cnf(c_0_38,plain,(is_a_theorem(implies(X1,and(X1,X1)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_35, c_0_36])])).
+cnf(c_0_39,plain,(is_a_theorem(or(and(and(X1,X1),X2),not(and(X2,X1))))), inference(spm,[status(thm)],[c_0_37, c_0_38])).
+cnf(c_0_40,plain,(or(and(X1,not(X2)),X3)=implies(implies(X1,X2),X3)), inference(spm,[status(thm)],[c_0_30, c_0_25])).
+fof(c_0_41, plain, (![X6]:![X7]:((~kn2|is_a_theorem(implies(and(X6,X7),X6)))&(~is_a_theorem(implies(and(esk34_0,esk35_0),esk34_0))|kn2))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])).
+cnf(c_0_42,plain,(is_a_theorem(implies(implies(and(X1,X1),X2),not(and(not(X2),X1))))), inference(spm,[status(thm)],[c_0_39, c_0_40])).
+cnf(c_0_43,plain,(is_a_theorem(implies(and(X1,X2),X1))|~kn2), inference(split_conjunct,[status(thm)],[c_0_41])).
+cnf(c_0_44,plain,(kn2), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_45,plain,(is_a_theorem(not(and(not(X1),X2)))|~is_a_theorem(implies(and(X2,X2),X1))), inference(spm,[status(thm)],[c_0_33, c_0_42])).
+cnf(c_0_46,plain,(is_a_theorem(implies(and(X1,X2),X1))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_43, c_0_44])])).
+cnf(c_0_47,plain,(is_a_theorem(not(and(not(X1),X1)))), inference(spm,[status(thm)],[c_0_45, c_0_46])).
+cnf(c_0_48,plain,(is_a_theorem(or(and(X1,X2),implies(X2,X3)))|~is_a_theorem(or(X3,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_37, c_0_30]), c_0_25])).
+cnf(c_0_49,plain,(is_a_theorem(or(not(X1),X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_47, c_0_25]), c_0_30])).
+cnf(c_0_50,plain,(is_a_theorem(or(and(X1,X2),implies(X2,not(X1))))), inference(spm,[status(thm)],[c_0_48, c_0_49])).
+cnf(c_0_51,plain,(is_a_theorem(X1)|~is_a_theorem(or(X2,X1))|~is_a_theorem(not(X2))), inference(spm,[status(thm)],[c_0_33, c_0_30])).
+cnf(c_0_52,plain,(is_a_theorem(implies(implies(X1,X2),implies(implies(X2,X3),not(and(not(X3),X1)))))), inference(spm,[status(thm)],[c_0_34, c_0_40])).
+cnf(c_0_53,plain,(is_a_theorem(implies(implies(X1,X2),or(X2,not(X1))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_50, c_0_30]), c_0_40])).
+cnf(c_0_54,plain,(is_a_theorem(X1)|~is_a_theorem(or(and(not(X2),X2),X1))), inference(spm,[status(thm)],[c_0_51, c_0_47])).
+cnf(c_0_55,plain,(is_a_theorem(implies(implies(X1,X2),not(and(not(X2),X3))))|~is_a_theorem(implies(X3,X1))), inference(spm,[status(thm)],[c_0_33, c_0_52])).
+cnf(c_0_56,plain,(is_a_theorem(or(X1,not(X2)))|~is_a_theorem(implies(X2,X1))), inference(spm,[status(thm)],[c_0_33, c_0_53])).
+cnf(c_0_57,plain,(is_a_theorem(implies(X1,not(not(X1))))), inference(spm,[status(thm)],[c_0_54, c_0_50])).
+cnf(c_0_58,plain,(is_a_theorem(implies(implies(X1,X2),or(X2,X3)))|~is_a_theorem(or(X3,X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_55, c_0_30]), c_0_25]), c_0_30])).
+cnf(c_0_59,plain,(is_a_theorem(or(X1,not(and(X1,X2))))), inference(spm,[status(thm)],[c_0_56, c_0_46])).
+cnf(c_0_60,plain,(is_a_theorem(not(not(X1)))|~is_a_theorem(X1)), inference(spm,[status(thm)],[c_0_33, c_0_57])).
+cnf(c_0_61,plain,(is_a_theorem(not(and(not(not(not(and(X1,X1)))),X1)))), inference(spm,[status(thm)],[c_0_45, c_0_57])).
+cnf(c_0_62,plain,(is_a_theorem(implies(or(and(X1,X2),X3),or(X3,X1)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_59]), c_0_30])).
+cnf(c_0_63,plain,(is_a_theorem(or(X1,implies(X1,X2)))), inference(spm,[status(thm)],[c_0_59, c_0_25])).
+cnf(c_0_64,plain,(is_a_theorem(X1)|~is_a_theorem(or(not(X2),X1))|~is_a_theorem(X2)), inference(spm,[status(thm)],[c_0_51, c_0_60])).
+cnf(c_0_65,plain,(is_a_theorem(or(not(or(X1,X1)),X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_61, c_0_25]), c_0_30]), c_0_25]), c_0_30])).
+cnf(c_0_66,plain,(is_a_theorem(or(X1,X2))|~is_a_theorem(or(and(X2,X3),X1))), inference(spm,[status(thm)],[c_0_33, c_0_62])).
+cnf(c_0_67,plain,(is_a_theorem(or(and(implies(X1,X2),X3),implies(X3,X1)))), inference(spm,[status(thm)],[c_0_48, c_0_63])).
+cnf(c_0_68,plain,(is_a_theorem(X1)|~is_a_theorem(or(X1,X1))), inference(spm,[status(thm)],[c_0_64, c_0_65])).
+cnf(c_0_69,plain,(is_a_theorem(or(implies(X1,X2),implies(X2,X3)))), inference(spm,[status(thm)],[c_0_66, c_0_67])).
+cnf(c_0_70,plain,(is_a_theorem(implies(X1,X1))), inference(spm,[status(thm)],[c_0_68, c_0_69])).
+cnf(c_0_71,plain,(is_a_theorem(not(and(not(and(X1,X1)),X1)))), inference(spm,[status(thm)],[c_0_45, c_0_70])).
+cnf(c_0_72,plain,(is_a_theorem(implies(or(X1,X1),X1))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_71, c_0_25]), c_0_30]), c_0_25])).
+cnf(c_0_73,plain,(is_a_theorem(or(X1,X2))|~is_a_theorem(X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_64, c_0_63]), c_0_30])).
+cnf(c_0_74,plain,(is_a_theorem(or(X1,not(or(X1,X1))))), inference(spm,[status(thm)],[c_0_56, c_0_72])).
+cnf(c_0_75,plain,(is_a_theorem(or(and(X1,X2),implies(X2,X3)))|~is_a_theorem(X3)), inference(spm,[status(thm)],[c_0_48, c_0_73])).
+cnf(c_0_76,plain,(is_a_theorem(implies(or(or(X1,X1),X2),or(X2,X1)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_74]), c_0_30])).
+cnf(c_0_77,plain,(is_a_theorem(implies(X1,X2))|~is_a_theorem(X2)), inference(spm,[status(thm)],[c_0_54, c_0_75])).
+cnf(c_0_78,plain,(is_a_theorem(or(X1,X2))|~is_a_theorem(or(or(X2,X2),X1))), inference(spm,[status(thm)],[c_0_33, c_0_76])).
+cnf(c_0_79,plain,(is_a_theorem(or(or(X1,X2),not(or(and(X2,X3),X1))))), inference(spm,[status(thm)],[c_0_56, c_0_62])).
+cnf(c_0_80,plain,(is_a_theorem(or(X1,X2))|~is_a_theorem(X2)), inference(spm,[status(thm)],[c_0_77, c_0_30])).
+cnf(c_0_81,plain,(is_a_theorem(or(and(X1,X1),not(X1)))), inference(spm,[status(thm)],[c_0_56, c_0_38])).
+cnf(c_0_82,plain,(is_a_theorem(or(not(or(and(X1,X2),X1)),X1))), inference(spm,[status(thm)],[c_0_78, c_0_79])).
+cnf(c_0_83,plain,(is_a_theorem(or(and(X1,X2),implies(X2,X3)))|~is_a_theorem(X1)), inference(spm,[status(thm)],[c_0_48, c_0_80])).
+fof(c_0_84, plain, (![X3]:![X4]:(~op_equiv|equiv(X3,X4)=and(implies(X3,X4),implies(X4,X3)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])])).
+cnf(c_0_85,plain,(is_a_theorem(implies(or(X1,X2),or(X2,and(X1,X1))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_81]), c_0_30])).
+cnf(c_0_86,plain,(is_a_theorem(or(X1,not(X1)))), inference(spm,[status(thm)],[c_0_56, c_0_70])).
+cnf(c_0_87,plain,(is_a_theorem(X1)|~is_a_theorem(or(and(X1,X2),X1))), inference(spm,[status(thm)],[c_0_64, c_0_82])).
+cnf(c_0_88,plain,(is_a_theorem(or(and(implies(X1,X2),X3),implies(X3,and(X4,X1))))|~is_a_theorem(X4)), inference(spm,[status(thm)],[c_0_48, c_0_83])).
+cnf(c_0_89,plain,(equiv(X1,X2)=and(implies(X1,X2),implies(X2,X1))|~op_equiv), inference(split_conjunct,[status(thm)],[c_0_84])).
+cnf(c_0_90,plain,(op_equiv), inference(split_conjunct,[status(thm)],[c_0_13])).
+cnf(c_0_91,plain,(is_a_theorem(or(X1,and(X2,X2)))|~is_a_theorem(or(X2,X1))), inference(spm,[status(thm)],[c_0_33, c_0_85])).
+cnf(c_0_92,plain,(is_a_theorem(or(X1,and(not(X1),not(X1))))), inference(spm,[status(thm)],[c_0_38, c_0_30])).
+cnf(c_0_93,plain,(is_a_theorem(or(not(and(X1,X2)),X1))), inference(spm,[status(thm)],[c_0_66, c_0_86])).
+cnf(c_0_94,plain,(is_a_theorem(or(and(X1,X2),not(and(X2,X1))))), inference(spm,[status(thm)],[c_0_37, c_0_70])).
+fof(c_0_95, plain, (![X3]:![X4]:((~substitution_of_equivalents|(~is_a_theorem(equiv(X3,X4))|X3=X4))&((is_a_theorem(equiv(esk3_0,esk4_0))|substitution_of_equivalents)&(esk3_0!=esk4_0|substitution_of_equivalents)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_14])])])])])).
+cnf(c_0_96,plain,(is_a_theorem(X1)|~is_a_theorem(implies(or(not(X2),X2),X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_54, c_0_40]), c_0_30])).
+cnf(c_0_97,plain,(is_a_theorem(implies(X1,and(X2,X1)))|~is_a_theorem(X2)), inference(spm,[status(thm)],[c_0_87, c_0_88])).
+cnf(c_0_98,plain,(and(implies(X1,X2),implies(X2,X1))=equiv(X1,X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_89, c_0_90])])).
+cnf(c_0_99,plain,(is_a_theorem(implies(or(X1,X1),and(X1,X1)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_91, c_0_92]), c_0_40]), c_0_30])).
+cnf(c_0_100,plain,(is_a_theorem(or(implies(X1,X2),X1))), inference(spm,[status(thm)],[c_0_93, c_0_25])).
+cnf(c_0_101,plain,(is_a_theorem(or(not(and(X1,X2)),X2))), inference(spm,[status(thm)],[c_0_66, c_0_94])).
+cnf(c_0_102,plain,(X1=X2|~is_a_theorem(equiv(X1,X2))|~substitution_of_equivalents), inference(split_conjunct,[status(thm)],[c_0_95])).
+cnf(c_0_103,plain,(substitution_of_equivalents), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_104,plain,(is_a_theorem(and(X1,or(not(X2),X2)))|~is_a_theorem(X1)), inference(spm,[status(thm)],[c_0_96, c_0_97])).
+cnf(c_0_105,plain,(and(implies(X1,not(X2)),or(X2,X1))=equiv(X1,not(X2))), inference(spm,[status(thm)],[c_0_98, c_0_30])).
+cnf(c_0_106,plain,(is_a_theorem(or(X1,X2))|~is_a_theorem(and(X2,X3))), inference(spm,[status(thm)],[c_0_66, c_0_73])).
+cnf(c_0_107,plain,(is_a_theorem(and(X1,X1))|~is_a_theorem(or(X1,X1))), inference(spm,[status(thm)],[c_0_33, c_0_99])).
+cnf(c_0_108,plain,(is_a_theorem(and(X1,X2))|~is_a_theorem(X2)|~is_a_theorem(X1)), inference(spm,[status(thm)],[c_0_33, c_0_97])).
+cnf(c_0_109,plain,(is_a_theorem(or(and(X1,X2),implies(X2,implies(X1,X3))))), inference(spm,[status(thm)],[c_0_48, c_0_100])).
+cnf(c_0_110,plain,(is_a_theorem(or(implies(X1,X2),not(X2)))), inference(spm,[status(thm)],[c_0_101, c_0_25])).
+cnf(c_0_111,plain,(X1=X2|~is_a_theorem(equiv(X1,X2))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_102, c_0_103])])).
+cnf(c_0_112,plain,(is_a_theorem(equiv(X1,not(not(X1))))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_104, c_0_105]), c_0_57])])).
+cnf(c_0_113,plain,(is_a_theorem(or(X1,implies(X2,X3)))|~is_a_theorem(equiv(X2,X3))), inference(spm,[status(thm)],[c_0_106, c_0_98])).
+cnf(c_0_114,plain,(is_a_theorem(equiv(X1,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_107, c_0_69]), c_0_98])).
+cnf(c_0_115,plain,(is_a_theorem(equiv(X1,X2))|~is_a_theorem(implies(X2,X1))|~is_a_theorem(implies(X1,X2))), inference(spm,[status(thm)],[c_0_108, c_0_98])).
+cnf(c_0_116,plain,(is_a_theorem(implies(X1,or(X1,X2)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_54, c_0_109]), c_0_30])).
+cnf(c_0_117,plain,(is_a_theorem(implies(or(X1,X2),or(X2,implies(X3,X1))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_110]), c_0_30])).
+cnf(c_0_118,plain,(not(not(X1))=X1), inference(spm,[status(thm)],[c_0_111, c_0_112])).
+cnf(c_0_119,plain,(is_a_theorem(implies(or(X1,X2),or(X2,X1)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_58, c_0_86]), c_0_30])).
+cnf(c_0_120,plain,(is_a_theorem(or(X1,implies(X2,X2)))), inference(spm,[status(thm)],[c_0_113, c_0_114])).
+cnf(c_0_121,plain,(is_a_theorem(equiv(X1,or(X1,X1)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_72]), c_0_116])])).
+cnf(c_0_122,plain,(is_a_theorem(or(X1,implies(X2,X3)))|~is_a_theorem(or(X3,X1))), inference(spm,[status(thm)],[c_0_33, c_0_117])).
+cnf(c_0_123,plain,(not(and(X1,X2))=implies(X1,not(X2))), inference(spm,[status(thm)],[c_0_25, c_0_118])).
+cnf(c_0_124,plain,(is_a_theorem(equiv(or(X1,X2),or(X2,X1)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_119]), c_0_119])])).
+cnf(c_0_125,plain,(is_a_theorem(implies(implies(implies(X1,X1),X2),or(X2,X3)))), inference(spm,[status(thm)],[c_0_58, c_0_120])).
+cnf(c_0_126,plain,(or(X1,X1)=X1), inference(spm,[status(thm)],[c_0_111, c_0_121])).
+cnf(c_0_127,plain,(is_a_theorem(or(implies(X1,X2),implies(X3,implies(X4,X1))))), inference(spm,[status(thm)],[c_0_122, c_0_69])).
+cnf(c_0_128,plain,(not(implies(X1,not(X2)))=and(X1,X2)), inference(spm,[status(thm)],[c_0_118, c_0_123])).
+cnf(c_0_129,plain,(or(not(X1),X2)=implies(X1,X2)), inference(spm,[status(thm)],[c_0_30, c_0_118])).
+cnf(c_0_130,plain,(or(X1,X2)=or(X2,X1)), inference(spm,[status(thm)],[c_0_111, c_0_124])).
+cnf(c_0_131,plain,(is_a_theorem(implies(implies(implies(X1,X1),X2),X2))), inference(spm,[status(thm)],[c_0_125, c_0_126])).
+cnf(c_0_132,plain,(is_a_theorem(implies(X1,implies(X2,X1)))), inference(spm,[status(thm)],[c_0_68, c_0_127])).
+cnf(c_0_133,plain,(not(or(X1,not(X2)))=and(not(X1),X2)), inference(spm,[status(thm)],[c_0_128, c_0_30])).
+cnf(c_0_134,plain,(or(X1,not(X2))=implies(X2,X1)), inference(spm,[status(thm)],[c_0_129, c_0_130])).
+cnf(c_0_135,plain,(is_a_theorem(equiv(X1,implies(implies(X2,X2),X1)))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_115, c_0_131]), c_0_132])])).
+cnf(c_0_136,plain,(and(not(X1),X2)=not(implies(X2,X1))), inference(rw,[status(thm)],[c_0_133, c_0_134])).
+cnf(c_0_137,plain,(implies(implies(X1,X1),X2)=X2), inference(spm,[status(thm)],[c_0_111, c_0_135])).
+cnf(c_0_138,plain,(is_a_theorem(implies(or(X1,X2),or(and(X2,X3),implies(X3,X1))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_34, c_0_25]), c_0_30])).
+cnf(c_0_139,plain,(and(X1,X2)=and(X2,X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_136, c_0_118]), c_0_128])).
+cnf(c_0_140,plain,(and(implies(X1,X1),X2)=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_128, c_0_137]), c_0_118])).
+cnf(c_0_141,plain,(is_a_theorem(implies(or(X1,X2),implies(implies(X2,X3),or(X3,X1))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_138, c_0_30]), c_0_40])).
+cnf(c_0_142,plain,(and(X1,implies(X2,X2))=X1), inference(spm,[status(thm)],[c_0_139, c_0_140])).
+cnf(c_0_143,plain,(is_a_theorem(implies(implies(X1,X2),implies(or(X1,X3),or(X3,X2))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_141, c_0_30]), c_0_134])).
+cnf(c_0_144,plain,(implies(X1,not(implies(X2,X2)))=not(X1)), inference(spm,[status(thm)],[c_0_123, c_0_142])).
+fof(c_0_145, plain, (![X3]:![X4]:((~and_3|is_a_theorem(implies(X3,implies(X4,and(X3,X4)))))&(~is_a_theorem(implies(esk18_0,implies(esk19_0,and(esk18_0,esk19_0))))|and_3))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_16])])])])).
+fof(c_0_146, negated_conjecture, (~and_3), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_17])])).
+cnf(c_0_147,plain,(is_a_theorem(or(X1,implies(or(X1,X2),X2)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_143, c_0_144]), c_0_134]), c_0_137]), c_0_30])).
+cnf(c_0_148,plain,(and_3|~is_a_theorem(implies(esk18_0,implies(esk19_0,and(esk18_0,esk19_0))))), inference(split_conjunct,[status(thm)],[c_0_145])).
+cnf(c_0_149,negated_conjecture,(~and_3), inference(split_conjunct,[status(thm)],[c_0_146])).
+cnf(c_0_150,plain,(is_a_theorem(implies(X1,implies(implies(X1,X2),X2)))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_147, c_0_129]), c_0_129])).
+cnf(c_0_151,plain,(implies(X1,not(X2))=implies(X2,not(X1))), inference(spm,[status(thm)],[c_0_129, c_0_134])).
+cnf(c_0_152,plain,(~is_a_theorem(implies(esk18_0,implies(esk19_0,and(esk18_0,esk19_0))))), inference(sr,[status(thm)],[c_0_148, c_0_149])).
+cnf(c_0_153,plain,(is_a_theorem(implies(X1,implies(X2,and(X1,X2))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_150, c_0_151]), c_0_128])).
+cnf(c_0_154,plain,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_152, c_0_153])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

@@ -1,0 +1,50 @@
+% Problem    : CSR115+55 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n187.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:09:06 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:(((((attr(X3,X2)&attr(X5,X6))&obj(X4,X1))&prop(X1,britisch__1_1))&sub(X1,firma_1_1))&sub(X2,name_1_1))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_007_mira_news_1312_a19984)).
+fof(c_0_1, hypothesis, (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((sub(c50787,sich_1_1)&attr(c50825,c50826))&sub(c50825,firma_1_1))&sub(c50826,name_1_1))&val(c50826,rover_0))&prop(c50830,britisch__1_1))&sub(c50830,firma_1_1))&pred(c50848,abwart_1_1))&sub(c50852,tee__1_1))&prop(c50864,negativ_1_1))&sub(c50864,rat_1_1))&pred(c50870,aktion__344r_1_1))&tupl_p9(c51219,c50786,c50787,c50825,c50830,c50848,c50852,c50864,c50870))&sort(c50787,o))&card(c50787,int1))&etype(c50787,int0))&fact(c50787,real))&gener(c50787,gener_c))&quant(c50787,one))&refer(c50787,refer_c))&varia(c50787,varia_c))&sort(sich_1_1,o))&card(sich_1_1,int1))&etype(sich_1_1,int0))&fact(sich_1_1,real))&gener(sich_1_1,gener_c))&quant(sich_1_1,one))&refer(sich_1_1,refer_c))&varia(sich_1_1,varia_c))&sort(c50825,d))&sort(c50825,io))&card(c50825,int1))&etype(c50825,int0))&fact(c50825,real))&gener(c50825,sp))&quant(c50825,one))&refer(c50825,det))&varia(c50825,con))&sort(c50826,na))&card(c50826,int1))&etype(c50826,int0))&fact(c50826,real))&gener(c50826,sp))&quant(c50826,one))&refer(c50826,indet))&varia(c50826,varia_c))&sort(firma_1_1,d))&sort(firma_1_1,io))&card(firma_1_1,int1))&etype(firma_1_1,int0))&fact(firma_1_1,real))&gener(firma_1_1,ge))&quant(firma_1_1,one))&refer(firma_1_1,refer_c))&varia(firma_1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(rover_0,fe))&sort(c50830,d))&sort(c50830,io))&card(c50830,int1))&etype(c50830,int0))&fact(c50830,real))&gener(c50830,sp))&quant(c50830,one))&refer(c50830,indet))&varia(c50830,varia_c))&sort(britisch__1_1,nq))&sort(c50848,o))&card(c50848,cons(x_constant,cons(int1,nil))))&etype(c50848,int1))&fact(c50848,real))&gener(c50848,gener_c))&quant(c50848,mult))&refer(c50848,indet))&varia(c50848,varia_c))&sort(abwart_1_1,o))&card(abwart_1_1,int1))&etype(abwart_1_1,int0))&fact(abwart_1_1,real))&gener(abwart_1_1,ge))&quant(abwart_1_1,one))&refer(abwart_1_1,refer_c))&varia(abwart_1_1,varia_c))&sort(c50852,s))&card(c50852,int1))&etype(c50852,int0))&fact(c50852,real))&gener(c50852,gener_c))&quant(c50852,one))&refer(c50852,refer_c))&varia(c50852,varia_c))&sort(tee__1_1,s))&card(tee__1_1,int1))&etype(tee__1_1,int0))&fact(tee__1_1,real))&gener(tee__1_1,ge))&quant(tee__1_1,one))&refer(tee__1_1,refer_c))&varia(tee__1_1,varia_c))&sort(c50864,ad))&sort(c50864,io))&card(c50864,int1))&etype(c50864,int0))&fact(c50864,nonreal))&gener(c50864,sp))&quant(c50864,one))&refer(c50864,refer_c))&varia(c50864,varia_c))&sort(negativ_1_1,nq))&sort(rat_1_1,ad))&sort(rat_1_1,io))&card(rat_1_1,int1))&etype(rat_1_1,int0))&fact(rat_1_1,real))&gener(rat_1_1,ge))&quant(rat_1_1,one))&refer(rat_1_1,refer_c))&varia(rat_1_1,varia_c))&sort(c50870,d))&sort(c50870,io))&card(c50870,cons(x_constant,cons(int1,nil))))&etype(c50870,int1))&fact(c50870,real))&gener(c50870,sp))&quant(c50870,mult))&refer(c50870,det))&varia(c50870,con))&sort(aktion__344r_1_1,d))&sort(aktion__344r_1_1,io))&card(aktion__344r_1_1,int1))&etype(aktion__344r_1_1,int0))&fact(aktion__344r_1_1,real))&gener(aktion__344r_1_1,ge))&quant(aktion__344r_1_1,one))&refer(aktion__344r_1_1,refer_c))&varia(aktion__344r_1_1,varia_c))&sort(c51219,ent))&card(c51219,card_c))&etype(c51219,etype_c))&fact(c51219,real))&gener(c51219,gener_c))&quant(c51219,quant_c))&refer(c51219,refer_c))&varia(c51219,varia_c))&sort(c50786,o))&card(c50786,int1))&etype(c50786,int0))&fact(c50786,real))&gener(c50786,sp))&quant(c50786,one))&refer(c50786,det))&varia(c50786,varia_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_007_mira_news_1312_a19984)).
+fof(c_0_2, axiom, (![X1]:![X2]:((has_fact_leq(X2,real)&loc(X2,X1))=>?[X3]:((loc(X3,X1)&obj(X3,X2))&subs(X3,geben_1_1)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', loc__geben_1_1_loc)).
+fof(c_0_3, axiom, (![X1]:![X2]:(fact(X1,X2)=>has_fact_leq(X1,X2))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', has_fact_eq)).
+fof(c_0_4, axiom, (![X1]:![X2]:![X3]:((prop(X1,X2)&state_adjective_state_binding(X2,X3))=>?[X4]:?[X5]:?[X6]:(((((in(X6,X4)&attr(X4,X5))&loc(X1,X6))&sub(X4,land_1_1))&sub(X5,name_1_1))&val(X5,X3)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', state_adjective__in_state)).
+fof(c_0_5, axiom, (state_adjective_state_binding(britisch__1_1,grossbritannien_0)), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', fact_8846)).
+fof(c_0_6, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:(((((attr(X3,X2)&attr(X5,X6))&obj(X4,X1))&prop(X1,britisch__1_1))&sub(X1,firma_1_1))&sub(X2,name_1_1)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_7, negated_conjecture, (![X7]:![X8]:![X9]:![X10]:![X11]:![X12]:(((((~attr(X9,X8)|~attr(X10,X11))|~obj(X12,X7))|~prop(X7,britisch__1_1))|~sub(X7,firma_1_1))|~sub(X8,name_1_1))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])])).
+cnf(c_0_8,negated_conjecture,(~sub(X1,name_1_1)|~sub(X2,firma_1_1)|~prop(X2,britisch__1_1)|~obj(X3,X2)|~attr(X4,X5)|~attr(X6,X1)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_9,hypothesis,(prop(c50830,britisch__1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_10,hypothesis,(sub(c50830,firma_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_11, plain, (![X4]:![X5]:(((loc(esk12_2(X4,X5),X4)|(~has_fact_leq(X5,real)|~loc(X5,X4)))&(obj(esk12_2(X4,X5),X5)|(~has_fact_leq(X5,real)|~loc(X5,X4))))&(subs(esk12_2(X4,X5),geben_1_1)|(~has_fact_leq(X5,real)|~loc(X5,X4))))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_12,hypothesis,(~attr(X1,X2)|~attr(X3,X4)|~obj(X5,c50830)|~sub(X2,name_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_8, c_0_9]), c_0_10])])).
+cnf(c_0_13,plain,(obj(esk12_2(X2,X1),X1)|~loc(X1,X2)|~has_fact_leq(X1,real)), inference(split_conjunct,[status(thm)],[c_0_11])).
+fof(c_0_14, plain, (![X3]:![X4]:(~fact(X3,X4)|has_fact_leq(X3,X4))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+cnf(c_0_15,hypothesis,(~attr(X1,X2)|~attr(X3,X4)|~loc(c50830,X5)|~sub(X2,name_1_1)|~has_fact_leq(c50830,real)), inference(spm,[status(thm)],[c_0_12, c_0_13])).
+cnf(c_0_16,plain,(has_fact_leq(X1,X2)|~fact(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_17,hypothesis,(fact(c50830,real)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_18, plain, (![X7]:![X8]:![X9]:((((((in(esk3_3(X7,X8,X9),esk1_3(X7,X8,X9))|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9)))&(attr(esk1_3(X7,X8,X9),esk2_3(X7,X8,X9))|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9))))&(loc(X7,esk3_3(X7,X8,X9))|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9))))&(sub(esk1_3(X7,X8,X9),land_1_1)|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9))))&(sub(esk2_3(X7,X8,X9),name_1_1)|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9))))&(val(esk2_3(X7,X8,X9),X9)|(~prop(X7,X8)|~state_adjective_state_binding(X8,X9))))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])])])).
+cnf(c_0_19,hypothesis,(~attr(X1,X2)|~attr(X3,X4)|~loc(c50830,X5)|~sub(X2,name_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_15, c_0_16]), c_0_17])])).
+cnf(c_0_20,plain,(loc(X3,esk3_3(X3,X1,X2))|~state_adjective_state_binding(X1,X2)|~prop(X3,X1)), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_21,hypothesis,(~state_adjective_state_binding(X1,X2)|~prop(c50830,X1)|~attr(X3,X4)|~attr(X5,X6)|~sub(X4,name_1_1)), inference(spm,[status(thm)],[c_0_19, c_0_20])).
+cnf(c_0_22,plain,(state_adjective_state_binding(britisch__1_1,grossbritannien_0)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_23,hypothesis,(~attr(X1,X2)|~attr(X3,X4)|~sub(X2,name_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_22]), c_0_9])])).
+cnf(c_0_24,hypothesis,(attr(c50825,c50826)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_25,hypothesis,(sub(c50826,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_26,hypothesis,(~attr(X1,X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_23, c_0_24]), c_0_25])])).
+cnf(c_0_27,hypothesis,($false), inference(sr,[status(thm)],[c_0_24, c_0_26]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

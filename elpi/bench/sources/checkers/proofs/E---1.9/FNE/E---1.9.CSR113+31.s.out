@@ -1,0 +1,47 @@
+% Problem    : CSR113+31 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n186.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:37:41 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:(((attr(X2,X1)&scar(X3,X4))&sub(X1,name_1_1))&val(X1,new_york_0))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_003_qw2_50_a19713)).
+fof(c_0_1, hypothesis, (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((agt(c4,c1)&assoc(c4,aufmerksam_1_1))&mcont(c4,c74))&obj(c4,c74))&ornt(c4,c70))&subs(c4,hinweisen_1_1))&attr(c70,c71))&sub(c70,mensch_1_1))&sub(c71,familiename_1_1))&val(c71,jacob_0))&mcont(c74,c97))&pred(c74,strophe_1_1))&sub(c79,freiheitsstatue_1_1))&attch(c84,c79))&attr(c84,c85))&sub(c84,stadt__1_1))&sub(c85,name_1_1))&val(c85,new_york_0))&attch(c86,c87))&sub(c87,verfasserin_1_1))&itms(c97,c79,c87))&assoc(freiheitsstatue_1_1,freiheit_1_1))&sub(freiheitsstatue_1_1,statue_1_1))&sort(c4,da))&fact(c4,real))&gener(c4,sp))&sort(c1,o))&card(c1,int1))&etype(c1,int0))&fact(c1,real))&gener(c1,sp))&quant(c1,one))&refer(c1,det))&varia(c1,varia_c))&sort(aufmerksam_1_1,nq))&sort(c74,d))&sort(c74,io))&card(c74,cons(x_constant,cons(int1,nil))))&etype(c74,int1))&fact(c74,hypo))&gener(c74,sp))&quant(c74,mult))&refer(c74,det))&varia(c74,con))&sort(c70,d))&card(c70,int1))&etype(c70,int0))&fact(c70,real))&gener(c70,sp))&quant(c70,one))&refer(c70,det))&varia(c70,con))&sort(hinweisen_1_1,da))&fact(hinweisen_1_1,real))&gener(hinweisen_1_1,ge))&sort(c71,na))&card(c71,int1))&etype(c71,int0))&fact(c71,real))&gener(c71,sp))&quant(c71,one))&refer(c71,indet))&varia(c71,varia_c))&sort(mensch_1_1,d))&card(mensch_1_1,int1))&etype(mensch_1_1,int0))&fact(mensch_1_1,real))&gener(mensch_1_1,ge))&quant(mensch_1_1,one))&refer(mensch_1_1,refer_c))&varia(mensch_1_1,varia_c))&sort(familiename_1_1,na))&card(familiename_1_1,int1))&etype(familiename_1_1,int0))&fact(familiename_1_1,real))&gener(familiename_1_1,ge))&quant(familiename_1_1,one))&refer(familiename_1_1,refer_c))&varia(familiename_1_1,varia_c))&sort(jacob_0,fe))&sort(c97,d))&card(c97,int2))&etype(c97,int1))&fact(c97,hypo))&gener(c97,sp))&quant(c97,nfquant))&refer(c97,det))&varia(c97,con))&sort(strophe_1_1,d))&sort(strophe_1_1,io))&card(strophe_1_1,int1))&etype(strophe_1_1,int0))&fact(strophe_1_1,real))&gener(strophe_1_1,ge))&quant(strophe_1_1,one))&refer(strophe_1_1,refer_c))&varia(strophe_1_1,varia_c))&sort(c79,d))&card(c79,int1))&etype(c79,int0))&fact(c79,real))&gener(c79,sp))&quant(c79,one))&refer(c79,det))&varia(c79,con))&sort(freiheitsstatue_1_1,d))&card(freiheitsstatue_1_1,int1))&etype(freiheitsstatue_1_1,int0))&fact(freiheitsstatue_1_1,real))&gener(freiheitsstatue_1_1,ge))&quant(freiheitsstatue_1_1,one))&refer(freiheitsstatue_1_1,refer_c))&varia(freiheitsstatue_1_1,varia_c))&sort(c84,d))&sort(c84,io))&card(c84,int1))&etype(c84,int0))&fact(c84,real))&gener(c84,sp))&quant(c84,one))&refer(c84,det))&varia(c84,con))&sort(c85,na))&card(c85,int1))&etype(c85,int0))&fact(c85,real))&gener(c85,sp))&quant(c85,one))&refer(c85,indet))&varia(c85,varia_c))&sort(stadt__1_1,d))&sort(stadt__1_1,io))&card(stadt__1_1,int1))&etype(stadt__1_1,int0))&fact(stadt__1_1,real))&gener(stadt__1_1,ge))&quant(stadt__1_1,one))&refer(stadt__1_1,refer_c))&varia(stadt__1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(new_york_0,fe))&sort(c86,o))&card(c86,int1))&etype(c86,int0))&fact(c86,real))&gener(c86,sp))&quant(c86,one))&refer(c86,det))&varia(c86,varia_c))&sort(c87,d))&card(c87,int1))&etype(c87,int0))&fact(c87,real))&gener(c87,sp))&quant(c87,one))&refer(c87,det))&varia(c87,varia_c))&sort(verfasserin_1_1,d))&card(verfasserin_1_1,int1))&etype(verfasserin_1_1,int0))&fact(verfasserin_1_1,real))&gener(verfasserin_1_1,ge))&quant(verfasserin_1_1,one))&refer(verfasserin_1_1,refer_c))&varia(verfasserin_1_1,varia_c))&sort(freiheit_1_1,as))&sort(freiheit_1_1,io))&card(freiheit_1_1,int1))&etype(freiheit_1_1,int0))&fact(freiheit_1_1,real))&gener(freiheit_1_1,ge))&quant(freiheit_1_1,one))&refer(freiheit_1_1,refer_c))&varia(freiheit_1_1,varia_c))&sort(statue_1_1,d))&card(statue_1_1,int1))&etype(statue_1_1,int0))&fact(statue_1_1,real))&gener(statue_1_1,ge))&quant(statue_1_1,one))&refer(statue_1_1,refer_c))&varia(statue_1_1,varia_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_003_qw2_50_a19713)).
+fof(c_0_2, axiom, (![X1]:![X2]:![X3]:(((attr(X3,X1)&member(X2,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil)))))&sub(X1,X2))=>?[X4]:(((mcont(X4,X3)&obj(X4,X3))&scar(X4,X3))&subs(X4,stehen_1_b)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', attr_name__abk__374rzung_stehen_1_b_f__374r)).
+fof(c_0_3, axiom, (![X1]:![X2]:![X3]:(member(X1,X3)=>member(X1,cons(X2,X3)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', member_second)).
+fof(c_0_4, axiom, (![X1]:![X2]:member(X1,cons(X1,X2))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', member_first)).
+fof(c_0_5, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:(((attr(X2,X1)&scar(X3,X4))&sub(X1,name_1_1))&val(X1,new_york_0)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_6, negated_conjecture, (![X5]:![X6]:![X7]:![X8]:(((~attr(X6,X5)|~scar(X7,X8))|~sub(X5,name_1_1))|~val(X5,new_york_0))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+cnf(c_0_7,negated_conjecture,(~val(X1,new_york_0)|~sub(X1,name_1_1)|~scar(X2,X3)|~attr(X4,X1)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_8,hypothesis,(val(c85,new_york_0)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_9,hypothesis,(sub(c85,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_10, plain, (![X5]:![X6]:![X7]:((((mcont(esk15_3(X5,X6,X7),X7)|((~attr(X7,X5)|~member(X6,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil)))))|~sub(X5,X6)))&(obj(esk15_3(X5,X6,X7),X7)|((~attr(X7,X5)|~member(X6,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil)))))|~sub(X5,X6))))&(scar(esk15_3(X5,X6,X7),X7)|((~attr(X7,X5)|~member(X6,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil)))))|~sub(X5,X6))))&(subs(esk15_3(X5,X6,X7),stehen_1_b)|((~attr(X7,X5)|~member(X6,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil)))))|~sub(X5,X6))))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_11,hypothesis,(~attr(X1,c85)|~scar(X2,X3)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_7, c_0_8]), c_0_9])])).
+cnf(c_0_12,hypothesis,(attr(c84,c85)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_13,plain,(scar(esk15_3(X1,X2,X3),X3)|~sub(X1,X2)|~member(X2,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil))))|~attr(X3,X1)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_14,hypothesis,(~scar(X1,X2)), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+fof(c_0_15, plain, (![X4]:![X5]:![X6]:(~member(X4,X6)|member(X4,cons(X5,X6)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])).
+cnf(c_0_16,plain,(~attr(X1,X2)|~sub(X2,X3)|~member(X3,cons(eigenname_1_1,cons(familiename_1_1,cons(name_1_1,nil))))), inference(sr,[status(thm)],[c_0_13, c_0_14])).
+cnf(c_0_17,plain,(member(X1,cons(X2,X3))|~member(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_18, plain, (![X3]:![X4]:member(X3,cons(X3,X4))), inference(variable_rename,[status(thm)],[c_0_4])).
+cnf(c_0_19,plain,(~attr(X1,X2)|~sub(X2,X3)|~member(X3,cons(familiename_1_1,cons(name_1_1,nil)))), inference(spm,[status(thm)],[c_0_16, c_0_17])).
+cnf(c_0_20,plain,(member(X1,cons(X1,X2))), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_21,plain,(~attr(X1,X2)|~sub(X2,familiename_1_1)), inference(spm,[status(thm)],[c_0_19, c_0_20])).
+cnf(c_0_22,hypothesis,(attr(c70,c71)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_23,hypothesis,(sub(c71,familiename_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_24,hypothesis,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_22]), c_0_23])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

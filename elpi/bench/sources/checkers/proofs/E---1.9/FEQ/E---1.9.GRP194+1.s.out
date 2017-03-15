@@ -1,0 +1,54 @@
+% Problem    : GRP194+1 : TPTP v6.1.0. Released v2.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n133.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:45:16 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___212_C18_F1_AE_Q12_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:((group_member(X2,X1)&group_member(X3,X1))=>group_member(multiply(X1,X2,X3),X1))), file('/export/starexec/sandbox/benchmark/Axioms/GRP007+0.ax', total_function)).
+fof(c_0_1, axiom, (![X2]:![X3]:((group_member(X2,f)&group_member(X3,f))=>multiply(h,phi(X2),phi(X3))=phi(multiply(f,X2,X3)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', homomorphism2)).
+fof(c_0_2, axiom, (![X2]:(group_member(X2,f)=>group_member(phi(X2),h))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', homomorphism1)).
+fof(c_0_3, axiom, (![X1]:![X2]:(left_zero(X1,X2)<=>(group_member(X2,X1)&![X3]:(group_member(X3,X1)=>multiply(X1,X2,X3)=X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', left_zero)).
+fof(c_0_4, axiom, (![X2]:(group_member(X2,h)=>?[X3]:(group_member(X3,f)&phi(X3)=X2))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', surjective)).
+fof(c_0_5, hypothesis, (left_zero(f,f_left_zero)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', left_zero_for_f)).
+fof(c_0_6, conjecture, (left_zero(h,phi(f_left_zero))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_left_zero_h)).
+fof(c_0_7, plain, (![X4]:![X5]:![X6]:((~group_member(X5,X4)|~group_member(X6,X4))|group_member(multiply(X4,X5,X6),X4))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])).
+fof(c_0_8, plain, (![X4]:![X5]:((~group_member(X4,f)|~group_member(X5,f))|multiply(h,phi(X4),phi(X5))=phi(multiply(f,X4,X5)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])).
+fof(c_0_9, plain, (![X3]:(~group_member(X3,f)|group_member(phi(X3),h))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+fof(c_0_10, plain, (![X4]:![X5]:![X6]:![X7]:![X8]:(((group_member(X5,X4)|~left_zero(X4,X5))&((~group_member(X6,X4)|multiply(X4,X5,X6)=X5)|~left_zero(X4,X5)))&(((group_member(esk2_2(X7,X8),X7)|~group_member(X8,X7))|left_zero(X7,X8))&((multiply(X7,X8,esk2_2(X7,X8))!=X8|~group_member(X8,X7))|left_zero(X7,X8))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])])).
+fof(c_0_11, plain, (![X4]:((group_member(esk1_1(X4),f)|~group_member(X4,h))&(phi(esk1_1(X4))=X4|~group_member(X4,h)))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])])).
+cnf(c_0_12,plain,(group_member(multiply(X1,X2,X3),X1)|~group_member(X3,X1)|~group_member(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_13,plain,(multiply(h,phi(X1),phi(X2))=phi(multiply(f,X1,X2))|~group_member(X2,f)|~group_member(X1,f)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_14,plain,(group_member(phi(X1),h)|~group_member(X1,f)), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_15,plain,(multiply(X1,X2,X3)=X2|~left_zero(X1,X2)|~group_member(X3,X1)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_16,hypothesis,(left_zero(f,f_left_zero)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_17,plain,(group_member(X2,X1)|~left_zero(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_18,plain,(phi(esk1_1(X1))=X1|~group_member(X1,h)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_19,plain,(group_member(esk1_1(X1),f)|~group_member(X1,h)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_20,plain,(group_member(phi(multiply(f,X1,X2)),h)|~group_member(X2,f)|~group_member(X1,f)), inference(csr,[status(thm)],[inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_12, c_0_13]), c_0_14]), c_0_14])).
+cnf(c_0_21,hypothesis,(multiply(f,f_left_zero,X1)=f_left_zero|~group_member(X1,f)), inference(spm,[status(thm)],[c_0_15, c_0_16])).
+cnf(c_0_22,hypothesis,(group_member(f_left_zero,f)), inference(spm,[status(thm)],[c_0_17, c_0_16])).
+cnf(c_0_23,plain,(phi(multiply(f,X1,esk1_1(X2)))=multiply(h,phi(X1),X2)|~group_member(X1,f)|~group_member(X2,h)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_13, c_0_18]), c_0_19])).
+cnf(c_0_24,hypothesis,(group_member(phi(f_left_zero),h)|~group_member(X1,f)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_20, c_0_21]), c_0_22])])).
+fof(c_0_25, negated_conjecture, (~left_zero(h,phi(f_left_zero))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_6])])).
+cnf(c_0_26,plain,(left_zero(X1,X2)|~group_member(X2,X1)|multiply(X1,X2,esk2_2(X1,X2))!=X2), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_27,hypothesis,(multiply(h,phi(f_left_zero),X1)=phi(f_left_zero)|~group_member(X1,h)), inference(csr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_23, c_0_21]), c_0_22])]), c_0_19])).
+cnf(c_0_28,hypothesis,(group_member(phi(f_left_zero),h)), inference(spm,[status(thm)],[c_0_24, c_0_22])).
+cnf(c_0_29,negated_conjecture,(~left_zero(h,phi(f_left_zero))), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_30,hypothesis,(~group_member(esk2_2(h,phi(f_left_zero)),h)), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_26, c_0_27]), c_0_28])]), c_0_29])).
+cnf(c_0_31,plain,(left_zero(X1,X2)|group_member(esk2_2(X1,X2),X1)|~group_member(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_10])).
+cnf(c_0_32,hypothesis,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_31]), c_0_28])]), c_0_29]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

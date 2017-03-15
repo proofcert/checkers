@@ -1,0 +1,4 @@
+main :- pi x\ Z = X x.
+/* pi x\
+  X = (z\z),
+  X (Y x) = Z. */

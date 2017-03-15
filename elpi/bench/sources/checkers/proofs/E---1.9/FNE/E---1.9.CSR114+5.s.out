@@ -1,0 +1,44 @@
+% Problem    : CSR114+5 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n180.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:12:51 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:((((((((in(X3,X1)&attr(X1,X2))&loc(X5,X3))&scar(X5,X4))&sub(X2,name_1_1))&sub(X1,stadt__1_1))&sub(X4,kolosseum_1_1))&subs(X5,stehen_1_1))&val(X2,rom_0))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_004_insicht_5)).
+fof(c_0_1, hypothesis, (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((sub(c12,m__344rtyrer_1_1)&attr(c21,c26))&prop(c21,heilig_1_1))&sub(c26,jahr__1_1))&val(c26,c22))&loc(c30,c80))&prop(c30,n366kumenisch_1_1))&subs(c30,zeremonie_1_1))&attch(c34,c44))&loc(c34,c79))&sub(c34,kolosseum_1_1))&attr(c42,c43))&sub(c42,stadt__1_1))&sub(c43,name_1_1))&val(c43,rom_0))&sub(c44,vorsitz_1_1))&attch(c47,c44))&sub(c47,kirchenf__374rst_1_1))&ctxt(c57,c30))&mcont(c57,c12))&subs(c57,denken_2_2))&temp(c57,c21))&in(c79,c42))&in(c80,c34))&sort(c12,d))&card(c12,int1))&etype(c12,int0))&fact(c12,hypo))&gener(c12,sp))&quant(c12,one))&refer(c12,det))&varia(c12,con))&sort(m__344rtyrer_1_1,d))&card(m__344rtyrer_1_1,int1))&etype(m__344rtyrer_1_1,int0))&fact(m__344rtyrer_1_1,real))&gener(m__344rtyrer_1_1,ge))&quant(m__344rtyrer_1_1,one))&refer(m__344rtyrer_1_1,refer_c))&varia(m__344rtyrer_1_1,varia_c))&sort(c21,t))&card(c21,int1))&etype(c21,int0))&fact(c21,real))&gener(c21,sp))&quant(c21,one))&refer(c21,det))&varia(c21,con))&sort(c26,me))&sort(c26,oa))&sort(c26,ta))&card(c26,card_c))&etype(c26,etype_c))&fact(c26,real))&gener(c26,sp))&quant(c26,quant_c))&refer(c26,refer_c))&varia(c26,varia_c))&sort(heilig_1_1,nq))&sort(jahr__1_1,me))&sort(jahr__1_1,oa))&sort(jahr__1_1,ta))&card(jahr__1_1,card_c))&etype(jahr__1_1,etype_c))&fact(jahr__1_1,real))&gener(jahr__1_1,ge))&quant(jahr__1_1,quant_c))&refer(jahr__1_1,refer_c))&varia(jahr__1_1,varia_c))&sort(c22,nu))&card(c22,int2000))&sort(c30,ad))&card(c30,int1))&etype(c30,int0))&fact(c30,real))&gener(c30,sp))&quant(c30,one))&refer(c30,indet))&varia(c30,varia_c))&sort(c80,l))&card(c80,int1))&etype(c80,int0))&fact(c80,real))&gener(c80,sp))&quant(c80,one))&refer(c80,det))&varia(c80,con))&sort(n366kumenisch_1_1,tq))&sort(zeremonie_1_1,ad))&card(zeremonie_1_1,int1))&etype(zeremonie_1_1,int0))&fact(zeremonie_1_1,real))&gener(zeremonie_1_1,ge))&quant(zeremonie_1_1,one))&refer(zeremonie_1_1,refer_c))&varia(zeremonie_1_1,varia_c))&sort(c34,d))&card(c34,int1))&etype(c34,int0))&fact(c34,real))&gener(c34,sp))&quant(c34,one))&refer(c34,det))&varia(c34,con))&sort(c44,io))&card(c44,int1))&etype(c44,int0))&fact(c44,real))&gener(c44,sp))&quant(c44,one))&refer(c44,det))&varia(c44,varia_c))&sort(c79,l))&card(c79,int1))&etype(c79,int0))&fact(c79,real))&gener(c79,sp))&quant(c79,one))&refer(c79,det))&varia(c79,con))&sort(kolosseum_1_1,d))&card(kolosseum_1_1,int1))&etype(kolosseum_1_1,int0))&fact(kolosseum_1_1,real))&gener(kolosseum_1_1,sp))&quant(kolosseum_1_1,one))&refer(kolosseum_1_1,det))&varia(kolosseum_1_1,con))&sort(c42,d))&sort(c42,io))&card(c42,int1))&etype(c42,int0))&fact(c42,real))&gener(c42,sp))&quant(c42,one))&refer(c42,det))&varia(c42,con))&sort(c43,na))&card(c43,int1))&etype(c43,int0))&fact(c43,real))&gener(c43,sp))&quant(c43,one))&refer(c43,indet))&varia(c43,varia_c))&sort(stadt__1_1,d))&sort(stadt__1_1,io))&card(stadt__1_1,int1))&etype(stadt__1_1,int0))&fact(stadt__1_1,real))&gener(stadt__1_1,ge))&quant(stadt__1_1,one))&refer(stadt__1_1,refer_c))&varia(stadt__1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(rom_0,fe))&sort(vorsitz_1_1,io))&card(vorsitz_1_1,int1))&etype(vorsitz_1_1,int0))&fact(vorsitz_1_1,real))&gener(vorsitz_1_1,ge))&quant(vorsitz_1_1,one))&refer(vorsitz_1_1,refer_c))&varia(vorsitz_1_1,varia_c))&sort(c47,d))&card(c47,int1))&etype(c47,int0))&fact(c47,real))&gener(c47,sp))&quant(c47,one))&refer(c47,det))&varia(c47,con))&sort(kirchenf__374rst_1_1,d))&card(kirchenf__374rst_1_1,int1))&etype(kirchenf__374rst_1_1,int0))&fact(kirchenf__374rst_1_1,real))&gener(kirchenf__374rst_1_1,ge))&quant(kirchenf__374rst_1_1,one))&refer(kirchenf__374rst_1_1,refer_c))&varia(kirchenf__374rst_1_1,varia_c))&sort(c57,st))&fact(c57,real))&gener(c57,sp))&sort(denken_2_2,st))&fact(denken_2_2,real))&gener(denken_2_2,ge))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_004_insicht_5)).
+fof(c_0_2, axiom, (![X1]:![X2]:(loc(X1,X2)=>?[X3]:((loc(X3,X2)&scar(X3,X1))&subs(X3,stehen_1_1)))), file('/export/starexec/sandbox/benchmark/Axioms/CSR004+0.ax', loc__stehen_1_1_loc)).
+fof(c_0_3, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:((((((((in(X3,X1)&attr(X1,X2))&loc(X5,X3))&scar(X5,X4))&sub(X2,name_1_1))&sub(X1,stadt__1_1))&sub(X4,kolosseum_1_1))&subs(X5,stehen_1_1))&val(X2,rom_0)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_4, negated_conjecture, (![X6]:![X7]:![X8]:![X9]:![X10]:((((((((~in(X8,X6)|~attr(X6,X7))|~loc(X10,X8))|~scar(X10,X9))|~sub(X7,name_1_1))|~sub(X6,stadt__1_1))|~sub(X9,kolosseum_1_1))|~subs(X10,stehen_1_1))|~val(X7,rom_0))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])).
+cnf(c_0_5,negated_conjecture,(~val(X1,rom_0)|~subs(X2,stehen_1_1)|~sub(X3,kolosseum_1_1)|~sub(X4,stadt__1_1)|~sub(X1,name_1_1)|~scar(X2,X3)|~loc(X2,X5)|~attr(X4,X1)|~in(X5,X4)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_6,hypothesis,(val(c43,rom_0)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_7,hypothesis,(sub(c43,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_8,hypothesis,(~in(X1,X2)|~attr(X2,c43)|~scar(X3,X4)|~loc(X3,X1)|~subs(X3,stehen_1_1)|~sub(X2,stadt__1_1)|~sub(X4,kolosseum_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_5, c_0_6]), c_0_7])])).
+cnf(c_0_9,hypothesis,(in(c79,c42)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_10,hypothesis,(attr(c42,c43)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_11,hypothesis,(sub(c42,stadt__1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_12, plain, (![X4]:![X5]:(((loc(esk12_2(X4,X5),X5)|~loc(X4,X5))&(scar(esk12_2(X4,X5),X4)|~loc(X4,X5)))&(subs(esk12_2(X4,X5),stehen_1_1)|~loc(X4,X5)))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_13,hypothesis,(~scar(X1,X2)|~loc(X1,c79)|~subs(X1,stehen_1_1)|~sub(X2,kolosseum_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_8, c_0_9]), c_0_10]), c_0_11])])).
+cnf(c_0_14,plain,(scar(esk12_2(X1,X2),X1)|~loc(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_15,plain,(subs(esk12_2(X1,X2),stehen_1_1)|~loc(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_16,hypothesis,(~loc(esk12_2(X1,X2),c79)|~loc(X1,X2)|~sub(X1,kolosseum_1_1)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_13, c_0_14]), c_0_15])).
+cnf(c_0_17,plain,(loc(esk12_2(X1,X2),X2)|~loc(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_18,hypothesis,(~loc(X1,c79)|~sub(X1,kolosseum_1_1)), inference(spm,[status(thm)],[c_0_16, c_0_17])).
+cnf(c_0_19,hypothesis,(loc(c34,c79)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_20,hypothesis,(sub(c34,kolosseum_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_21,hypothesis,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_18, c_0_19]), c_0_20])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

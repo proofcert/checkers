@@ -1,0 +1,127 @@
+% Problem    : GRA011+1 : TPTP v6.1.0. Bugfixed v3.2.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n128.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 06:31:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___107_C36_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, ((complete=>![X4]:![X2]:![X3]:(shortest_path(X2,X3,X4)=>number_of_in(sequential_pairs,X4)=number_of_in(triangles,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', triangles_and_sequential_pairs)).
+fof(c_0_1, axiom, (![X2]:![X3]:![X10]:(shortest_path(X2,X3,X10)<=>((path(X2,X3,X10)&X2!=X3)&![X4]:(path(X2,X3,X4)=>less_or_equal(length_of(X10),length_of(X4)))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', shortest_path_defn)).
+fof(c_0_2, axiom, (![X4]:![X2]:![X3]:(path(X2,X3,X4)=>![X7]:![X8]:(precedes(X7,X8,X4)<=((on_path(X7,X4)&on_path(X8,X4))&(sequential(X7,X8)|?[X9]:(sequential(X7,X9)&precedes(X9,X8,X4))))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', precedes_defn)).
+fof(c_0_3, axiom, (![X4]:![X2]:![X3]:((path(X2,X3,X4)&![X7]:![X8]:(((on_path(X7,X4)&on_path(X8,X4))&sequential(X7,X8))=>?[X9]:triangle(X7,X8,X9)))=>number_of_in(sequential_pairs,X4)=number_of_in(triangles,X4))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', sequential_pairs_and_triangles)).
+fof(c_0_4, axiom, (![X2]:![X3]:![X7]:![X8]:![X4]:((shortest_path(X2,X3,X4)&precedes(X7,X8,X4))=>(~(?[X9]:(tail_of(X9)=tail_of(X7)&head_of(X9)=head_of(X8)))&~(precedes(X8,X7,X4))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', shortest_path_properties)).
+fof(c_0_5, axiom, ((complete=>![X2]:![X3]:(((vertex(X2)&vertex(X3))&X2!=X3)=>?[X1]:(edge(X1)&((X2=head_of(X1)&X3=tail_of(X1))<~>(X3=head_of(X1)&X2=tail_of(X1))))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', complete_properties)).
+fof(c_0_6, axiom, (![X7]:![X8]:(sequential(X7,X8)<=>(((edge(X7)&edge(X8))&X7!=X8)&head_of(X7)=tail_of(X8)))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', sequential_defn)).
+fof(c_0_7, axiom, (![X2]:![X3]:![X4]:![X6]:((path(X2,X3,X4)&in_path(X6,X4))=>(vertex(X6)&?[X1]:(on_path(X1,X4)&(X6=head_of(X1)|X6=tail_of(X1)))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', in_path_properties)).
+fof(c_0_8, axiom, (![X2]:![X3]:![X4]:![X1]:((path(X2,X3,X4)&on_path(X1,X4))=>((edge(X1)&in_path(head_of(X1),X4))&in_path(tail_of(X1),X4)))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', on_path_properties)).
+fof(c_0_9, axiom, (![X1]:(edge(X1)=>(vertex(head_of(X1))&vertex(tail_of(X1))))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', edge_ends_are_vertices)).
+fof(c_0_10, axiom, (![X7]:![X8]:![X9]:(triangle(X7,X8,X9)<=>(((((edge(X7)&edge(X8))&edge(X9))&sequential(X7,X8))&sequential(X8,X9))&sequential(X9,X7)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', triangle_defn)).
+fof(c_0_11, axiom, (![X2]:![X3]:![X4]:(path(X2,X3,X4)=>number_of_in(sequential_pairs,X4)=minus(length_of(X4),n1))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', path_length_sequential_pairs)).
+fof(c_0_12, axiom, (![X1]:(edge(X1)=>head_of(X1)!=tail_of(X1))), file('/export/starexec/sandbox/benchmark/Axioms/GRA001+0.ax', no_loops)).
+fof(c_0_13, negated_conjecture, (~((complete=>![X4]:![X2]:![X3]:(shortest_path(X2,X3,X4)=>number_of_in(sequential_pairs,X4)=number_of_in(triangles,X4))))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_14, plain, (![X11]:![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:((((path(X11,X12,X13)|~shortest_path(X11,X12,X13))&(X11!=X12|~shortest_path(X11,X12,X13)))&((~path(X11,X12,X14)|less_or_equal(length_of(X13),length_of(X14)))|~shortest_path(X11,X12,X13)))&(((path(X15,X16,esk6_3(X15,X16,X17))|(~path(X15,X16,X17)|X15=X16))|shortest_path(X15,X16,X17))&((~less_or_equal(length_of(X17),length_of(esk6_3(X15,X16,X17)))|(~path(X15,X16,X17)|X15=X16))|shortest_path(X15,X16,X17))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])])])).
+fof(c_0_15, negated_conjecture, ((complete&(shortest_path(esk10_0,esk11_0,esk9_0)&number_of_in(sequential_pairs,esk9_0)!=number_of_in(triangles,esk9_0)))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])])])).
+fof(c_0_16, plain, (![X4]:![X2]:![X3]:(path(X2,X3,X4)=>![X7]:![X8]:(((on_path(X7,X4)&on_path(X8,X4))&(sequential(X7,X8)|?[X9]:(sequential(X7,X9)&precedes(X9,X8,X4))))=>precedes(X7,X8,X4)))), inference(fof_simplification,[status(thm)],[c_0_2])).
+fof(c_0_17, plain, (![X10]:![X11]:![X12]:![X15]:(((((on_path(esk7_1(X10),X10)|~path(X11,X12,X10))|number_of_in(sequential_pairs,X10)=number_of_in(triangles,X10))&((on_path(esk8_1(X10),X10)|~path(X11,X12,X10))|number_of_in(sequential_pairs,X10)=number_of_in(triangles,X10)))&((sequential(esk7_1(X10),esk8_1(X10))|~path(X11,X12,X10))|number_of_in(sequential_pairs,X10)=number_of_in(triangles,X10)))&((~triangle(esk7_1(X10),esk8_1(X10),X15)|~path(X11,X12,X10))|number_of_in(sequential_pairs,X10)=number_of_in(triangles,X10)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])])).
+cnf(c_0_18,plain,(path(X1,X2,X3)|~shortest_path(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_19,negated_conjecture,(shortest_path(esk10_0,esk11_0,esk9_0)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_20, plain, (![X2]:![X3]:![X7]:![X8]:![X4]:((shortest_path(X2,X3,X4)&precedes(X7,X8,X4))=>(~(?[X9]:(tail_of(X9)=tail_of(X7)&head_of(X9)=head_of(X8)))&~precedes(X8,X7,X4)))), inference(fof_simplification,[status(thm)],[c_0_4])).
+fof(c_0_21, plain, (![X10]:![X11]:![X12]:![X13]:![X14]:![X15]:((((~sequential(X13,X14)|(~on_path(X13,X10)|~on_path(X14,X10)))|precedes(X13,X14,X10))|~path(X11,X12,X10))&((((~sequential(X13,X15)|~precedes(X15,X14,X10))|(~on_path(X13,X10)|~on_path(X14,X10)))|precedes(X13,X14,X10))|~path(X11,X12,X10)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_16])])])])])).
+fof(c_0_22, plain, ((complete=>![X2]:![X3]:(((vertex(X2)&vertex(X3))&X2!=X3)=>?[X1]:(edge(X1)&~(((X2=head_of(X1)&X3=tail_of(X1))<=>(X3=head_of(X1)&X2=tail_of(X1)))))))), inference(fof_simplification,[status(thm)],[c_0_5])).
+fof(c_0_23, plain, (![X9]:![X10]:![X11]:![X12]:(((((edge(X9)|~sequential(X9,X10))&(edge(X10)|~sequential(X9,X10)))&(X9!=X10|~sequential(X9,X10)))&(head_of(X9)=tail_of(X10)|~sequential(X9,X10)))&((((~edge(X11)|~edge(X12))|X11=X12)|head_of(X11)!=tail_of(X12))|sequential(X11,X12)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])])])).
+cnf(c_0_24,plain,(number_of_in(sequential_pairs,X1)=number_of_in(triangles,X1)|sequential(esk7_1(X1),esk8_1(X1))|~path(X2,X3,X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_25,negated_conjecture,(path(esk10_0,esk11_0,esk9_0)), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_26,negated_conjecture,(number_of_in(sequential_pairs,esk9_0)!=number_of_in(triangles,esk9_0)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_27, plain, (![X7]:![X8]:![X9]:![X10]:((vertex(X10)|(~path(X7,X8,X9)|~in_path(X10,X9)))&((on_path(esk4_4(X7,X8,X9,X10),X9)|(~path(X7,X8,X9)|~in_path(X10,X9)))&((X10=head_of(esk4_4(X7,X8,X9,X10))|X10=tail_of(esk4_4(X7,X8,X9,X10)))|(~path(X7,X8,X9)|~in_path(X10,X9)))))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])])])).
+fof(c_0_28, plain, (![X5]:![X6]:![X7]:![X8]:(((edge(X8)|(~path(X5,X6,X7)|~on_path(X8,X7)))&(in_path(head_of(X8),X7)|(~path(X5,X6,X7)|~on_path(X8,X7))))&(in_path(tail_of(X8),X7)|(~path(X5,X6,X7)|~on_path(X8,X7))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])])).
+fof(c_0_29, plain, (![X10]:![X11]:![X12]:![X13]:![X14]:![X15]:(((tail_of(X15)!=tail_of(X12)|head_of(X15)!=head_of(X13))|(~shortest_path(X10,X11,X14)|~precedes(X12,X13,X14)))&(~precedes(X13,X12,X14)|(~shortest_path(X10,X11,X14)|~precedes(X12,X13,X14))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_20])])])])).
+cnf(c_0_30,plain,(precedes(X4,X5,X3)|~path(X1,X2,X3)|~on_path(X5,X3)|~on_path(X4,X3)|~sequential(X4,X5)), inference(split_conjunct,[status(thm)],[c_0_21])).
+cnf(c_0_31,plain,(number_of_in(sequential_pairs,X1)=number_of_in(triangles,X1)|on_path(esk8_1(X1),X1)|~path(X2,X3,X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+fof(c_0_32, plain, (![X4]:![X5]:(((edge(esk1_2(X4,X5))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete)&(((((X4!=head_of(esk1_2(X4,X5))|X5!=tail_of(esk1_2(X4,X5)))|(X5!=head_of(esk1_2(X4,X5))|X4!=tail_of(esk1_2(X4,X5))))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete)&(((((X5=head_of(esk1_2(X4,X5))|X4=head_of(esk1_2(X4,X5)))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete)&(((X4=tail_of(esk1_2(X4,X5))|X4=head_of(esk1_2(X4,X5)))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete))&((((X5=head_of(esk1_2(X4,X5))|X5=tail_of(esk1_2(X4,X5)))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete)&(((X4=tail_of(esk1_2(X4,X5))|X5=tail_of(esk1_2(X4,X5)))|((~vertex(X4)|~vertex(X5))|X4=X5))|~complete)))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_22])])])])])).
+fof(c_0_33, plain, (![X2]:((vertex(head_of(X2))|~edge(X2))&(vertex(tail_of(X2))|~edge(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_9])])])).
+cnf(c_0_34,plain,(edge(X2)|~sequential(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_35,negated_conjecture,(sequential(esk7_1(esk9_0),esk8_1(esk9_0))), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_24, c_0_25]), c_0_26])).
+cnf(c_0_36,plain,(vertex(X1)|~in_path(X1,X2)|~path(X3,X4,X2)), inference(split_conjunct,[status(thm)],[c_0_27])).
+cnf(c_0_37,plain,(in_path(tail_of(X1),X2)|~on_path(X1,X2)|~path(X3,X4,X2)), inference(split_conjunct,[status(thm)],[c_0_28])).
+cnf(c_0_38,plain,(~precedes(X1,X2,X3)|~shortest_path(X4,X5,X3)|head_of(X6)!=head_of(X2)|tail_of(X6)!=tail_of(X1)), inference(split_conjunct,[status(thm)],[c_0_29])).
+cnf(c_0_39,negated_conjecture,(precedes(X1,X2,esk9_0)|~sequential(X1,X2)|~on_path(X2,esk9_0)|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_30, c_0_25])).
+cnf(c_0_40,negated_conjecture,(on_path(esk8_1(esk9_0),esk9_0)), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_31, c_0_25]), c_0_26])).
+cnf(c_0_41,plain,(X1=X2|X2=tail_of(esk1_2(X1,X2))|X1=tail_of(esk1_2(X1,X2))|~complete|~vertex(X2)|~vertex(X1)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_42,negated_conjecture,(complete), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_43,plain,(vertex(head_of(X1))|~edge(X1)), inference(split_conjunct,[status(thm)],[c_0_33])).
+cnf(c_0_44,negated_conjecture,(edge(esk8_1(esk9_0))), inference(spm,[status(thm)],[c_0_34, c_0_35])).
+cnf(c_0_45,negated_conjecture,(vertex(X1)|~in_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_36, c_0_25])).
+cnf(c_0_46,negated_conjecture,(in_path(tail_of(X1),esk9_0)|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_37, c_0_25])).
+cnf(c_0_47,plain,(number_of_in(sequential_pairs,X1)=number_of_in(triangles,X1)|on_path(esk7_1(X1),X1)|~path(X2,X3,X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+fof(c_0_48, plain, (![X10]:![X11]:![X12]:![X13]:![X14]:![X15]:(((((((edge(X10)|~triangle(X10,X11,X12))&(edge(X11)|~triangle(X10,X11,X12)))&(edge(X12)|~triangle(X10,X11,X12)))&(sequential(X10,X11)|~triangle(X10,X11,X12)))&(sequential(X11,X12)|~triangle(X10,X11,X12)))&(sequential(X12,X10)|~triangle(X10,X11,X12)))&((((((~edge(X13)|~edge(X14))|~edge(X15))|~sequential(X13,X14))|~sequential(X14,X15))|~sequential(X15,X13))|triangle(X13,X14,X15)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])])).
+fof(c_0_49, plain, (![X5]:![X6]:![X7]:(~path(X5,X6,X7)|number_of_in(sequential_pairs,X7)=minus(length_of(X7),n1))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_11])])).
+cnf(c_0_50,negated_conjecture,(head_of(X1)!=head_of(X2)|tail_of(X3)!=tail_of(X2)|~precedes(X3,X1,esk9_0)), inference(spm,[status(thm)],[c_0_38, c_0_19])).
+cnf(c_0_51,negated_conjecture,(precedes(X1,esk8_1(esk9_0),esk9_0)|~sequential(X1,esk8_1(esk9_0))|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_39, c_0_40])).
+cnf(c_0_52,plain,(tail_of(esk1_2(X1,X2))=X1|tail_of(esk1_2(X1,X2))=X2|X1=X2|~vertex(X2)|~vertex(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_41, c_0_42])])).
+cnf(c_0_53,negated_conjecture,(vertex(head_of(esk8_1(esk9_0)))), inference(spm,[status(thm)],[c_0_43, c_0_44])).
+cnf(c_0_54,negated_conjecture,(vertex(tail_of(X1))|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_45, c_0_46])).
+cnf(c_0_55,negated_conjecture,(on_path(esk7_1(esk9_0),esk9_0)), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_47, c_0_25]), c_0_26])).
+cnf(c_0_56,plain,(triangle(X1,X2,X3)|~sequential(X3,X1)|~sequential(X2,X3)|~sequential(X1,X2)|~edge(X3)|~edge(X2)|~edge(X1)), inference(split_conjunct,[status(thm)],[c_0_48])).
+cnf(c_0_57,plain,(edge(X1)|~sequential(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_58,plain,(number_of_in(sequential_pairs,X1)=minus(length_of(X1),n1)|~path(X2,X3,X1)), inference(split_conjunct,[status(thm)],[c_0_49])).
+cnf(c_0_59,negated_conjecture,(head_of(esk8_1(esk9_0))!=head_of(X1)|tail_of(X2)!=tail_of(X1)|~sequential(X2,esk8_1(esk9_0))|~on_path(X2,esk9_0)), inference(spm,[status(thm)],[c_0_50, c_0_51])).
+cnf(c_0_60,negated_conjecture,(tail_of(esk1_2(X1,head_of(esk8_1(esk9_0))))=head_of(esk8_1(esk9_0))|tail_of(esk1_2(X1,head_of(esk8_1(esk9_0))))=X1|X1=head_of(esk8_1(esk9_0))|~vertex(X1)), inference(spm,[status(thm)],[c_0_52, c_0_53])).
+cnf(c_0_61,negated_conjecture,(vertex(tail_of(esk7_1(esk9_0)))), inference(spm,[status(thm)],[c_0_54, c_0_55])).
+cnf(c_0_62,plain,(number_of_in(sequential_pairs,X1)=number_of_in(triangles,X1)|~path(X2,X3,X1)|~triangle(esk7_1(X1),esk8_1(X1),X4)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_63,plain,(triangle(X1,X2,X3)|~sequential(X3,X1)|~sequential(X2,X3)|~sequential(X1,X2)), inference(csr,[status(thm)],[inference(csr,[status(thm)],[inference(csr,[status(thm)],[c_0_56, c_0_57]), c_0_57]), c_0_57])).
+cnf(c_0_64,plain,(sequential(X1,X2)|X1=X2|head_of(X1)!=tail_of(X2)|~edge(X2)|~edge(X1)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_65,negated_conjecture,(number_of_in(sequential_pairs,esk9_0)=minus(length_of(esk9_0),n1)), inference(spm,[status(thm)],[c_0_58, c_0_25])).
+cnf(c_0_66,plain,(X1=X2|edge(esk1_2(X1,X2))|~complete|~vertex(X2)|~vertex(X1)), inference(split_conjunct,[status(thm)],[c_0_32])).
+fof(c_0_67, plain, (![X2]:(~edge(X2)|head_of(X2)!=tail_of(X2))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])).
+cnf(c_0_68,negated_conjecture,(head_of(esk8_1(esk9_0))!=head_of(X1)|tail_of(esk7_1(esk9_0))!=tail_of(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_59, c_0_35]), c_0_55])])).
+cnf(c_0_69,negated_conjecture,(tail_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))=tail_of(esk7_1(esk9_0))|tail_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))=head_of(esk8_1(esk9_0))|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(spm,[status(thm)],[c_0_60, c_0_61])).
+cnf(c_0_70,plain,(number_of_in(triangles,X1)=number_of_in(sequential_pairs,X1)|~sequential(X2,esk7_1(X1))|~sequential(esk8_1(X1),X2)|~path(X3,X4,X1)), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_62, c_0_63]), c_0_24])).
+cnf(c_0_71,negated_conjecture,(esk8_1(esk9_0)=X1|sequential(esk8_1(esk9_0),X1)|tail_of(X1)!=head_of(esk8_1(esk9_0))|~edge(X1)), inference(spm,[status(thm)],[c_0_64, c_0_44])).
+cnf(c_0_72,negated_conjecture,(number_of_in(triangles,esk9_0)!=minus(length_of(esk9_0),n1)), inference(rw,[status(thm)],[c_0_26, c_0_65])).
+cnf(c_0_73,plain,(X1=X2|edge(esk1_2(X1,X2))|~vertex(X2)|~vertex(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_66, c_0_42])])).
+cnf(c_0_74,plain,(head_of(X1)!=tail_of(X1)|~edge(X1)), inference(split_conjunct,[status(thm)],[c_0_67])).
+cnf(c_0_75,negated_conjecture,(tail_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))=head_of(esk8_1(esk9_0))|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))|head_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))!=head_of(esk8_1(esk9_0))), inference(spm,[status(thm)],[c_0_68, c_0_69])).
+cnf(c_0_76,negated_conjecture,(esk8_1(esk9_0)=X1|tail_of(X1)!=head_of(esk8_1(esk9_0))|~sequential(X1,esk7_1(esk9_0))|~path(X2,X3,esk9_0)), inference(csr,[status(thm)],[inference(sr,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_70, c_0_71]), c_0_65]), c_0_72]), c_0_57])).
+cnf(c_0_77,plain,(esk1_2(X1,X2)=X3|X1=X2|sequential(esk1_2(X1,X2),X3)|tail_of(X3)!=head_of(esk1_2(X1,X2))|~vertex(X2)|~vertex(X1)|~edge(X3)), inference(spm,[status(thm)],[c_0_64, c_0_73])).
+cnf(c_0_78,negated_conjecture,(edge(esk7_1(esk9_0))), inference(spm,[status(thm)],[c_0_57, c_0_35])).
+cnf(c_0_79,plain,(X1=X2|X2=tail_of(esk1_2(X1,X2))|X2=head_of(esk1_2(X1,X2))|~complete|~vertex(X2)|~vertex(X1)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_80,negated_conjecture,(tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))|head_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))!=head_of(esk8_1(esk9_0))|~edge(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))), inference(spm,[status(thm)],[c_0_74, c_0_75])).
+cnf(c_0_81,negated_conjecture,(esk1_2(X1,X2)=esk7_1(esk9_0)|esk8_1(esk9_0)=esk1_2(X1,X2)|X1=X2|tail_of(esk1_2(X1,X2))!=head_of(esk8_1(esk9_0))|tail_of(esk7_1(esk9_0))!=head_of(esk1_2(X1,X2))|~path(X3,X4,esk9_0)|~vertex(X2)|~vertex(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_76, c_0_77]), c_0_78])])).
+cnf(c_0_82,plain,(X1=X2|X1=head_of(esk1_2(X1,X2))|X1=tail_of(esk1_2(X1,X2))|~complete|~vertex(X2)|~vertex(X1)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_83,plain,(tail_of(esk1_2(X1,X2))=X2|head_of(esk1_2(X1,X2))=X2|X1=X2|~vertex(X2)|~vertex(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_79, c_0_42])])).
+cnf(c_0_84,negated_conjecture,(tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))|head_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))!=head_of(esk8_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_80, c_0_73]), c_0_53]), c_0_61])])).
+cnf(c_0_85,plain,(~precedes(X1,X2,X3)|~shortest_path(X4,X5,X3)|~precedes(X2,X1,X3)), inference(split_conjunct,[status(thm)],[c_0_29])).
+cnf(c_0_86,negated_conjecture,(esk8_1(esk9_0)=esk1_2(X1,X2)|esk1_2(X1,X2)=esk7_1(esk9_0)|X1=X2|tail_of(esk1_2(X1,X2))!=head_of(esk8_1(esk9_0))|tail_of(esk7_1(esk9_0))!=head_of(esk1_2(X1,X2))|~vertex(X2)|~vertex(X1)), inference(spm,[status(thm)],[c_0_81, c_0_25])).
+cnf(c_0_87,plain,(tail_of(esk1_2(X1,X2))=X1|head_of(esk1_2(X1,X2))=X1|X1=X2|~vertex(X2)|~vertex(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_82, c_0_42])])).
+cnf(c_0_88,negated_conjecture,(tail_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))=head_of(esk8_1(esk9_0))|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(csr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_83, c_0_69]), c_0_53]), c_0_61])]), c_0_84])).
+cnf(c_0_89,plain,(head_of(X1)=tail_of(X2)|~sequential(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_90,negated_conjecture,(~precedes(X1,X2,esk9_0)|~precedes(X2,X1,esk9_0)), inference(spm,[status(thm)],[c_0_85, c_0_19])).
+cnf(c_0_91,negated_conjecture,(esk1_2(X1,X2)=esk7_1(esk9_0)|esk8_1(esk9_0)=esk1_2(X1,X2)|head_of(esk1_2(X1,X2))=X2|X1=X2|tail_of(esk7_1(esk9_0))!=head_of(esk1_2(X1,X2))|X2!=head_of(esk8_1(esk9_0))|~vertex(X2)|~vertex(X1)), inference(spm,[status(thm)],[c_0_86, c_0_83])).
+cnf(c_0_92,negated_conjecture,(head_of(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0))))=tail_of(esk7_1(esk9_0))|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_87, c_0_88]), c_0_53]), c_0_61])])).
+cnf(c_0_93,negated_conjecture,(tail_of(esk8_1(esk9_0))=head_of(esk7_1(esk9_0))), inference(spm,[status(thm)],[c_0_89, c_0_35])).
+cnf(c_0_94,negated_conjecture,(~precedes(esk8_1(esk9_0),X1,esk9_0)|~sequential(X1,esk8_1(esk9_0))|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_90, c_0_51])).
+cnf(c_0_95,negated_conjecture,(precedes(X1,esk7_1(esk9_0),esk9_0)|~sequential(X1,esk7_1(esk9_0))|~on_path(X1,esk9_0)), inference(spm,[status(thm)],[c_0_39, c_0_55])).
+cnf(c_0_96,negated_conjecture,(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0)))=esk8_1(esk9_0)|esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0)))=esk7_1(esk9_0)|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_91, c_0_92]), c_0_53]), c_0_61])])).
+cnf(c_0_97,negated_conjecture,(tail_of(esk7_1(esk9_0))!=head_of(esk7_1(esk9_0))), inference(spm,[status(thm)],[c_0_68, c_0_93])).
+cnf(c_0_98,negated_conjecture,(~sequential(esk8_1(esk9_0),esk7_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_94, c_0_95]), c_0_35]), c_0_55]), c_0_40])])).
+cnf(c_0_99,negated_conjecture,(esk1_2(tail_of(esk7_1(esk9_0)),head_of(esk8_1(esk9_0)))=esk7_1(esk9_0)|tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_87, c_0_96]), c_0_93]), c_0_53]), c_0_61])]), c_0_97])).
+cnf(c_0_100,negated_conjecture,(head_of(esk8_1(esk9_0))!=head_of(esk7_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_74, c_0_93]), c_0_44])])).
+cnf(c_0_101,negated_conjecture,(esk8_1(esk9_0)=esk7_1(esk9_0)|tail_of(esk7_1(esk9_0))!=head_of(esk8_1(esk9_0))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_98, c_0_71]), c_0_78])])).
+cnf(c_0_102,negated_conjecture,(tail_of(esk7_1(esk9_0))=head_of(esk8_1(esk9_0))), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_83, c_0_99]), c_0_53]), c_0_61])]), c_0_100])).
+cnf(c_0_103,negated_conjecture,(esk8_1(esk9_0)=esk7_1(esk9_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_101, c_0_102])])).
+cnf(c_0_104,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_100, c_0_103])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

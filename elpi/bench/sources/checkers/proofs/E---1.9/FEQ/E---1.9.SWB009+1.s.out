@@ -1,0 +1,47 @@
+% Problem    : SWB009+1 : TPTP v6.1.0. Released v5.2.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n143.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:20:01 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____047_C45_F1_AE_R8_CS_SP_S2S
+# and selection function SelectNewComplexAHP.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X11]:![X2]:![X5]:((iext(uri_owl_someValuesFrom,X11,X5)&iext(uri_owl_onProperty,X11,X2))=>![X4]:(icext(X11,X4)<=>?[X7]:(iext(X2,X4,X7)&icext(X5,X7))))), file('/export/starexec/sandbox/benchmark/Axioms/SWB001+0.ax', owl_restrict_somevaluesfrom)).
+fof(c_0_1, axiom, (?[X43]:(((((iext(uri_rdf_type,uri_ex_p,uri_owl_ObjectProperty)&iext(uri_rdf_type,uri_ex_c,uri_owl_Class))&iext(uri_rdf_type,uri_ex_s,X43))&iext(uri_rdf_type,X43,uri_owl_Restriction))&iext(uri_owl_onProperty,X43,uri_ex_p))&iext(uri_owl_someValuesFrom,X43,uri_ex_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', testcase_premise_fullish_009_Existential_Restriction_Entailments)).
+fof(c_0_2, axiom, (![X4]:![X5]:(iext(uri_rdf_type,X4,X5)<=>icext(X5,X4))), file('/export/starexec/sandbox/benchmark/Axioms/SWB001+0.ax', rdfs_cext_def)).
+fof(c_0_3, conjecture, (?[X42]:(iext(uri_ex_p,uri_ex_s,X42)&iext(uri_rdf_type,X42,uri_ex_c))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', testcase_conclusion_fullish_009_Existential_Restriction_Entailments)).
+fof(c_0_4, plain, (![X12]:![X13]:![X14]:![X15]:![X17]:![X18]:((((iext(X13,X15,esk104_4(X12,X13,X14,X15))|~icext(X12,X15))|(~iext(uri_owl_someValuesFrom,X12,X14)|~iext(uri_owl_onProperty,X12,X13)))&((icext(X14,esk104_4(X12,X13,X14,X15))|~icext(X12,X15))|(~iext(uri_owl_someValuesFrom,X12,X14)|~iext(uri_owl_onProperty,X12,X13))))&(((~iext(X13,X17,X18)|~icext(X14,X18))|icext(X12,X17))|(~iext(uri_owl_someValuesFrom,X12,X14)|~iext(uri_owl_onProperty,X12,X13))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])])])])).
+fof(c_0_5, plain, ((((((iext(uri_rdf_type,uri_ex_p,uri_owl_ObjectProperty)&iext(uri_rdf_type,uri_ex_c,uri_owl_Class))&iext(uri_rdf_type,uri_ex_s,esk192_0))&iext(uri_rdf_type,esk192_0,uri_owl_Restriction))&iext(uri_owl_onProperty,esk192_0,uri_ex_p))&iext(uri_owl_someValuesFrom,esk192_0,uri_ex_c))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[c_0_1])])).
+fof(c_0_6, plain, (![X6]:![X7]:![X8]:![X9]:((~iext(uri_rdf_type,X6,X7)|icext(X7,X6))&(~icext(X9,X8)|iext(uri_rdf_type,X8,X9)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_7,plain,(icext(X3,esk104_4(X1,X2,X3,X4))|~iext(uri_owl_onProperty,X1,X2)|~iext(uri_owl_someValuesFrom,X1,X3)|~icext(X1,X4)), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_8,plain,(iext(uri_owl_onProperty,esk192_0,uri_ex_p)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_9,plain,(icext(X1,X2)|~iext(uri_rdf_type,X2,X1)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,plain,(iext(uri_rdf_type,uri_ex_s,esk192_0)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_11,plain,(icext(X1,esk104_4(esk192_0,uri_ex_p,X1,X2))|~icext(esk192_0,X2)|~iext(uri_owl_someValuesFrom,esk192_0,X1)), inference(spm,[status(thm)],[c_0_7, c_0_8])).
+cnf(c_0_12,plain,(icext(esk192_0,uri_ex_s)), inference(spm,[status(thm)],[c_0_9, c_0_10])).
+fof(c_0_13, negated_conjecture, (~(?[X42]:(iext(uri_ex_p,uri_ex_s,X42)&iext(uri_rdf_type,X42,uri_ex_c)))), inference(assume_negation,[status(cth)],[c_0_3])).
+cnf(c_0_14,plain,(icext(X1,esk104_4(esk192_0,uri_ex_p,X1,uri_ex_s))|~iext(uri_owl_someValuesFrom,esk192_0,X1)), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_15,plain,(iext(uri_owl_someValuesFrom,esk192_0,uri_ex_c)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_16,plain,(iext(X2,X4,esk104_4(X1,X2,X3,X4))|~iext(uri_owl_onProperty,X1,X2)|~iext(uri_owl_someValuesFrom,X1,X3)|~icext(X1,X4)), inference(split_conjunct,[status(thm)],[c_0_4])).
+fof(c_0_17, negated_conjecture, (![X43]:(~iext(uri_ex_p,uri_ex_s,X43)|~iext(uri_rdf_type,X43,uri_ex_c))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])).
+cnf(c_0_18,plain,(iext(uri_rdf_type,X1,X2)|~icext(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_19,plain,(icext(uri_ex_c,esk104_4(esk192_0,uri_ex_p,uri_ex_c,uri_ex_s))), inference(spm,[status(thm)],[c_0_14, c_0_15])).
+cnf(c_0_20,plain,(iext(uri_ex_p,X1,esk104_4(esk192_0,uri_ex_p,X2,X1))|~icext(esk192_0,X1)|~iext(uri_owl_someValuesFrom,esk192_0,X2)), inference(spm,[status(thm)],[c_0_16, c_0_8])).
+cnf(c_0_21,negated_conjecture,(~iext(uri_rdf_type,X1,uri_ex_c)|~iext(uri_ex_p,uri_ex_s,X1)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_22,plain,(iext(uri_rdf_type,esk104_4(esk192_0,uri_ex_p,uri_ex_c,uri_ex_s),uri_ex_c)), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_23,plain,(iext(uri_ex_p,uri_ex_s,esk104_4(esk192_0,uri_ex_p,X1,uri_ex_s))|~iext(uri_owl_someValuesFrom,esk192_0,X1)), inference(spm,[status(thm)],[c_0_20, c_0_12])).
+cnf(c_0_24,negated_conjecture,(~iext(uri_ex_p,uri_ex_s,esk104_4(esk192_0,uri_ex_p,uri_ex_c,uri_ex_s))), inference(spm,[status(thm)],[c_0_21, c_0_22])).
+cnf(c_0_25,plain,($false), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_23, c_0_15]), c_0_24]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

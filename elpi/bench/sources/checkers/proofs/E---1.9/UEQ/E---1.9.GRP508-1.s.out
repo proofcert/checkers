@@ -1,0 +1,97 @@
+% Problem    : GRP508-1 : TPTP v6.1.0. Bugfixed v2.7.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n186.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 06:28:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___209_C18_F1_AE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(multiply(X5,inverse(X6)),inverse(X4))))))),X6)=X5), file('/export/starexec/sandbox/benchmark/theBenchmark.p', single_axiom)).
+cnf(c_0_1,negated_conjecture,(multiply(a,b)!=multiply(b,a)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_these_axioms_4)).
+cnf(c_0_2,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(X5,inverse(X4))))))),X6)=inverse(multiply(inverse(multiply(inverse(multiply(X7,X8)),multiply(X8,X7))),multiply(inverse(multiply(X9,X10)),multiply(X9,inverse(multiply(multiply(X5,inverse(inverse(X6))),inverse(X10)))))))), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_3,plain,(multiply(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(X5,inverse(X4))))))),X6),inverse(X6))=X5), inference(spm,[status(thm)],[c_0_0, c_0_2])).
+cnf(c_0_4,plain,(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(multiply(multiply(X5,inverse(X6)),inverse(inverse(X6))),inverse(X4)))))))=X5), inference(spm,[status(thm)],[c_0_0, c_0_2])).
+cnf(c_0_5,plain,(multiply(multiply(X1,X2),inverse(X2))=multiply(multiply(X1,inverse(X3)),inverse(inverse(X3)))), inference(spm,[status(thm)],[c_0_3, c_0_4])).
+cnf(c_0_6,plain,(multiply(multiply(X1,X2),inverse(X2))=multiply(multiply(X1,X3),inverse(X3))), inference(spm,[status(thm)],[c_0_5, c_0_5])).
+cnf(c_0_7,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,inverse(X4))),multiply(X3,inverse(multiply(multiply(X5,X6),inverse(X6))))))),X4)=X5), inference(spm,[status(thm)],[c_0_0, c_0_6])).
+cnf(c_0_8,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(multiply(X3,multiply(multiply(X4,X5),inverse(X5))),inverse(X6))),multiply(multiply(X3,X7),inverse(X7))))),X6)=X4), inference(spm,[status(thm)],[c_0_7, c_0_6])).
+cnf(c_0_9,plain,(multiply(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(multiply(X5,X6),inverse(X6))))))),X7),inverse(X7))=multiply(X5,X4)), inference(spm,[status(thm)],[c_0_3, c_0_6])).
+cnf(c_0_10,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_8, c_0_3]), c_0_3])).
+cnf(c_0_11,plain,(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2))))=multiply(X3,inverse(multiply(multiply(X3,X4),inverse(X4))))), inference(spm,[status(thm)],[c_0_9, c_0_10])).
+cnf(c_0_12,plain,(multiply(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2)))),inverse(inverse(X3)))=X3), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_11]), c_0_3])).
+cnf(c_0_13,plain,(multiply(X1,inverse(inverse(inverse(X1))))=multiply(multiply(multiply(X2,inverse(multiply(multiply(X2,X3),inverse(X3)))),X4),inverse(X4))), inference(spm,[status(thm)],[c_0_6, c_0_12])).
+cnf(c_0_14,plain,(multiply(inverse(multiply(inverse(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1)))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(spm,[status(thm)],[c_0_10, c_0_10])).
+cnf(c_0_15,plain,(multiply(X1,inverse(inverse(inverse(X1))))=multiply(X2,inverse(inverse(inverse(X2))))), inference(spm,[status(thm)],[c_0_13, c_0_13])).
+cnf(c_0_16,plain,(multiply(inverse(multiply(inverse(inverse(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(spm,[status(thm)],[c_0_10, c_0_14])).
+cnf(c_0_17,plain,(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2))))=multiply(multiply(X3,X4),inverse(multiply(multiply(multiply(X3,X5),inverse(X5)),inverse(inverse(X4)))))), inference(spm,[status(thm)],[c_0_11, c_0_6])).
+cnf(c_0_18,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(inverse(inverse(inverse(X1))),X1)),multiply(X2,inverse(inverse(inverse(X2)))))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(spm,[status(thm)],[c_0_10, c_0_15])).
+cnf(c_0_19,plain,(multiply(inverse(multiply(inverse(inverse(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))))),multiply(inverse(X3),X3))),multiply(multiply(multiply(X4,X5),inverse(X5)),inverse(inverse(X6))))=multiply(X4,X6)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_12])).
+cnf(c_0_20,plain,(multiply(X1,inverse(inverse(inverse(X1))))=inverse(multiply(X2,inverse(multiply(multiply(X2,X3),inverse(X3)))))), inference(spm,[status(thm)],[c_0_12, c_0_15])).
+cnf(c_0_21,plain,(multiply(multiply(multiply(X1,X2),inverse(X2)),inverse(inverse(X3)))=multiply(multiply(multiply(X1,X3),X4),inverse(X4))), inference(spm,[status(thm)],[c_0_6, c_0_6])).
+cnf(c_0_22,plain,(multiply(inverse(multiply(inverse(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2))))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(spm,[status(thm)],[c_0_18, c_0_19])).
+cnf(c_0_23,plain,(multiply(X1,inverse(inverse(inverse(X1))))=inverse(multiply(multiply(multiply(X2,X3),inverse(X3)),inverse(multiply(multiply(multiply(multiply(X2,X4),X5),inverse(X5)),inverse(inverse(inverse(X4)))))))), inference(spm,[status(thm)],[c_0_20, c_0_21])).
+cnf(c_0_24,plain,(multiply(inverse(multiply(inverse(inverse(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2)))))),multiply(inverse(X3),X3))),multiply(multiply(X4,X5),inverse(X5)))=X4), inference(spm,[status(thm)],[c_0_10, c_0_22])).
+cnf(c_0_25,plain,(multiply(multiply(multiply(X1,X2),inverse(multiply(multiply(multiply(X1,X3),inverse(X3)),inverse(inverse(X2))))),inverse(inverse(X4)))=X4), inference(spm,[status(thm)],[c_0_12, c_0_6])).
+cnf(c_0_26,plain,(multiply(inverse(multiply(multiply(X1,inverse(inverse(inverse(X1)))),multiply(inverse(X2),X2))),multiply(multiply(X3,X4),inverse(X4)))=X3), inference(spm,[status(thm)],[c_0_22, c_0_23])).
+cnf(c_0_27,plain,(multiply(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2)))),inverse(multiply(X3,inverse(inverse(inverse(X3))))))=multiply(X4,inverse(multiply(multiply(X4,X5),inverse(X5))))), inference(spm,[status(thm)],[c_0_11, c_0_12])).
+cnf(c_0_28,plain,(multiply(inverse(multiply(inverse(multiply(X1,inverse(inverse(inverse(X1))))),multiply(inverse(X2),X2))),multiply(multiply(X3,X4),inverse(X4)))=X3), inference(spm,[status(thm)],[c_0_24, c_0_23])).
+cnf(c_0_29,plain,(multiply(multiply(multiply(inverse(multiply(multiply(X1,inverse(inverse(inverse(X1)))),multiply(inverse(X2),X2))),X3),inverse(X3)),inverse(inverse(X4)))=X4), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_25, c_0_26]), c_0_12])).
+cnf(c_0_30,plain,(multiply(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),multiply(X4,inverse(multiply(multiply(X4,X5),inverse(X5))))))),X6),inverse(X6))=X3), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_27]), c_0_12])).
+cnf(c_0_31,plain,(multiply(inverse(multiply(inverse(multiply(X1,inverse(inverse(inverse(X1))))),multiply(inverse(X2),X2))),X3)=multiply(inverse(multiply(multiply(X4,inverse(inverse(inverse(X4)))),multiply(inverse(X5),X5))),X3)), inference(spm,[status(thm)],[c_0_28, c_0_29])).
+cnf(c_0_32,plain,(multiply(inverse(multiply(X1,inverse(inverse(inverse(X1))))),multiply(inverse(X2),X2))=multiply(multiply(X3,inverse(inverse(inverse(X3)))),multiply(inverse(X4),X4))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_31]), c_0_30])).
+cnf(c_0_33,plain,(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(multiply(X3,X4)),multiply(X3,inverse(multiply(multiply(multiply(X5,X6),inverse(X6)),inverse(X4)))))))=X5), inference(spm,[status(thm)],[c_0_4, c_0_4])).
+cnf(c_0_34,plain,(multiply(multiply(inverse(multiply(X1,inverse(inverse(inverse(X1))))),multiply(inverse(X2),X2)),inverse(multiply(inverse(X3),X3)))=multiply(multiply(multiply(X4,inverse(inverse(inverse(X4)))),X5),inverse(X5))), inference(spm,[status(thm)],[c_0_6, c_0_32])).
+cnf(c_0_35,plain,(multiply(multiply(X1,inverse(multiply(inverse(multiply(X2,inverse(multiply(multiply(X2,X3),inverse(X3))))),inverse(inverse(inverse(inverse(X1))))))),inverse(inverse(X4)))=X4), inference(spm,[status(thm)],[c_0_12, c_0_20])).
+cnf(c_0_36,plain,(multiply(X1,inverse(inverse(inverse(X1))))=inverse(multiply(X2,inverse(inverse(inverse(X2)))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_33, c_0_34]), c_0_33])).
+cnf(c_0_37,plain,(multiply(multiply(X1,inverse(inverse(inverse(X1)))),inverse(inverse(inverse(inverse(X2)))))=multiply(multiply(X2,X3),inverse(X3))), inference(spm,[status(thm)],[c_0_6, c_0_15])).
+cnf(c_0_38,plain,(multiply(multiply(X1,inverse(inverse(inverse(X1)))),inverse(inverse(X2)))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_35, c_0_36]), c_0_12])).
+cnf(c_0_39,plain,(multiply(multiply(X1,X2),inverse(X2))=inverse(inverse(X1))), inference(rw,[status(thm)],[c_0_37, c_0_38])).
+cnf(c_0_40,plain,(multiply(multiply(multiply(inverse(multiply(multiply(X1,inverse(inverse(inverse(X1)))),multiply(inverse(X2),X2))),X3),X4),inverse(X4))=X3), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_26]), c_0_12])).
+cnf(c_0_41,plain,(multiply(inverse(inverse(X1)),inverse(inverse(X2)))=inverse(inverse(multiply(X1,X2)))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_21, c_0_39]), c_0_39])).
+cnf(c_0_42,plain,(multiply(inverse(multiply(multiply(X1,inverse(inverse(inverse(X1)))),multiply(inverse(X2),X2))),X3)=multiply(inverse(multiply(multiply(X4,inverse(inverse(inverse(X4)))),multiply(inverse(X5),X5))),X3)), inference(spm,[status(thm)],[c_0_26, c_0_40])).
+cnf(c_0_43,plain,(inverse(inverse(multiply(multiply(X1,inverse(inverse(inverse(X1)))),X2)))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_38, c_0_41]), c_0_41])).
+cnf(c_0_44,plain,(multiply(multiply(X1,inverse(inverse(inverse(X1)))),multiply(inverse(X2),X2))=multiply(multiply(X3,inverse(inverse(inverse(X3)))),multiply(inverse(X4),X4))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_42]), c_0_30])).
+cnf(c_0_45,plain,(multiply(inverse(X1),X1)=multiply(inverse(X2),X2)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_43, c_0_44]), c_0_43])).
+cnf(c_0_46,plain,(multiply(inverse(X1),X1)=inverse(inverse(multiply(inverse(X2),X2)))), inference(spm,[status(thm)],[c_0_41, c_0_45])).
+cnf(c_0_47,plain,(multiply(multiply(inverse(X1),X1),inverse(X2))=inverse(inverse(inverse(X2)))), inference(spm,[status(thm)],[c_0_39, c_0_45])).
+cnf(c_0_48,plain,(multiply(inverse(X1),X1)=multiply(X2,inverse(inverse(inverse(X2))))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_46, c_0_36]), c_0_43])).
+cnf(c_0_49,plain,(multiply(multiply(inverse(X1),X1),X2)=inverse(inverse(X2))), inference(spm,[status(thm)],[c_0_47, c_0_43])).
+cnf(c_0_50,plain,(multiply(X1,inverse(multiply(multiply(X1,X2),inverse(X2))))=multiply(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X3,X4)),multiply(X4,X3))),multiply(inverse(X5),X5))),X6),inverse(X6))), inference(spm,[status(thm)],[c_0_6, c_0_10])).
+cnf(c_0_51,plain,(inverse(inverse(inverse(inverse(X1))))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_43, c_0_48]), c_0_49])).
+cnf(c_0_52,plain,(inverse(inverse(multiply(inverse(multiply(inverse(X1),X1)),X2)))=X2), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_38, c_0_46]), c_0_49]), c_0_41])).
+cnf(c_0_53,plain,(multiply(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),X3))),multiply(X4,inverse(X5))),X5)=X4), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_50]), c_0_30])).
+cnf(c_0_54,plain,(multiply(inverse(multiply(inverse(X1),X1)),X2)=inverse(inverse(X2))), inference(spm,[status(thm)],[c_0_51, c_0_52])).
+cnf(c_0_55,plain,(multiply(inverse(inverse(multiply(X1,inverse(X2)))),X2)=X1), inference(spm,[status(thm)],[c_0_53, c_0_54])).
+cnf(c_0_56,plain,(multiply(inverse(X1),X1)=inverse(multiply(inverse(X2),X2))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_55, c_0_54]), c_0_51])).
+cnf(c_0_57,plain,(multiply(multiply(inverse(multiply(inverse(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1)))),multiply(inverse(X3),X3))),multiply(X4,inverse(X5))),X5)=X4), inference(spm,[status(thm)],[c_0_53, c_0_10])).
+cnf(c_0_58,plain,(multiply(inverse(inverse(multiply(X1,multiply(inverse(X2),X2)))),multiply(inverse(X3),X3))=X1), inference(spm,[status(thm)],[c_0_55, c_0_56])).
+cnf(c_0_59,plain,(multiply(multiply(inverse(inverse(multiply(X1,inverse(X1)))),multiply(X2,inverse(X3))),X3)=X2), inference(spm,[status(thm)],[c_0_57, c_0_58])).
+cnf(c_0_60,plain,(multiply(multiply(X1,inverse(X2)),X2)=X1), inference(spm,[status(thm)],[c_0_59, c_0_55])).
+cnf(c_0_61,plain,(multiply(multiply(X1,multiply(inverse(X2),X2)),multiply(inverse(X3),X3))=inverse(inverse(X1))), inference(spm,[status(thm)],[c_0_39, c_0_56])).
+cnf(c_0_62,plain,(inverse(inverse(X1))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_60, c_0_56]), c_0_61])).
+cnf(c_0_63,plain,(multiply(multiply(X1,inverse(inverse(inverse(X1)))),X2)=inverse(inverse(X2))), inference(spm,[status(thm)],[c_0_49, c_0_48])).
+cnf(c_0_64,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),multiply(inverse(multiply(inverse(multiply(inverse(multiply(X4,X5)),multiply(X5,X4))),multiply(inverse(multiply(X6,X7)),multiply(X6,inverse(multiply(multiply(X3,inverse(X8)),inverse(X7))))))),inverse(multiply(multiply(X9,inverse(X10)),inverse(X8))))))),X10)=X9), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_65,plain,(multiply(multiply(inverse(X1),X1),X2)=X2), inference(rw,[status(thm)],[c_0_49, c_0_62])).
+cnf(c_0_66,plain,(multiply(multiply(X1,inverse(X1)),X2)=X2), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_63, c_0_62]), c_0_62])).
+cnf(c_0_67,plain,(multiply(inverse(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),X3))),X4)=X4), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_64, c_0_65]), c_0_62]), c_0_0]), c_0_62])).
+cnf(c_0_68,plain,(multiply(multiply(X1,multiply(inverse(X2),X2)),multiply(inverse(X3),X3))=X1), inference(rw,[status(thm)],[c_0_61, c_0_62])).
+cnf(c_0_69,plain,(multiply(multiply(inverse(multiply(inverse(multiply(X1,X2)),multiply(X2,X1))),multiply(inverse(X3),X3)),X4)=X4), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_66, c_0_67]), c_0_62])).
+cnf(c_0_70,plain,(multiply(inverse(X1),X1)=inverse(multiply(inverse(multiply(X2,X3)),multiply(X3,X2)))), inference(spm,[status(thm)],[c_0_68, c_0_69])).
+cnf(c_0_71,plain,(multiply(multiply(X1,X2),inverse(X2))=X1), inference(rw,[status(thm)],[c_0_39, c_0_62])).
+cnf(c_0_72,plain,(multiply(multiply(inverse(multiply(X1,X2)),multiply(X2,X1)),X3)=X3), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_65, c_0_70]), c_0_65])).
+cnf(c_0_73,plain,(inverse(multiply(X1,X2))=inverse(multiply(X2,X1))), inference(spm,[status(thm)],[c_0_71, c_0_72])).
+cnf(c_0_74,plain,(multiply(X1,X2)=multiply(X2,X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_62, c_0_73]), c_0_62])).
+cnf(c_0_75,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_1, c_0_74])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

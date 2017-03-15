@@ -1,0 +1,36 @@
+% Problem    : GRP598-1 : TPTP v6.1.0. Released v2.6.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n191.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:37:21 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___209_C18_F1_AE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(double_divide(double_divide(X1,X2),inverse(double_divide(X1,inverse(double_divide(inverse(X3),X2)))))=X3), file('/export/starexec/sandbox/benchmark/theBenchmark.p', single_axiom)).
+cnf(c_0_1,negated_conjecture,(multiply(multiply(inverse(b2),b2),a2)!=a2), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_these_axioms_2)).
+cnf(c_0_2,axiom,(multiply(X1,X2)=inverse(double_divide(X2,X1))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', multiply)).
+cnf(c_0_3,plain,(double_divide(X1,inverse(double_divide(double_divide(X2,X3),inverse(double_divide(inverse(X4),inverse(double_divide(X2,inverse(double_divide(inverse(X1),X3)))))))))=X4), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_4,plain,(double_divide(X1,inverse(double_divide(inverse(X2),inverse(X1))))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_3]), c_0_0])).
+cnf(c_0_5,plain,(double_divide(double_divide(X1,inverse(X1)),inverse(X2))=X2), inference(spm,[status(thm)],[c_0_0, c_0_4])).
+cnf(c_0_6,plain,(double_divide(double_divide(double_divide(inverse(X1),X2),inverse(double_divide(inverse(X3),X2))),inverse(X3))=X1), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_7,plain,(double_divide(inverse(X1),inverse(double_divide(X2,inverse(X2))))=X1), inference(spm,[status(thm)],[c_0_4, c_0_5])).
+cnf(c_0_8,plain,(double_divide(double_divide(X1,inverse(X2)),inverse(X2))=X1), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_6, c_0_7]), c_0_7])).
+cnf(c_0_9,negated_conjecture,(inverse(double_divide(a2,inverse(double_divide(b2,inverse(b2)))))!=a2), inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_1, c_0_2]), c_0_2])).
+cnf(c_0_10,plain,(double_divide(X1,inverse(X1))=double_divide(X2,inverse(X2))), inference(spm,[status(thm)],[c_0_8, c_0_5])).
+cnf(c_0_11,plain,(double_divide(X1,inverse(double_divide(X2,inverse(X2))))=inverse(X1)), inference(spm,[status(thm)],[c_0_8, c_0_7])).
+cnf(c_0_12,negated_conjecture,(inverse(double_divide(a2,inverse(double_divide(X1,inverse(X1)))))!=a2), inference(spm,[status(thm)],[c_0_9, c_0_10])).
+cnf(c_0_13,plain,(inverse(inverse(X1))=X1), inference(rw,[status(thm)],[c_0_7, c_0_11])).
+cnf(c_0_14,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_12, c_0_11]), c_0_13])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

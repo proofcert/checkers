@@ -1,0 +1,75 @@
+% Problem    : SWV234+2 : TPTP v6.1.0. Released v3.2.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n126.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 05:39:56 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___012_C18_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:xor(X1,z)=X1), file('/export/starexec/sandbox/benchmark/theBenchmark.p', xor_zero)).
+fof(c_0_1, axiom, (![X1]:![X2]:![X3]:xor(X1,X2)=xor(X2,X1)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', xor_commutes)).
+fof(c_0_2, axiom, (![X1]:![X2]:![X3]:xor(X1,X1)=z), file('/export/starexec/sandbox/benchmark/theBenchmark.p', xor_self_cancel)).
+fof(c_0_3, axiom, (![X1]:![X2]:![X3]:xor(X1,xor(X2,X3))=xor(xor(X1,X2),X3)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', xor_assosciative)).
+fof(c_0_4, axiom, (![X1]:![X2]:![X3]:enc(X1,enc(inv(X1),X2))=X2), file('/export/starexec/sandbox/benchmark/theBenchmark.p', encrypt_decrypt_cancel)).
+fof(c_0_5, axiom, (public(enc(xor(km,imp),xor(kek,xor(pin,data))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', initial_knowledge9)).
+fof(c_0_6, axiom, (![X1]:![X2]:![X3]:(((public(X2)&public(enc(xor(X1,X2),X3)))&public(enc(xor(km,imp),X1)))=>public(enc(xor(km,X2),X3)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', key_import_cmd)).
+fof(c_0_7, axiom, (![X1]:![X2]:((public(X1)&public(X2))=>public(enc(enc(inv(xor(data,km)),X1),X2)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', encrypt_data_cmd)).
+fof(c_0_8, axiom, (public(data)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', initial_knowledge2)).
+fof(c_0_9, axiom, (public(enc(xor(kek,pin),pp))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', initial_knowledge5)).
+fof(c_0_10, conjecture, (public(enc(pp,a))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', co1)).
+fof(c_0_11, axiom, (public(a)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', initial_knowledge8)).
+fof(c_0_12, plain, (![X1]:xor(X1,z)=X1), inference(fof_simplification,[status(thm)],[c_0_0])).
+fof(c_0_13, plain, (![X1]:![X2]:xor(X1,X2)=xor(X2,X1)), inference(fof_simplification,[status(thm)],[c_0_1])).
+fof(c_0_14, plain, (![X1]:xor(X1,X1)=z), inference(fof_simplification,[status(thm)],[c_0_2])).
+fof(c_0_15, plain, (![X2]:xor(X2,z)=X2), inference(variable_rename,[status(thm)],[c_0_12])).
+fof(c_0_16, plain, (![X3]:![X4]:xor(X3,X4)=xor(X4,X3)), inference(variable_rename,[status(thm)],[c_0_13])).
+fof(c_0_17, plain, (![X4]:![X5]:![X6]:xor(X4,xor(X5,X6))=xor(xor(X4,X5),X6)), inference(variable_rename,[status(thm)],[c_0_3])).
+fof(c_0_18, plain, (![X2]:xor(X2,X2)=z), inference(variable_rename,[status(thm)],[c_0_14])).
+cnf(c_0_19,plain,(xor(X1,z)=X1), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_20,plain,(xor(X1,X2)=xor(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_16])).
+fof(c_0_21, plain, (![X1]:![X2]:enc(X1,enc(inv(X1),X2))=X2), inference(fof_simplification,[status(thm)],[c_0_4])).
+cnf(c_0_22,plain,(public(enc(xor(km,imp),xor(kek,xor(pin,data))))), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_23,plain,(xor(X1,xor(X2,X3))=xor(xor(X1,X2),X3)), inference(split_conjunct,[status(thm)],[c_0_17])).
+cnf(c_0_24,plain,(xor(X1,X1)=z), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_25,plain,(xor(z,X1)=X1), inference(spm,[status(thm)],[c_0_19, c_0_20])).
+fof(c_0_26, plain, (![X3]:![X4]:enc(X3,enc(inv(X3),X4))=X4), inference(variable_rename,[status(thm)],[c_0_21])).
+fof(c_0_27, plain, (![X4]:![X5]:![X6]:(((~public(X5)|~public(enc(xor(X4,X5),X6)))|~public(enc(xor(km,imp),X4)))|public(enc(xor(km,X5),X6)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])).
+cnf(c_0_28,plain,(public(enc(xor(km,imp),xor(kek,xor(data,pin))))), inference(rw,[status(thm)],[c_0_22, c_0_20])).
+cnf(c_0_29,plain,(xor(X1,xor(X2,X3))=xor(X3,xor(X1,X2))), inference(spm,[status(thm)],[c_0_20, c_0_23])).
+cnf(c_0_30,plain,(xor(X1,xor(X1,X2))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_23, c_0_24]), c_0_25])).
+fof(c_0_31, plain, (![X3]:![X4]:((~public(X3)|~public(X4))|public(enc(enc(inv(xor(data,km)),X3),X4)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])).
+cnf(c_0_32,plain,(enc(X1,enc(inv(X1),X2))=X2), inference(split_conjunct,[status(thm)],[c_0_26])).
+cnf(c_0_33,plain,(public(enc(xor(km,X1),X2))|~public(enc(xor(km,imp),X3))|~public(enc(xor(X3,X1),X2))|~public(X1)), inference(split_conjunct,[status(thm)],[c_0_27])).
+cnf(c_0_34,plain,(public(enc(xor(km,imp),xor(data,xor(pin,kek))))), inference(rw,[status(thm)],[c_0_28, c_0_29])).
+cnf(c_0_35,plain,(xor(X1,xor(X2,X1))=X2), inference(spm,[status(thm)],[c_0_30, c_0_20])).
+cnf(c_0_36,plain,(public(enc(enc(inv(xor(data,km)),X1),X2))|~public(X2)|~public(X1)), inference(split_conjunct,[status(thm)],[c_0_31])).
+cnf(c_0_37,plain,(enc(inv(inv(X1)),X2)=enc(X1,X2)), inference(spm,[status(thm)],[c_0_32, c_0_32])).
+cnf(c_0_38,plain,(public(enc(xor(km,X1),X2))|~public(enc(xor(data,xor(pin,xor(kek,X1))),X2))|~public(X1)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_33, c_0_34]), c_0_23]), c_0_23])).
+cnf(c_0_39,plain,(xor(X1,xor(X2,xor(X3,X1)))=xor(X2,X3)), inference(spm,[status(thm)],[c_0_35, c_0_23])).
+cnf(c_0_40,plain,(public(data)), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_41,plain,(public(enc(xor(kek,pin),pp))), inference(split_conjunct,[status(thm)],[c_0_9])).
+cnf(c_0_42,plain,(public(enc(enc(inv(xor(km,data)),X1),X2))|~public(X2)|~public(X1)), inference(rw,[status(thm)],[c_0_36, c_0_20])).
+cnf(c_0_43,plain,(enc(inv(X1),enc(X1,X2))=X2), inference(spm,[status(thm)],[c_0_32, c_0_37])).
+cnf(c_0_44,plain,(public(enc(xor(km,data),X1))|~public(enc(xor(pin,kek),X1))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_38, c_0_39]), c_0_40])])).
+cnf(c_0_45,plain,(public(enc(xor(pin,kek),pp))), inference(rw,[status(thm)],[c_0_41, c_0_20])).
+fof(c_0_46, negated_conjecture, (~public(enc(pp,a))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_10])])).
+cnf(c_0_47,plain,(public(enc(X1,X2))|~public(enc(xor(km,data),X1))|~public(X2)), inference(spm,[status(thm)],[c_0_42, c_0_43])).
+cnf(c_0_48,plain,(public(enc(xor(km,data),pp))), inference(spm,[status(thm)],[c_0_44, c_0_45])).
+cnf(c_0_49,negated_conjecture,(~public(enc(pp,a))), inference(split_conjunct,[status(thm)],[c_0_46])).
+cnf(c_0_50,plain,(public(enc(pp,X1))|~public(X1)), inference(spm,[status(thm)],[c_0_47, c_0_48])).
+cnf(c_0_51,plain,(public(a)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_52,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_49, c_0_50]), c_0_51])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

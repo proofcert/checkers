@@ -1,0 +1,1 @@
+app (lam (x\ rec (f\y\ case x (l\ l) (r\ app f y)))) (inl u).

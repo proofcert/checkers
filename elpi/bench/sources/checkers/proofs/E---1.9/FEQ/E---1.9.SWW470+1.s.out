@@ -1,0 +1,72 @@
+% Problem    : SWW470+1 : TPTP v6.1.0. Released v5.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n138.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 04:42:46 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___008_C45_F1_PI_AE_Q4_CS_SP_CO_S4S
+# and selection function SelectNewComplexAHPNS.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X13]:(collec1266446174iple_a(X13)=bot_bo1687970473a_bool<=>![X27]:~(hBOOL(hAPP_H1927961489a_bool(X13,X27))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_17_Collect__empty__eq)).
+fof(c_0_1, axiom, (![X13]:collec1266446174iple_a(X13)=X13), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_74_Collect__def)).
+fof(c_0_2, axiom, (![X57]:![X58]:(is_bool(X57)=>hAPP_H1927961489a_bool(cOMBK_1150238960iple_a(X57),X58)=X57)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_COMBK_1_1_COMBK_000tc__HOL__Obool_000tc__Hoare____Mirabelle____jfehddehev__)).
+fof(c_0_3, axiom, (bot_bo1687970473a_bool=collec1266446174iple_a(cOMBK_1150238960iple_a(fFalse))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_22_empty__def)).
+fof(c_0_4, hypothesis, (is_bool(fFalse)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', gsy_c_fFalse)).
+fof(c_0_5, axiom, (![X28]:(hBOOL(hAPP_H1927961489a_bool(bot_bo1687970473a_bool,X28))<=>hBOOL(bot_bot_bool))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_41_bot__apply)).
+fof(c_0_6, axiom, (~(hBOOL(fFalse))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_fFalse_1_1_U)).
+fof(c_0_7, axiom, (is_bool(bot_bot_bool)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', gsy_c_Orderings_Obot__class_Obot_000tc__HOL__Obool)).
+fof(c_0_8, axiom, (![X3]:![X14]:![X15]:![X13]:(![X17]:![X18]:(hBOOL(hAPP_state_bool(hAPP_a2036067514e_bool(X13,X17),X18))=>hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X3),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(hAPP_s1806633685e_bool(hAPP_f817621513e_bool(cOMBC_2027030106e_bool,fequal_state),X18)),X14,cOMBK_1458035955bool_a(hAPP_a2036067514e_bool(X15,X17)))),bot_bo1687970473a_bool))))=>hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X3),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(X13,X14,X15)),bot_bo1687970473a_bool))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_5_escape)).
+fof(c_0_9, axiom, (![X57]:![X58]:hAPP_a2036067514e_bool(cOMBK_1458035955bool_a(X57),X58)=X57), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_COMBK_1_1_COMBK_000tc__fun_Itc__Com__Ostate_Mtc__HOL__Obool_J_000t__a_U)).
+fof(c_0_10, conjecture, (hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(g),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(fFalse)),c,hAPP_f762886889e_bool(hAPP_f1261923407e_bool(cOMBC_892787026e_bool,hAPP_f963367678e_bool(cOMBB_145932198bool_a(cOMBS_1378840469l_bool),hAPP_f1509969235l_bool(cOMBB_1355796797bool_a(cOMBB_188601460_state(fconj)),p))),hAPP_f1759915619e_bool(cOMBB_160679318_state(fNot),b)))),bot_bo1687970473a_bool)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_0)).
+fof(c_0_11, hypothesis, (![X1]:![X2]:is_bool(hAPP_f1753944735l_bool(X1,X2))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', gsy_c_hAPP_000tc__fun_Itc__Hoare____Mirabelle____jfehddehev__Otriple_It__a_J_Mtc)).
+fof(c_0_12, axiom, (![X57]:![X58]:(is_bool(X57)=>hAPP_state_bool(cOMBK_bool_state(X57),X58)=X57)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', help_COMBK_1_1_COMBK_000tc__HOL__Obool_000tc__Com__Ostate_U)).
+fof(c_0_13, plain, (![X13]:(collec1266446174iple_a(X13)=bot_bo1687970473a_bool<=>![X27]:~hBOOL(hAPP_H1927961489a_bool(X13,X27)))), inference(fof_simplification,[status(thm)],[c_0_0])).
+fof(c_0_14, plain, (![X28]:![X29]:![X30]:((collec1266446174iple_a(X28)!=bot_bo1687970473a_bool|~hBOOL(hAPP_H1927961489a_bool(X28,X29)))&(hBOOL(hAPP_H1927961489a_bool(X30,esk10_1(X30)))|collec1266446174iple_a(X30)=bot_bo1687970473a_bool))), inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])])])])).
+fof(c_0_15, plain, (![X14]:collec1266446174iple_a(X14)=X14), inference(variable_rename,[status(thm)],[c_0_1])).
+cnf(c_0_16,plain,(collec1266446174iple_a(X1)=bot_bo1687970473a_bool|hBOOL(hAPP_H1927961489a_bool(X1,esk10_1(X1)))), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_17,plain,(collec1266446174iple_a(X1)=X1), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_18, plain, (![X59]:![X60]:(~is_bool(X59)|hAPP_H1927961489a_bool(cOMBK_1150238960iple_a(X59),X60)=X59)), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_19,plain,(bot_bo1687970473a_bool=collec1266446174iple_a(cOMBK_1150238960iple_a(fFalse))), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_20,plain,(bot_bo1687970473a_bool=X1|hBOOL(hAPP_H1927961489a_bool(X1,esk10_1(X1)))), inference(rw,[status(thm)],[c_0_16, c_0_17])).
+cnf(c_0_21,plain,(hAPP_H1927961489a_bool(cOMBK_1150238960iple_a(X1),X2)=X1|~is_bool(X1)), inference(split_conjunct,[status(thm)],[c_0_18])).
+cnf(c_0_22,plain,(cOMBK_1150238960iple_a(fFalse)=bot_bo1687970473a_bool), inference(rw,[status(thm)],[c_0_19, c_0_17])).
+cnf(c_0_23,hypothesis,(is_bool(fFalse)), inference(split_conjunct,[status(thm)],[c_0_4])).
+fof(c_0_24, plain, (![X29]:![X30]:((~hBOOL(hAPP_H1927961489a_bool(bot_bo1687970473a_bool,X29))|hBOOL(bot_bot_bool))&(~hBOOL(bot_bot_bool)|hBOOL(hAPP_H1927961489a_bool(bot_bo1687970473a_bool,X30))))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_5])])])])).
+fof(c_0_25, plain, (~hBOOL(fFalse)), inference(fof_simplification,[status(thm)],[c_0_6])).
+cnf(c_0_26,plain,(cOMBK_1150238960iple_a(X1)=bot_bo1687970473a_bool|hBOOL(X1)|~is_bool(X1)), inference(spm,[status(thm)],[c_0_20, c_0_21])).
+cnf(c_0_27,plain,(hAPP_H1927961489a_bool(bot_bo1687970473a_bool,X1)=fFalse), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_22]), c_0_23])])).
+cnf(c_0_28,plain,(hBOOL(hAPP_H1927961489a_bool(bot_bo1687970473a_bool,X1))|~hBOOL(bot_bot_bool)), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_29,plain,(~hBOOL(fFalse)), inference(split_conjunct,[status(thm)],[c_0_25])).
+cnf(c_0_30,plain,(fFalse=X1|hBOOL(X1)|~is_bool(X1)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_21, c_0_26]), c_0_27])).
+cnf(c_0_31,plain,(is_bool(bot_bot_bool)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_32,plain,(~hBOOL(bot_bot_bool)), inference(sr,[status(thm)],[inference(rw,[status(thm)],[c_0_28, c_0_27]), c_0_29])).
+fof(c_0_33, plain, (![X19]:![X20]:![X21]:![X22]:((hBOOL(hAPP_state_bool(hAPP_a2036067514e_bool(X22,esk1_4(X19,X20,X21,X22)),esk2_4(X19,X20,X21,X22)))|hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X19),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(X22,X20,X21)),bot_bo1687970473a_bool))))&(~hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X19),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(hAPP_s1806633685e_bool(hAPP_f817621513e_bool(cOMBC_2027030106e_bool,fequal_state),esk2_4(X19,X20,X21,X22))),X20,cOMBK_1458035955bool_a(hAPP_a2036067514e_bool(X21,esk1_4(X19,X20,X21,X22))))),bot_bo1687970473a_bool)))|hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X19),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(X22,X20,X21)),bot_bo1687970473a_bool)))))), inference(distribute,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])])])).
+fof(c_0_34, plain, (![X59]:![X60]:hAPP_a2036067514e_bool(cOMBK_1458035955bool_a(X59),X60)=X59), inference(variable_rename,[status(thm)],[c_0_9])).
+fof(c_0_35, negated_conjecture, (~hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(g),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(fFalse)),c,hAPP_f762886889e_bool(hAPP_f1261923407e_bool(cOMBC_892787026e_bool,hAPP_f963367678e_bool(cOMBB_145932198bool_a(cOMBS_1378840469l_bool),hAPP_f1509969235l_bool(cOMBB_1355796797bool_a(cOMBB_188601460_state(fconj)),p))),hAPP_f1759915619e_bool(cOMBB_160679318_state(fNot),b)))),bot_bo1687970473a_bool)))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_10])])).
+cnf(c_0_36,plain,(fFalse=bot_bot_bool), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_30, c_0_31]), c_0_32])).
+fof(c_0_37, hypothesis, (![X3]:![X4]:is_bool(hAPP_f1753944735l_bool(X3,X4))), inference(variable_rename,[status(thm)],[c_0_11])).
+cnf(c_0_38,plain,(hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X1),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(X2,X3,X4)),bot_bo1687970473a_bool)))|hBOOL(hAPP_state_bool(hAPP_a2036067514e_bool(X2,esk1_4(X1,X3,X4,X2)),esk2_4(X1,X3,X4,X2)))), inference(split_conjunct,[status(thm)],[c_0_33])).
+cnf(c_0_39,plain,(hAPP_a2036067514e_bool(cOMBK_1458035955bool_a(X1),X2)=X1), inference(split_conjunct,[status(thm)],[c_0_34])).
+fof(c_0_40, plain, (![X59]:![X60]:(~is_bool(X59)|hAPP_state_bool(cOMBK_bool_state(X59),X60)=X59)), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])])])).
+cnf(c_0_41,negated_conjecture,(~hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(g),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(fFalse)),c,hAPP_f762886889e_bool(hAPP_f1261923407e_bool(cOMBC_892787026e_bool,hAPP_f963367678e_bool(cOMBB_145932198bool_a(cOMBS_1378840469l_bool),hAPP_f1509969235l_bool(cOMBB_1355796797bool_a(cOMBB_188601460_state(fconj)),p))),hAPP_f1759915619e_bool(cOMBB_160679318_state(fNot),b)))),bot_bo1687970473a_bool)))), inference(split_conjunct,[status(thm)],[c_0_35])).
+cnf(c_0_42,plain,(bot_bot_bool=X1|hBOOL(X1)|~is_bool(X1)), inference(rw,[status(thm)],[c_0_30, c_0_36])).
+cnf(c_0_43,hypothesis,(is_bool(hAPP_f1753944735l_bool(X1,X2))), inference(split_conjunct,[status(thm)],[c_0_37])).
+cnf(c_0_44,plain,(hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X1),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(X2),X3,X4)),bot_bo1687970473a_bool)))|hBOOL(hAPP_state_bool(X2,esk2_4(X1,X3,X4,cOMBK_1458035955bool_a(X2))))), inference(spm,[status(thm)],[c_0_38, c_0_39])).
+cnf(c_0_45,plain,(hAPP_state_bool(cOMBK_bool_state(X1),X2)=X1|~is_bool(X1)), inference(split_conjunct,[status(thm)],[c_0_40])).
+cnf(c_0_46,negated_conjecture,(~hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(g),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(bot_bot_bool)),c,hAPP_f762886889e_bool(hAPP_f1261923407e_bool(cOMBC_892787026e_bool,hAPP_f963367678e_bool(cOMBB_145932198bool_a(cOMBS_1378840469l_bool),hAPP_f1509969235l_bool(cOMBB_1355796797bool_a(cOMBB_188601460_state(fconj)),p))),hAPP_f1759915619e_bool(cOMBB_160679318_state(fNot),b)))),bot_bo1687970473a_bool)))), inference(rw,[status(thm)],[c_0_41, c_0_36])).
+cnf(c_0_47,hypothesis,(hAPP_f1753944735l_bool(X1,X2)=bot_bot_bool|hBOOL(hAPP_f1753944735l_bool(X1,X2))), inference(spm,[status(thm)],[c_0_42, c_0_43])).
+cnf(c_0_48,plain,(hBOOL(hAPP_f1753944735l_bool(hoare_472868247rivs_a(X1),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(X2)),X3,X4)),bot_bo1687970473a_bool)))|hBOOL(X2)|~is_bool(X2)), inference(spm,[status(thm)],[c_0_44, c_0_45])).
+cnf(c_0_49,negated_conjecture,(hAPP_f1753944735l_bool(hoare_472868247rivs_a(g),hAPP_f1400872321a_bool(hAPP_H1816261935a_bool(insert1871499715iple_a,hoare_1050552211iple_a(cOMBK_1458035955bool_a(cOMBK_bool_state(bot_bot_bool)),c,hAPP_f762886889e_bool(hAPP_f1261923407e_bool(cOMBC_892787026e_bool,hAPP_f963367678e_bool(cOMBB_145932198bool_a(cOMBS_1378840469l_bool),hAPP_f1509969235l_bool(cOMBB_1355796797bool_a(cOMBB_188601460_state(fconj)),p))),hAPP_f1759915619e_bool(cOMBB_160679318_state(fNot),b)))),bot_bo1687970473a_bool))=bot_bot_bool), inference(spm,[status(thm)],[c_0_46, c_0_47])).
+cnf(c_0_50,negated_conjecture,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_49]), c_0_31])]), c_0_32]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

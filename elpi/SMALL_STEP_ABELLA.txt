@@ -1,0 +1,87 @@
+step: program -> status -> status -> o
+
+program = list clause
+context = list clause
+
+either syntactic  definition or clause
+or predicate clause : term -> o
+
+status = list (pair context term)  /* and-list */
+
+kind constant type
+
+kind term type
+type true term
+type and  term -> term -> term
+...
+type pred constant -> list term -> term
+
+----------------------------------
+
+example of step (in lambda-prolog syntax):
+
+step Prog [ pair Ctx true | AndL] AndL.
+
+step Prog [ pair Ctx (and F1 F2) | AndL] [ pair Ctx F1, pair Ctx F2 | AndL ]
+
+step Prog [ pair Ctx (or F1 F2) | AndL] [ pair Ctx F1 | AndL ].
+step Prog [ pair Ctx (or F1 F2) | AndL] [ pair Ctx F2 | AndL ].
+
+step Prog [ pair Ctx (pred K L) | AndL] [ pair Ctx G | AndL ] :-
+ look_in_prog Prog (pred K L) G.
+
+/* Game over in lambda-prolog? */
+step Prog [ pair Ctx (pi F) | AndL ] [ pair Ctx (F x) | AndL ] :-
+ pi x\  ?????????????
+
+look_in_prog [ _ | Tl ] P G :- look_in_prog Tl P G.
+look_in_prog [ Clause | _ ] P G :- match Clause P G.
+
+match (pi F) P G :- sigma X, match (F X) P G.
+match (impl ................
+match P P G :- ... /* no unification, just equality */
+
+example of step (in pseudo-Abella syntax):
+
+inductive step : program -> term -> term -> o =
+  trueCase: step Prog [ pair Ctx true | AndL] AndL
+; andCase:  step Prog [ pair Ctx (and F1 F2) | AndL] [ pair Ctx F1, pair Ctx F2 | AndL ]
+; ...
+; piCase:
+   nabla x, step Prog [ pair Ctx (pi F) | AndL ] [ pair Ctx (F x) | AndL ]
+
+W.r.t. lambda-prolog
+p X :- pi x\ q X x.  the small x is nabla-quantified
+                     the big X is universally quantified
+
+----------------------------------
+
+An option to elpi to output a list of clauses.
+
+----------------------------------
+
+{ Gamma |- p }
+
+thm correctness:
+ forall Gamma p,
+  precondition Gamma p,
+   { Gamma |- p }.
+
+----------------------------------
+
+Final aim:
+
+1. to prove invariants.
+
+thm invariant_holds:
+ forall status1 status2,
+   step status1 status2 -> inv status1 -> inv status2.
+
+2. to prove propagation rules
+
+3. to prove other meta-level rules
+
+thm generalize:
+ forall F G,
+   step [ pair [] F ] [ pair [] (p G) ] ->
+   step [ pair [] F ] [ pair [] (pi G\ p G) ].

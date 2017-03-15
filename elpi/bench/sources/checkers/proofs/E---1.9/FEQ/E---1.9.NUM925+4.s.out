@@ -1,0 +1,43 @@
+% Problem    : NUM925+4 : TPTP v6.1.0. Released v5.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n131.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 06:09:16 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf120_h_gu_RUU_F100_L00500
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___042_C18_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))!=zero_zero_int), file('/export/starexec/sandbox/benchmark/theBenchmark.p', conj_0)).
+fof(c_0_1, axiom, (![X562]:hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,X562),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))=hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X562),X562)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_1901_power2__eq__square)).
+fof(c_0_2, axiom, (pls=zero_zero_int), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_151_Pls__def)).
+fof(c_0_3, axiom, (~(hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,pls),zero_zero_int)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_116_bin__less__0__simps_I1_J)).
+fof(c_0_4, axiom, (![X370]:![X371]:(hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X371))=>(hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X370))=>hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X371),X370)))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_1381_mult__pos__pos)).
+fof(c_0_5, axiom, (hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fact_0_n1pos)).
+fof(c_0_6, negated_conjecture, (hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))=zero_zero_int), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_0])])).
+fof(c_0_7, plain, (![X563]:hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,X563),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))=hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X563),X563)), inference(variable_rename,[status(thm)],[c_0_1])).
+cnf(c_0_8,negated_conjecture,(hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))=zero_zero_int), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_9,plain,(pls=zero_zero_int), inference(split_conjunct,[status(thm)],[c_0_2])).
+cnf(c_0_10,plain,(hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,X1),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,pls))))=hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X1),X1)), inference(split_conjunct,[status(thm)],[c_0_7])).
+fof(c_0_11, plain, (~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,pls),zero_zero_int))), inference(fof_simplification,[status(thm)],[c_0_3])).
+fof(c_0_12, plain, (![X372]:![X373]:(~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X373))|(~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X372))|hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X373),X372)))))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])).
+cnf(c_0_13,negated_conjecture,(hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,zero_zero_int))))=zero_zero_int), inference(rw,[status(thm)],[c_0_8, c_0_9])).
+cnf(c_0_14,plain,(hAPP_nat_int(hAPP_int_fun_nat_int(power_power_int,X1),hAPP_int_nat(number_number_of_nat,hAPP_int_int(bit0,hAPP_int_int(bit1,zero_zero_int))))=hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X1),X1)), inference(rw,[status(thm)],[c_0_10, c_0_9])).
+cnf(c_0_15,plain,(~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,pls),zero_zero_int))), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_16,plain,(hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),hAPP_int_int(hAPP_int_fun_int_int(times_times_int,X1),X2)))|~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X2))|~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),X1))), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_17,negated_conjecture,(hAPP_int_int(hAPP_int_fun_int_int(times_times_int,hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))),hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n)))=zero_zero_int), inference(rw,[status(thm)],[c_0_13, c_0_14])).
+cnf(c_0_18,plain,(hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),hAPP_int_int(hAPP_int_fun_int_int(plus_plus_int,one_one_int),hAPP_nat_int(semiri1621563631at_int,n))))), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_19,plain,(~hBOOL(hAPP_int_bool(hAPP_i1948725293t_bool(ord_less_int,zero_zero_int),zero_zero_int))), inference(rw,[status(thm)],[c_0_15, c_0_9])).
+cnf(c_0_20,negated_conjecture,($false), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_16, c_0_17]), c_0_18])]), c_0_19]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

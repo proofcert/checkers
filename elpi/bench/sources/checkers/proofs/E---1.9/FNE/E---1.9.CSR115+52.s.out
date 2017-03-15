@@ -1,0 +1,39 @@
+% Problem    : CSR115+52 : TPTP v6.1.0. Released v4.0.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n106.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:32:31 CDT 2014
+% CPUTime    : 
+# SinE strategy is gf500_h_gu_R04_F100_L20000
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S0YP
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:((((((((agt(X5,X4)&attr(X1,X2))&attr(X4,X3))&attr(X6,X7))&sub(X2,name_1_1))&sub(X3,name_1_1))&subs(X5,n374bernehmen_1_1))&val(X2,bmw_0))&val(X3,bmw_0))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', synth_qa07_007_mira_news_1305)).
+fof(c_0_1, hypothesis, (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((assoc(autokonzern_1_1,auto__1_1)&sub(autokonzern_1_1,firmengruppe_1_1))&assoc(autounternehmen_1_1,auto__1_1))&sub(autounternehmen_1_1,unternehmen_1_1))&attr(c0,c1))&sub(c0,stadt__1_1))&sub(c1,name_1_1))&val(c1,m__374nchen_0))&agt(c163,c165))&obj(c163,c218))&subs(c163,n374bernehmen_1_1))&attr(c165,c166))&prop(c165,m__374nchner_1_1))&sub(c165,autokonzern_1_1))&sub(c166,name_1_1))&val(c166,bmw_0))&attr(c218,c219))&prop(c218,altbew__344hrt_1_1))&prop(c218,britisch__1_1))&sub(c218,autounternehmen_1_1))&sub(c219,name_1_1))&val(c219,rover_0))&assoc(m__374nchner_1_1,c0))&sort(autokonzern_1_1,d))&sort(autokonzern_1_1,io))&card(autokonzern_1_1,int1))&etype(autokonzern_1_1,int0))&fact(autokonzern_1_1,real))&gener(autokonzern_1_1,ge))&quant(autokonzern_1_1,one))&refer(autokonzern_1_1,refer_c))&varia(autokonzern_1_1,varia_c))&sort(auto__1_1,d))&card(auto__1_1,int1))&etype(auto__1_1,int0))&fact(auto__1_1,real))&gener(auto__1_1,ge))&quant(auto__1_1,one))&refer(auto__1_1,refer_c))&varia(auto__1_1,varia_c))&sort(firmengruppe_1_1,d))&sort(firmengruppe_1_1,io))&card(firmengruppe_1_1,int1))&etype(firmengruppe_1_1,int0))&fact(firmengruppe_1_1,real))&gener(firmengruppe_1_1,ge))&quant(firmengruppe_1_1,one))&refer(firmengruppe_1_1,refer_c))&varia(firmengruppe_1_1,varia_c))&sort(autounternehmen_1_1,d))&sort(autounternehmen_1_1,io))&card(autounternehmen_1_1,int1))&etype(autounternehmen_1_1,int0))&fact(autounternehmen_1_1,real))&gener(autounternehmen_1_1,ge))&quant(autounternehmen_1_1,one))&refer(autounternehmen_1_1,refer_c))&varia(autounternehmen_1_1,varia_c))&sort(unternehmen_1_1,d))&sort(unternehmen_1_1,io))&card(unternehmen_1_1,int1))&etype(unternehmen_1_1,int0))&fact(unternehmen_1_1,real))&gener(unternehmen_1_1,ge))&quant(unternehmen_1_1,one))&refer(unternehmen_1_1,refer_c))&varia(unternehmen_1_1,varia_c))&sort(c0,d))&sort(c0,io))&card(c0,int1))&etype(c0,int0))&fact(c0,real))&gener(c0,sp))&quant(c0,one))&refer(c0,det))&varia(c0,varia_c))&sort(c1,na))&card(c1,int1))&etype(c1,int0))&fact(c1,real))&gener(c1,sp))&quant(c1,one))&refer(c1,det))&varia(c1,varia_c))&sort(stadt__1_1,d))&sort(stadt__1_1,io))&card(stadt__1_1,int1))&etype(stadt__1_1,int0))&fact(stadt__1_1,real))&gener(stadt__1_1,ge))&quant(stadt__1_1,one))&refer(stadt__1_1,refer_c))&varia(stadt__1_1,varia_c))&sort(name_1_1,na))&card(name_1_1,int1))&etype(name_1_1,int0))&fact(name_1_1,real))&gener(name_1_1,ge))&quant(name_1_1,one))&refer(name_1_1,refer_c))&varia(name_1_1,varia_c))&sort(m__374nchen_0,fe))&sort(c163,da))&fact(c163,real))&gener(c163,sp))&sort(c165,d))&sort(c165,io))&card(c165,int1))&etype(c165,int0))&fact(c165,real))&gener(c165,sp))&quant(c165,one))&refer(c165,det))&varia(c165,con))&sort(c218,d))&sort(c218,io))&card(c218,int1))&etype(c218,int0))&fact(c218,real))&gener(c218,sp))&quant(c218,one))&refer(c218,det))&varia(c218,con))&sort(n374bernehmen_1_1,da))&fact(n374bernehmen_1_1,real))&gener(n374bernehmen_1_1,ge))&sort(c166,na))&card(c166,int1))&etype(c166,int0))&fact(c166,real))&gener(c166,sp))&quant(c166,one))&refer(c166,indet))&varia(c166,varia_c))&sort(m__374nchner_1_1,gq))&sort(bmw_0,fe))&sort(c219,na))&card(c219,int1))&etype(c219,int0))&fact(c219,real))&gener(c219,sp))&quant(c219,one))&refer(c219,indet))&varia(c219,varia_c))&sort(altbew__344hrt_1_1,ql))&sort(britisch__1_1,nq))&sort(rover_0,fe))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ave07_era5_synth_qa07_007_mira_news_1305)).
+fof(c_0_2, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:((((((((agt(X5,X4)&attr(X1,X2))&attr(X4,X3))&attr(X6,X7))&sub(X2,name_1_1))&sub(X3,name_1_1))&subs(X5,n374bernehmen_1_1))&val(X2,bmw_0))&val(X3,bmw_0)))), inference(assume_negation,[status(cth)],[c_0_0])).
+fof(c_0_3, negated_conjecture, (![X8]:![X9]:![X10]:![X11]:![X12]:![X13]:![X14]:((((((((~agt(X12,X11)|~attr(X8,X9))|~attr(X11,X10))|~attr(X13,X14))|~sub(X9,name_1_1))|~sub(X10,name_1_1))|~subs(X12,n374bernehmen_1_1))|~val(X9,bmw_0))|~val(X10,bmw_0))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])])])).
+cnf(c_0_4,negated_conjecture,(~val(X1,bmw_0)|~val(X2,bmw_0)|~subs(X3,n374bernehmen_1_1)|~sub(X1,name_1_1)|~sub(X2,name_1_1)|~attr(X4,X5)|~attr(X6,X1)|~attr(X7,X2)|~agt(X3,X6)), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_5,hypothesis,(val(c166,bmw_0)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_6,hypothesis,(sub(c166,name_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_7,hypothesis,(~val(X1,bmw_0)|~attr(X2,c166)|~attr(X3,X1)|~attr(X4,X5)|~agt(X6,X3)|~subs(X6,n374bernehmen_1_1)|~sub(X1,name_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_4, c_0_5]), c_0_6])])).
+cnf(c_0_8,hypothesis,(~attr(X1,c166)|~attr(X2,c166)|~attr(X3,X4)|~agt(X5,X2)|~subs(X5,n374bernehmen_1_1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_7, c_0_5]), c_0_6])])).
+cnf(c_0_9,hypothesis,(attr(c165,c166)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_10,hypothesis,(~attr(X1,c166)|~attr(X2,X3)|~agt(X4,X1)|~subs(X4,n374bernehmen_1_1)), inference(spm,[status(thm)],[c_0_8, c_0_9])).
+cnf(c_0_11,hypothesis,(~attr(X1,X2)|~agt(X3,c165)|~subs(X3,n374bernehmen_1_1)), inference(spm,[status(thm)],[c_0_10, c_0_9])).
+cnf(c_0_12,hypothesis,(agt(c163,c165)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_13,hypothesis,(subs(c163,n374bernehmen_1_1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_14,hypothesis,(attr(c0,c1)), inference(split_conjunct,[status(thm)],[c_0_1])).
+cnf(c_0_15,hypothesis,(~attr(X1,X2)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_11, c_0_12]), c_0_13])])).
+cnf(c_0_16,hypothesis,($false), inference(sr,[status(thm)],[c_0_14, c_0_15]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

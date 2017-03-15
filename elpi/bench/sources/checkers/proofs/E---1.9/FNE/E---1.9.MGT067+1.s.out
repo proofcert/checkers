@@ -1,0 +1,87 @@
+% Problem    : MGT067+1 : TPTP v6.1.0. Released v5.5.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n183.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:56:26 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____047_B31_F1_PI_AE_R4_CS_SP_S4d
+# and selection function SelectCQIPrecWNTNp.
+#
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:((((ssProfile(profileEntry(X2,authObj(X5,X6,X7)))&ssHolds(X1,X2))|(ssSingleRole(singleRoleEntry(X3,authObj(X5,X6,X7)))&ssHolds(X1,X3)))|((ssCompositeRole(compositeRoleEntry(X4,X3))&ssSingleRole(singleRoleEntry(X3,authObj(X5,X6,X7))))&ssHolds(X1,X4)))=>ssUserProfile(userProfileEntry(X1,authObj(X5,X6,X7))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax141)).
+fof(c_0_1, axiom, (ssHolds(ssMUELLER,ssZBANF_WRK_INF_ED)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax114)).
+fof(c_0_2, axiom, (![X1]:![X2]:![X3]:![X4]:(ssUserProfile(userProfileEntry(X1,authObj(X2,X3,X4)))=>ssAccess(X1,authObj(X2,X3,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax137)).
+fof(c_0_3, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_WRK,ssWERKS,ssINF)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax16)).
+fof(c_0_4, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssS_TCODE,ssTCD,ssME51N)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax12)).
+fof(c_0_5, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_WRK,ssACTVT,np__1)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax13)).
+fof(c_0_6, axiom, (![X1]:![X2]:![X3]:![X4]:(ssUserProfile(userProfileEntry(X1,authObj(X2,X3,ssSTAR)))=>ssAccess(X1,authObj(X2,X3,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax138)).
+fof(c_0_7, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_BSA,ssACTVT,ssSTAR)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax17)).
+fof(c_0_8, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_EKG,ssACTVT,ssSTAR)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax19)).
+fof(c_0_9, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_BSA,ssBSART,ssSTAR)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax18)).
+fof(c_0_10, axiom, (![X1]:![X2]:![X3]:![X4]:(((((((ssAccess(X1,authObj(ssS_TCODE,ssTCD,ssME51N))&ssAccess(X1,authObj(ssM_BANF_WRK,ssACTVT,np__1)))&ssAccess(X1,authObj(ssM_BANF_WRK,ssWERKS,X2)))&ssAccess(X1,authObj(ssM_BANF_BSA,ssACTVT,np__1)))&ssAccess(X1,authObj(ssM_BANF_BSA,ssBSART,X3)))&ssAccess(X1,authObj(ssM_BANF_EKG,ssACTVT,np__1)))&ssAccess(X1,authObj(ssM_BANF_EKG,ssEKGRP,X4)))=>ssAccess(X1,ssME51N))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax142)).
+fof(c_0_11, axiom, (ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_EKG,ssEKGRP,ssI26)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax20)).
+fof(c_0_12, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:![X9]:![X10]:((((((ssRequisition(X3,X6,X7,X2,X4,X8,X5,X9,X10)&ssStandardPurchase(X3))&ssAccess(X1,ssME51N))&ssAccess(X1,authObj(ssM_BANF_WRK,ssWERKS,X2)))&ssAccess(X1,authObj(ssM_BANF_BSA,ssBSART,X3)))&ssAccess(X1,authObj(ssM_BANF_EKG,ssEKGRP,X4)))=>ssRequisitionCreated(X1,X3,X6,X7,X2,X4,X8,X5,X9,X10))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax149)).
+fof(c_0_13, axiom, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:?[X8]:?[X9]:?[X10]:(ssRequisition(X6,X7,X8,X2,X3,X4,X5,X9,X10)=>((ssRequisitionCreated(X1,X6,X7,X8,X2,X3,X4,X5,X9,X10)&ssRequisitionReleased(X1,X6,X7,X8,X2,X3,X4,X5,X9,X10))&ssOrderCreated(X1,X6,X7,X8,X2,X3,X4,X5,X9,X10))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax155)).
+fof(c_0_14, conjecture, (?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:?[X8]:?[X9]:(ssRequisition(X5,X6,X7,X1,ssINF,X3,X4,X8,X9)=>ssRequisitionCreated(ssMUELLER,X5,X6,X7,ssINF,X2,X3,X4,X8,X9))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', co1)).
+fof(c_0_15, axiom, (ssStandardPurchase(ssNB)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax118)).
+fof(c_0_16, plain, (![X8]:![X9]:![X10]:![X11]:![X12]:![X13]:![X14]:((((~ssProfile(profileEntry(X9,authObj(X12,X13,X14)))|~ssHolds(X8,X9))|ssUserProfile(userProfileEntry(X8,authObj(X12,X13,X14))))&((~ssSingleRole(singleRoleEntry(X10,authObj(X12,X13,X14)))|~ssHolds(X8,X10))|ssUserProfile(userProfileEntry(X8,authObj(X12,X13,X14)))))&(((~ssCompositeRole(compositeRoleEntry(X11,X10))|~ssSingleRole(singleRoleEntry(X10,authObj(X12,X13,X14))))|~ssHolds(X8,X11))|ssUserProfile(userProfileEntry(X8,authObj(X12,X13,X14)))))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_0])])])).
+cnf(c_0_17,plain,(ssUserProfile(userProfileEntry(X1,authObj(X2,X3,X4)))|~ssHolds(X1,X5)|~ssSingleRole(singleRoleEntry(X5,authObj(X2,X3,X4)))), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_18,plain,(ssHolds(ssMUELLER,ssZBANF_WRK_INF_ED)), inference(split_conjunct,[status(thm)],[c_0_1])).
+fof(c_0_19, plain, (![X5]:![X6]:![X7]:![X8]:(~ssUserProfile(userProfileEntry(X5,authObj(X6,X7,X8)))|ssAccess(X5,authObj(X6,X7,X8)))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_20,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(X1,X2,X3)))|~ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(X1,X2,X3)))), inference(spm,[status(thm)],[c_0_17, c_0_18])).
+cnf(c_0_21,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_WRK,ssWERKS,ssINF)))), inference(split_conjunct,[status(thm)],[c_0_3])).
+cnf(c_0_22,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssS_TCODE,ssTCD,ssME51N)))), inference(split_conjunct,[status(thm)],[c_0_4])).
+cnf(c_0_23,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_WRK,ssACTVT,np__1)))), inference(split_conjunct,[status(thm)],[c_0_5])).
+fof(c_0_24, plain, (![X5]:![X6]:![X7]:![X8]:(~ssUserProfile(userProfileEntry(X5,authObj(X6,X7,ssSTAR)))|ssAccess(X5,authObj(X6,X7,X8)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_6])])])])).
+cnf(c_0_25,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_BSA,ssACTVT,ssSTAR)))), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_26,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_EKG,ssACTVT,ssSTAR)))), inference(split_conjunct,[status(thm)],[c_0_8])).
+cnf(c_0_27,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_BSA,ssBSART,ssSTAR)))), inference(split_conjunct,[status(thm)],[c_0_9])).
+fof(c_0_28, plain, (![X5]:![X6]:![X7]:![X8]:(((((((~ssAccess(X5,authObj(ssS_TCODE,ssTCD,ssME51N))|~ssAccess(X5,authObj(ssM_BANF_WRK,ssACTVT,np__1)))|~ssAccess(X5,authObj(ssM_BANF_WRK,ssWERKS,X6)))|~ssAccess(X5,authObj(ssM_BANF_BSA,ssACTVT,np__1)))|~ssAccess(X5,authObj(ssM_BANF_BSA,ssBSART,X7)))|~ssAccess(X5,authObj(ssM_BANF_EKG,ssACTVT,np__1)))|~ssAccess(X5,authObj(ssM_BANF_EKG,ssEKGRP,X8)))|ssAccess(X5,ssME51N))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])])])).
+cnf(c_0_29,plain,(ssAccess(X1,authObj(X2,X3,X4))|~ssUserProfile(userProfileEntry(X1,authObj(X2,X3,X4)))), inference(split_conjunct,[status(thm)],[c_0_19])).
+cnf(c_0_30,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_WRK,ssWERKS,ssINF)))), inference(spm,[status(thm)],[c_0_20, c_0_21])).
+cnf(c_0_31,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssS_TCODE,ssTCD,ssME51N)))), inference(spm,[status(thm)],[c_0_20, c_0_22])).
+cnf(c_0_32,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_WRK,ssACTVT,np__1)))), inference(spm,[status(thm)],[c_0_20, c_0_23])).
+cnf(c_0_33,plain,(ssAccess(X1,authObj(X2,X3,X4))|~ssUserProfile(userProfileEntry(X1,authObj(X2,X3,ssSTAR)))), inference(split_conjunct,[status(thm)],[c_0_24])).
+cnf(c_0_34,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_BSA,ssACTVT,ssSTAR)))), inference(spm,[status(thm)],[c_0_20, c_0_25])).
+cnf(c_0_35,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_EKG,ssACTVT,ssSTAR)))), inference(spm,[status(thm)],[c_0_20, c_0_26])).
+cnf(c_0_36,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_BSA,ssBSART,ssSTAR)))), inference(spm,[status(thm)],[c_0_20, c_0_27])).
+cnf(c_0_37,plain,(ssSingleRole(singleRoleEntry(ssZBANF_WRK_INF_ED,authObj(ssM_BANF_EKG,ssEKGRP,ssI26)))), inference(split_conjunct,[status(thm)],[c_0_11])).
+fof(c_0_38, plain, (![X11]:![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:![X18]:![X19]:![X20]:((((((~ssRequisition(X13,X16,X17,X12,X14,X18,X15,X19,X20)|~ssStandardPurchase(X13))|~ssAccess(X11,ssME51N))|~ssAccess(X11,authObj(ssM_BANF_WRK,ssWERKS,X12)))|~ssAccess(X11,authObj(ssM_BANF_BSA,ssBSART,X13)))|~ssAccess(X11,authObj(ssM_BANF_EKG,ssEKGRP,X14)))|ssRequisitionCreated(X11,X13,X16,X17,X12,X14,X18,X15,X19,X20))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_12])])).
+fof(c_0_39, plain, (![X11]:![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:![X18]:![X19]:![X20]:![X21]:![X22]:![X23]:![X24]:![X25]:![X26]:![X27]:![X28]:![X29]:(ssRequisition(X15,X16,X17,X11,X12,X13,X14,X18,X19)&((~ssRequisitionCreated(X20,X25,X26,X27,X21,X22,X23,X24,X28,X29)|~ssRequisitionReleased(X20,X25,X26,X27,X21,X22,X23,X24,X28,X29))|~ssOrderCreated(X20,X25,X26,X27,X21,X22,X23,X24,X28,X29)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])])])).
+cnf(c_0_40,plain,(ssAccess(X1,ssME51N)|~ssAccess(X1,authObj(ssM_BANF_EKG,ssEKGRP,X2))|~ssAccess(X1,authObj(ssM_BANF_EKG,ssACTVT,np__1))|~ssAccess(X1,authObj(ssM_BANF_BSA,ssBSART,X3))|~ssAccess(X1,authObj(ssM_BANF_BSA,ssACTVT,np__1))|~ssAccess(X1,authObj(ssM_BANF_WRK,ssWERKS,X4))|~ssAccess(X1,authObj(ssM_BANF_WRK,ssACTVT,np__1))|~ssAccess(X1,authObj(ssS_TCODE,ssTCD,ssME51N))), inference(split_conjunct,[status(thm)],[c_0_28])).
+cnf(c_0_41,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_WRK,ssWERKS,ssINF))), inference(spm,[status(thm)],[c_0_29, c_0_30])).
+cnf(c_0_42,plain,(ssAccess(ssMUELLER,authObj(ssS_TCODE,ssTCD,ssME51N))), inference(spm,[status(thm)],[c_0_29, c_0_31])).
+cnf(c_0_43,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_WRK,ssACTVT,np__1))), inference(spm,[status(thm)],[c_0_29, c_0_32])).
+cnf(c_0_44,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_BSA,ssACTVT,X1))), inference(spm,[status(thm)],[c_0_33, c_0_34])).
+cnf(c_0_45,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssACTVT,X1))), inference(spm,[status(thm)],[c_0_33, c_0_35])).
+cnf(c_0_46,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_BSA,ssBSART,X1))), inference(spm,[status(thm)],[c_0_33, c_0_36])).
+cnf(c_0_47,plain,(ssUserProfile(userProfileEntry(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,ssI26)))), inference(spm,[status(thm)],[c_0_20, c_0_37])).
+cnf(c_0_48,plain,(ssRequisitionCreated(X1,X2,X3,X4,X5,X6,X7,X8,X9,X10)|~ssAccess(X1,authObj(ssM_BANF_EKG,ssEKGRP,X6))|~ssAccess(X1,authObj(ssM_BANF_BSA,ssBSART,X2))|~ssAccess(X1,authObj(ssM_BANF_WRK,ssWERKS,X5))|~ssAccess(X1,ssME51N)|~ssStandardPurchase(X2)|~ssRequisition(X2,X3,X4,X5,X6,X7,X8,X9,X10)), inference(split_conjunct,[status(thm)],[c_0_38])).
+cnf(c_0_49,plain,(ssRequisition(X1,X2,X3,X4,X5,X6,X7,X8,X9)), inference(split_conjunct,[status(thm)],[c_0_39])).
+cnf(c_0_50,plain,(ssAccess(ssMUELLER,ssME51N)|~ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,X1))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_40, c_0_41]), c_0_42]), c_0_43])]), c_0_44]), c_0_45]), c_0_46])])).
+cnf(c_0_51,plain,(ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,ssI26))), inference(spm,[status(thm)],[c_0_29, c_0_47])).
+fof(c_0_52, negated_conjecture, (~(?[X1]:?[X2]:?[X3]:?[X4]:?[X5]:?[X6]:?[X7]:?[X8]:?[X9]:(ssRequisition(X5,X6,X7,X1,ssINF,X3,X4,X8,X9)=>ssRequisitionCreated(ssMUELLER,X5,X6,X7,ssINF,X2,X3,X4,X8,X9)))), inference(assume_negation,[status(cth)],[c_0_14])).
+fof(c_0_53, plain, ((~epred2_0<=>![X1]:~ssStandardPurchase(X1))), introduced(definition)).
+cnf(c_0_54,plain,(ssRequisitionCreated(X1,X2,X3,X4,X5,X6,X7,X8,X9,X10)|~ssStandardPurchase(X2)|~ssAccess(X1,ssME51N)|~ssAccess(X1,authObj(ssM_BANF_WRK,ssWERKS,X5))|~ssAccess(X1,authObj(ssM_BANF_BSA,ssBSART,X2))|~ssAccess(X1,authObj(ssM_BANF_EKG,ssEKGRP,X6))), inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_48, c_0_49])])).
+cnf(c_0_55,plain,(ssAccess(ssMUELLER,ssME51N)), inference(spm,[status(thm)],[c_0_50, c_0_51])).
+fof(c_0_56, negated_conjecture, (![X10]:![X11]:![X12]:![X13]:![X14]:![X15]:![X16]:![X17]:![X18]:![X19]:![X20]:![X21]:![X22]:![X23]:![X24]:![X25]:(ssRequisition(X13,X14,X15,X10,ssINF,X11,X12,X16,X17)&~ssRequisitionCreated(ssMUELLER,X21,X22,X23,ssINF,X18,X19,X20,X24,X25))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_52])])])])).
+cnf(c_0_57,plain,(epred2_0|~ssStandardPurchase(X1)), inference(split_equiv,[status(thm)],[c_0_53])).
+cnf(c_0_58,plain,(ssStandardPurchase(ssNB)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_59, plain, ((~epred1_0<=>![X4]:~ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,X4)))), introduced(definition)).
+cnf(c_0_60,plain,(ssRequisitionCreated(ssMUELLER,X1,X2,X3,X4,X5,X6,X7,X8,X9)|~ssAccess(ssMUELLER,authObj(ssM_BANF_WRK,ssWERKS,X4))|~ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,X5))|~ssStandardPurchase(X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_54, c_0_55]), c_0_46])])).
+cnf(c_0_61,negated_conjecture,(~ssRequisitionCreated(ssMUELLER,X1,X2,X3,ssINF,X4,X5,X6,X7,X8)), inference(split_conjunct,[status(thm)],[c_0_56])).
+cnf(c_0_62,plain,(epred2_0), inference(spm,[status(thm)],[c_0_57, c_0_58])).
+cnf(c_0_63,plain,(~epred1_0), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(apply_def,[status(thm)],[inference(apply_def,[status(thm)],[inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_60, c_0_41]), c_0_61]), c_0_59]), c_0_53]), c_0_62])])).
+cnf(c_0_64,plain,(~ssAccess(ssMUELLER,authObj(ssM_BANF_EKG,ssEKGRP,X1))), inference(sr,[status(thm)],[inference(split_equiv,[status(thm)],[c_0_59]), c_0_63])).
+cnf(c_0_65,plain,($false), inference(sr,[status(thm)],[c_0_51, c_0_64]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

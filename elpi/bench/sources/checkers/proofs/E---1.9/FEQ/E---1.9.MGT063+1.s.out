@@ -1,0 +1,135 @@
+% Problem    : MGT063+1 : TPTP v6.1.0. Released v2.4.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n115.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:37:06 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___207_C18_F1_AE_CS_SP_PI_PS_S2S
+# and selection function SelectNewComplexAHP.
+#
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation.
+fof(c_0_0, conjecture, (![X1]:![X5]:![X6]:![X7]:![X8]:(((((((((((organization(X1)&robust_position(X1))&~(has_endowment(X1)))&age(X1,X5)=zero)&greater(sigma,zero))&greater(tau,zero))&smaller(sigma,tau))&smaller_or_equal(age(X1,X6),sigma))&greater(age(X1,X7),sigma))&smaller_or_equal(age(X1,X7),tau))&greater(age(X1,X8),tau))=>((smaller(hazard_of_mortality(X1,X8),hazard_of_mortality(X1,X6))&smaller(hazard_of_mortality(X1,X6),hazard_of_mortality(X1,X7)))&hazard_of_mortality(X1,X6)=hazard_of_mortality(X1,X5)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', theorem_9)).
+fof(c_0_1, axiom, (![X1]:![X2]:(smaller(X1,X2)<=>greater(X2,X1))), file('/export/starexec/sandbox/benchmark/Axioms/MGT001+0.ax', definition_smaller)).
+fof(c_0_2, axiom, (![X1]:![X2]:![X3]:((greater(X1,X2)&greater(X2,X3))=>greater(X1,X3))), file('/export/starexec/sandbox/benchmark/Axioms/MGT001+0.ax', meaning_postulate_greater_transitive)).
+fof(c_0_3, axiom, (![X1]:![X5]:![X4]:((organization(X1)&age(X1,X5)=zero)=>(greater(age(X1,X4),sigma)<=>dissimilar(X1,X5,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_15)).
+fof(c_0_4, axiom, (![X1]:![X2]:(smaller_or_equal(X1,X2)<=>(smaller(X1,X2)|X1=X2))), file('/export/starexec/sandbox/benchmark/Axioms/MGT001+0.ax', definition_smaller_or_equal)).
+fof(c_0_5, axiom, (![X1]:![X4]:(organization(X1)=>((has_immunity(X1,X4)=>hazard_of_mortality(X1,X4)=very_low)&(~(has_immunity(X1,X4))=>(((((is_aligned(X1,X4)&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=low)&((~(is_aligned(X1,X4))&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=mod1))&((is_aligned(X1,X4)&~(positional_advantage(X1,X4)))=>hazard_of_mortality(X1,X4)=mod2))&((~(is_aligned(X1,X4))&~(positional_advantage(X1,X4)))=>hazard_of_mortality(X1,X4)=high)))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_17)).
+fof(c_0_6, axiom, (![X1]:(robust_position(X1)<=>![X4]:((smaller_or_equal(age(X1,X4),tau)=>~(positional_advantage(X1,X4)))&(greater(age(X1,X4),tau)=>positional_advantage(X1,X4))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', definition_4)).
+fof(c_0_7, axiom, (![X1]:![X4]:((organization(X1)&age(X1,X4)=zero)=>is_aligned(X1,X4))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_13)).
+fof(c_0_8, axiom, (![X1]:![X5]:![X4]:(dissimilar(X1,X5,X4)<=>(organization(X1)&~((is_aligned(X1,X5)<=>is_aligned(X1,X4)))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', definition_2)).
+fof(c_0_9, axiom, (![X1]:![X4]:((organization(X1)&~(has_endowment(X1)))=>~(has_immunity(X1,X4)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_1)).
+fof(c_0_10, axiom, (![X1]:![X2]:~((greater(X1,X2)&greater(X2,X1)))), file('/export/starexec/sandbox/benchmark/Axioms/MGT001+0.ax', meaning_postulate_greater_strict)).
+fof(c_0_11, axiom, (greater(high,mod2)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_18d)).
+fof(c_0_12, axiom, (greater(mod2,mod1)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', assumption_19)).
+fof(c_0_13, negated_conjecture, (~(![X1]:![X5]:![X6]:![X7]:![X8]:(((((((((((organization(X1)&robust_position(X1))&~has_endowment(X1))&age(X1,X5)=zero)&greater(sigma,zero))&greater(tau,zero))&smaller(sigma,tau))&smaller_or_equal(age(X1,X6),sigma))&greater(age(X1,X7),sigma))&smaller_or_equal(age(X1,X7),tau))&greater(age(X1,X8),tau))=>((smaller(hazard_of_mortality(X1,X8),hazard_of_mortality(X1,X6))&smaller(hazard_of_mortality(X1,X6),hazard_of_mortality(X1,X7)))&hazard_of_mortality(X1,X6)=hazard_of_mortality(X1,X5))))), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[c_0_0])])).
+fof(c_0_14, plain, (![X3]:![X4]:![X5]:![X6]:((~smaller(X3,X4)|greater(X4,X3))&(~greater(X6,X5)|smaller(X5,X6)))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_1])])])])).
+fof(c_0_15, negated_conjecture, ((((((((((((organization(esk5_0)&robust_position(esk5_0))&~has_endowment(esk5_0))&age(esk5_0,esk6_0)=zero)&greater(sigma,zero))&greater(tau,zero))&smaller(sigma,tau))&smaller_or_equal(age(esk5_0,esk7_0),sigma))&greater(age(esk5_0,esk8_0),sigma))&smaller_or_equal(age(esk5_0,esk8_0),tau))&greater(age(esk5_0,esk9_0),tau))&((~smaller(hazard_of_mortality(esk5_0,esk9_0),hazard_of_mortality(esk5_0,esk7_0))|~smaller(hazard_of_mortality(esk5_0,esk7_0),hazard_of_mortality(esk5_0,esk8_0)))|hazard_of_mortality(esk5_0,esk7_0)!=hazard_of_mortality(esk5_0,esk6_0)))), inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_13])])])).
+fof(c_0_16, plain, (![X4]:![X5]:![X6]:((~greater(X4,X5)|~greater(X5,X6))|greater(X4,X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_2])])).
+cnf(c_0_17,plain,(greater(X1,X2)|~smaller(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_18,negated_conjecture,(smaller(sigma,tau)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_19, plain, (![X4]:![X1]:(epred1_2(X1,X4)<=>(((((is_aligned(X1,X4)&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=low)&((~is_aligned(X1,X4)&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=mod1))&((is_aligned(X1,X4)&~positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=mod2))&((~is_aligned(X1,X4)&~positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=high)))), introduced(definition)).
+fof(c_0_20, plain, (![X6]:![X7]:![X8]:![X9]:(((~greater(age(X6,X8),sigma)|dissimilar(X6,X7,X8))|(~organization(X6)|age(X6,X7)!=zero))&((~dissimilar(X6,X7,X9)|greater(age(X6,X9),sigma))|(~organization(X6)|age(X6,X7)!=zero)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_3])])])])])).
+cnf(c_0_21,plain,(greater(X1,X2)|~greater(X3,X2)|~greater(X1,X3)), inference(split_conjunct,[status(thm)],[c_0_16])).
+cnf(c_0_22,negated_conjecture,(greater(tau,sigma)), inference(spm,[status(thm)],[c_0_17, c_0_18])).
+fof(c_0_23, plain, (![X3]:![X4]:![X5]:![X6]:((~smaller_or_equal(X3,X4)|(smaller(X3,X4)|X3=X4))&((~smaller(X5,X6)|smaller_or_equal(X5,X6))&(X5!=X6|smaller_or_equal(X5,X6))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_4])])])])])).
+fof(c_0_24, plain, (![X4]:![X1]:(epred1_2(X1,X4)=>(((((is_aligned(X1,X4)&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=low)&((~is_aligned(X1,X4)&positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=mod1))&((is_aligned(X1,X4)&~positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=mod2))&((~is_aligned(X1,X4)&~positional_advantage(X1,X4))=>hazard_of_mortality(X1,X4)=high)))), inference(split_equiv,[status(thm)],[c_0_19])).
+fof(c_0_25, plain, (![X1]:![X4]:(organization(X1)=>((has_immunity(X1,X4)=>hazard_of_mortality(X1,X4)=very_low)&(~has_immunity(X1,X4)=>epred1_2(X1,X4))))), inference(apply_def,[status(thm)],[inference(fof_simplification,[status(thm)],[c_0_5]), c_0_19])).
+fof(c_0_26, plain, (![X1]:(robust_position(X1)<=>![X4]:((smaller_or_equal(age(X1,X4),tau)=>~positional_advantage(X1,X4))&(greater(age(X1,X4),tau)=>positional_advantage(X1,X4))))), inference(fof_simplification,[status(thm)],[c_0_6])).
+cnf(c_0_27,plain,(dissimilar(X1,X2,X3)|age(X1,X2)!=zero|~organization(X1)|~greater(age(X1,X3),sigma)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_28,negated_conjecture,(age(esk5_0,esk6_0)=zero), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_29,negated_conjecture,(organization(esk5_0)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_30,negated_conjecture,(greater(X1,sigma)|~greater(X1,tau)), inference(spm,[status(thm)],[c_0_21, c_0_22])).
+cnf(c_0_31,negated_conjecture,(greater(age(esk5_0,esk9_0),tau)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_32, plain, (![X5]:![X6]:((~organization(X5)|age(X5,X6)!=zero)|is_aligned(X5,X6))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_7])])).
+cnf(c_0_33,plain,(X1=X2|smaller(X1,X2)|~smaller_or_equal(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_34,negated_conjecture,(smaller_or_equal(age(esk5_0,esk7_0),sigma)), inference(split_conjunct,[status(thm)],[c_0_15])).
+fof(c_0_35, plain, (![X5]:![X6]:((((((~is_aligned(X6,X5)|~positional_advantage(X6,X5))|hazard_of_mortality(X6,X5)=low)|~epred1_2(X6,X5))&(((is_aligned(X6,X5)|~positional_advantage(X6,X5))|hazard_of_mortality(X6,X5)=mod1)|~epred1_2(X6,X5)))&(((~is_aligned(X6,X5)|positional_advantage(X6,X5))|hazard_of_mortality(X6,X5)=mod2)|~epred1_2(X6,X5)))&(((is_aligned(X6,X5)|positional_advantage(X6,X5))|hazard_of_mortality(X6,X5)=high)|~epred1_2(X6,X5)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_24])])])).
+fof(c_0_36, plain, (![X5]:![X6]:![X7]:(((~has_immunity(X5,X6)|hazard_of_mortality(X5,X6)=very_low)|~organization(X5))&((has_immunity(X5,X7)|epred1_2(X5,X7))|~organization(X5)))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_25])])])])])).
+fof(c_0_37, plain, (![X5]:![X6]:![X7]:![X8]:((((~smaller_or_equal(age(X5,X6),tau)|~positional_advantage(X5,X6))|~robust_position(X5))&((~greater(age(X5,X7),tau)|positional_advantage(X5,X7))|~robust_position(X5)))&((((greater(age(X8,esk4_1(X8)),tau)|smaller_or_equal(age(X8,esk3_1(X8)),tau))|robust_position(X8))&((~positional_advantage(X8,esk4_1(X8))|smaller_or_equal(age(X8,esk3_1(X8)),tau))|robust_position(X8)))&(((greater(age(X8,esk4_1(X8)),tau)|positional_advantage(X8,esk3_1(X8)))|robust_position(X8))&((~positional_advantage(X8,esk4_1(X8))|positional_advantage(X8,esk3_1(X8)))|robust_position(X8)))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_26])])])])])])).
+fof(c_0_38, plain, (![X6]:![X7]:![X8]:![X9]:![X10]:![X11]:(((organization(X6)|~dissimilar(X6,X7,X8))&(((~is_aligned(X6,X7)|~is_aligned(X6,X8))|~dissimilar(X6,X7,X8))&((is_aligned(X6,X7)|is_aligned(X6,X8))|~dissimilar(X6,X7,X8))))&((((~is_aligned(X9,X10)|is_aligned(X9,X11))|~organization(X9))|dissimilar(X9,X10,X11))&(((~is_aligned(X9,X11)|is_aligned(X9,X10))|~organization(X9))|dissimilar(X9,X10,X11))))), inference(distribute,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_8])])])])])).
+cnf(c_0_39,negated_conjecture,(dissimilar(esk5_0,esk6_0,X1)|~greater(age(esk5_0,X1),sigma)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_27, c_0_28]), c_0_29])])).
+cnf(c_0_40,negated_conjecture,(greater(age(esk5_0,esk9_0),sigma)), inference(spm,[status(thm)],[c_0_30, c_0_31])).
+cnf(c_0_41,plain,(is_aligned(X1,X2)|age(X1,X2)!=zero|~organization(X1)), inference(split_conjunct,[status(thm)],[c_0_32])).
+cnf(c_0_42,plain,(smaller(X1,X2)|~greater(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_14])).
+cnf(c_0_43,negated_conjecture,(greater(tau,zero)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_44,negated_conjecture,(age(esk5_0,esk7_0)=sigma|smaller(age(esk5_0,esk7_0),sigma)), inference(spm,[status(thm)],[c_0_33, c_0_34])).
+fof(c_0_45, plain, (![X1]:![X4]:((organization(X1)&~has_endowment(X1))=>~has_immunity(X1,X4))), inference(fof_simplification,[status(thm)],[c_0_9])).
+cnf(c_0_46,plain,(hazard_of_mortality(X1,X2)=mod1|is_aligned(X1,X2)|~epred1_2(X1,X2)|~positional_advantage(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_35])).
+cnf(c_0_47,plain,(epred1_2(X1,X2)|has_immunity(X1,X2)|~organization(X1)), inference(split_conjunct,[status(thm)],[c_0_36])).
+cnf(c_0_48,plain,(positional_advantage(X1,X2)|~robust_position(X1)|~greater(age(X1,X2),tau)), inference(split_conjunct,[status(thm)],[c_0_37])).
+cnf(c_0_49,negated_conjecture,(robust_position(esk5_0)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_50,plain,(~dissimilar(X1,X2,X3)|~is_aligned(X1,X3)|~is_aligned(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_38])).
+cnf(c_0_51,negated_conjecture,(dissimilar(esk5_0,esk6_0,esk9_0)), inference(spm,[status(thm)],[c_0_39, c_0_40])).
+cnf(c_0_52,negated_conjecture,(is_aligned(esk5_0,esk6_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_41, c_0_28]), c_0_29])])).
+cnf(c_0_53,plain,(smaller_or_equal(X1,X2)|~smaller(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_23])).
+cnf(c_0_54,negated_conjecture,(smaller(zero,tau)), inference(spm,[status(thm)],[c_0_42, c_0_43])).
+cnf(c_0_55,negated_conjecture,(age(esk5_0,esk7_0)=sigma|greater(sigma,age(esk5_0,esk7_0))), inference(spm,[status(thm)],[c_0_17, c_0_44])).
+cnf(c_0_56,plain,(greater(age(X1,X3),sigma)|age(X1,X2)!=zero|~organization(X1)|~dissimilar(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_20])).
+cnf(c_0_57,plain,(organization(X1)|~dissimilar(X1,X2,X3)), inference(split_conjunct,[status(thm)],[c_0_38])).
+fof(c_0_58, plain, (![X5]:![X6]:((~organization(X5)|has_endowment(X5))|~has_immunity(X5,X6))), inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(shift_quantors,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_45])])])])).
+cnf(c_0_59,plain,(hazard_of_mortality(X1,X2)=mod1|is_aligned(X1,X2)|has_immunity(X1,X2)|~positional_advantage(X1,X2)|~organization(X1)), inference(spm,[status(thm)],[c_0_46, c_0_47])).
+cnf(c_0_60,negated_conjecture,(positional_advantage(esk5_0,esk9_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_48, c_0_31]), c_0_49])])).
+cnf(c_0_61,negated_conjecture,(~is_aligned(esk5_0,esk9_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_50, c_0_51]), c_0_52])])).
+cnf(c_0_62,plain,(hazard_of_mortality(X1,X2)=mod2|positional_advantage(X1,X2)|~epred1_2(X1,X2)|~is_aligned(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_35])).
+cnf(c_0_63,plain,(~robust_position(X1)|~positional_advantage(X1,X2)|~smaller_or_equal(age(X1,X2),tau)), inference(split_conjunct,[status(thm)],[c_0_37])).
+cnf(c_0_64,negated_conjecture,(smaller_or_equal(zero,tau)), inference(spm,[status(thm)],[c_0_53, c_0_54])).
+cnf(c_0_65,plain,(hazard_of_mortality(X1,X2)=high|positional_advantage(X1,X2)|is_aligned(X1,X2)|~epred1_2(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_35])).
+cnf(c_0_66,negated_conjecture,(age(esk5_0,esk7_0)=sigma|greater(X1,age(esk5_0,esk7_0))|~greater(X1,sigma)), inference(spm,[status(thm)],[c_0_21, c_0_55])).
+cnf(c_0_67,plain,(greater(age(X1,X2),sigma)|age(X1,X3)!=zero|~dissimilar(X1,X3,X2)), inference(csr,[status(thm)],[c_0_56, c_0_57])).
+cnf(c_0_68,plain,(dissimilar(X1,X2,X3)|is_aligned(X1,X3)|~organization(X1)|~is_aligned(X1,X2)), inference(split_conjunct,[status(thm)],[c_0_38])).
+cnf(c_0_69,plain,(has_endowment(X1)|~has_immunity(X1,X2)|~organization(X1)), inference(split_conjunct,[status(thm)],[c_0_58])).
+cnf(c_0_70,negated_conjecture,(hazard_of_mortality(esk5_0,esk9_0)=mod1|has_immunity(esk5_0,esk9_0)), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_59, c_0_60]), c_0_29])]), c_0_61])).
+cnf(c_0_71,negated_conjecture,(~has_endowment(esk5_0)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_72,plain,(hazard_of_mortality(X1,X2)=mod2|positional_advantage(X1,X2)|has_immunity(X1,X2)|~is_aligned(X1,X2)|~organization(X1)), inference(spm,[status(thm)],[c_0_62, c_0_47])).
+cnf(c_0_73,negated_conjecture,(~positional_advantage(esk5_0,esk6_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_63, c_0_28]), c_0_49])]), c_0_64])])).
+cnf(c_0_74,plain,(hazard_of_mortality(X1,X2)=high|positional_advantage(X1,X2)|is_aligned(X1,X2)|has_immunity(X1,X2)|~organization(X1)), inference(spm,[status(thm)],[c_0_65, c_0_47])).
+cnf(c_0_75,negated_conjecture,(greater(age(esk5_0,esk8_0),sigma)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_76,negated_conjecture,(age(esk5_0,esk7_0)=sigma|greater(tau,age(esk5_0,esk7_0))), inference(spm,[status(thm)],[c_0_66, c_0_22])).
+cnf(c_0_77,negated_conjecture,(greater(age(esk5_0,X1),sigma)|~dissimilar(esk5_0,esk6_0,X1)), inference(spm,[status(thm)],[c_0_67, c_0_28])).
+cnf(c_0_78,negated_conjecture,(is_aligned(esk5_0,X1)|dissimilar(esk5_0,esk6_0,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_68, c_0_52]), c_0_29])])).
+cnf(c_0_79,negated_conjecture,(hazard_of_mortality(esk5_0,esk7_0)!=hazard_of_mortality(esk5_0,esk6_0)|~smaller(hazard_of_mortality(esk5_0,esk7_0),hazard_of_mortality(esk5_0,esk8_0))|~smaller(hazard_of_mortality(esk5_0,esk9_0),hazard_of_mortality(esk5_0,esk7_0))), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_80,negated_conjecture,(hazard_of_mortality(esk5_0,esk9_0)=mod1), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_69, c_0_70]), c_0_29])]), c_0_71])).
+cnf(c_0_81,negated_conjecture,(hazard_of_mortality(esk5_0,esk6_0)=mod2|has_immunity(esk5_0,esk6_0)), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_72, c_0_52]), c_0_29])]), c_0_73])).
+cnf(c_0_82,negated_conjecture,(smaller_or_equal(age(esk5_0,esk8_0),tau)), inference(split_conjunct,[status(thm)],[c_0_15])).
+cnf(c_0_83,plain,(hazard_of_mortality(X1,X2)=high|positional_advantage(X1,X2)|is_aligned(X1,X2)|has_endowment(X1)|~organization(X1)), inference(spm,[status(thm)],[c_0_69, c_0_74])).
+cnf(c_0_84,negated_conjecture,(dissimilar(esk5_0,esk6_0,esk8_0)), inference(spm,[status(thm)],[c_0_39, c_0_75])).
+cnf(c_0_85,negated_conjecture,(age(esk5_0,esk7_0)=sigma|smaller(age(esk5_0,esk7_0),tau)), inference(spm,[status(thm)],[c_0_42, c_0_76])).
+cnf(c_0_86,negated_conjecture,(is_aligned(esk5_0,X1)|greater(age(esk5_0,X1),sigma)), inference(spm,[status(thm)],[c_0_77, c_0_78])).
+fof(c_0_87, plain, (![X3]:![X4]:(~greater(X3,X4)|~greater(X4,X3))), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[c_0_10])])).
+cnf(c_0_88,negated_conjecture,(hazard_of_mortality(esk5_0,esk6_0)!=hazard_of_mortality(esk5_0,esk7_0)|~smaller(hazard_of_mortality(esk5_0,esk7_0),hazard_of_mortality(esk5_0,esk8_0))|~smaller(mod1,hazard_of_mortality(esk5_0,esk7_0))), inference(rw,[status(thm)],[c_0_79, c_0_80])).
+cnf(c_0_89,negated_conjecture,(hazard_of_mortality(esk5_0,esk6_0)=mod2), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_69, c_0_81]), c_0_29])]), c_0_71])).
+cnf(c_0_90,negated_conjecture,(~positional_advantage(esk5_0,esk8_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_63, c_0_82]), c_0_49])])).
+cnf(c_0_91,negated_conjecture,(hazard_of_mortality(esk5_0,X1)=high|positional_advantage(esk5_0,X1)|is_aligned(esk5_0,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_71, c_0_83]), c_0_29])])).
+cnf(c_0_92,negated_conjecture,(~is_aligned(esk5_0,esk8_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_50, c_0_84]), c_0_52])])).
+cnf(c_0_93,negated_conjecture,(age(esk5_0,esk7_0)=sigma|smaller_or_equal(age(esk5_0,esk7_0),tau)), inference(spm,[status(thm)],[c_0_53, c_0_85])).
+cnf(c_0_94,plain,(hazard_of_mortality(esk5_0,X1)=mod2|positional_advantage(esk5_0,X1)|has_immunity(esk5_0,X1)|greater(age(esk5_0,X1),sigma)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_72, c_0_86]), c_0_29])])).
+cnf(c_0_95,plain,(~greater(X1,X2)|~greater(X2,X1)), inference(split_conjunct,[status(thm)],[c_0_87])).
+cnf(c_0_96,negated_conjecture,(hazard_of_mortality(esk5_0,esk7_0)!=mod2|~smaller(hazard_of_mortality(esk5_0,esk7_0),hazard_of_mortality(esk5_0,esk8_0))|~smaller(mod1,hazard_of_mortality(esk5_0,esk7_0))), inference(rw,[status(thm)],[c_0_88, c_0_89])).
+cnf(c_0_97,negated_conjecture,(hazard_of_mortality(esk5_0,esk8_0)=high), inference(sr,[status(thm)],[inference(spm,[status(thm)],[c_0_90, c_0_91]), c_0_92])).
+cnf(c_0_98,negated_conjecture,(age(esk5_0,esk7_0)=sigma|~positional_advantage(esk5_0,esk7_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_63, c_0_93]), c_0_49])])).
+cnf(c_0_99,plain,(hazard_of_mortality(esk5_0,X1)=mod2|positional_advantage(esk5_0,X1)|greater(age(esk5_0,X1),sigma)), inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_69, c_0_94]), c_0_29])]), c_0_71])).
+cnf(c_0_100,negated_conjecture,(age(esk5_0,esk7_0)=sigma|~greater(age(esk5_0,esk7_0),sigma)), inference(spm,[status(thm)],[c_0_95, c_0_55])).
+cnf(c_0_101,plain,(greater(high,mod2)), inference(split_conjunct,[status(thm)],[c_0_11])).
+cnf(c_0_102,plain,(greater(mod2,mod1)), inference(split_conjunct,[status(thm)],[c_0_12])).
+cnf(c_0_103,negated_conjecture,(hazard_of_mortality(esk5_0,esk7_0)!=mod2|~smaller(hazard_of_mortality(esk5_0,esk7_0),high)|~smaller(mod1,hazard_of_mortality(esk5_0,esk7_0))), inference(rw,[status(thm)],[c_0_96, c_0_97])).
+cnf(c_0_104,negated_conjecture,(hazard_of_mortality(esk5_0,esk7_0)=mod2|age(esk5_0,esk7_0)=sigma), inference(csr,[status(thm)],[inference(spm,[status(thm)],[c_0_98, c_0_99]), c_0_100])).
+cnf(c_0_105,plain,(smaller(mod2,high)), inference(spm,[status(thm)],[c_0_42, c_0_101])).
+cnf(c_0_106,plain,(smaller(mod1,mod2)), inference(spm,[status(thm)],[c_0_42, c_0_102])).
+cnf(c_0_107,negated_conjecture,(age(esk5_0,esk7_0)=sigma), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_103, c_0_104]), c_0_105]), c_0_106])])).
+cnf(c_0_108,negated_conjecture,(smaller_or_equal(sigma,tau)), inference(spm,[status(thm)],[c_0_53, c_0_18])).
+cnf(c_0_109,negated_conjecture,(~positional_advantage(esk5_0,esk7_0)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_63, c_0_107]), c_0_49]), c_0_108])])).
+cnf(c_0_110,plain,(hazard_of_mortality(esk5_0,esk7_0)=mod2|greater(sigma,sigma)), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_109, c_0_99]), c_0_107])).
+cnf(c_0_111,negated_conjecture,(greater(sigma,sigma)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_103, c_0_110]), c_0_105]), c_0_106])])).
+cnf(c_0_112,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_95, c_0_111]), c_0_111])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

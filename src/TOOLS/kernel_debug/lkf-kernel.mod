@@ -53,7 +53,7 @@ check Cert (unfK [A &-& B | Rest]) :-
 % forall
 check Cert (unfK [all B | Theta]) :-
   all_kc Cert Cert',
-  pi w\ normalize (check (Cert' w) (unfK [B w | Theta] )).
+  pi w\ check (Cert' w) (unfK [B w | Theta] ).
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
@@ -82,8 +82,7 @@ check Cert (foc (A !+! B)) :-
 % quantifers
 check Cert (foc (some B)) :-
   some_ke Cert T Cert',
-  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
-  check Cert' (foc (C)).
+  check Cert' (foc (B T)).
 % Units
 check Cert (foc t+) :-
   true_ke Cert.
@@ -94,8 +93,6 @@ check Cert (foc (d+ A)) :-
 %%%%%%%%%%%
 % Utilities
 %%%%%%%%%%%
-
-eager_normalize A B :- A = B.
 
 isNegForm (_ &-& _).
 isNegForm (_ !-! _).

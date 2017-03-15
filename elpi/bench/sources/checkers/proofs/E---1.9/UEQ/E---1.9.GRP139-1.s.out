@@ -1,0 +1,31 @@
+% Problem    : GRP139-1 : TPTP v6.1.0. Bugfixed v1.2.1.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n120.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:15:57 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic H_____047_C02_F1_PI_AE_Q12_CS_SP_S2S
+# and selection function SelectNewComplexAHP.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,hypothesis,(greatest_lower_bound(b,c)=c), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax_glb1b_2_2)).
+cnf(c_0_1,axiom,(greatest_lower_bound(X1,X2)=greatest_lower_bound(X2,X1)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', symmetry_of_glb)).
+cnf(c_0_2,axiom,(greatest_lower_bound(X1,greatest_lower_bound(X2,X3))=greatest_lower_bound(greatest_lower_bound(X1,X2),X3)), file('/export/starexec/sandbox/benchmark/Axioms/GRP004-2.ax', associativity_of_glb)).
+cnf(c_0_3,negated_conjecture,(greatest_lower_bound(greatest_lower_bound(a,b),c)!=c), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_ax_glb1b)).
+cnf(c_0_4,hypothesis,(greatest_lower_bound(a,c)=c), file('/export/starexec/sandbox/benchmark/theBenchmark.p', ax_glb1b_1_1)).
+cnf(c_0_5,hypothesis,(greatest_lower_bound(c,b)=c), inference(rw,[status(thm)],[c_0_0, c_0_1])).
+cnf(c_0_6,hypothesis,(greatest_lower_bound(c,greatest_lower_bound(b,X1))=greatest_lower_bound(c,X1)), inference(spm,[status(thm)],[c_0_2, c_0_5])).
+cnf(c_0_7,negated_conjecture,(greatest_lower_bound(c,greatest_lower_bound(a,b))!=c), inference(rw,[status(thm)],[c_0_3, c_0_1])).
+cnf(c_0_8,hypothesis,(greatest_lower_bound(c,greatest_lower_bound(X1,b))=greatest_lower_bound(c,X1)), inference(spm,[status(thm)],[c_0_6, c_0_1])).
+cnf(c_0_9,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_7, c_0_8]), c_0_1]), c_0_4])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

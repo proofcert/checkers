@@ -1,0 +1,60 @@
+% Problem    : SEU389+1 : TPTP v6.1.0. Released v3.3.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n143.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 07:40:06 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S4d
+# and selection function SelectCQIPrecWNTNp.
+#
+# Presaturation interreduction done
+# No success with AutoSched0
+# Trying AutoSched1 for 73 seconds
+# AutoSched1-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S4b
+# and selection function SelectCQIPrecW.
+#
+# Presaturation interreduction done
+# No success with AutoSched1
+# Trying AutoSched2 for 23 seconds
+# AutoSched2-Mode selected heuristic G_E___103_C18_F1_PI_AE_Q4_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# No success with AutoSched2
+# Trying AutoSched3 for 17 seconds
+# AutoSched3-Mode selected heuristic G_E___200_C45_F1_SE_CS_SP_PI_CO_S0V
+# and selection function PSelectComplexExceptRRHorn.
+#
+# No success with AutoSched3
+# Trying AutoSched4 for 12 seconds
+# AutoSched4-Mode selected heuristic G_E___200_C41_F1_AE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# No success with AutoSched4
+# Trying AutoSched5 for 8 seconds
+# AutoSched5-Mode selected heuristic G_E___200_C41_F1_AE_CS_SP_PI_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# No success with AutoSched5
+# Trying AutoSched6 for 4 seconds
+# AutoSched6-Mode selected heuristic G_E___107_C45_F1_PI_AE_Q7_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Presaturation interreduction done
+# No success with AutoSched6
+# Trying AutoSched7 for 11 seconds
+# AutoSched7-Mode selected heuristic G_E___208_C18_F1_SE_CS_SP_PS_S3b
+# and selection function SelectCQArNTEqFirstUnlessPDom.
+#
+# Presaturation interreduction done
+
+# Failure: Resource limit exceeded (time)
+# SZS status ResourceOut
+eprover: CPU time limit exceeded, terminating
+# No success with AutoSched7
+EOF

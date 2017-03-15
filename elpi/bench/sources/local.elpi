@@ -1,0 +1,13 @@
+{
+   local c, d.
+
+   p c d e f.
+
+   {
+      local c, f.
+
+      q c d e f.
+   }
+
+   r c d e f.
+}

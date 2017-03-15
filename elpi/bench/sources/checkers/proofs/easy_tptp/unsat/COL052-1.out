@@ -1,0 +1,84 @@
+cnf(c_0_1,axiom,(response(compose(X1,X2),X3)=response(X1,response(X2,X3))), file('<stdin>', composer_exists)).
+cnf(c_0_2,hypothesis,(response(c,common_bird(X1))=response(X1,common_bird(X1))), file('<stdin>', agreeable1)).
+cnf(c_0_3,negated_conjecture,(response(a,X1)!=response(odd_bird,X1)), file('<stdin>', prove_a_is_agreeable)).
+cnf(c_0_4,hypothesis,(c=compose(a,b)), file('<stdin>', c_composes_a_with_b)).
+# Initializing proof state
+# Scanning for AC axioms
+cnf(c_0_5,hypothesis,(response(c,X1)=response(a,response(b,X1))),inference(pm,[status(thm)],[c_0_1,c_0_4,theory(equality)])).
+cnf(c_0_6,hypothesis,(response(c,X1)!=response(odd_bird,response(b,X1))),inference(pm,[status(thm)],[c_0_3,c_0_5,theory(equality)])).
+cnf(c_0_7,negated_conjecture,(response(c,common_bird(a))!=response(odd_bird,common_bird(a))),inference(pm,[status(thm)],[c_0_3,c_0_2,theory(equality)])).
+cnf(c_0_8,hypothesis,(response(c,common_bird(compose(X1,X2)))=response(X1,response(X2,common_bird(compose(X1,X2))))),inference(pm,[status(thm)],[c_0_1,c_0_2,theory(equality)])).
+cnf(c_0_9,hypothesis,(response(a,response(c,common_bird(compose(b,X1))))=response(c,response(X1,common_bird(compose(b,X1))))),inference(pm,[status(thm)],[c_0_5,c_0_8,theory(equality)])).
+cnf(c_0_10,negated_conjecture,(response(c,common_bird(compose(a,X1)))!=response(odd_bird,response(X1,common_bird(compose(a,X1))))),inference(pm,[status(thm)],[c_0_3,c_0_8,theory(equality)])).
+cnf(c_0_11,hypothesis,(response(c,common_bird(compose(compose(X1,X2),X3)))=response(X1,response(X2,response(X3,common_bird(compose(compose(X1,X2),X3)))))),inference(pm,[status(thm)],[c_0_1,c_0_8,theory(equality)])).
+cnf(c_0_12,hypothesis,(response(a,response(b,common_bird(c)))=response(c,common_bird(compose(a,b)))),inference(pm,[status(thm)],[c_0_8,c_0_4,theory(equality)])).
+cnf(c_0_13,hypothesis,(response(X1,response(X2,response(X3,common_bird(compose(X1,compose(X2,X3))))))=response(c,common_bird(compose(X1,compose(X2,X3))))),inference(pm,[status(thm)],[c_0_8,c_0_1,theory(equality)])).
+cnf(c_0_14,hypothesis,(response(a,response(c,common_bird(compose(compose(b,X1),X2))))=response(c,response(X1,response(X2,common_bird(compose(compose(b,X1),X2)))))),inference(pm,[status(thm)],[c_0_5,c_0_11,theory(equality)])).
+cnf(c_0_15,negated_conjecture,(response(c,common_bird(compose(compose(a,X1),X2)))!=response(odd_bird,response(X1,response(X2,common_bird(compose(compose(a,X1),X2)))))),inference(pm,[status(thm)],[c_0_3,c_0_11,theory(equality)])).
+cnf(c_0_16,hypothesis,(response(c,common_bird(compose(compose(a,b),X1)))=response(c,response(X1,common_bird(compose(compose(a,b),X1))))),inference(pm,[status(thm)],[c_0_5,c_0_11,theory(equality)])).
+cnf(c_0_17,hypothesis,(response(c,common_bird(compose(compose(compose(X1,X2),X3),X4)))=response(X1,response(X2,response(X3,response(X4,common_bird(compose(compose(compose(X1,X2),X3),X4))))))),inference(pm,[status(thm)],[c_0_1,c_0_11,theory(equality)])).
+cnf(c_0_18,hypothesis,(response(a,response(b,response(X1,common_bird(compose(c,X1)))))=response(c,common_bird(compose(compose(a,b),X1)))),inference(pm,[status(thm)],[c_0_11,c_0_4,theory(equality)])).
+cnf(c_0_19,hypothesis,(response(X1,response(X2,response(X3,response(X4,common_bird(compose(compose(X1,X2),compose(X3,X4)))))))=response(c,common_bird(compose(compose(X1,X2),compose(X3,X4))))),inference(pm,[status(thm)],[c_0_11,c_0_1,theory(equality)])).
+cnf(c_0_20,hypothesis,(response(X1,response(c,common_bird(compose(compose(X1,a),b))))=response(c,common_bird(compose(compose(X1,a),b)))),inference(pm,[status(thm)],[c_0_11,c_0_5,theory(equality)])).
+cnf(c_0_21,hypothesis,(response(X1,response(X2,response(X3,response(X4,common_bird(compose(compose(X1,compose(X2,X3)),X4))))))=response(c,common_bird(compose(compose(X1,compose(X2,X3)),X4)))),inference(pm,[status(thm)],[c_0_11,c_0_1,theory(equality)])).
+cnf(c_0_22,hypothesis,(response(odd_bird,response(c,common_bird(compose(b,X1))))!=response(c,response(X1,common_bird(compose(b,X1))))),inference(pm,[status(thm)],[c_0_6,c_0_8,theory(equality)])).
+cnf(c_0_23,hypothesis,(response(odd_bird,response(c,common_bird(compose(compose(b,X1),X2))))!=response(c,response(X1,response(X2,common_bird(compose(compose(b,X1),X2)))))),inference(pm,[status(thm)],[c_0_6,c_0_11,theory(equality)])).
+cnf(c_0_24,hypothesis,($false),inference(pm,[status(thm)],[c_0_6,c_0_8,theory(equality)])).
+cnf(c_0_25,hypothesis,(response(c,common_bird(compose(compose(odd_bird,b),X1)))!=response(c,response(X1,common_bird(compose(compose(odd_bird,b),X1))))),inference(pm,[status(thm)],[c_0_6,c_0_11,theory(equality)])).
+cnf(c_0_26,hypothesis,($false), c_0_24,['proof']).
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(response(compose(X1,X2),X3)=response(X1,response(X2,X3))), file('<stdin>', composer_exists)).
+cnf(c_0_1,hypothesis,(c=compose(a,b)), file('<stdin>', c_composes_a_with_b)).
+cnf(c_0_2,negated_conjecture,(response(a,X1)!=response(odd_bird,X1)), file('<stdin>', prove_a_is_agreeable)).
+cnf(c_0_3,hypothesis,(response(c,common_bird(X1))=response(X1,common_bird(X1))), file('<stdin>', agreeable1)).
+cnf(c_0_4,axiom,(response(compose(X1,X2),X3)=response(X1,response(X2,X3))), c_0_0).
+cnf(c_0_5,hypothesis,(compose(a,b)=c), c_0_1).
+cnf(c_0_6,negated_conjecture,(response(odd_bird,X1)!=response(a,X1)), c_0_2).
+cnf(c_0_7,plain,(response(compose(X1,X2),X3)=response(X1,response(X2,X3))), c_0_4).
+cnf(c_0_8,hypothesis,(compose(a,b)=c), c_0_5).
+cnf(c_0_9,hypothesis,(response(c,common_bird(X1))=response(X1,common_bird(X1))), c_0_3).
+cnf(c_0_10,negated_conjecture,(response(a,X1)!=response(odd_bird,X1)), c_0_6).
+cnf(c_0_11,hypothesis,(response(a,response(b,X1))=response(c,X1)), inference(pm,[status(thm)],[c_0_7, c_0_8, theory(equality)])).
+cnf(c_0_12,hypothesis,(response(c,common_bird(X1))=response(X1,common_bird(X1))), c_0_9).
+cnf(c_0_13,hypothesis,(response(odd_bird,response(b,X1))!=response(c,X1)), inference(pm,[status(thm)],[c_0_10, c_0_11, theory(equality)])).
+cnf(c_0_14,hypothesis,(response(X1,response(X2,common_bird(compose(X1,X2))))=response(c,common_bird(compose(X1,X2)))), inference(pm,[status(thm)],[c_0_7, c_0_12, theory(equality)])).
+cnf(c_0_15,hypothesis,($false), inference(pm,[status(thm)],[c_0_13, c_0_14, theory(equality)]), ['proof']).
+# SZS output end CNFRefutation.
+# Parsed axioms                        : 4
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 4
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 4
+# Processed clauses                    : 8
+# ...of these trivial                  : 0
+# ...subsumed                          : 0
+# ...remaining for further processing  : 8
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 0
+# Generated clauses                    : 21
+# ...of the previous two non-trivial   : 16
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 21
+# Factorizations                       : 0
+# Equation resolutions                 : 0
+# Current number of processed clauses  : 8
+#    Positive orientable unit clauses  : 5
+#    Positive unorientable unit clauses: 1
+#    Negative unit clauses             : 2
+#    Non-unit-clauses                  : 0
+# Current number of unprocessed clauses: 12
+# ...number of literals in the above   : 12
+# Clause-clause subsumption calls (NU) : 0
+# Rec. Clause-clause subsumption calls : 0
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 0
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 0
+# BW rewrite match successes           : 0
+# Condensation attempts                : 0
+# Condensation successes               : 0

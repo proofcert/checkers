@@ -6,6 +6,9 @@ kind form, modform, cert type.
 kind pair type -> type -> type.
 kind map type.
 
+/* each fpc can format the input if required (i.e. initialize state, etc.) */
+type prepare form -> cert -> (pair form cert).
+
 type pr A -> B -> pair A B.
 
 type entry_point  cert -> form -> o.

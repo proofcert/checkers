@@ -1,0 +1,53 @@
+% Problem    : GRP563-1 : TPTP v6.1.0. Released v2.6.0.
+% Command    : eprover --auto-schedule --tstp-format -s --proof-object --memory-limit=2048 --cpu-limit=%d %s
+% Computer   : n097.star.cs.uiowa.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2609 0 @ 2.40GHz
+% Memory     : 32286.75MB
+% OS         : Linux 2.6.32-431.20.3.el6.x86_64
+% CPULimit   : 300
+% DateTime   : Sun Jul 20 03:31:01 CDT 2014
+% CPUTime    : 
+# No SInE strategy applied
+# Trying AutoSched0 for 151 seconds
+# AutoSched0-Mode selected heuristic G_E___209_C18_F1_AE_CS_SP_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+
+# Proof found!
+# SZS status Unsatisfiable
+# SZS output start CNFRefutation.
+cnf(c_0_0,axiom,(divide(divide(divide(X1,inverse(X2)),X3),divide(X1,X3))=X2), file('/export/starexec/sandbox/benchmark/theBenchmark.p', single_axiom)).
+cnf(c_0_1,negated_conjecture,(multiply(multiply(a3,b3),c3)!=multiply(a3,multiply(b3,c3))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', prove_these_axioms_3)).
+cnf(c_0_2,axiom,(multiply(X1,X2)=divide(X1,inverse(X2))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', multiply)).
+cnf(c_0_3,plain,(divide(divide(divide(divide(divide(X1,inverse(X2)),X3),inverse(X4)),divide(X1,X3)),X2)=X4), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_4,plain,(divide(divide(X1,inverse(X2)),X1)=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_3]), c_0_0])).
+cnf(c_0_5,plain,(divide(X1,divide(X2,X2))=X1), inference(spm,[status(thm)],[c_0_0, c_0_4])).
+cnf(c_0_6,plain,(divide(X1,divide(divide(X2,inverse(X1)),divide(X2,inverse(X3))))=X3), inference(spm,[status(thm)],[c_0_0, c_0_0])).
+cnf(c_0_7,plain,(divide(divide(X1,X1),inverse(X2))=X2), inference(spm,[status(thm)],[c_0_4, c_0_5])).
+cnf(c_0_8,plain,(divide(X1,divide(X1,X2))=X2), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_6, c_0_7]), c_0_7])).
+cnf(c_0_9,plain,(divide(divide(X1,X1),X2)=inverse(X2)), inference(spm,[status(thm)],[c_0_8, c_0_7])).
+cnf(c_0_10,plain,(inverse(inverse(X1))=X1), inference(rw,[status(thm)],[c_0_7, c_0_9])).
+cnf(c_0_11,plain,(divide(divide(X1,X2),X1)=inverse(X2)), inference(spm,[status(thm)],[c_0_4, c_0_10])).
+cnf(c_0_12,plain,(divide(X1,X1)=divide(X2,X2)), inference(spm,[status(thm)],[c_0_8, c_0_5])).
+cnf(c_0_13,plain,(divide(divide(X1,X2),inverse(X2))=X1), inference(spm,[status(thm)],[c_0_8, c_0_11])).
+cnf(c_0_14,plain,(divide(divide(X1,inverse(X2)),X2)=X1), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_3, c_0_12]), c_0_7]), c_0_8])).
+cnf(c_0_15,negated_conjecture,(divide(divide(a3,inverse(b3)),inverse(c3))!=divide(a3,inverse(divide(b3,inverse(c3))))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_1, c_0_2]), c_0_2]), c_0_2]), c_0_2])).
+cnf(c_0_16,plain,(inverse(divide(X1,X2))=divide(X2,X1)), inference(spm,[status(thm)],[c_0_11, c_0_8])).
+cnf(c_0_17,plain,(divide(inverse(X1),inverse(X2))=divide(X2,X1)), inference(spm,[status(thm)],[c_0_13, c_0_11])).
+cnf(c_0_18,plain,(divide(divide(X1,X2),divide(divide(X1,X3),X2))=X3), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_0, c_0_14]), c_0_10])).
+cnf(c_0_19,plain,(divide(inverse(X1),divide(X2,X1))=inverse(X2)), inference(spm,[status(thm)],[c_0_11, c_0_11])).
+cnf(c_0_20,negated_conjecture,(divide(divide(a3,inverse(b3)),inverse(c3))!=divide(a3,divide(inverse(c3),b3))), inference(rw,[status(thm)],[c_0_15, c_0_16])).
+cnf(c_0_21,plain,(divide(inverse(X1),X2)=divide(inverse(X2),X1)), inference(spm,[status(thm)],[c_0_14, c_0_11])).
+cnf(c_0_22,plain,(divide(X1,inverse(X2))=divide(X2,inverse(X1))), inference(spm,[status(thm)],[c_0_17, c_0_10])).
+cnf(c_0_23,plain,(divide(divide(X1,X2),divide(X3,X2))=divide(X1,X3)), inference(spm,[status(thm)],[c_0_18, c_0_8])).
+cnf(c_0_24,plain,(divide(divide(X1,X2),inverse(X3))=divide(X3,divide(X2,X1))), inference(spm,[status(thm)],[c_0_17, c_0_16])).
+cnf(c_0_25,plain,(divide(divide(X1,divide(X2,X3)),X3)=divide(X1,X2)), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_19, c_0_18]), c_0_16]), c_0_16])).
+cnf(c_0_26,negated_conjecture,(divide(c3,divide(inverse(a3),b3))!=divide(a3,divide(inverse(b3),c3))), inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_20, c_0_21]), c_0_22]), c_0_16]), c_0_21])).
+cnf(c_0_27,plain,(divide(X1,divide(X2,X3))=divide(X3,divide(X2,X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_23, c_0_11]), c_0_24])).
+cnf(c_0_28,plain,(divide(divide(X1,inverse(X2)),X3)=divide(X1,divide(X3,X2))), inference(spm,[status(thm)],[c_0_25, c_0_11])).
+cnf(c_0_29,negated_conjecture,(divide(b3,divide(inverse(a3),c3))!=divide(a3,divide(inverse(b3),c3))), inference(rw,[status(thm)],[c_0_26, c_0_27])).
+cnf(c_0_30,plain,(divide(X1,divide(inverse(X2),X3))=divide(X2,divide(inverse(X3),X1))), inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_22, c_0_28]), c_0_16])).
+cnf(c_0_31,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_29, c_0_30]), c_0_21])]), ['proof']).
+# SZS output end CNFRefutation.
+EOF

@@ -1,0 +1,3 @@
+eq ' (lam x0\x0 ' p ' q) ' (lam x0\x0 ' tt ' tt)
+
+then k c
