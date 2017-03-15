@@ -1,4 +1,4 @@
 simpfit-tableaux.lpo: simpfit-tableaux.mod simpfit-tableaux.sig ../../utils/lists.sig ../../kernel/lkf/certificatesLKF.sig fittings-tableaux.sig ../../kernel/lkf/lkf-syntax.sig ../../base.sig
 fittings-tableaux.lpo: fittings-tableaux.mod fittings-tableaux.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
-simpfit-tableaux.lp: simpfit-tableaux.lpo 
+simpfit-tableaux.lp: simpfit-tableaux.lpo ../../utils/lists.lpo
 fittings-tableaux.lp: fittings-tableaux.lpo 

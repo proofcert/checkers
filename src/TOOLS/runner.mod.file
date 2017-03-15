@@ -16,7 +16,7 @@ run :-
 run :-
   modalProblem Name ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
-  modalToLK ModalForm LKForm,  
+  modalToLK ModalForm LKForm,
   resolve [] (LKForm zero) Cert.
 
 resolve [] F Cert :-
@@ -33,20 +33,20 @@ resolveCert [] F Cert CertOut :-
 resolveCert [(pr I C) | R] F Cert  CertOut :-
   mapsto I C => resolve R F Cert.
 
-  
-% x\ p (q x) 
-% (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y))))))  
 
-% (x\ (some (y\ ( (p (rel x y)) &+& (d-(p (q y)))))))  
-  
+% x\ p (q x)
+% (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y))))))
+
+% (x\ (some (y\ ( (p (rel x y)) &+& (d-(p (q y)))))))
+
 % (some (y\ ( (p (rel zero y)) &+& (d-(p (q y))))))
 %  some (W1\ p (rel zero W1) &+& d- (p (q W1)))
-  
-% ((d+ (some (W1\ p (rel zero W1) &+& d- (d+ (n (q W1))))) !-! d+ (all (W1\ n (rel zero W1) !-! d+ (p (q W1)))))  
-% ( (dia (-- q)) !! (box (++ q)) )  
-  
+
+% ((d+ (some (W1\ p (rel zero W1) &+& d- (d+ (n (q W1))))) !-! d+ (all (W1\ n (rel zero W1) !-! d+ (p (q W1)))))
+% ( (dia (-- q)) !! (box (++ q)) )
+
   % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
-  
+
 modalToLK (-- A) (x\ n (A x)).
 modalToLK (++ A) (x\ p (A x)).
 
