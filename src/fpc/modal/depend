@@ -1,2 +1,0 @@
-fittings-tableaux.lpo: fittings-tableaux.mod fittings-tableaux.sig ../../kernel/lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig ../../kernel/lkf/lkf-syntax.sig
-fittings-tableaux.lp: fittings-tableaux.lpo 
