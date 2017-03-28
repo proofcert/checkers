@@ -10,8 +10,10 @@ decide_ke (fitcert L (dectree I O D) M) I (fitcert [] (dectree I O D) M).
 
 store_kc C (n (rel X Y)) none C :- !. % in the case of relational atoms, we use none as the index
 store_kc C (p (rel X Y)) none C :- !. % in the case of relational atoms, we use none as the index
-store_kc (fitcert [H|T] (dectree I O D) M) (d+ A) H (fitcert T (dectree H none ((dectree I O D) :: nil)) M) :- isNegAtm (A), !. % special case: used for storing delayed negative atoms (necessary in the case when we delay also atoms)
-store_kc (fitcert [] (dectree I O [H|T]) M) Form I (fitcert [] H M). % special case: used for storing negative atoms (necessary in the case when we delay also atoms)
+%store_kc (fitcert [H|T] (dectree I O D) M) (d+ A) H (fitcert T (dectree H none ((dectree I O D) :: nil)) M) :- isNegAtm (A), !. % special case: used for 
+%storing delayed negative atoms (necessary in the case when we delay also atoms)
+%store_kc (fitcert [] (dectree I O [H|T]) M) Form I (fitcert [] H M). % special case: used for storing negative atoms (necessary in the case when we delay also 
+%atoms)
 store_kc (fitcert [H|T] D M) Form H (fitcert T D M). % general case
 
 release_ke C C.
