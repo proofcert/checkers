@@ -4,37 +4,62 @@ accum_sig certificatesLKF.
 accum_sig lists.
 accum_sig base.
 
-kind dectree, cert1, cert2 type.
+% a certificate for modal tableaux will contain
+% 1) a decision tree telling on which formula to decide next
+% 2) a map between an (abstract) index identifying a diamond and the index of a box
+% 3) a map between an (abstract) index identifying an atom and an index of a complementary one
 
-% a certificate is a tuple of:
-% list of indices - used when formulas get stored
-% tree of pairs of indices - represents the original tableau proof
-% list of pairs - a mapping from indices to LKF-eigenvariables
-type tree list index -> dectree -> list (pair index atm) -> cert1.
+% The abstract indices will allow to choose from a precise deterministic choice of the actual instance of diamond or init applications
+% to a less precise identification of the formula only
 
-% a dectree is a tree of (index1, index2)
-% index1 - referring to the position of the subformula in the formula tree
-% index2 - optional index referring to complementary formula position for boxes and closures.
-% represented as a root (index1, index2) plus a list of dectrees (containing from 0 to 2 dectrees; 0, if the node is a leaf)
-type dectree index -> index -> list dectree -> dectree.
+% types for the decisition tree component
+kind dectree type.
+% types for the diamond-box map
+kind diabox-map, diabox-entry, dia-index type.
+% types for the initial rule map
+kind init-map, init-entry, init-index type.
 
-% an index is (1) empty, the (2) left or (3) right child of an index (this is used for classical connectives and diamond),
-% (4) the box child of an index (in this case, we also add info about the corresponding diamond)
+% types for the certification state which is carried by the certificate
+kind state, eigen-entry type.
+
+% the decide tree
+type dectree index -> list dectree -> dectree.
+
+% a state containing the last formula we have encountered. Used to connect the index of the stored formula to the index of its parent
+% the second state component is the eigenvariable which is mapped to a box position
+type state list index ->  list eigen-entry -> state.
+type eigen-entry index -> atm -> eigen-entry.
+
+% a generic certificate for modal tableaux proofs
+type modtab-cert dectree -> diabox-map -> init-map -> state -> cert.
+
+% a map between dia indices and eigenvariables
+type diabox-entry dia-index -> index -> diabox-entry.
+type diabox-map list diabox-entry -> diabox-map.
+type get-dia-index index -> dia-index -> o.
+
+% a map between init indices and a complementary index
+type init-entry init-index -> index -> init-entry.
+type init-map list init-entry -> init-map.
+type get-init-index index -> init-index -> o.
+
+% the formula-index type
+% an index is the (1) left or (2) right child of an index (this is used for classical connectives and diamond),
+% (3) the box child of an index (in this case, we also add info about the corresponding diamond)
 type eind index. % corresponds to the root
 type lind index -> index.
 type rind index -> index.
 type bind index -> index -> index.
-type none index. % used when the index is irrelevant, e.g., to label relational atoms
 
 % for the accessibility relation, we use the same 'rel' in all problems
 type rel A -> A -> atm.
 
-kind closure, boxinfo, use type.
+% fixed index for relations, should be improved!
+type relind index.
 
-type closure index -> index -> closure.
-type boxinfo index -> index -> boxinfo.
-type use index -> use.
-
-type boxdia int -> list index -> list closure -> list boxinfo -> list (pair index atm) -> list use -> cert2.
-
-type modtabcert cert1 -> cert2 -> cert.
+% sum types for dia and init indices
+% the user will choose which constructor to use in order to create these indices
+% and the fpc will pattern match on the constructor in order to know which semantics to use
+% right now we support only the simpler constructor of using an actual formula index
+type dia-index index -> dia-index.
+type init-index index -> init-index.
