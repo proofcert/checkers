@@ -106,11 +106,14 @@ isPosForm (d+ _).
 isPosForm (_ !+!  _).
 isNegAtm (n _).
 isPosAtm (p _).
+isAtm A :- isNegAtm A ; isPosAtm A.
 isPosForm (some _).
 isPosForm t+.
 isPosForm f+.
 isNegForm f-.
 isNegForm t-.
+isCompForm A :- isNegForm A ; isPosForm A.
+
 isNeg A :- isNegForm A ; isNegAtm A.
 isPos A :- isPosForm A ; isPosAtm A.
 isPosUM A :- isPos A ; isNegAtm A.
