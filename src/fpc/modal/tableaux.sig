@@ -20,15 +20,19 @@ kind diabox-map, diabox-entry, dia-index type.
 kind init-map, init-entry, init-index type.
 
 % types for the certification state which is carried by the certificate
-kind state, eigen-entry type.
+kind state, eigen-entry, decide-bound-entry type.
 
 % the decide tree
 type dectree index -> list dectree -> dectree.
 
 % a state containing the last formula we have encountered. Used to connect the index of the stored formula to the index of its parent
 % the second state component is the eigenvariable which is mapped to a box position
-type state list index ->  list eigen-entry -> state.
+% the last component is a map between an index to the maximal nested numbers we can decide on it
+type state list index ->  list eigen-entry -> list decide-bound-entry -> state.
 type eigen-entry index -> atm -> eigen-entry.
+% warning, what happens if we dont have a decide tree and all indices are inferred? we can get an index lind X where X can be anything!
+% we might be able to solve it by choosing eind for the root node since there is only one choice then!
+type decide-bound-entry index -> int -> decide-bound-entry.
 
 % a generic certificate for modal tableaux proofs
 type modtab-cert dectree -> diabox-map -> init-map -> state -> cert.
@@ -63,3 +67,8 @@ type relind index.
 % right now we support only the simpler constructor of using an actual formula index
 type dia-index index -> dia-index.
 type init-index index -> init-index.
+
+% numbers for resitrcting decide depth
+kind num type.
+type z num.
+type s num -> num.
