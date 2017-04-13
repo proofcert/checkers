@@ -1,4 +1,4 @@
-sig tableaux.
+sig labeled.
 
 accum_sig certificatesLKF.
 accum_sig lists.
@@ -44,7 +44,7 @@ type snum num -> num.
 type decide-bound-entry index -> num -> decide-bound-entry.
 
 % a generic certificate for modal tableaux proofs
-type modtab-cert dectree -> diabox-map -> init-map -> axiom-map -> state -> cert.
+type modlab-cert dectree -> diabox-map -> init-map -> axiom-map -> state -> cert.
 
 % a map between dia indices and eigenvariables
 type diabox-entry index -> index -> diabox-entry.

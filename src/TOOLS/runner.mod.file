@@ -14,10 +14,11 @@ run :-
   resolve Map F Cert.
 
 run :-
-  modalProblem Name ModalForm Cert,
+  modalProblem Name Ax ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
   modalToLK ModalForm LKForm,
-  resolve [] (LKForm zero) Cert.
+  prependAx (LKForm zero) Ax AxLKForm,
+  resolve Ax AxLKForm Cert.
 
 resolve [] F Cert :-
   if (entry_point Cert F)
@@ -32,6 +33,10 @@ resolveCert [] F Cert CertOut :-
 		  (print "Fail\n", halt), fail.
 resolveCert [(pr I C) | R] F Cert  CertOut :-
   mapsto I C => resolve R F Cert.
+
+prependAx LKForm [] LKForm.
+prependAx LKForm [pr I Ax| Tl] LKForm' :-
+  prependAx (Ax !-! (LKForm)) Tl LKForm'.
 
 
   % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
@@ -49,14 +54,14 @@ modalToLK (box (A)) (x\ (all (y\ ( (n (rel x y)) !-! (DelA y))))) :- modalToLK A
 
 
   % Operator that delays positively only non-literals
-  
-optdel A (x\ d+ (A x)) :- isCompForm (A x).
-optdel A A :- isAtm (A x).
-  
-  
-  
-  
-  
+
+optdel A (x\ d+ (A x)) :- isCompForm (A _).
+optdel A A :- isAtm (A _).
+
+
+
+
+
 % optdel (A) (x\ d+ ((A x))).
 
 %modalToLK (A && B) (x\ (DelA x) &-& (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
@@ -80,7 +85,7 @@ optdel A A :- isAtm (A x).
 % modalToLK x (box (A)) (all (y\ ( (n (rel x y)) !-! (DelA)))) :- modalToLK y A A', optdel A' DelA.
 % modalToLK y (box (A)) (all (x\ ( (n (rel y x)) !-! (DelA)))) :- modalToLK x A A', optdel A' DelA.
 
-  
+
 
   %optdel A (x\ d+ (A x)) :- isCompNeg (A x).
 %optdel A A :- isAtm (A x).

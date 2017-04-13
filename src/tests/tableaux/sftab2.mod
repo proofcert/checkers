@@ -4,6 +4,7 @@ accumulate simpfit-tableaux.
 accumulate lkf-kernel.
 
 modalProblem "ModLeanTap t3"
+[]
 % dia-q,box p,box (-p;q)  the negated formula
 ((box (++ q2)) !! (dia (-- q1)) !! (dia ((++ q1) && (-- q2))))
 	(

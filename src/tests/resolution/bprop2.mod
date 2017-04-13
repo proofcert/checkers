@@ -7,7 +7,8 @@ accumulate resolution_steps.
 problem "bprop2"
 	(p a !-! n a)
   (rsteps [resolv (rid (idx 1)) (rid (idx 2)) 0] estate)
-  (map [pr 1 (p a),
-   pr 2 (n a),
-   pr 0 t+]).
+  (map [
+pr (idx 1) (p a),
+   pr (idx 2) (n a),
+   pr (idx 0) t+]).
 
