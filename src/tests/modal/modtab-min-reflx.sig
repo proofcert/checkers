@@ -1,4 +1,4 @@
-sig modtab-full-reflx.
+sig modtab-min-reflx.
 accum_sig lkf-syntax.
 accum_sig lkf-kernel.
 accum_sig base.

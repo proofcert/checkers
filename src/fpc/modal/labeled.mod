@@ -58,7 +58,7 @@ some_ke (modlab-cert (dectree I [S]) (diabox-map M1) M2 M5 (state [] M3 M4)) Eig
   (modlab-cert S (diabox-map M1) M2 M5 (state [bind I O] M3 M4)) :-
   (member (diabox-entry I O) M1, member (eigen-entry O Eigen)  M3).
 some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) (state [] M3 M4)) Eigen
-  (modlab-cert S M1 M2 (axiom-map M5) (state [relind] M3 M4)) :-
-  (member (axiom-entry I O) M5, member (eigen-entry O Eigen)  M3).
+  (modlab-cert S M1 M2 (axiom-map [axiom-entry I Ls | M5']) (state [relind] M3 M4)) :-
+  (memb_and_rest (axiom-entry I [O|Ls]) M5 M5', member (eigen-entry O Eigen)  M3).
 
 % for extensions of K, we will need to define also a case where the first list of S is not []

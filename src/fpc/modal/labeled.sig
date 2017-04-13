@@ -55,7 +55,7 @@ type init-entry index -> index -> init-entry.
 type init-map list init-entry -> init-map.
 
 % a map between diamonds relating to axioms and the index of the axiom
-type axiom-entry index -> index -> axiom-entry.
+type axiom-entry index -> list index -> axiom-entry.
 type axiom-map list axiom-entry -> axiom-map.
 
 % the formula-index type
