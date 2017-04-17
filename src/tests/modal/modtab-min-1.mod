@@ -8,4 +8,5 @@ modalProblem "ModLeanTAP problem t1"
   (diabox-map [diabox-entry (lind (lind eind)) (rind (lind eind)), diabox-entry (rind eind) (rind (lind eind)) ])
   (init-map [init-entry (lind (bind ((rind eind)) ((rind (lind eind))))) (bind ((lind (lind eind))) ((rind (lind eind)))),
    init-entry (lind (rind (lind eind))) (rind (bind ((rind eind)) ((rind (lind eind)))))]) (axiom-map [])
+ (snum (snum znum))
  (state [] [] []) ).

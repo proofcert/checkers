@@ -44,7 +44,7 @@ type snum num -> num.
 type decide-bound-entry index -> num -> decide-bound-entry.
 
 % a generic certificate for modal tableaux proofs
-type modlab-cert dectree -> diabox-map -> init-map -> axiom-map -> state -> cert.
+type modlab-cert dectree -> diabox-map -> init-map -> axiom-map -> num -> state -> cert.
 
 % a map between dia indices and eigenvariables
 type diabox-entry index -> index -> diabox-entry.
