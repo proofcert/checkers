@@ -1,4 +1,4 @@
-module modlab-min-reflx.
+module modlab-full-reflx.
 accumulate labeled.
 accumulate lkf-kernel.
 modalProblem "ModLeanTAP problem t1"
@@ -9,4 +9,4 @@ modalProblem "ModLeanTAP problem t1"
   (diabox-map [diabox-entry (lind eind) default-ind])
   (init-map [init-entry (rind eind) (bind (lind eind) default-ind)]) (axiom-map [axiom-entry reflx-ind [default-ind]])
  (state [] [eigen-entry default-ind zero] []) ).
-   
+
