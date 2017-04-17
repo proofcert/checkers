@@ -7,7 +7,8 @@ accumulate resolution_steps.
 problem "bfol2"
   (some (x\ (n (g x))) !-! p (g a))
   (rsteps [resolv (rid (idx 1) (sub [a])) (rid (idx 2) (sub [])) 0] estate)
-  (map [pr 1 (some (x\ (n (g x)))),
-   pr 2 (p (g a)),
-   pr 0 t+]).
+  (map [
+pr (idx 1) (some (x\ (n (g x)))),
+   pr (idx 2) (p (g a)),
+   pr (idx 0) t+]).
 

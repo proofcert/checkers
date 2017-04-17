@@ -2,6 +2,7 @@ module ftab3.
 accumulate fittings-tableaux.
 accumulate lkf-kernel.
 modalProblem "ModLeanTAP problem t4"
+[]
 ((dia (-- p1) !! box (++ q1)) !! dia ((++ p1) && (-- q1)))
 (fitcert []
 ((dectree eind none

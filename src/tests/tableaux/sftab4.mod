@@ -4,6 +4,7 @@ accumulate simpfit-tableaux.
 accumulate lkf-kernel.
 
 modalProblem "ModLeanTap t4"
+[]
 (((box (-- q1)) && (box (++ q2))) !! (dia ((++ q1) !! (-- q2))))
 	(
     simpfitcert

@@ -1,4 +1,4 @@
-sig tableaux.
+sig labeled.
 
 accum_sig certificatesLKF.
 accum_sig lists.
@@ -12,7 +12,7 @@ accum_sig base.
 % The abstract indices will allow to choose from a precise deterministic choice of the actual instance of diamond or init applications
 % to a less precise identification of the formula only
 
-% types for the decision tree component
+% types for the decisition tree component
 kind dectree type.
 % types for the diamond-box map
 kind diabox-map, diabox-entry type.
@@ -44,7 +44,7 @@ type snum num -> num.
 type decide-bound-entry index -> num -> decide-bound-entry.
 
 % a generic certificate for modal tableaux proofs
-type modtab-cert dectree -> diabox-map -> init-map -> axiom-map -> state -> cert.
+type modlab-cert dectree -> diabox-map -> init-map -> axiom-map -> state -> cert.
 
 % a map between dia indices and eigenvariables
 type diabox-entry index -> index -> diabox-entry.
