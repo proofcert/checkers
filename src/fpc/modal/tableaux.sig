@@ -12,7 +12,7 @@ accum_sig base.
 % The abstract indices will allow to choose from a precise deterministic choice of the actual instance of diamond or init applications
 % to a less precise identification of the formula only
 
-% types for the decisition tree component
+% types for the decision tree component
 kind dectree type.
 % types for the diamond-box map
 kind diabox-map, diabox-entry type.
