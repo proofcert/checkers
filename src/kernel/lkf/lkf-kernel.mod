@@ -1,10 +1,12 @@
 % 29 july 2014.
 module lkf-kernel.
 accumulate lists.
+accumulate debug.
 
 % Entry point
 entry_point Cert Form :-
-  check Cert (unfK [Form]).
+spy ""
+  (check Cert (unfK [Form])).
 
 %%%%%%%%%%%%%%%%%%
 % Structural Rules
@@ -12,30 +14,31 @@ entry_point Cert Form :-
 
 % decide
 check Cert (unfK nil) :-
-  decide_ke Cert Indx Cert',
-  inCtxt Indx P,
+  spy "" (decide_ke Cert Indx Cert'),
+  spy "inContext " (inCtxt Indx P),
   isPos P,
-  check Cert' (foc P).
+  spy "Deciding " (check Cert' (foc P)).
 % release
 check Cert (foc N) :-
   isNeg N,
-  release_ke Cert Cert',
-  check Cert' (unfK [N]).
+  spy "" (release_ke Cert Cert'),
+  spy "Releasing " (check Cert' (unfK [N])).
 % store
 check Cert (unfK [C|Rest]) :-
   (isPos C ; isNegAtm C),
-  store_kc Cert C Indx Cert',
-  inCtxt Indx C => check Cert' (unfK Rest).
+  eigencopy C' C,
+  spy "" (store_kc Cert C Indx Cert'),
+  inCtxt Indx C => spy "Storing " (check Cert' (unfK Rest)).
 % initial
 check Cert (foc (p A)) :-
-  initial_ke Cert Indx,
-  inCtxt Indx (n A).
+  spy "" (initial_ke Cert Indx),
+  spy "Init " (inCtxt Indx (n A)).
 % cut
 check Cert (unfK nil) :-
-  cut_ke Cert F CertA CertB,
+  spy "" (cut_ke Cert F CertA CertB),
   negateForm F NF,
-  check CertA (unfK [F]),
-  check CertB (unfK [NF]).
+  spy "Cut left " (check CertA (unfK [F])),
+  spy "Cut right " (check CertB (unfK [NF])).
 
 %%%%%%%%%%%%%%%%%%%%
 % Asynchronous Rules
@@ -43,53 +46,57 @@ check Cert (unfK nil) :-
 
 % orNeg
 check Cert (unfK [A !-! B | Rest]) :-
-  orNeg_kc Cert (A !-! B)  Cert',
-  check Cert' (unfK [A, B| Rest]).
+  spy "" (orNeg_kc Cert (A !-! B)  Cert'),
+  spy "Or- " (check Cert' (unfK [A, B| Rest])).
 % conjunction
 check Cert (unfK [A &-& B | Rest]) :-
-  andNeg_kc Cert (A &-& B) CertA CertB,
-  check CertA (unfK [A | Rest]),
-  check CertB (unfK [B | Rest]).
+  spy "" (andNeg_kc Cert (A &-& B) CertA CertB),
+  spy "And- left " (check CertA (unfK [A | Rest])),
+  spy "And- right " (check CertB (unfK [B | Rest])).
 % forall
 check Cert (unfK [all B | Theta]) :-
-  all_kc Cert Cert',
-  pi w\ normalize (check (Cert' w) (unfK [B w | Theta] )).
+  spy "" (all_kc Cert Cert'),
+  spy "All " (pi w\ (normalize (check (Cert' w) (unfK [B w | Theta] )))). % Teyjus bug doesn perform beta-reduction on inner reducts!!!
 % Units
 check Cert (unfK [t-|_]). % No clerk - justify in the paper ?
 check Cert (unfK [f-|Gamma]) :-  % Fix the name, between Theta, Teta, Gamma !
-  false_kc Cert Cert',
-  check Cert' (unfK Gamma).
+  spy "" (false_kc Cert Cert'),
+  spy "False " (check Cert' (unfK Gamma)).
 % delay
 check Cert (unfK [d- A| Teta]) :-
-  check Cert (unfK [A| Teta]).
+  spy "NegDelay" (check Cert (unfK [A| Teta])).
 
 %%%%%%%%%%%%%%%%%%%
 % Synchronous Rules
 %%%%%%%%%%%%%%%%%%%
 % conjunction
 check Cert (foc (A &+& B)) :-
-   andPos_k Cert (A &+& B) Direction CertA CertB,
+   spy "" (andPos_k Cert (A &+& B) Direction CertA CertB),
    ((Direction = left-first,
-   check CertA (foc A),
-   check CertB (foc B));
+   spy "And+ left " (check CertA (foc A)),
+   spy "And+ right " (check CertB (foc B)));
    (Direction = right-first,
-    check CertB (foc B),check CertA (foc A))).
+    spy "And+ right " (check CertB (foc B)),
+    spy "And+ left " (check CertA (foc A)))).
+%   spy "And+ left " (check CertA (foc A)),
+%   spy "And+ right " (check CertB (foc B)).
 % disjunction
 check Cert (foc (A !+! B)) :-
-  orPos_ke Cert (A !+! B) Choice Cert',
-  ((Choice = left,  check Cert' (foc A));
-   (Choice = right, check Cert' (foc B))).
+  spy "" (orPos_ke Cert (A !+! B) Choice Cert'),
+  ((Choice = left,  spy "Or+ left " (check Cert' (foc A)));
+   (Choice = right, spy "Or+ right " (check Cert' (foc B)))).
 % quantifers
 check Cert (foc (some B)) :-
-  some_ke Cert T Cert',
-  eager_normalize (B T) C, % required as Teyjus doesnt normalize it before pattern matching.
-  check Cert' (foc (C)).
+  spy "" (some_ke Cert T Cert'),
+  eigencopy T T',
+  eager_normalize (B T') C, % required as Teyjus doesnt normalize it before pattern matching.
+  spy "Some " (check Cert' (foc (C))).
 % Units
 check Cert (foc t+) :-
-  true_ke Cert.
+  spy "" (true_ke Cert).
 % delay
 check Cert (foc (d+ A)) :-
-  check Cert (foc A).
+  spy "PosDelay " (check Cert (foc A)).
 
 %%%%%%%%%%%
 % Utilities
@@ -132,11 +139,6 @@ negateForm (A !+! B)  (NA &-& NB) :- negateForm A NA, negateForm B NB.
 negateForm (all B)  (some NB) &
 negateForm (some B) (all NB) :- pi x\ negateForm (B x) (NB x).
 
-
-/* Temporary : for backwards compatibility.
-Once the andPos_ke has been changed everywhere, andPos_k can be changed to andPos_ke,
-for now andPos_k calls on andPos_ke.
-*/
-
 andPos_k Cert (A &+& B) left-first CertA CertB :-
    andPos_ke Cert (A &+& B) CertA CertB.
+
