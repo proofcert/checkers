@@ -13,10 +13,8 @@ decide_ke (modtab-cert (dectree I D) M1 M2 M5 Bnd (state _ M3 M4)) I (modtab-cer
     reduce_or_set_decide_bound M4 I (snum _) M4'.
 
 % some indices correspond to a tactics language which is parsed by this expert
-decide_ke (modtab-cert (dectree (modal MI [I]) D) M1 M2 M5 Bnd (state _ M3 M4)) I' Cert :-
+decide_ke (modtab-cert (dectree (modal MI I) D) M1 M2 M5 Bnd (state _ M3 M4)) I' Cert :-
   decide_ke (modtab-cert (dectree MI [dectree I D]) M1 M2 M5 Bnd (state [] M3 M4')) I' Cert.
-decide_ke (modtab-cert (dectree (modal MI [I,J]) D) M1 M2 M5 Bnd (state _ M3 M4)) I' Cert :-
-  decide_ke (modtab-cert (dectree MI [dectree I [dectree J D]]) M1 M2 M5 Bnd (state [] M3 M4')) I' Cert.
 
 % this fails if it doesnt find an entry with value greater than znumnum
 reduce_or_set_decide_bound [decide-bound-entry I (snum B)| R] I (snum B) [decide-bound-entry I B| R]. % reduce if found

@@ -84,4 +84,4 @@ type zero A.
 type default-ind index.
 
 % modal tactics
-type modal index -> list index -> index.
+type modal index -> index -> index.

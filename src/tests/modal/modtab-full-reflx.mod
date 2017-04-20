@@ -6,7 +6,7 @@ modalProblem "ModLeanTAP problem t1"
 ((dia (-- p1)) !! (++ p1))
 (modtab-cert
   (dectree eind
-    [dectree (modal reflx-ind [lind eind]) [dectree (rind eind) []]])
+    [dectree (modal reflx-ind (lind eind)) [dectree (rind eind) []]])
   (diabox-map [diabox-entry (lind eind) default-ind])
   (init-map [init-entry (rind eind) (bind (lind eind) default-ind)]) (axiom-map [axiom-entry reflx-ind [default-ind]])
  (snum (snum znum))
