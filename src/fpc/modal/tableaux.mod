@@ -9,9 +9,13 @@ module tableaux.
 % The way it works is that the decide tree tells us the index of the formula to decide on but does not change the tree
 % It is followed by a connective or initial rule, where we actually change the tree and update the index of the sub formulas
 % Then we store it using the updated index
-
 decide_ke (modtab-cert (dectree I D) M1 M2 M5 Bnd (state _ M3 M4)) I (modtab-cert (dectree I D) M1 M2 M5 Bnd (state [] M3 M4')) :-
     reduce_or_set_decide_bound M4 I (snum _) M4'.
+
+% some indices correspond to a tactics language which is parsed by this expert
+decide_ke (modtab-cert (dectree (modal MI [I]) D) M1 M2 M5 Bnd (state _ M3 M4)) I' Cert :-
+  decide_ke (modtab-cert (dectree MI [dectree I D]) M1 M2 M5 Bnd (state [] M3 M4')) I' Cert.
+
 
 % this fails if it doesnt find an entry with value greater than znumnum
 reduce_or_set_decide_bound [decide-bound-entry I (snum B)| R] I (snum B) [decide-bound-entry I B| R]. % reduce if found
