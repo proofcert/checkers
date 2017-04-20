@@ -10,4 +10,4 @@ modalProblem "ModLeanTAP problem t1"
   (diabox-map [diabox-entry (lind eind) default-ind])
   (init-map [init-entry (rind eind) (bind (lind eind) default-ind)]) (axiom-map [axiom-entry reflx-ind [default-ind]])
  (snum (snum znum))
- (state [] [eigen-entry default-ind zero] []) ).
+ (state [reflx-ind] [eigen-entry default-ind zero] []) ).
