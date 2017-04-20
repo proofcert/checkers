@@ -29,8 +29,8 @@ initial_ke (modlab-cert (dectree I _) _ (init-map M2) _ _ _) O :- member (init-e
 % Do not decompose the decide tree (special cases for the axioms - very ugly)
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ (n (rel x x)))) !-! F) (modlab-cert D M1 M2 M5 Bnd (state [AxInd] M3 M4)) :-
   !, mapsto AxInd (some (x\ (n (rel x x)))).
-orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &-& n (rel x z) ) ))) !-! F) (modlab-cert D M1 M2 M5 Bnd (state [AxInd] M3 M4)) :-
-  !, mapsto AxInd (some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &-& n (rel x z) ) ))).
+orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))) !-! F) (modlab-cert D M1 M2 M5 Bnd (state [AxInd] M3 M4)) :-
+  !, mapsto AxInd (some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))).
   orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 % since we never use again the decision tree. Check with Marco.
@@ -66,12 +66,13 @@ some_ke (modlab-cert (dectree I [S]) (diabox-map M1) M2 M5 Bnd (state [] M3 M4))
   (member (diabox-entry I O) M1, member (eigen-entry O Eigen)  M3).
 % in case of axioms
 % we need to decompose the dectree since the axiom-entry list contains only 1 value [O]
-some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state [] M3 M4)) Eigen
+some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) Eigen
   (modlab-cert S M1 M2 (axiom-map M5') Bnd (state [relind] M3 M4)) :-
   (memb_and_rest (axiom-entry I [O]) M5 M5', member (eigen-entry O Eigen)  M3).
 % we do not decompose the dectree since the axiom-entry list contains more than 1 value [O,Q|Ls]
-some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state [] M3 M4)) Eigen
+some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) Eigen
   (modlab-cert (dectree I [S]) M1 M2 (axiom-map [axiom-entry I [Q|Ls] | M5']) Bnd (state [relind] M3 M4)) :-
   (memb_and_rest (axiom-entry I [O,Q|Ls]) M5 M5', member (eigen-entry O Eigen)  M3).
+
 
 % for extensions of K, we will need to define also a case where the first list of S is not []
