@@ -21,7 +21,6 @@ kind init-map, init-entry type.
 % types for the map containing axiom indices
 kind axiom-map, axiom-entry type.
 
-
 % types for the certification state which is carried by the certificate
 kind state, eigen-entry, decide-bound-entry type.
 
@@ -83,3 +82,6 @@ type reduce_or_set_decide_bound (list decide-bound-entry) -> index -> num -> (li
 type zero A.
 
 type default-ind index.
+
+% modal tactics
+type modal index -> list index -> index.
