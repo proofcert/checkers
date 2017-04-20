@@ -53,7 +53,11 @@ andPos_k (modlab-cert (dectree I D) M1 M2 M5 Bnd S) _ left-first
   (modlab-cert (dectree relind []) M1 M2 M5 Bnd (state [] _ _)) (modlab-cert (dectree I D) M1 M2 M5 Bnd S).
 
 all_kc (modlab-cert (dectree I [S]) M1 M2 M5 Bnd (state [] M3 M4))
+  (Eigen\ modlab-cert S M1 M2 M5 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)) :-
+  member (eigen-entry I _) M3, !, fail.
+all_kc (modlab-cert (dectree I [S]) M1 M2 M5 Bnd (state [] M3 M4))
   (Eigen\ modlab-cert S M1 M2 M5 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)).
+
 % for extensions of K, we will need to define also a case where the first list of S is not []
 
 % real diamonds
