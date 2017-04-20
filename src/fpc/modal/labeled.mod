@@ -31,7 +31,10 @@ orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ (n (rel x x)))
   !, mapsto AxInd (some (x\ (n (rel x x)))).
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))) !-! F) (modlab-cert D M1 M2 M5 Bnd (state [AxInd] M3 M4)) :-
   !, mapsto AxInd (some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))).
-  orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
+orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [] M3 M4)) ((some (x\ some (y\ (p (rel x y) &+& n (rel y x)) ) )) !-! F) (modlab-cert D M1 M2 M5 Bnd (state [AxInd] M3 M4)) :-
+  !, mapsto AxInd (some (x\ some (y\ (p (rel x y) &+& n (rel y x)) ) )).
+  
+orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 % since we never use again the decision tree. Check with Marco.
 % this is used if orNeg is the main connective of the formula on which we decide
