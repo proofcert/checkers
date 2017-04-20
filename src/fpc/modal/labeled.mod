@@ -17,7 +17,7 @@ decide_ke (modlab-cert (dectree I D) M1 M2 M5 Bnd (state _ M3 M4)) I (modlab-cer
 reduce_or_set_decide_bound [decide-bound-entry I (snum B)| R] I (snum B) [decide-bound-entry I B| R]. % reduce if found
 reduce_or_set_decide_bound [X|L] I B [X|L'] :- reduce_or_set_decide_bound L I B L'.
 
-store_kc (modlab-cert DT M1 M2 M5 Bnd (state [H|T] M3 M4)) _ H (modlab-cert DT M1 M2 M5 Bnd (state T M3 [decide-bound-entry H (snum (snum znum))|M4])).
+store_kc (modlab-cert DT M1 M2 M5 Bnd (state [H|T] M3 M4)) _ H (modlab-cert DT M1 M2 M5 Bnd (state T M3 [decide-bound-entry H Bnd | M4])).
 
 release_ke C C.
 
@@ -56,11 +56,18 @@ all_kc (modlab-cert (dectree I [S]) M1 M2 M5 Bnd (state [] M3 M4))
   (Eigen\ modlab-cert S M1 M2 M5 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)).
 % for extensions of K, we will need to define also a case where the first list of S is not []
 
-%some_ke (modlab-cert (dectree I [S]) (diabox-map M1) M2 M5 Bnd (state [] M3 M4)) Eigen
-%  (modlab-cert S (diabox-map M1) M2 M5 Bnd (state [bind I O] M3 M4)) :-
-%  (member (diabox-entry I O) M1, member (eigen-entry O Eigen)  M3).
+% real diamonds
+some_ke (modlab-cert (dectree I [S]) (diabox-map M1) M2 M5 Bnd (state [] M3 M4)) Eigen
+  (modlab-cert S (diabox-map M1) M2 M5 Bnd (state [bind I O] M3 M4)) :-
+  (member (diabox-entry I O) M1, member (eigen-entry O Eigen)  M3).
+% in case of axioms
+% we need to decompose the dectree since the axiom-entry list contains only 1 value [O]
 some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state [] M3 M4)) Eigen
-  (modlab-cert S M1 M2 (axiom-map [axiom-entry I Ls | M5']) Bnd (state [relind] M3 M4)) :-
-  (memb_and_rest (axiom-entry I [O|Ls]) M5 M5', member (eigen-entry O Eigen)  M3).
+  (modlab-cert S M1 M2 (axiom-map M5') Bnd (state [relind] M3 M4)) :-
+  (memb_and_rest (axiom-entry I [O]) M5 M5', member (eigen-entry O Eigen)  M3).
+% we do not decompose the dectree since the axiom-entry list contains more than 1 value [O,Q|Ls]
+some_ke (modlab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state [] M3 M4)) Eigen
+  (modlab-cert (dectree I [S]) M1 M2 (axiom-map [axiom-entry I [Q|Ls] | M5']) Bnd (state [relind] M3 M4)) :-
+  (memb_and_rest (axiom-entry I [O,Q|Ls]) M5 M5', member (eigen-entry O Eigen)  M3).
 
 % for extensions of K, we will need to define also a case where the first list of S is not []
