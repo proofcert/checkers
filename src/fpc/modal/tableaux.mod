@@ -36,8 +36,8 @@ orNeg_kc (modtab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (m
 % this is used if orNeg is the main connective of the formula on which we decide
 % (used to distinguish between orNeg coming from translation of box and real orNeg)
 % Decompose the decide tree
-orNeg_kc (modtab-cert (dectree I [D]) M1 M2 M5 Bnd (state [] M3 M4)) _ (modtab-cert D M1 M2 M5 Bnd (state [lind I, rind I] M3 M4)).
-orNeg_kc (modtab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) _ (modtab-cert D M1 M2 M5 Bnd (state [S] M3 M4)).
+orNeg_kc (modtab-cert (dectree I [D]) M1 M2 M5 Bnd (state [] M3 M4)) _ (modtab-cert D M1 M2 M5 Bnd (state [lind I, rind I] M3 M4)) :- !.
+orNeg_kc (modtab-cert D M1 M2 M5 Bnd (state S M3 M4)) _ (modtab-cert D M1 M2 M5 Bnd (state S M3 M4)).
 
 % Decompose the decide tree
 andNeg_kc (modtab-cert (dectree I [D1,D2]) M1 M2 M5 Bnd (state [] M3 M4)) _
