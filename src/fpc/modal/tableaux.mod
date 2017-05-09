@@ -13,8 +13,8 @@ decide_ke (modtab-cert (dectree I D) M1 M2 M5 Bnd (state _ M3 M4)) I (modtab-cer
     reduce_or_set_decide_bound M4 I (snum _) M4'.
 
 % some indices correspond to a tactics language which is parsed by this expert
-decide_ke (modtab-cert (dectree (modal MI I) D) M1 M2 M5 Bnd (state _ M3 M4)) I' Cert :-
-  decide_ke (modtab-cert (dectree MI [dectree I D]) M1 M2 M5 Bnd (state [] M3 M4')) I' Cert.
+decide_ke (modtab-cert (dectree (modal MI I) D) M1 M2 M5 Bnd (state _ M3 M4)) MI
+  (modtab-cert (dectree MI [dectree I D]) M1 M2 M5 Bnd (state _ M3 M4)).
 
 % this fails if it doesnt find an entry with value greater than znumnum
 reduce_or_set_decide_bound [decide-bound-entry I (snum B)| R] I (snum B) [decide-bound-entry I B| R]. % reduce if found
@@ -69,5 +69,15 @@ some_ke (modtab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) E
 some_ke (modtab-cert (dectree I [S]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) Eigen
   (modtab-cert (dectree I [S]) M1 M2 (axiom-map [axiom-entry I [Q|Ls] | M5']) Bnd (state [relind] M3 M4)) :-
   (memb_and_rest (axiom-entry I [O,Q|Ls]) M5 M5', member (eigen-entry O Eigen)  M3).
+% tactic for generating instantiations for different axioms according to indices
+% second index is modal, then use A B to instantiate the first axiom and B A C to instantiate the second
+some_ke (modtab-cert (dectree I [(dectree (modal J J') S)]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) Eigen
+  (modtab-cert (dectree I [(dectree (modal J J') S)]) M1 M2 (axiom-map [axiom-entry (modal I (modal J J')) [B], axiom-entry J [B,A,C] | M5']) Bnd (state [relind] M3 M4)) :-
+  (memb_and_rest (axiom-entry (modal I (modal J J')) [A,B,C]) M5 M5', member (eigen-entry A Eigen)  M3).
+some_ke (modtab-cert (dectree I [(dectree (modal J J') S)]) M1 M2 (axiom-map M5) Bnd (state _ M3 M4)) Eigen
+  (modtab-cert (dectree (modal J J') S) M1 M2 (axiom-map M5') Bnd (state [relind] M3 M4)) :-
+  (memb_and_rest (axiom-entry (modal I (modal J J')) [A]) M5 M5', member (eigen-entry A Eigen)  M3).
+
+% for extensions of K, we will need to define also a case where the first list of S is not []
 
 % for extensions of K, we will need to define also a case where the first list of S is not []
