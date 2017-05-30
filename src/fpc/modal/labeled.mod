@@ -25,18 +25,14 @@ release_ke C C.
 initial_ke (modlab-cert (dectree relind []) _ _ _ _ _) relind.
 initial_ke (modlab-cert (dectree I _) _ (init-map M2) _ _ _) O :- member (init-entry I O) M2.
 
-orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
-orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 % since we never use again the decision tree. Check with Marco.
 % this is used if orNeg is the main connective of the formula on which we decide
 % (used to distinguish between orNeg coming from translation of box and real orNeg)
 % Decompose the decide tree
 orNeg_kc (modlab-cert (dectree I [D]) M1 M2 M5 Bnd (state [] M3 M4)) _ (modlab-cert D M1 M2 M5 Bnd (state [lind I, rind I] M3 M4)) :- !.
+orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
+orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state S M3 M4)) _ (modlab-cert D M1 M2 M5 Bnd (state S M3 M4)).
-
-% Decompose the decide tree
-andNeg_kc (modlab-cert (dectree I [D1,D2]) M1 M2 M5 Bnd (state [] M3 M4)) _
-  (modlab-cert D1 M1 M2 M5 Bnd (state [lind I] M3 M4)) (modlab-cert D2 M1 M2 M5 Bnd (state [rind I] M3 M4)).
 
 % generated only by the translation of the theorem
 % we can reset the decision tree and index on the left branch since it does not contain any other connective and just

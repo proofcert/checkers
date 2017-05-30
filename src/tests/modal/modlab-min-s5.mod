@@ -7,6 +7,7 @@ modalProblem "Labeled Problem S5 - minimal proof evidence"
 (modlab-cert
   (dectree eind _)
   (diabox-map [diabox-entry (lind (rind eind)) (lind eind)])
-  (init-map [init-entry (bind (lind (rind eind)) (lind eind)) (lind (lind eind))]) (axiom-map [axiom-entry symm-ind [default-ind, rind eind], axiom-entry trans-ind [rind eind, default-ind, lind eind]])
+  (init-map [init-entry (bind (lind (rind eind)) (lind eind)) (lind (lind eind))])
+(axiom-map [axiom-entry symm-ind [default-ind, rind eind], axiom-entry trans-ind [rind eind, default-ind, lind eind]])
  (snum (snum znum))
  (state [trans-ind, symm-ind] [eigen-entry default-ind zero] []) ).
