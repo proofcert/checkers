@@ -1,10 +1,10 @@
-module modlab-min-s4.
-accumulate labeled.
+module modtab-min-s4.
+accumulate tableaux.
 accumulate lkf-kernel.
 modalProblem "Modal problem S4 minimal proof evidence"
 [(pr trans-ind (some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))))]
 ((dia (++ req && box (-- ena))) !! (dia (box (-- req)) !! box (dia (++ ena))) )
-(modlab-cert
+(modtab-cert
 (dectree eind _)
   (diabox-map [diabox-entry (lind (rind eind)) (rind (rind eind)), diabox-entry (lind eind) (bind (lind (rind eind)) (rind (rind eind))), diabox-entry (lind (rind (rind eind))) (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))])
   (init-map [init-entry (lind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))) (lind (bind (lind (rind eind)) (rind (rind eind)))), init-entry (bind (lind (rind (rind eind))) (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))) (lind (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))))])
