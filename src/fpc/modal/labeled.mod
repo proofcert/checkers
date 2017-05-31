@@ -34,6 +34,10 @@ orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((n (rel _ _) !-! _)) (m
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state [S] M3 M4)) ((p (rel _ _) !-! _)) (modlab-cert D M1 M2 M5 Bnd (state [relind,S] M3 M4)) :- !. % can orNeg appear above andPos? I want andPos to reset the tree and set the leaf node index to relind
 orNeg_kc (modlab-cert D M1 M2 M5 Bnd (state S M3 M4)) _ (modlab-cert D M1 M2 M5 Bnd (state S M3 M4)).
 
+% Decompose the decide tree
+andNeg_kc (modlab-cert (dectree I [D1,D2]) M1 M2 M5 Bnd (state [] M3 M4)) _
+  (modlab-cert D1 M1 M2 M5 Bnd (state [lind I] M3 M4)) (modlab-cert D2 M1 M2 M5 Bnd (state [rind I] M3 M4)).
+
 % generated only by the translation of the theorem
 % we can reset the decision tree and index on the left branch since it does not contain any other connective and just
 % tries to close the relation
@@ -43,6 +47,8 @@ andPos_k (modlab-cert (dectree I D) M1 M2 M5 Bnd S) (_ &+& (p (rel _ _))) left-f
 andPos_k (modlab-cert (dectree I D) M1 M2 M5 Bnd S) _ left-first
   (modlab-cert (dectree relind []) M1 M2 M5 Bnd (state [] _ _)) (modlab-cert (dectree I D) M1 M2 M5 Bnd S).
 
+  
+  
 all_kc (modlab-cert (dectree I [S]) M1 M2 M5 Bnd (state [] M3 M4))
   (Eigen\ modlab-cert S M1 M2 M5 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)) :-
   member (eigen-entry I _) M3, !, fail.

@@ -1,11 +1,11 @@
-module modlab-full-s4.
+module modlab-min-s4.
 accumulate labeled.
 accumulate lkf-kernel.
-modalProblem "Modal problem S4 full proof evidence"
+modalProblem "Modal problem S4 minimal proof evidence"
 [(pr trans-ind (some (x\ some (y\ some z\ ((p (rel x y) &+& p (rel y z)) &+& n (rel x z) ) ))))]
 ((dia (++ req && box (-- ena))) !! (dia (box (-- req)) !! box (dia (++ ena))) )
 (modlab-cert
-  (dectree eind [dectree (rind eind) [dectree (rind (rind eind)) [dectree (lind (rind eind)) [dectree (bind (lind (rind eind)) (rind (rind eind))) [dectree trans-ind [dectree (lind eind) [dectree (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))) [dectree (lind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))[], dectree (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))) [dectree trans-ind [dectree (lind (rind (rind eind))) [dectree (bind (lind (rind (rind eind))) (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))) []]]]] ]]]]]]])
+(dectree eind _)
   (diabox-map [diabox-entry (lind (rind eind)) (rind (rind eind)), diabox-entry (lind eind) (bind (lind (rind eind)) (rind (rind eind))), diabox-entry (lind (rind (rind eind))) (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))])
   (init-map [init-entry (lind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))) (lind (bind (lind (rind eind)) (rind (rind eind)))), init-entry (bind (lind (rind (rind eind))) (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind)))))) (lind (rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))))]) (axiom-map [axiom-entry trans-ind [default-ind, rind (rind eind), bind (lind (rind eind)) (rind (rind eind))], axiom-entry trans-ind [rind (rind eind), bind (lind (rind eind)) (rind (rind eind)), rind (bind (lind eind) (bind (lind (rind eind)) (rind (rind eind))))]])
  (snum (snum znum))
