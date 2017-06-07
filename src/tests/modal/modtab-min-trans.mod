@@ -7,6 +7,7 @@ modalProblem "ModLeanTAP problem t1"
 (modtab-cert
   (dectree eind  _)
   (diabox-map [diabox-entry (lind eind) (lind (rind eind))])
-  (init-map [init-entry (lind (lind (rind eind))) (bind (lind eind) (lind (rind eind)))]) (axiom-map [axiom-entry trans-ind [default-ind, rind eind, lind(rind eind)]])
+  (init-map [init-entry (lind (lind (rind eind))) (bind (lind eind) (lind (rind eind)))])
+(axiom-map [axiom-entry trans-ind [default-ind, rind eind, lind(rind eind)]])
  (snum (snum znum))
  (state [trans-ind] [eigen-entry default-ind zero] []) ).
