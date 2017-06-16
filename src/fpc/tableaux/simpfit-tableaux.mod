@@ -1,8 +1,10 @@
 module simpfit-tableaux.
 
+accumulate lists.
+
 % mv: in this version, we do not store relational atoms with a proper label
 %  for extensions of K, it would be necessary to do it:
-%  Idea: add a constructor 
+%  Idea: add a constructor
 % type relind index -> index -> index.
 %  where the two indexes refer to the formulas that introduced the two worlds
 

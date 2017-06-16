@@ -25,7 +25,7 @@ inCtxt (idx 5) (n ((g e e) == e)).  % stupid example
 
 clause 0 (f-).
 
-mapsto I Form :- clause I F, negateForm F Form.
+mapsto (idx I) Form :- clause I F, negateForm F Form.
 
 
 

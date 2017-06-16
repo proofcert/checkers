@@ -1,5 +1,9 @@
 accum_sig lists.
 accum_sig base.
 type run o.
-type resolve (list (pair int form)) -> form -> cert -> o.
-type resolveCert (list (pair int form)) -> form -> cert -> cert -> o.
+type resolve (list (pair index form)) -> form -> cert -> o.
+type resolveCert (list (pair index form)) -> form -> cert -> cert -> o.
+type modalToLK modform -> (A -> form) -> o.
+type optdel (A -> form) -> (A -> form) -> o.
+type rel A -> A -> atm.
+type prependAx form -> (list (pair index form)) -> form -> o.

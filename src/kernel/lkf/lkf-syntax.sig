@@ -3,7 +3,7 @@ sig lkf-syntax.
 
 accum_sig base.
 
-kind atm, seq, choice, index, direction type.
+kind atm, seq, choice, direction type.
 
 type left-first, right-first direction.
 type inCtxt index -> form -> o.
@@ -33,8 +33,8 @@ type all    (A -> form) -> form.
 /* Units */
 type f+,f-, t+,t- 	form.
 
-infixr &-&, &+& 6.
-infixr !-!,!+! 5.
+infixr &-&, &+& 136.
+infixr !-!,!+! 135.
 
 
 type n, p      	       	  atm -> form.

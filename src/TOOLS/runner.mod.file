@@ -14,10 +14,11 @@ run :-
   resolve Map F Cert.
 
 run :-
-  modalProblem Name ModalForm Cert,
+  modalProblem Name Ax ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
   modalToLK ModalForm LKForm,
-  resolve [] (LKForm zero) Cert.
+  prependAx (LKForm zero) Ax AxLKForm,
+  resolve Ax AxLKForm Cert.
 
 resolve [] F Cert :-
   if (entry_point Cert F)
@@ -33,16 +34,60 @@ resolveCert [] F Cert CertOut :-
 resolveCert [(pr I C) | R] F Cert  CertOut :-
   mapsto I C => resolve R F Cert.
 
+prependAx LKForm [] LKForm.
+prependAx LKForm [pr I Ax| Tl] LKForm' :-
+  prependAx (Ax !-! (LKForm)) Tl LKForm'.
 
-% x\ p (q x)
-% (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y))))))
 
-% (x\ (some (y\ ( (p (rel x y)) &+& (d-(p (q y)))))))
+  % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
+
+modalToLK (-- A) (x\ n (A x)).
+modalToLK (++ A) (x\ p (A x)).
+
+modalToLK (A !! B) (x\ ((DelA x) !-! (DelB x))) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+
+modalToLK (A && B) (x\ ((DelA x) &-& (DelB x))) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+
+modalToLK (dia (A)) (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y)))))) :- modalToLK A A', optdel A' DelA.
+
+modalToLK (box (A)) (x\ (all (y\ ( (n (rel x y)) !-! (DelA y))))) :- modalToLK A A', optdel A' DelA.
+
+
+  % Operator that delays positively only non-literals
+
+optdel A (x\ d+ (A x)) :- isCompForm (A _).
+optdel A A :- isAtm (A _).
+
+
+
+
+
+% optdel (A) (x\ d+ ((A x))).
+
+%modalToLK (A && B) (x\ (DelA x) &-& (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+%modalToLK (A !! B) (x\ (A' x) !-! (B' x)) :- modalToLK A A', modalToLK B B'.
+%modalToLK (A !! B) (x\ d+ (A' x) !-! d+ (B' x)) :- modalToLK A A', modalToLK B B'.
+
+% modalToLK (A !! B) (x\ (DelA x) !-! (DelB x)) :- modalToLK A A', modalToLK B B', optdel A' DelA, optdel B' DelB.
+
+% modalToLK Var (-- A) (n (A Var)).
+% modalToLK Var (++ A) (p (A Var)).
+% modalToLK Var (A && B) ((DelA) &-& (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+% modalToLK Var (A !! B) ((DelA) !-! (DelB)) :- modalToLK Var A A', modalToLK Var B B', optdel A' DelA, optdel B' DelB.
+
+% modalToLK (dia (A)) (x\ (some (y\ ( (p (rel x y)) &+& (d-(DelA y)))))) :- modalToLK A A', optdel A' DelA.
 
 % (some (y\ ( (p (rel zero y)) &+& (d-(p (q y))))))
 %  some (W1\ p (rel zero W1) &+& d- (p (q W1)))
 
-% ((d+ (some (W1\ p (rel zero W1) &+& d- (d+ (n (q W1))))) !-! d+ (all (W1\ n (rel zero W1) !-! d+ (p (q W1)))))
-% ( (dia (-- q)) !! (box (++ q)) )
 
 
+  %optdel A (x\ d+ (A x)) :- isCompNeg (A x).
+%optdel A A :- isAtm (A x).
+%optdel A A :- isCompPos (A x).
+
+%optdel (A) (A) :- (isPosAtm (A x)), !.
+%optdel A (x\ d+ (A x)) :- not (isAtm (A y)), !.
+%optdel A A.
+%optdel A (x\ d+ (A x)).
+%:- not(isNegAtm (A z)), not(isPosAtm (A z)). % but better not to use not, Tomer said

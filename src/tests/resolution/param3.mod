@@ -21,15 +21,15 @@ inSig  h.
 inSig  f.
 
 /* Axioms of abelian group theorey */
-mapsto 1 (some X\ p ((f X (g X)) == (g X))).
-mapsto 2 (some Y\ some Z\ p ((h (f (g Y) Z)) == (g Z))).
-mapsto 3 (n ((h (g (g e))) == (g (g (g e))))).
-mapsto 4 (some Y\ p ((h (g (g Y))) == (g (g (g Y))))).
+mapsto (idx 1) (some X\ p ((f X (g X)) == (g X))).
+mapsto (idx 2) (some Y\ some Z\ p ((h (f (g Y) Z)) == (g Z))).
+mapsto (idx 3) (n ((h (g (g e))) == (g (g (g e))))).
+mapsto (idx 4) (some Y\ p ((h (g (g Y))) == (g (g (g Y))))).
 /*Derived clauses*/
 
 clause 0 (f-).
 
-mapsto I Form :- clause I F, negateForm F Form.
+mapsto (idx I) Form :- clause I F, negateForm F Form.
 
 
 
