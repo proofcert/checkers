@@ -21,6 +21,7 @@ accumulate modal-encoding.
 
 
 modalProblem "Problem: Axiom K for nested-sequents"
+[]
 ((dia((++ p1) && (-- q1))) !! ((dia(-- p1)) !! (box (++ q1))))
 
 % the first argument of lmf-star-cert is the initial state (H, future, map_index_label) defined as:
