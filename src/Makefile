@@ -5,7 +5,7 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH = kernel/modal:syntax:translations:kernel/tableaux:kernel/lkf:utils:fpc/modal:fpc/tableaux:fpc/resolution:tests/eprover:tests/resolution:tests/modal:tests/tableaux:utils
+export TJPATH = kernel/modal:syntax:encodings:kernel/tableaux:kernel/lkf:utils:fpc/modal:fpc/tableaux:fpc/resolution:tests/eprover:tests/resolution:tests/modal:tests/tableaux:utils
 
 .PHONY: all
 all: compile
@@ -15,7 +15,7 @@ compile: compile_inner $(OBJS)
 compile_inner:
 	cd utils && $(MAKE)
 	cd syntax && $(MAKE)
-	cd translations && $(MAKE)
+	cd encodings && $(MAKE)
 	cd kernel && $(MAKE)
 	cd fpc && $(MAKE)
 	cd tests && $(MAKE)
@@ -40,7 +40,7 @@ clean:
 	cd tests && $(MAKE) clean
 	cd fpc && $(MAKE) clean
 	cd syntax && $(MAKE) clean
-	cd translations && $(MAKE) clean
+	cd encodings && $(MAKE) clean
 	cd kernel && $(MAKE) clean
 	cd utils && $(MAKE) clean
 

@@ -1,10 +1,14 @@
-MODULE=syntax
+# Makefile for the resolution fpcs
 
-# Path of the dependencies.
-export TJPATH=../utils:../syntax:..
+MAKE=make
+
+SRCS=$(wildcard *.mod)
+OBJS=$(SRCS:.mod=.lp)
+
+export TJPATH = ../syntax:../utils:..
 
 .PHONY: all
-all: $(MODULE).lp
+all: $(OBJS)
 
 cc: all clean
 
@@ -18,9 +22,6 @@ cc: all clean
 depend: *.mod *.sig
 	tjdepend *.mod > depend-stage
 	mv depend-stage depend
-
-run:
-	tjsim  $(MODULE)
 
 .PHONY: clean
 clean:
