@@ -1,22 +1,22 @@
-MODULE=modal-encoding
+MODULE=syntax
 
 # Path of the dependencies.
-export TJPATH=../../utils:../..:../../kernel/lkf
+export TJPATH=../utils:..
 
 .PHONY: all
 all: $(MODULE).lp
 
 cc: all clean
 
-%.lpo : %.mod %.sig
+%.lpo : %.sig
 	tjcc  $*
 
 %.lp : %.lpo
 	tjlink  $*
 
 -include depend
-depend: *.mod *.sig
-	tjdepend *.mod > depend-stage
+depend: *.sig
+	tjdepend *.sig > depend-stage
 	mv depend-stage depend
 
 run:

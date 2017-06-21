@@ -1,7 +1,7 @@
-MODULE=lkf-kernel
+MODULE=syntax
 
 # Path of the dependencies.
-export TJPATH=../../utils:../..:../../syntax
+export TJPATH=../utils:../syntax:..
 
 .PHONY: all
 all: $(MODULE).lp

@@ -1,4 +1,4 @@
-module lmfs-full-1.
+module lmfs-full-K.
 accumulate lmfs.
 accumulate lkf-kernel.
 accumulate modal-encoding.
