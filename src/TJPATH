@@ -1,1 +1,1 @@
-export TJPATH=.:kernel/modal:kernel/lkf:utils:syntax:encodings:fpc/modal:fpc/tableaux:fpc/resolution:tests/modal:tests/tableaux:tests/eprover:tests/resolution:utils:/home/shaolin/Documents/academic/software/lpcic/elpi
+export TJPATH=.:kernel/lmf:kernel/lkf:utils:syntax:encodings:fpc/modal:fpc/tableaux:fpc/resolution:tests/modal:tests/tableaux:tests/eprover:tests/resolution:utils:/home/shaolin/Documents/academic/software/lpcic/elpi

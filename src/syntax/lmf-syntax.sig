@@ -1,7 +1,8 @@
 % 29 july 2014.
-sig lkf-syntax.
+sig lmf-syntax.
 
 accum_sig base.
+accum_sig modal-syntax.
 
 kind atm, seq, index, rindex, label, relation, choice, direction type.
 
@@ -13,26 +14,6 @@ type left, right choice.
 /* labels and relations betwen them */
 type inCtxtRel rindex -> relation -> o.
 type relation label -> label -> relation.
-
-/* Negative conjunction */
-type &-&    form -> form -> form.
-
-/* Positive conjunction */
-type &+&    form -> form -> form.
-
-/* Disjunction */
-type !-!     form -> form -> form.
-type !+!     form -> form -> form.
-
-/* Modalities */
-type dia   form -> form.
-type box    form -> form.
-
-/* Units */
-type f+,f-, t+,t- 	form.
-
-infixr &-&, &+& 136.
-infixr !-!,!+! 135.
 
 type n, p      	       	  atm -> form.
 

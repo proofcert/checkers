@@ -1,6 +1,7 @@
 sig lmfs.
 
-accum_sig certificatesLKF.
+accum_sig certificatesLMF.
+accum_sig lmf-lkf.
 accum_sig lists.
 accum_sig base.
 
@@ -18,7 +19,6 @@ kind dectree type.
 kind diabox-map, diabox-entry type.
 % types for the initial rule map
 kind init-map, init-entry type.
-
 
 % types for the certification state which is carried by the certificate
 kind state, eigen-entry, decide-bound-entry type.
@@ -59,12 +59,6 @@ type eind index. % corresponds to the root
 type lind index -> index.
 type rind index -> index.
 type bind index -> index -> index.
-
-% for the accessibility relation, we use the same 'rel' in all problems
-type rel A -> A -> atm.
-
-% fixed index for relations, should be improved!
-type relind index.
 
 % sum types for dia and init indices
 % the user will choose which constructor to use in order to create these indices

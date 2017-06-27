@@ -1,2 +1,0 @@
-imbed.lpo: imbed.mod imbed.sig ../lkf/lkf-kernel.sig ../ljf/ljf-kernel.sig ../lkf/certificatesLKF.sig ../../utils/lists.sig ../../base.sig ../lkf/lkf-syntax.sig ../ljf/certificatesLJF.sig ../ljf/ljf-syntax.sig
-imbed.lp: imbed.lpo ../lkf/lkf-kernel.lpo ../ljf/ljf-kernel.lpo ../../utils/lists.lpo

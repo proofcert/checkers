@@ -5,7 +5,7 @@ MAKE=make
 SRCS=$(wildcard *.mod)
 OBJS=$(SRCS:.mod=.lp)
 
-export TJPATH =  ../../fpc/modal:../../kernel/lkf:../../syntax:../../encodings:../../utils:../..
+export TJPATH =  ../../fpc/modal:../../kernel/lmf:../../kernel/lkf:../../syntax:../../encodings:../../utils:../..
 
 .PHONY: all
 all: $(OBJS)
