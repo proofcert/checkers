@@ -1,5 +1,3 @@
-# Makefile for the resolution fpcs
-
 MAKE=make
 
 SRCS=$(wildcard *.mod)

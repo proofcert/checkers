@@ -1,5 +1,7 @@
 module modal-encoding.
 
+accumulate lkf-kernel.
+
   % Translation from Modal Language into FOL (assumes that the formula is already in nnf)
 
 modalToLK (-- A) (x\ n (A x)).

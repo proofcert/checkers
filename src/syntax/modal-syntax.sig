@@ -10,7 +10,7 @@ type !!     modform -> modform -> modform.
 type dia   modform -> modform.
 type box   modform -> modform.
 
-infixr && 6.
-infixr !! 5.
+infixr && 137.
+infixr !! 138.
 
 type --,++	(A -> atm) -> modform.
