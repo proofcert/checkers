@@ -1,6 +1,8 @@
 module lmfs-full-K.
 accumulate lmfs.
+accumulate lmf-lkf.
 accumulate modal-encoding.
+
 modalProblem "Single Focus K"
 []
 (((dia (-- p1)) !! (box (++ q1))) !! (dia ((++ p1) && (-- q1))))

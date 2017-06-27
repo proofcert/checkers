@@ -17,7 +17,6 @@ run :-
   modalProblem Name Ax ModalForm Cert,
   print "Running on problem ", print Name, print ":\n",
   modalToLK ModalForm LKForm,
-  print "Sdasdas",
   prependAx (LKForm zero) Ax AxLKForm,
   resolve Ax AxLKForm Cert.
 
