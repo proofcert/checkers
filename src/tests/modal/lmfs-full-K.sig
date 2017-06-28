@@ -9,3 +9,4 @@ accum_sig lmf-syntax.
 accum_sig modal-encoding.
 type p1 A -> atm.
 type q1 A -> atm.
+type lblA atm.

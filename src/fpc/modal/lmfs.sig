@@ -16,12 +16,12 @@ accum_sig base.
 % types for the decisition tree component
 kind dectree type.
 % types for the diamond-box map
-kind diabox-map, diabox-entry type.
+kind labels-map, label-entry type.
 % types for the initial rule map
 kind init-map, init-entry type.
 
 % types for the certification state which is carried by the certificate
-kind state, eigen-entry, decide-bound-entry type.
+kind state, decide-bound-entry type.
 
 % the decide tree
 type dectree index -> list dectree -> dectree.
@@ -29,8 +29,7 @@ type dectree index -> list dectree -> dectree.
 % a state containing the last formula we have encountered. Used to connect the index of the stored formula to the index of its parent
 % the second state component is the eigenvariable which is mapped to a box position
 % the last component is a map between an index to the maximal nested numbers we can decide on it
-type state list index ->  list eigen-entry -> list decide-bound-entry -> state.
-type eigen-entry index -> atm -> eigen-entry.
+type state list index ->  list decide-bound-entry -> state.
 
 % numbers for resitrcting decide depth
 kind num type.
@@ -42,11 +41,11 @@ type snum num -> num.
 type decide-bound-entry index -> num -> decide-bound-entry.
 
 % a generic certificate for modal tableaux proofs
-type lmfs-cert dectree -> diabox-map -> init-map -> num -> state -> cert.
+type lmfs-cert dectree -> labels-map -> init-map -> num -> state -> cert.
 
 % a map between dia indices and eigenvariables
-type diabox-entry index -> index -> diabox-entry.
-type diabox-map list diabox-entry -> diabox-map.
+type label-entry index -> atm -> label-entry.
+type labels-map list label-entry -> labels-map.
 
 % a map between init indices and a complementary index
 type init-entry index -> index -> init-entry.
