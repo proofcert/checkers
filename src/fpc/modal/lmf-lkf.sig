@@ -16,3 +16,8 @@ type relind index.
 kind phase type.
 type prf, tns phase.
 type mcert cert -> phase -> cert.
+
+type lform label -> modform -> lmfform.
+type rform label -> label -> lmfform.
+
+type mind index -> label -> index.
