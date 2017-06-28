@@ -17,7 +17,7 @@ orNeg_kc (mcert C prf [lform L (A !! B)| R] Fms Lbls) F (mcert C' prf [lform L A
 orNeg_kc (mcert C tns MF Fms Lbls) _ (mcert C tns MF Fms Lbls).
 
 andNeg_kc (mcert C prf [lform L (A && B)|R] Fms Lbls) F (mcert C' prf [lform L A|R] Fms Lbls) (mcert C'' prf [lform L B|R] Fms Lbls) :-
-  andNegm_kc C (lform L (A&&B)) C' C''.
+  andNegm_kc C (lform L (A && B)) C' C''.
 
 andPos_k (mcert C tns MF Fms Lbls) _ S (mcert C' tns _ Fms Lbls) (mcert C prf MF Fms Lbls).
 
