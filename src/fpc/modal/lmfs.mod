@@ -2,7 +2,7 @@ module lmfs.
 
 accumulate lmf-lkf.
 
-decidem_ke (lmfs-cert (dectree I D) M1 M2 Bnd (state _ M3 M4)) I (lmfs-cert (dectree I D) M1 M2 Bnd (state [] M3 M4')) :-
+decidem_ke (lmfs-cert (dectree I D) M1 M2 Bnd (state _ M3 M4)) I MF (lmfs-cert (dectree I D) M1 M2 Bnd (state [] M3 M4')) :-
     reduce_or_set_decide_bound M4 I (snum _) M4'.
 
 % this fails if it doesnt find an entry with value greater than znumnum
@@ -20,13 +20,10 @@ orNegm_kc (lmfs-cert (dectree I [D]) M1 M2 Bnd (state [] M3 M4)) _ (lmfs-cert D 
 andNegm_kc (lmfs-cert (dectree I [D1,D2]) M1 M2 Bnd (state [] M3 M4)) _
   (lmfs-cert D1 M1 M2 Bnd (state [lind I] M3 M4)) (lmfs-cert D2 M1 M2 Bnd (state [rind I] M3 M4)).
 
-andPosm_k (lmfs-cert (dectree I D) M1 M2 Bnd S) _ left-first
-  _ (lmfs-cert (dectree I D) M1 M2 Bnd S).
-
-boxm_kc (lmfs-cert (dectree I [S]) M1 M2 Bnd (state [] M3 M4))
+boxm_kc (lmfs-cert (dectree I [S]) M1 M2 Bnd (state [] M3 M4)) _
   (Eigen\ lmfs-cert S M1 M2 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)) :-
   member (eigen-entry I _) M3, !, fail.
-boxm_kc (lmfs-cert (dectree I [S]) M1 M2 Bnd (state [] M3 M4))
+boxm_kc (lmfs-cert (dectree I [S]) M1 M2 Bnd (state [] M3 M4)) _
   (Eigen\ lmfs-cert S M1 M2 Bnd (state [lind I] [eigen-entry I Eigen|M3] M4)).
 
 diam_ke (lmfs-cert (dectree I [S]) (diabox-map M1) M2 Bnd (state [] M3 M4)) Eigen
