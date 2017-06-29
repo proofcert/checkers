@@ -4,15 +4,15 @@ sig certificatesLMF.
 accum_sig lmf-syntax.
 
 
-type decidem_ke					cert -> index -> atm -> cert -> o.
-type releasem_ke 				cert -> cert -> o.
+type decide_m_ke					cert -> index -> label -> cert -> o.
+type release_m_ke 				cert -> cert -> o.
 
-type storem_kc					cert -> index -> cert -> o.
-type initialm_ke					cert -> index -> o.
-type boxm_kc					cert -> atm -> (atm -> cert) -> o.
-type diam_ke					cert -> atm -> cert -> o.
-type andNegm_kc			cert -> cert -> cert -> o.
-type orNegm_kc 	 				cert -> cert -> o.
-type orPosm_ke    	    			cert -> choice -> cert -> o.
-type truem_ke 					cert -> o.
-type falsem_kc 					cert -> cert -> o.
+type store_m_kc					cert -> index -> cert -> o.
+type initial_m_ke					cert -> index -> o.
+type box_m_kc					cert -> label -> (atm -> cert) -> o.
+type dia_m_ke					cert -> label -> cert -> o.
+type andNeg_m_kc			cert -> cert -> cert -> o.
+type orNeg_m_kc 	 				cert -> cert -> o.
+type orPos_m_ke    	    			cert -> choice -> cert -> o.
+type true_m_ke 					cert -> o.
+type false_m_kc 					cert -> cert -> o.

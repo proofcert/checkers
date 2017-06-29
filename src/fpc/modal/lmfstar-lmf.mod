@@ -3,23 +3,24 @@ module lmfstar-lmf.
 % Translation between the fake calculus LMF* to LMF. Is the base for other prfal translations.
 
 % Decide when the multifocusing sets are empty: it corresponds to a decide in LMF*
-decide_me (mstarcert C Present _ [] []) Index Label (mstarcert C' Present' Future Multifocusing) :- decide_mstare C 
-[Index::Multifocusing] Present' Future C', member Label Present.
+decide_m_ke (mstarcert C Present _ []) Index Label (mstarcert C' Present' Future Multifocusing) :-
+  decide_mstar_ke C [Index|Multifocusing] Present' Future C', member Label Present.
 
 % Decide emulating multifocusing
-decide_me (mstarcert C Present Future [Index::Multifocusing] Index Label (mstarcert C Present Future Multifocusing) :- member Label Present.
+decide_m_ke (mstarcert C Present Future [Index|Multifocusing]) Index Label (mstarcert C Present Future Multifocusing) :-
+  member Label Present.
 
-store_mc (mstarcert C Present Future Multifocusing) F I (mstarcert C' Present Future Multifocusing) :- store_mstarc C F I C'.
+store_m_kc (mstarcert C Present Future Multifocusing) I (mstarcert C' Present Future Multifocusing) :- store_mstar_kc C I C'.
 
-release_me (mstarcert C Present Future Multifocusing) (mstarcert C' Present Future Multifocusing) :- release_mstare C C'.
+release_m_ke (mstarcert C Present Future Multifocusing) (mstarcert C' Present Future Multifocusing) :- release_mstar_ke C C'.
 
-initial_me (mstarcert C _ _ _) I :- initial_mstare C I.
+initial_m_ke (mstarcert C _ _ _) I :- initial_mstar_ke C I.
 
-orNeg_mc (mstarcert C Prs Fut Mlt) (mstarcert C' Prs Fut Mlt) :- orNeg_mstarc C C'.
+orNeg_m_kc (mstarcert C Prs Fut Mlt) (mstarcert C' Prs Fut Mlt) :- orNeg_mstar_kc C C'.
 
-andNeg_mc (mstarcert C Prs Fut Mlt) (mstarcert C' Prs Fut Mlt) (mstarcert C'' Prs Fut Mlt) :- andNeg_mstarc C C' C''.
+andNeg_m_kc (mstarcert C Prs Fut Mlt) (mstarcert C' Prs Fut Mlt) (mstarcert C'' Prs Fut Mlt) :- andNeg_mstar_kc C C' C''.
 
-box_mc (mstarcert C Prs Fut Mlt) Lbl (mstarcert C' Prs Fut Mlt) :- box_mstarc C Lbl C'.
+box_m_kc (mstarcert C Prs Fut Mlt) Lbl (Eigen\ mstarcert (C' Eigen) Prs Fut Mlt) :- box_mstar_kc C Lbl C'.
 
-dia_me (mstarcert C Prs Fut Mlt) Fut (mstarcert C' Prs Fut Mlt) :-
-  dia_mstare C C'.
+dia_m_ke (mstarcert C Prs Fut Mlt) Fut (mstarcert C' Prs Fut Mlt) :-
+  dia_mstar_ke C C'.

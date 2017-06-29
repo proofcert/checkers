@@ -1,7 +1,7 @@
 sig lmfstar-lmf.
 
-accum_sig certificatesLKF.
 accum_sig certificatesLMF.
+accum_sig certificatesLMFStar.
 accum_sig lists.
 accum_sig base.
 

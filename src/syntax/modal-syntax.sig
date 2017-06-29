@@ -14,3 +14,5 @@ infixr && 137.
 infixr !! 138.
 
 type --,++	(A -> atm) -> modform.
+
+kind label type.

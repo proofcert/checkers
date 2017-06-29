@@ -1,7 +1,7 @@
 sig os-lmfstar.
 
-accum_sig certificatesLKF.
-accum_sig certificatesLMF.
+accum_sig certificatesOS.
+accum_sig certificatesLMFStar.
 accum_sig lists.
 accum_sig base.
 
@@ -19,4 +19,4 @@ type boxphase, normalphase ophase.
 % osphase is used when we apply a modal rule: one phase for the box, one for the diamonds
 % list index is the possible list of diamonds we need to keep track of
 % the two atoms are current and next labels
-type oscert cert osphase -> list index -> atm -> atm -> cert.
+type oscert cert -> osphase -> list index -> label -> label -> cert.

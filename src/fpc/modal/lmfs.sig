@@ -44,7 +44,7 @@ type decide-bound-entry index -> num -> decide-bound-entry.
 type lmfs-cert dectree -> labels-map -> init-map -> num -> state -> cert.
 
 % a map between dia indices and eigenvariables
-type label-entry index -> atm -> label-entry.
+type label-entry index -> label -> label-entry.
 type labels-map list label-entry -> labels-map.
 
 % a map between init indices and a complementary index
