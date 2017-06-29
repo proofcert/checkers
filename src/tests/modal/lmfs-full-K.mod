@@ -22,7 +22,6 @@ modalProblem "Single Focus K"
    init-entry (lind (rind (lind eind))) (rind (bind ((rind eind)) ((rind (lind eind)))))])
   _
  (state [] []) ) prf
-  [lform zero (((dia (-- p1)) !! (box (++ q1))) !! (dia ((++ p1) && (-- q1))))]
   []
-  []
+  zero
 ).

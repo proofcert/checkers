@@ -2,27 +2,26 @@ module lmf-lkf.
 
 % Translation between the fake calculus LMF to LKF. Is the base for other prfal translations.
 
-decide_ke (mcert C prf [] Fms Lbls) I (mcert C' prf [MF] Fms Lbls) :- member (pr I MF) Fms, decidem_ke C I MF C'.
+decide_ke (mcert C prf Lbls _) (lblind LL I) (mcert C' prf Lbls LL) :- decidem_ke C I LL C'.
 
-store_kc  (mcert C tns MF Fms Lbls) _ relind (mcert C prf MF Fms Lbls).
-store_kc  (mcert C prf [MF|R] Fms Lbls) F I (mcert C' prf R [(pr I MF)|Fms] Lbls) :- storem_kc C MF I C'.
+store_kc  (mcert C tns Lbls LL) _ relind (mcert C prf Lbls LL).
+store_kc  (mcert C prf Lbls LL) F (lblind LL I) (mcert C' prf Lbls LL) :- storem_kc C I C'.
 
-release_ke (mcert C prf MF Fms Lbls) (mcert C' prf MF Fms Lbls) :- releasem_ke C C'.
+release_ke (mcert C prf Lbls LL) (mcert C' prf Lbls LL) :- releasem_ke C C'.
 
 % relation
-initial_ke (mcert _ tns _ _ _) relind.
-initial_ke (mcert C prf _ _ _) I :- initialm_ke C I.
+initial_ke (mcert _ tns _ _) relind.
+initial_ke (mcert C prf _ Lbl) (lblind Lbl I) :- initialm_ke C I.
 
-orNeg_kc (mcert C prf [lform L (A !! B)| R] Fms Lbls) F (mcert C' prf [lform L A,lform L B|R] Fms Lbls) :- orNegm_kc C (lform L (A !! B)) C'.
-orNeg_kc (mcert C tns MF Fms Lbls) _ (mcert C tns MF Fms Lbls).
+orNeg_kc (mcert C prf Lbls LL) F (mcert C' prf Lbls LL) :- orNegm_kc C C'.
+orNeg_kc (mcert C tns Lbls LL) _ (mcert C tns Lbls LL).
 
-andNeg_kc (mcert C prf [lform L (A && B)|R] Fms Lbls) F (mcert C' prf [lform L A|R] Fms Lbls) (mcert C'' prf [lform L B|R] Fms Lbls) :-
-  andNegm_kc C (lform L (A && B)) C' C''.
+andNeg_kc (mcert C prf Lbls LL) F (mcert C' prf Lbls LL) (mcert C'' prf Lbls LL) :- andNegm_kc C C' C''.
 
-andPos_k (mcert C tns MF Fms Lbls) _ S (mcert C' tns _ Fms Lbls) (mcert C prf MF Fms Lbls).
+andPos_k (mcert C tns Lbls LL) _ S (mcert C' tns Lbls LL) (mcert C prf Lbls LL).
 
-all_kc (mcert C prf [lform L (box MF)|R] Fms Lbls) (Eigen\ mcert (C' Eigen) tns [lform Eigen MF|R] Fms [pr Eigen Lbl| Lbls]) :-
+all_kc (mcert C prf Lbls _) (Eigen\ mcert (C' Eigen) tns [pr Eigen Lbl| Lbls] Lbl) :-
   boxm_kc C Lbl C'.
 
-some_ke (mcert C prf [lform L (dia MF)|R] Fms Lbls) Eigen (mcert C' tns [lform Eigen MF|R] Fms Lbs) :-
+some_ke (mcert C prf Lbls _) Eigen (mcert C' tns Lbls T) :-
   diam_ke C T C', member (pr Eigen T) Lbls.
