@@ -24,6 +24,8 @@ if [ -z "$NO_PREPARE" ]; then
     `cat $RUNNER_MOD_BASE >> $RUNNER_MOD_TARGET`
     echo 'main :- run.' >> $RUNNER_MOD_TARGET
   fi
+
+  echo -e "optdel A (x\ d+ (A x)) :- isCompForm (A _).\\noptdel A A :- isAtm (A _).\n" >> $RUNNER_MOD_TARGET
 fi
 
 export CMD="elpi${VARIANT} -test ${MODNAME}.elpi"

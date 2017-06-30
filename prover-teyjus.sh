@@ -33,5 +33,7 @@ if [ $ELEMENTS -ne 1 ]
   `cat $RUNNER_SIG_BASE >> $RUNNER_SIG_TARGET`
   `cat $RUNNER_MOD_BASE >> $RUNNER_MOD_TARGET`
 
+  echo -e "\\noptdel (A) (x\ d+ ((A x)))." >> $RUNNER_MOD_TARGET
+
   cd $SRCDIR && make clean>/dev/null && make>/dev/null && $CMD && rm -f $RUNNER_MOD_TARGET $RUNNER_SIG_TARGET
 fi
