@@ -13,7 +13,7 @@ spy ""
 %%%%%%%%%%%%%%%%%%
 
 % decide
-check Cert (unfK nil) :-
+check Cert (unfK []) :-
   spy "" (decide_ke Cert Indx Cert'),
   spy "inContext " (inCtxt Indx P),
   isPos P,
@@ -34,7 +34,7 @@ check Cert (foc (p A)) :-
   spy "" (initial_ke Cert Indx),
   spy "Init " (inCtxt Indx (n A)).
 % cut
-check Cert (unfK nil) :-
+check Cert (unfK []) :-
   spy "" (cut_ke Cert F CertA CertB),
   negateForm F NF,
   spy "Cut left " (check CertA (unfK [F])),

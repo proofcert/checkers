@@ -11,7 +11,7 @@ entry_point Cert Form :-
 %%%%%%%%%%%%%%%%%%
 
 % decide
-check Cert (unfK nil) :-
+check Cert (unfK []) :-
   decide_ke Cert Indx Cert',
   inCtxt Indx P,
   isPos P,
@@ -31,7 +31,7 @@ check Cert (foc (p A)) :-
   initial_ke Cert Indx,
   inCtxt Indx (n A).
 % cut
-check Cert (unfK nil) :-
+check Cert (unfK []) :-
   cut_ke Cert F CertA CertB,
   negateForm F NF,
   check CertA (unfK [F]),
